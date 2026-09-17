@@ -45,6 +45,7 @@
 
 ## 문서
 
+- [초기 기획안](docs/ROBOHOOD_PROPOSAL_v0.1.md)
 - [제품 기획서](docs/AI_FOR_GOOD_PROJECT_PLAN.md)
 
 ## 자산
