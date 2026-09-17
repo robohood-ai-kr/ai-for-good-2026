@@ -1,0 +1,21 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node.js
+node_modules/
+.next/
+dist/
+
+# Local tools and generated output
+.idea/
+.vscode/
+coverage/
+tmp/
