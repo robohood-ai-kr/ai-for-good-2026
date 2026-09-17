@@ -1,10 +1,10 @@
 # AI for Good — 로보후드
 
-AI for Good 해커톤의 Physical AI 기획 워크스페이스입니다.
+산업현장 데이터 수집부터 AI 모델·로봇 배포와 재수집까지 연결하는 로보후드(RoboHood) 개발 워크스페이스입니다.
 
 ## 문서
 
-- [통합 기획안](docs/AI_FOR_GOOD_PROJECT_PLAN.md)
+- [제품 기획서](docs/AI_FOR_GOOD_PROJECT_PLAN.md)
 
 ## 자산
 
