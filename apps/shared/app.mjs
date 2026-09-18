@@ -91,6 +91,33 @@ function dialog(title, html) {
 function closeDialog() {
   $("#rh-dialog").close();
 }
+const narrowSidebar = window.matchMedia("(max-width: 1020px)");
+function setSidebarOpen(open, restoreFocus = false) {
+  const sidebar = $("#rh-sidebar");
+  const scrim = $(".rh-sidebar-scrim");
+  if (!sidebar) return false;
+  const canOpen = narrowSidebar.matches && open;
+  sidebar.classList.toggle("rh-open", canOpen);
+  sidebar.inert = narrowSidebar.matches && !canOpen;
+  if (narrowSidebar.matches) sidebar.setAttribute("aria-hidden", String(!canOpen));
+  else sidebar.removeAttribute("aria-hidden");
+  scrim?.classList.toggle("rh-open", canOpen);
+  scrim?.setAttribute("aria-hidden", String(!canOpen));
+  if ($("#rh-main")) $("#rh-main").inert = canOpen;
+  if ($(".rh-header")) $(".rh-header").inert = canOpen;
+  document.body.classList.toggle("rh-menu-open", canOpen);
+  $$('[data-action="menu"]').forEach((button) =>
+    button.setAttribute("aria-expanded", String(canOpen)),
+  );
+  if (canOpen) sidebar.querySelector('[data-action="menu-close"]')?.focus();
+  else if (restoreFocus) $('[data-action="menu"]')?.focus();
+  return canOpen;
+}
+function syncSidebarMode() {
+  setSidebarOpen(false);
+}
+narrowSidebar.addEventListener("change", syncSidebarMode);
+syncSidebarMode();
 function advance(action, payload = {}) {
   state = transition(state, action, payload);
   persist();
@@ -559,12 +586,12 @@ async function act(name, el) {
       break;
     case "menu": {
       const sidebar = $("#rh-sidebar");
-      if (sidebar) {
-        const open = sidebar.classList.toggle("rh-open");
-        $$("[data-action=menu]").forEach((b) =>
-          b.setAttribute("aria-expanded", String(open)),
-        );
-      } else showScreens();
+      if (sidebar) setSidebarOpen(!sidebar.classList.contains("rh-open"));
+      else showScreens();
+      break;
+    }
+    case "menu-close": {
+      setSidebarOpen(false, true);
       break;
     }
     case "back":
@@ -801,10 +828,7 @@ document.addEventListener("keydown", (event) => {
     event.target.click();
   }
   if (event.key === "Escape") {
-    $("#rh-sidebar")?.classList.remove("rh-open");
-    $$("[data-action=menu]").forEach((b) =>
-      b.setAttribute("aria-expanded", "false"),
-    );
+    setSidebarOpen(false, true);
   }
 });
 document.addEventListener("submit", (event) => {

@@ -13,7 +13,7 @@ for (const sector of ["manufacturing", "small-business"]) {
   const photo = sector === "manufacturing" ? "rgb-part.png" : "tray-task.png";
   const files = [
     "index.html", "image-gallery.html", "screens.json",
-    "assets/app.css", "assets/pretendard.css", "assets/woff2/PretendardVariable.woff2", "assets/woff2/Pretendard-LICENSE.txt",
+    "assets/app.css", "assets/pretendard.css", "assets/favicon.svg", "assets/woff2/PretendardVariable.woff2", "assets/woff2/Pretendard-LICENSE.txt",
     "assets/app.mjs", "assets/state.mjs", "assets/naver-map.mjs", `assets/${photo}`,
     ...pages.flatMap(page => [`${page.id}.html`, page.reference]),
   ];

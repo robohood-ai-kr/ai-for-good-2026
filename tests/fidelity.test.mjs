@@ -86,6 +86,8 @@ test('small-business exposes exactly two clickable demos and five image-only exa
   assert.equal(explorer('[data-scenario-link=mart]').length,2);
   assert.equal(explorer('.rh-site-placeholder').length,1);
   assert.match(explorer('.rh-site-placeholder').text(),/준비 중/);
+  assert.doesNotMatch(explorer.text(),/텔레오퍼레이션/);
+  assert.equal(c.scenarios.mart.dataType,'1인칭 작업 영상·행동 구간');
 
   const library=await page('small-business',16);
   assert.equal(library('.rh-dataset-scenario').length,2);
@@ -134,6 +136,37 @@ test('collection submit saves the current segment and opens review', async () =>
   assert.match(source,/case "submit":[\s\S]*applyDemoHandoff\("submitted"\) \?\? config\.reviewPage[\s\S]*location\.href = route\(destination\)/);
 });
 
+test('wide operational tables become labelled cards on narrow screens', async () => {
+  for (const [sector,number] of [['manufacturing',4],['manufacturing',19],['small-business',18]]) {
+    const $=await page(sector,number);
+    assert.equal($('.rh-responsive-table').length,1,`${sector}-${number}: responsive table`);
+    const labels=$('.rh-responsive-table th').map((_,el)=>$(el).text()).get();
+    assert.ok(labels.length>=3,`${sector}-${number}: table headings`);
+    $('.rh-responsive-table tbody tr').each((_,row)=>{
+      assert.deepEqual($(row).find('td').map((__,cell)=>$(cell).attr('data-label')).get(),labels);
+    });
+  }
+  const css=await readFile(new URL('../dist/manufacturing/assets/app.css',import.meta.url),'utf8');
+  assert.match(css,/\.rh-responsive-table td::before\s*\{\s*content:attr\(data-label\)/);
+});
+
+test('responsive web navigation has an explicit close action, scrim and compact product name', async () => {
+  for (const [sector,number] of [['manufacturing',1],['small-business',1]]) {
+    const $=await page(sector,number);
+    assert.equal($('.rh-sidebar [data-action=menu-close]').length,1);
+    assert.equal($('.rh-sidebar-scrim[data-action=menu-close]').length,1);
+    assert.equal($('.rh-product-label-full').length,1);
+    assert.equal($('.rh-product-label-short').length,1);
+    assert.equal($('link[rel=icon][href="./assets/favicon.svg"]').length,1);
+  }
+  const source=await readFile(new URL('../apps/shared/app.mjs',import.meta.url),'utf8');
+  assert.match(source,/function setSidebarOpen\(open, restoreFocus = false\)/);
+  assert.match(source,/case "menu-close"/);
+  assert.match(source,/document\.body\.classList\.toggle\("rh-menu-open", canOpen\)/);
+  assert.match(source,/sidebar\.inert = narrowSidebar\.matches && !canOpen/);
+  assert.match(source,/\$\("#rh-main"\)\.inert = canOpen/);
+});
+
 test('explorer filters stay bound to the three existing mock sites', async () => {
   for(const [sector,n] of [['manufacturing',21],['small-business',4]]) {
     const $=await page(sector,n);
@@ -142,5 +175,6 @@ test('explorer filters stay bound to the three existing mock sites', async () =>
     assert.equal($('.rh-selected-site').length,1);
     assert.equal($('[data-hide-map]').length,1);
     assert.match($('.rh-map').attr('aria-label'),/가상|예시|운영 지도/);
+    assert.doesNotMatch($.text(),/텔레오퍼레이션/);
   }
 });
