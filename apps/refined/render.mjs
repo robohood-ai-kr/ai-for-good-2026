@@ -32,10 +32,24 @@ const card = (title, content, cls = '') => `<section class="rh-card ${cls}">${ti
 const button = (label, action, primary = false, attrs = '') => `<button type="button" data-action="${action}" class="${primary ? 'rh-primary' : ''}" ${attrs}>${label}</button>`;
 const link = (sector, number, label, primary = false) => `<a class="rh-button ${primary ? 'rh-primary' : ''}" href="${route(sector, number)}">${label}</a>`;
 const notice = text => `<p class="rh-note">${text}</p>`;
-const field = (label, id, value = '', options = {}) => `<label class="rh-field" for="${id}">${label}${options.area ? `<textarea id="${id}" data-field="${id}" rows="3">${e(value)}</textarea>` : `<input id="${id}" data-field="${id}" type="${options.type || 'text'}" value="${e(value)}" ${options.type === 'number' ? 'min="1" max="100000"' : ''} ${options.required ? 'required' : ''}>`}</label>`;
+const field = (label, id, value = '', options = {}) => {
+  const scenario = options.scenarioField ? ` data-scenario-field="${options.scenarioField}"` : '';
+  return `<label class="rh-field" for="${id}">${label}${options.area ? `<textarea id="${id}" data-field="${id}"${scenario} rows="3">${e(value)}</textarea>` : `<input id="${id}" data-field="${id}"${scenario} type="${options.type || 'text'}" value="${e(value)}" ${options.type === 'number' ? 'min="1" max="100000"' : ''} ${options.required ? 'required' : ''}>`}</label>`;
+};
 const rows = entries => `<dl class="rh-details">${entries.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>`;
 const photo = (mf, cls = '') => `<figure class="rh-photo ${cls}"><img src="./assets/${mf ? 'rgb-part' : 'tray-task'}.png" alt="${mf ? '안전한 모의 작업대 위 금속 부품' : '1인칭 시점의 손이 빈 컵을 트레이에 정리하는 모의 장면'}"><figcaption>생성 이미지 · ${mf ? 'RGB 수집 예시' : '영상 장면 예시'}</figcaption></figure>`;
-const caseTag = c => `<p class="rh-kicker">${c.caseId} <span>· ${c.prefix === 'mf' ? '한빛 정밀 모의 현장' : '모의 카페 A'}</span></p>`;
+const defaultScenario = c => c.scenarios?.[c.defaultScenario];
+const scenarioText = (c, key) => {
+  const value = defaultScenario(c)?.[key] ?? '';
+  return `<span data-scenario-text="${key}">${e(value)}</span>`;
+};
+const scenarioImage = (c, cls = '') => {
+  const scenario = defaultScenario(c);
+  return `<figure class="rh-photo ${cls}"><img data-scenario-image src="./assets/scenarios/${e(scenario.image)}" alt="${e(scenario.alt)}"><figcaption>생성 이미지 · <span data-scenario-text="title">${e(scenario.title)}</span> 장면 예시</figcaption></figure>`;
+};
+const caseTag = c => c.prefix === 'mf'
+  ? `<p class="rh-kicker">${c.caseId} <span>· 한빛 정밀 모의 현장</span></p>`
+  : `<p class="rh-kicker">${scenarioText(c,'caseId')} <span>· ${scenarioText(c,'site')}</span></p>`;
 const taskTitle = c => `<span data-task-title>${e(c.defaultTask)}</span>`;
 function gates() {
   const details = ['교육과 과제 수행 가능 여부를 확인합니다.', '허용 구역과 촬영 대상을 합의합니다.', '위험 요소와 감독·중단 방법을 확인합니다.', '준비·수집·보완 범위와 시간을 확인합니다.', '비용 부담자와 유급·보완 조건을 합의합니다.'];
@@ -65,13 +79,13 @@ function roleCards(sector) {
 function metrics(items) {
   return `<div class="rh-grid ${items.length===4?'four':'three'} rh-metrics">${items.map(([label,value,desc])=>card('',`<span class="rh-muted">${label}</span><strong class="rh-metric">${value}</strong><small>${desc}</small>`)).join('')}</div>`;
 }
-function sceneMap(mf) {
-  return `<div class="rh-map" role="img" aria-label="${mf?'지역 제조 현장':'생활권 수집 현장'}의 가상 배치. 실제 위치가 아닙니다."><svg viewBox="0 0 540 540" aria-hidden="true"><rect width="540" height="540" fill="#EAF0F5"/><g fill="#D8E6D6"><path d="M0 0h165l-23 114L0 145z"/><path d="m390 320 150-22v242H396l-40-95z"/></g><g fill="#DBE3EB"><rect x="190" y="38" width="115" height="105" rx="12"/><rect x="55" y="189" width="110" height="99" rx="12"/><rect x="218" y="224" width="135" height="111" rx="12"/><rect x="43" y="377" width="156" height="110" rx="12"/><rect x="375" y="36" width="121" height="201" rx="12"/></g><g fill="none" stroke="#FFF" stroke-width="22"><path d="M-40 168 290 175l290 98M184-30l-8 269 94 330M-20 338l590 21"/></g><path d="M-40 450 200 513l270-130 100 9" fill="none" stroke="#B5D6EC" stroke-width="26"/><g fill="#2563EB" stroke="white" stroke-width="4"><circle cx="285" cy="271" r="20"/></g><text x="285" y="277" text-anchor="middle" fill="white" font-size="18">A</text><g fill="#94A3B8" stroke="white" stroke-width="3"><circle cx="112" cy="233" r="14"/><circle cx="408" cy="168" r="14"/></g></svg><span class="rh-map-disclaimer">예시 지도 · 실제 위치 아님</span><div class="rh-map-label">${mf?'한빛 정밀':'모의 카페 A'}<small>선택 현장 · 조건 협의 필요</small></div></div>`;
+function sceneMap(mf, c) {
+  return `<div class="rh-map" role="img" aria-label="${mf?'지역 제조 현장':'생활권 수집 현장'}의 가상 배치. 실제 위치가 아닙니다."><svg viewBox="0 0 540 540" aria-hidden="true"><rect width="540" height="540" fill="#EAF0F5"/><g fill="#D8E6D6"><path d="M0 0h165l-23 114L0 145z"/><path d="m390 320 150-22v242H396l-40-95z"/></g><g fill="#DBE3EB"><rect x="190" y="38" width="115" height="105" rx="12"/><rect x="55" y="189" width="110" height="99" rx="12"/><rect x="218" y="224" width="135" height="111" rx="12"/><rect x="43" y="377" width="156" height="110" rx="12"/><rect x="375" y="36" width="121" height="201" rx="12"/></g><g fill="none" stroke="#FFF" stroke-width="22"><path d="M-40 168 290 175l290 98M184-30l-8 269 94 330M-20 338l590 21"/></g><path d="M-40 450 200 513l270-130 100 9" fill="none" stroke="#B5D6EC" stroke-width="26"/><g fill="#2563EB" stroke="white" stroke-width="4"><circle cx="285" cy="271" r="20"/></g><text x="285" y="277" text-anchor="middle" fill="white" font-size="18">A</text><g fill="#94A3B8" stroke="white" stroke-width="3"><circle cx="112" cy="233" r="14"/><circle cx="408" cy="168" r="14"/></g></svg><span class="rh-map-disclaimer">예시 지도 · 실제 위치 아님</span><div class="rh-map-label">${mf?'한빛 정밀':scenarioText(c,'site')}<small>선택 현장 · 조건 협의 필요</small></div></div>`;
 }
 
 function pageContent(sector, number) {
   const c=sectors[sector], mf=sector==='manufacturing', s=specFor(sector,number);
-  const refined = fidelityContent(sector, number, {c,s,icon,badge,status,card,button,link,notice,field,rows,photo:(isMF,cls='')=>scenePhoto(sector,number,cls)||photo(isMF,cls),caseTag,taskTitle,gates,journey,dataCards,roleCards,metrics,sceneMap});
+  const refined = fidelityContent(sector, number, {c,s,icon,badge,status,card,button,link,notice,field,rows,photo:(isMF,cls='')=>isMF?(scenePhoto(sector,number,cls)||photo(true,cls)):scenarioImage(c,cls),caseTag,taskTitle,gates,journey,dataCards,roleCards,metrics,sceneMap:(isMF)=>sceneMap(isMF,c),scenarioText:(key)=>scenarioText(c,key)});
   if (refined !== undefined) return refined;
   const capture=mf?8:13, assignment=mf?7:9, inbox=mf?17:11, explorer=mf?21:4;
   const scope=mf?'비가동 작업대의 소형 부품 RGB 촬영·기록':'고객 없는 모의 공간에서 빈 비파손 컵을 트레이로 정리';

@@ -18,12 +18,26 @@ const esc = (value) =>
         c
       ],
   );
-const qa = new URL(location.href).searchParams.get('qa') === '1';
-const route = (number) =>
-  `./${config.prefix}-${String(number).padStart(2, "0")}.html${qa ? '?qa=1' : ''}`;
+const pageParams = new URL(location.href).searchParams;
+const qa = pageParams.get("qa") === "1";
+const requestedScenario = pageParams.get("scenario");
+const scenarioId = config.scenarios?.[requestedScenario]
+  ? requestedScenario
+  : config.defaultScenario;
+const scenario = config.scenarios?.[scenarioId];
+const route = (number, targetScenario = scenarioId) => {
+  const params = new URLSearchParams();
+  if (config.scenarios?.[targetScenario]) params.set("scenario", targetScenario);
+  if (qa) params.set("qa", "1");
+  const query = params.toString();
+  return `./${config.prefix}-${String(number).padStart(2, "0")}.html${query ? `?${query}` : ""}`;
+};
 const screenLink = (number) =>
   `<a href="${route(number)}">${esc(config.names[number - 1])}</a>`;
-const key = storageKey(config.sector) + (qa ? ':qa' : '');
+const key =
+  storageKey(config.sector) +
+  (scenarioId ? `:${scenarioId}` : "") +
+  (qa ? ":qa" : "");
 let state = initialState(config.sector),
   storageAvailable = true,
   toastTimer;
@@ -70,6 +84,49 @@ function closeDialog() {
 function advance(action, payload = {}) {
   state = transition(state, action, payload);
   persist();
+}
+
+function applyScenarioContent() {
+  if (!scenario) return;
+  document.body.dataset.scenario = scenarioId;
+  $$('[data-scenario-text]').forEach((el) => {
+    const value = scenario[el.dataset.scenarioText];
+    if (value !== undefined) el.textContent = value;
+  });
+  $$('[data-scenario-image]').forEach((img) => {
+    img.src = `./assets/scenarios/${scenario.image}`;
+    img.alt = scenario.alt;
+  });
+  $$('[data-scenario-field]').forEach((el) => {
+    const value = scenario[el.dataset.scenarioField];
+    if (value !== undefined) el.value = value;
+  });
+  $$('[data-scenario-card]').forEach((el) => {
+    const selected = el.dataset.scenarioCard === scenarioId;
+    el.classList.toggle('rh-scenario-active', selected);
+    if (el.classList.contains('rh-site-item'))
+      el.classList.toggle('rh-selected-site', selected);
+    el.setAttribute('aria-current', selected ? 'true' : 'false');
+  });
+}
+
+function carryPageContext() {
+  $$('a[href]').forEach((anchor) => {
+    const href = anchor.getAttribute('href');
+    if (!href?.startsWith('./') || !href.includes('.html') || href.includes('gallery')) return;
+    const url = new URL(href, location.href);
+    const targetScenario = anchor.dataset.scenarioLink ?? scenarioId;
+    if (config.scenarios?.[targetScenario]) url.searchParams.set('scenario', targetScenario);
+    if (qa) url.searchParams.set('qa', '1');
+    anchor.href = `./${url.pathname.split('/').pop()}${url.search}`;
+  });
+  $$('#rh-screen-select option').forEach((option) => {
+    if (!option.value) return;
+    const url = new URL(option.value, location.href);
+    if (scenario) url.searchParams.set('scenario', scenarioId);
+    if (qa) url.searchParams.set('qa', '1');
+    option.value = `./${url.pathname.split('/').pop()}${url.search}`;
+  });
 }
 
 function render() {
@@ -124,10 +181,14 @@ function render() {
     (el) => (el.textContent = config.roles[state.role] ?? "데모 역할"),
   );
   $$("[data-task-title]").forEach(
-    (el) => (el.textContent = state.task?.title ?? config.defaultTask),
+    (el) =>
+      (el.textContent =
+        state.task?.title ?? scenario?.defaultTask ?? config.defaultTask),
   );
-  const currentTaskTitle = state.task?.title && state.task.title !== config.defaultTask
-    ? state.task.title : (mf ? '소형 부품 외관 검사' : '트레이 위 컵 정리');
+  const defaultTask = scenario?.defaultTask ?? config.defaultTask;
+  const currentTaskTitle = state.task?.title && state.task.title !== defaultTask
+    ? state.task.title
+    : (mf ? '소형 부품 외관 검사' : (scenario?.title ?? '대표 현장 데이터 수집'));
   $$('[data-task-short]').forEach(el => { el.textContent = currentTaskTitle; });
   if (config.refined && config.number === config.taskPage)
     $('#rh-main h1').textContent = currentTaskTitle;
@@ -198,7 +259,7 @@ function showRole() {
 }
 function showWorkflow() {
   const rows = [
-    ["과제", state.task?.title ?? config.defaultTask],
+    ["과제", state.task?.title ?? scenario?.defaultTask ?? config.defaultTask],
     ["데모 역할", config.roles[state.role]],
     ["조건 확인", `${state.gates.filter(Boolean).length}/5`],
     ["수집", state.session],
@@ -287,8 +348,9 @@ function exportDemo() {
     prototype: true,
     product: config.sector,
     version: "v1",
-    caseId: config.caseId,
-    task: state.task?.title ?? config.defaultTask,
+    scenario: scenarioId ?? null,
+    caseId: scenario?.caseId ?? config.caseId,
+    task: state.task?.title ?? scenario?.defaultTask ?? config.defaultTask,
     review: state.review,
     access: state.access,
     payment: state.payment,
@@ -511,7 +573,7 @@ async function act(name, el) {
       state.events.unshift({
         action: "recollection-request",
         at: new Date().toISOString(),
-        message: config.caseId,
+        message: scenario?.caseId ?? config.caseId,
       });
       persist();
       location.href = route(config.newPage);
@@ -523,10 +585,10 @@ async function act(name, el) {
       break;
     case "copy":
       try {
-        await navigator.clipboard.writeText(config.caseId);
-        toast(`${config.caseId} 과제 코드를 복사했습니다.`);
+        await navigator.clipboard.writeText(scenario?.caseId ?? config.caseId);
+        toast(`${scenario?.caseId ?? config.caseId} 과제 코드를 복사했습니다.`);
       } catch {
-        dialog("과제 코드", `<p><code>${esc(config.caseId)}</code></p>`);
+        dialog("과제 코드", `<p><code>${esc(scenario?.caseId ?? config.caseId)}</code></p>`);
       }
       break;
     case "filter-tab": {
@@ -649,10 +711,8 @@ fileInput?.addEventListener('change', () => {
 });
 $('#rh-video-preview')?.addEventListener('error',()=>toast('이 브라우저에서 재생할 수 없는 영상입니다. 다른 코덱의 영상을 선택해 주세요.'));
 window.addEventListener('pagehide',()=>{ if(videoURL) URL.revokeObjectURL(videoURL); });
-if (qa) {
-  $$('a[href]').filter(a=>a.getAttribute('href').startsWith('./') && /\.html$/.test(a.getAttribute('href')) && !a.href.includes('gallery')).forEach(a=>a.href+='?qa=1');
-  $$('#rh-screen-select option').forEach(o=>o.value+='?qa=1');
-}
+applyScenarioContent();
+carryPageContext();
 restoreFields();
 for (const id of ['segmentStart', 'segmentEnd']) {
   const input = $('#'+id);

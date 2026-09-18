@@ -1,0 +1,22 @@
+{
+  "version": "v1",
+  "date": "2026-09-17",
+  "mode": "built-in image_gen",
+  "intent": "generate-with-references",
+  "id": "21",
+  "title": "현장 탐색",
+  "format": "desktop",
+  "file": "21-field-explorer.png",
+  "goal": "지도에서 현장·데이터를 찾고 수집 요청으로 연결",
+  "references": [
+    {
+      "file": "assets/manufacturing-data-platform-concept.png",
+      "role": "layout reference only: map plus searchable site list; not branding or real statistics"
+    },
+    {
+      "file": "assets/ui-concepts/v1/07-operator-matching-aligned.png",
+      "role": "RoboHood brand, typography and application shell reference"
+    }
+  ],
+  "prompt": "Use case: ui-mockup.\nCreate a new high-fidelity Korean desktop application page for RoboHood, page 21 '현장 탐색', consistent with its planning/design v1.\nInput image 1 is ONLY a composition reference: Korean geographic map on the left, searchable manufacturing-site list on the right. DO NOT copy its government emblem, government wording, blue brand, master-worker statistics, average ages, giant nationwide metrics, or apparent official status.\nInput image 2 is ONLY the visual design reference: match the RoboHood wordmark and tiny robot-head mark, forest green primary actions, muted mint selection, warm off-white canvas, white cards, charcoal typography, light borders, restrained corners, slim sidebar and topbar.\nThis screen discovers manufacturing sites BEFORE a project is requested. It is not the existing task list or operator-matching page. Current v1 uses fictional manufacturing examples; do not silently turn it into a restaurant/POS/voice-interface product.\nComposition: one crisp 16:10 desktop screen, approximately 1600x1000, full canvas, front-on. No computer frame, no browser chrome, no collage. Professional readable Korean typography. Keep fewer meaningful elements, generous whitespace, no dense microscopic text.\nSidebar: '개요', '현장 탐색' (active), '현장 과제', '데이터', '모델', '장비', '배포·관제', '오퍼레이터', bottom '설정'. Workspace switcher 'RoboHood · 데모'. Topbar breadcrumb '현장 탐색'; readable badges '시안 · 예시 데이터' and '기획 v1'.\nMain title '데이터를 만날 현장을 찾아보세요'.\nSubtitle '현장과 데이터를 탐색하고, 필요한 수집을 요청하세요'.\nSearch '현장명 또는 지역 검색'. Four compact filters '지역', '업종·공정', '데이터 종류', '수집 협의 상태'. Selected industry chip '제조'. These filter controls are extensible UI, not claims of other operating sectors.\nBelow filters use two primary columns. LEFT approximately 44%: large map of South Korea with calm pale-gray geography and muted mint provinces, a few green example site markers and restrained province labels, plus/minus controls, one selected marker. Map has title '예시 현장 지도' and disclaimer '위치는 예시이며 실제 협력·운영 현황이 아닙니다'. Do not show a real precise street address or coordinates. A small selected marker popover '한빛 정밀 · 데모 / 서울 · 금속가공'.\nRIGHT approximately 56%: top card '현장 목록' with small '예시 5곳', a short neat 5-row table, columns '현장', '지역', '공정', '데이터', '수집 상태'. All names are fictional:\nrow1 selected '한빛 정밀 · 데모' / '서울' / '금속가공' / 'RGB 이미지' / '협의 가능';\nrow2 '새봄 부품 · 데모' / '인천' / '조립' / '작업 영상' / '협의 필요';\nrow3 '가온 정밀 · 데모' / '대전' / '검사' / 'RGB 이미지' / '협의 가능';\nrow4 '다온 금형 · 데모' / '대구' / '금형' / '수집 예정' / '협의 필요';\nrow5 '누리 제조 · 데모' / '부산' / '포장' / '작업 영상' / '협의 가능'.\nBelow table a compact selected-site detail card titled '한빛 정밀 · 데모'. Show a small industrial metal-parts thumbnail, tags '금속가공', '외관 검사'; data item '표면 검사 이미지 · 공개 샘플'; conditions '촬영 구역·일정 사전 협의' and '비공개 데이터는 이용 승인 필요'; a small status '실증 파트너 미확정'. Two clear CTAs side-by-side '데이터셋 보기' (secondary) and '이 현장에 수집 요청' (primary green). No auto-download or unrestricted access.\nConstraints: represent a working product interface visually, but all sites/statuses are demo examples, not verified partners. No real personal information, emails, phone numbers, logos of institutions, giant market-size numbers, old government branding, age statistics or claims that a robot has actually deployed. Don't imply every factory publicly exposes its data. Do not add pricing, checkout, POS, voice control or new unrelated functions."
+}

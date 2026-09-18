@@ -1,0 +1,969 @@
+{
+  "version": "manufacturing-v1",
+  "date": "2026-09-18",
+  "method": "deterministic local bitmap text overlays (Swift/AppKit); no AI regeneration",
+  "umbrella": "청년 Physical AI 현장 전문인력",
+  "shortNavigationLabel": "현장 인력",
+  "scope": "20 existing manufacturing screens; screen 08 unchanged. Preserve source files, layouts, icons, photos and pixels outside the specified text rectangles.",
+  "edits": [
+    {
+      "id": "01",
+      "source": "01-service-home-aligned.png",
+      "output": "text-overlays/01-service-home-text.png",
+      "patches": [
+        {
+          "sourceText": "오퍼레이터 (상단 메뉴)",
+          "text": "현장 인력",
+          "x": 551,
+          "y": 23,
+          "width": 92,
+          "height": 29,
+          "fontSize": 16,
+          "weight": "regular",
+          "color": "#536078",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "오퍼레이터로 시작",
+          "text": "현장 인력으로 시작",
+          "x": 401,
+          "y": 390,
+          "width": 149,
+          "height": 35,
+          "fontSize": 17,
+          "weight": "bold",
+          "color": "#074E36",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "청년 오퍼레이터",
+          "text": "청년 Physical AI\n현장 전문인력",
+          "x": 1291,
+          "y": 518,
+          "width": 178,
+          "height": 47,
+          "fontSize": 18,
+          "weight": "bold",
+          "color": "#111417",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "현장 수집부터 배포·운영까지",
+          "text": "교육·직무별 유급 업무",
+          "x": 1291,
+          "y": 565,
+          "width": 183,
+          "height": 26,
+          "fontSize": 14,
+          "weight": "regular",
+          "color": "#526378",
+          "background": "sample",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "source": "02-workspace-entry.png",
+      "output": "text-overlays/02-workspace-entry-text.png",
+      "patches": [
+        {
+          "sourceText": "현장 오퍼레이터",
+          "text": "현장 전문인력",
+          "x": 1220,
+          "y": 239,
+          "width": 138,
+          "height": 33,
+          "fontSize": 20,
+          "weight": "medium",
+          "color": "#4B586C",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "오퍼레이터 작업함",
+          "text": "현장 인력 작업함",
+          "x": 1207,
+          "y": 744,
+          "width": 181,
+          "height": 31,
+          "fontSize": 16,
+          "weight": "bold",
+          "color": "#171F28",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "현장 오퍼레이터의 작업 화면을",
+          "text": "수집 담당자의 작업 화면을",
+          "x": 1208,
+          "y": 775,
+          "width": 218,
+          "height": 22,
+          "fontSize": 14,
+          "weight": "regular",
+          "color": "#667287",
+          "background": "sample",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "source": "03-workspace-overview.png",
+      "output": "text-overlays/03-workspace-overview-text.png",
+      "patches": [
+        {
+          "sourceText": "오퍼레이터 (공통 메뉴)",
+          "text": "현장 인력",
+          "x": 62,
+          "y": 493,
+          "width": 113,
+          "height": 34,
+          "fontSize": 16,
+          "weight": "regular",
+          "color": "#17233B",
+          "background": "sample",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "source": "04-field-projects-aligned.png",
+      "output": "text-overlays/04-field-projects-text.png",
+      "patches": [
+        {
+          "sourceText": "오퍼레이터 (공통 메뉴)",
+          "text": "현장 인력",
+          "x": 62,
+          "y": 493,
+          "width": 113,
+          "height": 34,
+          "fontSize": 16,
+          "weight": "regular",
+          "color": "#17233B",
+          "background": "sample",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "source": "05-new-project-aligned.png",
+      "output": "text-overlays/05-new-project-text.png",
+      "patches": [
+        {
+          "sourceText": "오퍼레이터 (공통 메뉴)",
+          "text": "현장 인력",
+          "x": 62,
+          "y": 493,
+          "width": 113,
+          "height": 34,
+          "fontSize": 16,
+          "weight": "regular",
+          "color": "#17233B",
+          "background": "sample",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "source": "06-project-detail-aligned.png",
+      "output": "text-overlays/06-project-detail-text.png",
+      "patches": [
+        {
+          "sourceText": "오퍼레이터 (공통 메뉴)",
+          "text": "현장 인력",
+          "x": 62,
+          "y": 493,
+          "width": 113,
+          "height": 34,
+          "fontSize": 16,
+          "weight": "regular",
+          "color": "#17233B",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "담당 오퍼레이터",
+          "text": "담당 수집 인력",
+          "x": 1225,
+          "y": 94,
+          "width": 222,
+          "height": 33,
+          "fontSize": 20,
+          "weight": "bold",
+          "color": "#10151D",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "오퍼레이터 A (우측 담당자)",
+          "text": "수집 담당자 A",
+          "x": 1317,
+          "y": 144,
+          "width": 158,
+          "height": 32,
+          "fontSize": 20,
+          "weight": "bold",
+          "color": "#11171F",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "오퍼레이터 A (참여자)",
+          "text": "수집 담당자 A",
+          "x": 1033,
+          "y": 644,
+          "width": 124,
+          "height": 31,
+          "fontSize": 16,
+          "weight": "bold",
+          "color": "#10171D",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "데이터 수집 및 검수",
+          "text": "촬영·기록·라벨 초안",
+          "x": 1328,
+          "y": 331,
+          "width": 201,
+          "height": 28,
+          "fontSize": 14,
+          "weight": "regular",
+          "color": "#506078",
+          "background": "sample",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "source": "07-operator-matching-aligned.png",
+      "output": "text-overlays/07-operator-matching-text.png",
+      "patches": [
+        {
+          "sourceText": "오퍼레이터 (공통 메뉴)",
+          "text": "현장 인력",
+          "x": 62,
+          "y": 493,
+          "width": 113,
+          "height": 34,
+          "fontSize": 16,
+          "weight": "medium",
+          "color": "#0B6241",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "오퍼레이터 (경로)",
+          "text": "현장 인력",
+          "x": 395,
+          "y": 16,
+          "width": 123,
+          "height": 28,
+          "fontSize": 15,
+          "weight": "medium",
+          "color": "#17233B",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "수집팀·오퍼레이터 매칭",
+          "text": "수집팀·현장 인력 매칭",
+          "x": 269,
+          "y": 82,
+          "width": 625,
+          "height": 51,
+          "fontSize": 36,
+          "weight": "bold",
+          "color": "#11171A",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "과제 조건에 맞는 수행팀과 현장 담당자를 배정합니다.",
+          "text": "청년 Physical AI 현장 전문인력을 직무별로 배정합니다.",
+          "x": 269,
+          "y": 136,
+          "width": 748,
+          "height": 34,
+          "fontSize": 20,
+          "weight": "regular",
+          "color": "#53647C",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "청년 오퍼레이터",
+          "text": "청년 현장 전문인력",
+          "x": 636,
+          "y": 196,
+          "width": 173,
+          "height": 29,
+          "fontSize": 18,
+          "weight": "medium",
+          "color": "#52627C",
+          "background": "sample",
+          "align": "center"
+        },
+        {
+          "sourceText": "안전교육",
+          "text": "교육·적격 여부",
+          "x": 821,
+          "y": 248,
+          "width": 162,
+          "height": 27,
+          "fontSize": 15,
+          "weight": "regular",
+          "color": "#60738A",
+          "background": "#FFFFFF",
+          "align": "left"
+        },
+        {
+          "sourceText": "현장 담당",
+          "text": "수집 담당",
+          "x": 1210,
+          "y": 732,
+          "width": 106,
+          "height": 25,
+          "fontSize": 13,
+          "weight": "regular",
+          "color": "#52657E",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "오퍼레이터 A",
+          "text": "수집 담당자 A",
+          "x": 1209,
+          "y": 755,
+          "width": 117,
+          "height": 29,
+          "fontSize": 14,
+          "weight": "bold",
+          "color": "#172437",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "현장 작업 진행",
+          "text": "촬영·기록 수행",
+          "x": 1210,
+          "y": 783,
+          "width": 113,
+          "height": 22,
+          "fontSize": 13,
+          "weight": "regular",
+          "color": "#607087",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "안전·보안 확인 필요",
+          "text": "교육·안전·보상 확인 필요",
+          "x": 984,
+          "y": 824,
+          "width": 347,
+          "height": 27,
+          "fontSize": 16,
+          "weight": "medium",
+          "color": "#76521A",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "배정 전 현장 안전교육, 보안 절차 등을 확인해야 합니다.",
+          "text": "배정 전 교육·감독·수집 허용·보상 조건을 확인하세요.",
+          "x": 984,
+          "y": 850,
+          "width": 542,
+          "height": 24,
+          "fontSize": 14,
+          "weight": "regular",
+          "color": "#60728A",
+          "background": "sample",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "source": "09-quality-review.png",
+      "output": "text-overlays/09-quality-review-text.png",
+      "patches": [
+        {
+          "sourceText": "오퍼레이터 (공통 메뉴)",
+          "text": "현장 인력",
+          "x": 62,
+          "y": 493,
+          "width": 113,
+          "height": 34,
+          "fontSize": 16,
+          "weight": "regular",
+          "color": "#17233B",
+          "background": "sample",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "source": "10-dataset-library.png",
+      "output": "text-overlays/10-dataset-library-text.png",
+      "patches": [
+        {
+          "sourceText": "오퍼레이터 (공통 메뉴)",
+          "text": "현장 인력",
+          "x": 62,
+          "y": 493,
+          "width": 113,
+          "height": 34,
+          "fontSize": 16,
+          "weight": "regular",
+          "color": "#17233B",
+          "background": "sample",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "source": "11-dataset-detail-aligned.png",
+      "output": "text-overlays/11-dataset-detail-text.png",
+      "patches": [
+        {
+          "sourceText": "오퍼레이터 (공통 메뉴)",
+          "text": "현장 인력",
+          "x": 62,
+          "y": 493,
+          "width": 113,
+          "height": 34,
+          "fontSize": 16,
+          "weight": "regular",
+          "color": "#17233B",
+          "background": "sample",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "source": "12-model-registry.png",
+      "output": "text-overlays/12-model-registry-text.png",
+      "patches": [
+        {
+          "sourceText": "오퍼레이터 (공통 메뉴)",
+          "text": "현장 인력",
+          "x": 62,
+          "y": 493,
+          "width": 113,
+          "height": 34,
+          "fontSize": 16,
+          "weight": "regular",
+          "color": "#17233B",
+          "background": "sample",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "source": "13-hardware-catalog.png",
+      "output": "text-overlays/13-hardware-catalog-text.png",
+      "patches": [
+        {
+          "sourceText": "오퍼레이터 (공통 메뉴)",
+          "text": "현장 인력",
+          "x": 62,
+          "y": 493,
+          "width": 113,
+          "height": 34,
+          "fontSize": 16,
+          "weight": "regular",
+          "color": "#17233B",
+          "background": "sample",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "source": "14-deployment-setup.png",
+      "output": "text-overlays/14-deployment-setup-text.png",
+      "patches": [
+        {
+          "sourceText": "오퍼레이터 (공통 메뉴)",
+          "text": "현장 인력",
+          "x": 62,
+          "y": 493,
+          "width": 113,
+          "height": 34,
+          "fontSize": 16,
+          "weight": "regular",
+          "color": "#17233B",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "담당 오퍼레이터",
+          "text": "기술 담당자",
+          "x": 1110,
+          "y": 543,
+          "width": 113,
+          "height": 28,
+          "fontSize": 14,
+          "weight": "medium",
+          "color": "#17233B",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "현장 오퍼레이터",
+          "text": "현장 적용 FDE",
+          "x": 1238,
+          "y": 544,
+          "width": 109,
+          "height": 28,
+          "fontSize": 14,
+          "weight": "regular",
+          "color": "#41526B",
+          "background": "sample",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "source": "15-fleet-monitor.png",
+      "output": "text-overlays/15-fleet-monitor-text.png",
+      "patches": [
+        {
+          "sourceText": "오퍼레이터 (공통 메뉴)",
+          "text": "현장 인력",
+          "x": 62,
+          "y": 493,
+          "width": 113,
+          "height": 34,
+          "fontSize": 16,
+          "weight": "regular",
+          "color": "#17233B",
+          "background": "sample",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "source": "16-incident-recollection.png",
+      "output": "text-overlays/16-incident-recollection-text.png",
+      "patches": [
+        {
+          "sourceText": "오퍼레이터 (공통 메뉴)",
+          "text": "현장 인력",
+          "x": 62,
+          "y": 493,
+          "width": 113,
+          "height": 34,
+          "fontSize": 16,
+          "weight": "regular",
+          "color": "#17233B",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "오퍼레이터의 확인이 필요합니다.",
+          "text": "검수 담당자의 확인이 필요합니다.",
+          "x": 908,
+          "y": 766,
+          "width": 234,
+          "height": 26,
+          "fontSize": 13,
+          "weight": "regular",
+          "color": "#68758B",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "담당 오퍼레이터",
+          "text": "담당 수집 인력",
+          "x": 1192,
+          "y": 497,
+          "width": 213,
+          "height": 24,
+          "fontSize": 15,
+          "weight": "medium",
+          "color": "#182134",
+          "background": "#FFFFFF",
+          "align": "left"
+        },
+        {
+          "sourceText": "오퍼레이터 A",
+          "text": "수집 담당자 A",
+          "x": 1208,
+          "y": 530,
+          "width": 185,
+          "height": 28,
+          "fontSize": 15,
+          "weight": "medium",
+          "color": "#17233B",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "현장 경험이 있는 오퍼레이터에게 요청합니다.",
+          "text": "해당 수집 업무의 적격 인력에게 요청합니다.",
+          "x": 1191,
+          "y": 565,
+          "width": 344,
+          "height": 25,
+          "fontSize": 13,
+          "weight": "regular",
+          "color": "#728199",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "영상 (필요 데이터)",
+          "text": "RGB 이미지",
+          "x": 1207,
+          "y": 420,
+          "width": 172,
+          "height": 27,
+          "fontSize": 15,
+          "weight": "medium",
+          "color": "#17233B",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "조명 조건을 바꿔가며 연속된 영상을 다시 수집합니다.",
+          "text": "조명 조건별 RGB 이미지를 다시 수집합니다.",
+          "x": 1191,
+          "y": 458,
+          "width": 351,
+          "height": 27,
+          "fontSize": 13,
+          "weight": "regular",
+          "color": "#728199",
+          "background": "sample",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "source": "17-mobile-operator-inbox.png",
+      "output": "text-overlays/17-mobile-operator-inbox-text.png",
+      "patches": [
+        {
+          "sourceText": "오퍼레이터 A님, 오늘도 안전한 현장 작업을 시작하세요.",
+          "text": "수집 담당자 A님, 승인된 업무 범위에서 시작하세요.",
+          "x": 37,
+          "y": 214,
+          "width": 781,
+          "height": 48,
+          "fontSize": 29,
+          "weight": "regular",
+          "color": "#46556A",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "영상 수집",
+          "text": "RGB 촬영",
+          "x": 668,
+          "y": 1216,
+          "width": 136,
+          "height": 42,
+          "fontSize": 27,
+          "weight": "regular",
+          "color": "#46556A",
+          "background": "sample",
+          "align": "center"
+        },
+        {
+          "sourceText": "방문 전 확인",
+          "text": "교육·안전·보상 확인",
+          "x": 130,
+          "y": 1468,
+          "width": 614,
+          "height": 45,
+          "fontSize": 29,
+          "weight": "bold",
+          "color": "#11181D",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "안전한 작업을 위해 아래 사항을 미리 확인하세요.",
+          "text": "수집 전 교육·감독·보상 조건을 확인하세요.",
+          "x": 130,
+          "y": 1513,
+          "width": 657,
+          "height": 39,
+          "fontSize": 25,
+          "weight": "regular",
+          "color": "#4A5B6D",
+          "background": "sample",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "source": "18-mobile-career-learning.png",
+      "output": "text-overlays/18-mobile-career-learning-text.png",
+      "patches": [
+        {
+          "sourceText": "오퍼레이터 A",
+          "text": "수집 담당자 A",
+          "x": 183,
+          "y": 281,
+          "width": 278,
+          "height": 47,
+          "fontSize": 31,
+          "weight": "bold",
+          "color": "#111720",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "현장 오퍼레이터",
+          "text": "데이터 수집",
+          "x": 658,
+          "y": 286,
+          "width": 139,
+          "height": 34,
+          "fontSize": 22,
+          "weight": "medium",
+          "color": "#0B6241",
+          "background": "sample",
+          "align": "center"
+        },
+        {
+          "sourceText": "함께 만드는, 더 나은 현장",
+          "text": "청년 Physical AI 현장 전문인력",
+          "x": 184,
+          "y": 333,
+          "width": 439,
+          "height": 43,
+          "fontSize": 23,
+          "weight": "regular",
+          "color": "#56677E",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "나의 성장 경로",
+          "text": "나의 직무·학습 선택지",
+          "x": 52,
+          "y": 440,
+          "width": 382,
+          "height": 47,
+          "fontSize": 29,
+          "weight": "bold",
+          "color": "#111820",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "더 많은 기회를 만들어가세요.",
+          "text": "역량별 선택 · 자동 승급 아님",
+          "x": 526,
+          "y": 448,
+          "width": 285,
+          "height": 36,
+          "fontSize": 20,
+          "weight": "regular",
+          "color": "#63728A",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "다음 단계",
+          "text": "선택 직무",
+          "x": 376,
+          "y": 574,
+          "width": 112,
+          "height": 36,
+          "fontSize": 22,
+          "weight": "regular",
+          "color": "#586B81",
+          "background": "sample",
+          "align": "center"
+        },
+        {
+          "sourceText": "그 다음",
+          "text": "별도 역량 필요",
+          "x": 618,
+          "y": 574,
+          "width": 153,
+          "height": 36,
+          "fontSize": 21,
+          "weight": "regular",
+          "color": "#586B81",
+          "background": "sample",
+          "align": "center"
+        },
+        {
+          "sourceText": "배포·관제",
+          "text": "현장 기술지원",
+          "x": 593,
+          "y": 608,
+          "width": 209,
+          "height": 43,
+          "fontSize": 26,
+          "weight": "bold",
+          "color": "#141D28",
+          "background": "sample",
+          "align": "center"
+        },
+        {
+          "sourceText": "모델을 현장에 적용하고",
+          "text": "추가 교육·승인 후",
+          "x": 590,
+          "y": 654,
+          "width": 214,
+          "height": 33,
+          "fontSize": 23,
+          "weight": "regular",
+          "color": "#63728A",
+          "background": "sample",
+          "align": "center"
+        },
+        {
+          "sourceText": "운영을 지원해요.",
+          "text": "장비 업무를 맡아요.",
+          "x": 587,
+          "y": 686,
+          "width": 217,
+          "height": 36,
+          "fontSize": 23,
+          "weight": "regular",
+          "color": "#63728A",
+          "background": "sample",
+          "align": "center"
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "source": "19-data-access-aligned.png",
+      "output": "text-overlays/19-data-access-text.png",
+      "patches": [
+        {
+          "sourceText": "오퍼레이터 (공통 메뉴)",
+          "text": "현장 인력",
+          "x": 62,
+          "y": 493,
+          "width": 113,
+          "height": 34,
+          "fontSize": 16,
+          "weight": "regular",
+          "color": "#17233B",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "배정 오퍼레이터",
+          "text": "배정 수집 인력",
+          "x": 311,
+          "y": 841,
+          "width": 136,
+          "height": 28,
+          "fontSize": 16,
+          "weight": "medium",
+          "color": "#101B2D",
+          "background": "#FFFFFF",
+          "align": "left"
+        },
+        {
+          "sourceText": "배정 오퍼레이터가 데이터를 업로드했습니다.",
+          "text": "배정된 수집 담당자가 데이터를 업로드했습니다.",
+          "x": 1154,
+          "y": 840,
+          "width": 379,
+          "height": 27,
+          "fontSize": 14,
+          "weight": "regular",
+          "color": "#60758E",
+          "background": "sample",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "source": "20-workspace-settings-aligned.png",
+      "output": "text-overlays/20-workspace-settings-text.png",
+      "patches": [
+        {
+          "sourceText": "오퍼레이터 (공통 메뉴)",
+          "text": "현장 인력",
+          "x": 62,
+          "y": 493,
+          "width": 113,
+          "height": 34,
+          "fontSize": 16,
+          "weight": "regular",
+          "color": "#17233B",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "오퍼레이터 A",
+          "text": "수집 담당자 A",
+          "x": 1028,
+          "y": 530,
+          "width": 105,
+          "height": 31,
+          "fontSize": 16,
+          "weight": "bold",
+          "color": "#10171D",
+          "background": "sample",
+          "align": "left"
+        },
+        {
+          "sourceText": "현장 데이터 수집 및 장비 운영",
+          "text": "현장 촬영·조건 기록·라벨 초안",
+          "x": 1028,
+          "y": 563,
+          "width": 262,
+          "height": 28,
+          "fontSize": 14,
+          "weight": "regular",
+          "color": "#677D96",
+          "background": "sample",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "source": "21-field-explorer.png",
+      "output": "text-overlays/21-field-explorer-text.png",
+      "patches": [
+        {
+          "sourceText": "오퍼레이터 (공통 메뉴)",
+          "text": "현장 인력",
+          "x": 65,
+          "y": 558,
+          "width": 116,
+          "height": 34,
+          "fontSize": 17,
+          "weight": "regular",
+          "color": "#17233B",
+          "background": "sample",
+          "align": "left"
+        }
+      ]
+    }
+  ]
+}

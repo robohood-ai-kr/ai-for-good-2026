@@ -1,0 +1,222 @@
+[
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 19938,
+    "height" : 992,
+    "output" : "text-overlays/01-service-home-text.png",
+    "outputSHA256" : "b56cd500851aa6833a9e82c25babe6ab99f804ac0548aa43e6999a070f831c75",
+    "patchCount" : 4,
+    "source" : "01-service-home-aligned.png",
+    "sourceSHA256" : "3c4730c1c1b4d522290d6d9a879f0aaf857d6d97b22793c1a52c82703c8d1503",
+    "width" : 1586
+  },
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 13054,
+    "height" : 992,
+    "output" : "text-overlays/02-workspace-entry-text.png",
+    "outputSHA256" : "6463be3f059d4bce8a709b1eb26359042449f49194d9f0a5b2de05a1e3e14034",
+    "patchCount" : 3,
+    "source" : "02-workspace-entry.png",
+    "sourceSHA256" : "9a282c336afd9a23413af3ce119cb03ec7b4e11566e8650b13dea5926ac5dcdd",
+    "width" : 1586
+  },
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 3411,
+    "height" : 992,
+    "output" : "text-overlays/03-workspace-overview-text.png",
+    "outputSHA256" : "2c63b484cc2d4c94d34cc5f36ed1d950e761842407754b64702ea0359a4c69fc",
+    "patchCount" : 1,
+    "source" : "03-workspace-overview.png",
+    "sourceSHA256" : "80a1608638f2b0932a2fe06933fce4ab06a46a644d2c984f3d732f6cb4a90e14",
+    "width" : 1586
+  },
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 3453,
+    "height" : 992,
+    "output" : "text-overlays/04-field-projects-text.png",
+    "outputSHA256" : "7559ffba3225e33f18b3ae0b25171bdccb4f53393ad07fd03734dc5a5b684f9b",
+    "patchCount" : 1,
+    "source" : "04-field-projects-aligned.png",
+    "sourceSHA256" : "b89e92d478bff68aa3fd7bcf8bb3773490bd33db372ef0531a12ac3c399a2927",
+    "width" : 1586
+  },
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 3569,
+    "height" : 993,
+    "output" : "text-overlays/05-new-project-text.png",
+    "outputSHA256" : "994aad4e192418c3587bb8330ae72929c9fd6b58e63aef3957fc8ff88da36832",
+    "patchCount" : 1,
+    "source" : "05-new-project-aligned.png",
+    "sourceSHA256" : "f096f9f4e056d9531bad7ed02dcad85bf52a555457ac53ba9738c37149df1572",
+    "width" : 1584
+  },
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 21718,
+    "height" : 992,
+    "output" : "text-overlays/06-project-detail-text.png",
+    "outputSHA256" : "5adb421e2a5301a7942d7d618f280e5919508af5216200627c9224a7d519ccb9",
+    "patchCount" : 5,
+    "source" : "06-project-detail-aligned.png",
+    "sourceSHA256" : "7732f8cdcf20a81778561551029cfd2669d1e3a441ffd18b348c0b3af2f9657c",
+    "width" : 1586
+  },
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 97722,
+    "height" : 992,
+    "output" : "text-overlays/07-operator-matching-text.png",
+    "outputSHA256" : "4c11fa3abce0a1e8dad4d861a09283b158aaa462100c9c165d8f0c60a36fcc48",
+    "patchCount" : 11,
+    "source" : "07-operator-matching-aligned.png",
+    "sourceSHA256" : "516255e8523a56f812104beab5552a0ac2fbb3af3c26d49d9e54d2534ce45793",
+    "width" : 1586
+  },
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 3568,
+    "height" : 992,
+    "output" : "text-overlays/09-quality-review-text.png",
+    "outputSHA256" : "32a870d2cb01e41bdc9d1b4a7e079db41a61092f19443346eef2f55c442f398d",
+    "patchCount" : 1,
+    "source" : "09-quality-review.png",
+    "sourceSHA256" : "29566e5b427c6bccf4df29193718526470790ecba149a14cd2c1fd1580fd8470",
+    "width" : 1586
+  },
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 3545,
+    "height" : 992,
+    "output" : "text-overlays/10-dataset-library-text.png",
+    "outputSHA256" : "68feeb95359d89531becec331f4cd7234509cdafdfa385b1d3cb13c07f369c09",
+    "patchCount" : 1,
+    "source" : "10-dataset-library.png",
+    "sourceSHA256" : "6d3d4083736355c9136e2f74a251f289e37d221292ca07e7b129c7ed214609ba",
+    "width" : 1586
+  },
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 3397,
+    "height" : 992,
+    "output" : "text-overlays/11-dataset-detail-text.png",
+    "outputSHA256" : "161ba180324858f150d279f2b5d428d464e9733241aa3fac0e0861b5c78528c0",
+    "patchCount" : 1,
+    "source" : "11-dataset-detail-aligned.png",
+    "sourceSHA256" : "6aa8d3524726bfffc6bcb6934b7b94e037592187ad3676349686a66f13720a41",
+    "width" : 1586
+  },
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 3516,
+    "height" : 993,
+    "output" : "text-overlays/12-model-registry-text.png",
+    "outputSHA256" : "cd079166505f171a937704bda21cd0b2ede844987b816622400053753d19c9e5",
+    "patchCount" : 1,
+    "source" : "12-model-registry.png",
+    "sourceSHA256" : "9bdde22aee6cd02efa61f0fcba1dab508cd5fb7e707a7a10aa15e944af81226d",
+    "width" : 1584
+  },
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 3368,
+    "height" : 992,
+    "output" : "text-overlays/13-hardware-catalog-text.png",
+    "outputSHA256" : "1809c869eceb4f0fb3e528482f76c775bc8208866af83c1d8037bc7771c591f2",
+    "patchCount" : 1,
+    "source" : "13-hardware-catalog.png",
+    "sourceSHA256" : "4896ba0768471a533e9f064f220351e4b3c3580aeaa8d96d356027d4aba6a6c8",
+    "width" : 1585
+  },
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 9388,
+    "height" : 992,
+    "output" : "text-overlays/14-deployment-setup-text.png",
+    "outputSHA256" : "62dd0db3c5bd1176b7335032d4b4dd4c72d48f79a004482604573da7831af2a3",
+    "patchCount" : 3,
+    "source" : "14-deployment-setup.png",
+    "sourceSHA256" : "3955ab115f8c38f4181f3cc94cc6b9b95ad988735f62d1ea4bb8386a10c7af18",
+    "width" : 1586
+  },
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 3553,
+    "height" : 992,
+    "output" : "text-overlays/15-fleet-monitor-text.png",
+    "outputSHA256" : "1dd138f44ac6faa9fa09a6ad19b2fe046691b67dbf460fd441c640787044e929",
+    "patchCount" : 1,
+    "source" : "15-fleet-monitor.png",
+    "sourceSHA256" : "035078c92453e2f5a4c1621c257d7c8bbf806e14dd02be214916fdc725fedf08",
+    "width" : 1586
+  },
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 35705,
+    "height" : 992,
+    "output" : "text-overlays/16-incident-recollection-text.png",
+    "outputSHA256" : "34adf1c0ce74490b2e9947e98601a361115676dd4c4ae65e5136108b2396c5e2",
+    "patchCount" : 7,
+    "source" : "16-incident-recollection.png",
+    "sourceSHA256" : "bf347cd5301a987211ab5c4f1807be2ede85803708f1ca4d24a3559c64332d2b",
+    "width" : 1585
+  },
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 86337,
+    "height" : 1823,
+    "output" : "text-overlays/17-mobile-operator-inbox-text.png",
+    "outputSHA256" : "b479e9ffb7325384b42bf2faf66db6a8cf01ef503b670fb59af99628ee2f4b61",
+    "patchCount" : 4,
+    "source" : "17-mobile-operator-inbox.png",
+    "sourceSHA256" : "5ec9825dada257c3f7e49241f7eba7ddabd007c8e469259eabc450e30d426560",
+    "width" : 863
+  },
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 80758,
+    "height" : 1824,
+    "output" : "text-overlays/18-mobile-career-learning-text.png",
+    "outputSHA256" : "f20f4407c54a4d10b1548a04392642458bc967380efead767f7e1596936ae2c5",
+    "patchCount" : 10,
+    "source" : "18-mobile-career-learning.png",
+    "sourceSHA256" : "6073f3d03242b9e6f08a0e1c6952a8588f68ba2c4e1a8868f6c532fc1c36b75c",
+    "width" : 862
+  },
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 16806,
+    "height" : 992,
+    "output" : "text-overlays/19-data-access-text.png",
+    "outputSHA256" : "f6a85048a8ab294b2d41f19e39c4e9869b0c30f63c955b19c2b53235eb798193",
+    "patchCount" : 3,
+    "source" : "19-data-access-aligned.png",
+    "sourceSHA256" : "c1459b950a15d063dc6958e6592bc826d47e5512876575a6d651fa3f979ed84c",
+    "width" : 1585
+  },
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 12213,
+    "height" : 992,
+    "output" : "text-overlays/20-workspace-settings-text.png",
+    "outputSHA256" : "1ea12c070d0fb95bd4172d504de1fb75721e493af3c4c661a87c487b85805a42",
+    "patchCount" : 3,
+    "source" : "20-workspace-settings-aligned.png",
+    "sourceSHA256" : "23184ca1e1a39934eb9fc180679c0360ff8f08c32da32cbba53a196477bd073b",
+    "width" : 1586
+  },
+  {
+    "changedOutsidePatches" : 0,
+    "changedPixels" : 3594,
+    "height" : 992,
+    "output" : "text-overlays/21-field-explorer-text.png",
+    "outputSHA256" : "415ef1b62a139fe7ef7072b2765b397291fd2ef363ce23d52c2191a1b6b25ab5",
+    "patchCount" : 1,
+    "source" : "21-field-explorer.png",
+    "sourceSHA256" : "5d166ee06444a1b93a2a6be4417c1fb06e7e376ff0f66b04b47a82f813b082be",
+    "width" : 1586
+  }
+]

@@ -22,11 +22,20 @@ function gallery(sector,online=true) {
 for(const sector of selected) {
  const c=sectors[sector], dest=path.join(root,'dist',sector);
  await mkdir(path.join(dest,'assets'),{recursive:true});
+ await mkdir(path.join(dest,'assets','scenarios'),{recursive:true});
  await mkdir(path.join(dest,'references'),{recursive:true});
  await writeFile(path.join(dest,'assets/app.css'),css);
  for(const file of ['app.mjs','state.mjs']) await copyFile(path.join(root,'apps/shared',file),path.join(dest,'assets',file));
  const photo=sector==='manufacturing'?'rgb-part.png':'tray-task.png';
  await copyFile(path.join(concepts,sector,photo),path.join(dest,'assets',photo));
+ if (sector === 'small-business') {
+  const scenarioImages = [
+   ...Object.values(c.scenarios).map(item=>item.image),
+   ...c.datasetExamples.map(item=>item.image),
+  ];
+  for (const image of new Set(scenarioImages))
+   await copyFile(path.join(concepts,sector,'scenarios',image),path.join(dest,'assets','scenarios',image));
+ }
  const pages=[];
  for(let n=1;n<=c.names.length;n++) {
   const id=screenId(sector,n), source=path.join(concepts,sector,`${id}.png`);

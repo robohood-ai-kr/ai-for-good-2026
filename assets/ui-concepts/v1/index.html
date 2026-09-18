@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RoboHood 제조업 중심 v1 — 전체 화면 시안</title>
+<style>
+:root{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#202b27;background:#f5f6f2;font-synthesis:none}
+*{box-sizing:border-box}body{margin:0}header{padding:40px 5vw 28px;max-width:1700px;margin:auto}.eyebrow{font-size:12px;letter-spacing:.1em;color:#587065}h1{font-size:clamp(26px,4vw,42px);letter-spacing:-.045em;margin:12px 0}p{line-height:1.7;color:#5b6962;max-width:850px}nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding-top:16px}button,a{font:inherit}button{cursor:pointer;border:1px solid #d2dcd4;background:#fff;border-radius:8px;padding:9px 16px;color:#28483b}button.active{background:#194c38;color:#fff;border-color:#194c38}.links{margin-left:auto;font-size:13px;display:flex;gap:18px}a{color:#285b44;text-underline-offset:4px}.count{font-size:12px;color:#607068}main{max-width:1700px;padding:0 5vw 50px;margin:auto}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.card{background:#fff;border:1px solid #dee5df;border-radius:12px;overflow:hidden}.preview{width:100%;aspect-ratio:16/10;background:#e9eee8;padding:0;border:0;border-radius:0;display:flex;align-items:center;justify-content:center}.preview img{width:100%;height:100%;object-fit:contain}.info{padding:17px 20px 20px}.topline{display:flex;align-items:center;gap:8px}.number{font-size:12px;font-weight:700;color:#637b6c}.info h2{font-size:18px;letter-spacing:-.02em;margin:0}.tag{font-size:11px;background:#edf3ee;padding:4px 7px;border-radius:4px;margin-left:auto;white-space:nowrap}.info p{font-size:13px;margin:8px 0 12px}.info a{font-size:12px}dialog{max-width:none;max-height:none;width:100vw;height:100dvh;border:0;background:#142019f5;color:#fff;margin:0;padding:16px 22px}dialog::backdrop{background:#142019}.viewer-head{display:flex;gap:16px;align-items:center;height:50px}.viewer-head span{font-size:16px}.viewer-head a{color:#d0e6d7;margin-left:auto;font-size:13px}.viewer-image{display:block;max-width:100%;height:calc(100dvh - 140px);margin:8px auto;object-fit:contain}.viewer-foot{display:flex;justify-content:center;align-items:center;gap:16px}.viewer-foot span{font-size:13px;color:#cbd6cd}.note{font-size:12px;padding-top:30px;color:#78827c}@media(max-width:750px){.grid{grid-template-columns:1fr}header{padding-top:28px}.links{width:100%;margin:8px 0 0}.viewer-head span{font-size:13px}.viewer-head a{display:none}}
+</style>
+</head>
+<body>
+<header><div class="eyebrow">ROBOHOOD / MANUFACTURING V1</div><h1>제조업 중심 v1 · 21개 화면</h1><p>상위 명칭은 ‘청년 Physical AI 현장 전문인력’, 메뉴의 짧은 표기는 ‘현장 인력’입니다. 기존 시안 20개의 글자만 수정하고 1개는 유지했습니다. AI 재생성 없이 기존 배치·아이콘·사진을 보존했습니다. 소상공인 중심 v1은 별도 기획안이며 이 이미지 세트와 구분합니다.</p><nav><button class="active" data-filter="all" aria-pressed="true">전체 21</button><button data-filter="desktop" aria-pressed="false">데스크톱 18</button><button data-filter="mobile" aria-pressed="false">모바일 3</button><button data-filter="text" aria-pressed="false">글자 수정 20</button><button data-filter="new" aria-pressed="false">현장 탐색 1</button><span class="links"><a href="../../../docs/AI_FOR_GOOD_PROJECT_PLAN.md">제조업 기획 v1</a><a href="../../../docs/small-business/v1/PROJECT_PLAN.md">소상공인 기획 v1</a><a href="text-overlay-manifest.json">글자 변경 명세</a></span></nav></header>
+<main><div class="grid" id="grid"></div><p class="note">클릭하면 확대됩니다. ‘수정 전 보기’로 같은 화면의 원본과 비교하고, 좌우 방향키로 이동하거나 Esc로 닫을 수 있습니다. 이 갤러리는 이미지 열람 도구이며 실제 제품 기능·직무 권한·지급을 구현하지 않습니다. 새 역할·보상 조건의 전체 요구사항은 문서를 우선합니다.</p></main>
+<dialog id="viewer"><div class="viewer-head"><span id="viewer-title"></span><a id="original" target="_blank" rel="noopener">현재 시안 열기</a><button id="compare" aria-pressed="false">수정 전 보기</button><button id="close">닫기</button></div><img class="viewer-image" id="viewer-img" alt=""><div class="viewer-foot"><button id="prev">이전</button><span id="position"></span><button id="next">다음</button></div></dialog>
+<script>
+const pages=[
+  {
+    "id": "01",
+    "title": "서비스 소개",
+    "format": "desktop",
+    "file": "text-overlays/01-service-home-text.png",
+    "goal": "청년 Physical AI 현장 전문인력과 참여 조직의 역할",
+    "updated": true,
+    "sourceFile": "01-service-home-aligned.png",
+    "textUpdated": true
+  },
+  {
+    "id": "02",
+    "title": "로그인·워크스페이스",
+    "format": "desktop",
+    "file": "text-overlays/02-workspace-entry-text.png",
+    "goal": "사용자 역할과 작업 공간 진입",
+    "sourceFile": "02-workspace-entry.png",
+    "textUpdated": true
+  },
+  {
+    "id": "03",
+    "title": "워크스페이스 개요",
+    "format": "desktop",
+    "file": "text-overlays/03-workspace-overview-text.png",
+    "goal": "현재 진행 상태와 다음 행동",
+    "sourceFile": "03-workspace-overview.png",
+    "textUpdated": true
+  },
+  {
+    "id": "04",
+    "title": "현장 과제 목록",
+    "format": "desktop",
+    "file": "text-overlays/04-field-projects-text.png",
+    "goal": "요청자·제공 현장·수행팀과 진행 관리",
+    "updated": true,
+    "sourceFile": "04-field-projects-aligned.png",
+    "textUpdated": true
+  },
+  {
+    "id": "05",
+    "title": "현장 과제 등록",
+    "format": "desktop",
+    "file": "text-overlays/05-new-project-text.png",
+    "goal": "활용 목적·RGB 데이터·이용 조건 입력",
+    "updated": true,
+    "sourceFile": "05-new-project-aligned.png",
+    "textUpdated": true
+  },
+  {
+    "id": "06",
+    "title": "과제 상세",
+    "format": "desktop",
+    "file": "text-overlays/06-project-detail-text.png",
+    "goal": "참여자 역할과 데이터·적용 이력 연결",
+    "updated": true,
+    "sourceFile": "06-project-detail-aligned.png",
+    "textUpdated": true
+  },
+  {
+    "id": "07",
+    "title": "수집팀·현장 인력 매칭",
+    "format": "desktop",
+    "file": "text-overlays/07-operator-matching-text.png",
+    "goal": "직무·교육·감독·보상 조건에 맞춘 배정",
+    "updated": true,
+    "sourceFile": "07-operator-matching-aligned.png",
+    "textUpdated": true
+  },
+  {
+    "id": "08",
+    "title": "현장 데이터 수집",
+    "format": "mobile",
+    "file": "08-mobile-data-collection.png",
+    "goal": "현장 체크와 수집 상태 확인"
+  },
+  {
+    "id": "09",
+    "title": "검수·라벨링",
+    "format": "desktop",
+    "file": "text-overlays/09-quality-review-text.png",
+    "goal": "수집 데이터를 검수하고 반려·승인",
+    "sourceFile": "09-quality-review.png",
+    "textUpdated": true
+  },
+  {
+    "id": "10",
+    "title": "데이터셋 라이브러리",
+    "format": "desktop",
+    "file": "text-overlays/10-dataset-library-text.png",
+    "goal": "자체 데이터셋 검색과 관리",
+    "sourceFile": "10-dataset-library.png",
+    "textUpdated": true
+  },
+  {
+    "id": "11",
+    "title": "데이터셋 상세·버전",
+    "format": "desktop",
+    "file": "text-overlays/11-dataset-detail-text.png",
+    "goal": "출처·수집 수행자·활용 목적·버전 확인",
+    "updated": true,
+    "sourceFile": "11-dataset-detail-aligned.png",
+    "textUpdated": true
+  },
+  {
+    "id": "12",
+    "title": "모델 목록·상세",
+    "format": "desktop",
+    "file": "text-overlays/12-model-registry-text.png",
+    "goal": "데이터에 맞는 모델 선택과 평가",
+    "sourceFile": "12-model-registry.png",
+    "textUpdated": true
+  },
+  {
+    "id": "13",
+    "title": "장비·호환성",
+    "format": "desktop",
+    "file": "text-overlays/13-hardware-catalog-text.png",
+    "goal": "과제·모델과 호환되는 장비 선택",
+    "sourceFile": "13-hardware-catalog.png",
+    "textUpdated": true
+  },
+  {
+    "id": "14",
+    "title": "배포 준비",
+    "format": "desktop",
+    "file": "text-overlays/14-deployment-setup-text.png",
+    "goal": "승인된 현장 적용 FDE의 시험 배포 준비",
+    "sourceFile": "14-deployment-setup.png",
+    "textUpdated": true
+  },
+  {
+    "id": "15",
+    "title": "실시간 관제",
+    "format": "desktop",
+    "file": "text-overlays/15-fleet-monitor-text.png",
+    "goal": "현장 장비 상태와 운영 결과 확인",
+    "sourceFile": "15-fleet-monitor.png",
+    "textUpdated": true
+  },
+  {
+    "id": "16",
+    "title": "이벤트·재수집",
+    "format": "desktop",
+    "file": "text-overlays/16-incident-recollection-text.png",
+    "goal": "실패 원인을 기록하고 수집 작업 재개",
+    "sourceFile": "16-incident-recollection.png",
+    "textUpdated": true
+  },
+  {
+    "id": "17",
+    "title": "현장 인력 작업함",
+    "format": "mobile",
+    "file": "text-overlays/17-mobile-operator-inbox-text.png",
+    "goal": "수집 담당자의 배정·교육·안전·보상 조건",
+    "sourceFile": "17-mobile-operator-inbox.png",
+    "textUpdated": true
+  },
+  {
+    "id": "18",
+    "title": "경력·교육",
+    "format": "mobile",
+    "file": "text-overlays/18-mobile-career-learning-text.png",
+    "goal": "자동 승급이 아닌 역량별 직무·학습 선택지",
+    "sourceFile": "18-mobile-career-learning.png",
+    "textUpdated": true
+  },
+  {
+    "id": "19",
+    "title": "데이터 접근·이용 조건",
+    "format": "desktop",
+    "file": "text-overlays/19-data-access-text.png",
+    "goal": "과제별 데이터 이용 승인과 권한 관리",
+    "updated": true,
+    "sourceFile": "19-data-access-aligned.png",
+    "textUpdated": true
+  },
+  {
+    "id": "20",
+    "title": "워크스페이스 설정",
+    "format": "desktop",
+    "file": "text-overlays/20-workspace-settings-text.png",
+    "goal": "조직 유형과 과제별 참여 역할 구분",
+    "updated": true,
+    "sourceFile": "20-workspace-settings-aligned.png",
+    "textUpdated": true
+  },
+  {
+    "id": "21",
+    "title": "현장 탐색",
+    "format": "desktop",
+    "file": "text-overlays/21-field-explorer-text.png",
+    "goal": "지도에서 현장·데이터를 찾고 수집 요청으로 연결",
+    "added": true,
+    "sourceFile": "21-field-explorer.png",
+    "textUpdated": true
+  }
+];
+let selected=0;
+let visible=pages;
+let comparing=false;
+const grid=document.getElementById('grid');
+const viewer=document.getElementById('viewer');
+const compareButton=document.getElementById('compare');
+
+function render(filter){
+  visible=pages.filter(p=>filter==='all'||(filter==='text'?p.textUpdated:filter==='new'?p.added:p.format===filter));
+  grid.innerHTML=visible.map(p=>'<article class="card"><button class="preview" data-id="'+p.id+'" aria-label="'+p.title+' 크게 보기"><img src="'+p.file+'" alt="'+p.title+' 화면 시안" loading="lazy"></button><div class="info"><div class="topline"><span class="number">'+p.id+'</span><h2>'+p.title+'</h2><span class="tag">'+(p.textUpdated?'글자 수정 · ':'유지 · ')+(p.format==='mobile'?'모바일':'데스크톱')+'</span></div><p>'+p.goal+'</p><a href="'+p.file+'" target="_blank" rel="noopener">현재 시안 ↗</a></div></article>').join('');
+}
+function updateViewer(){
+  const p=visible[selected];
+  const file=comparing?p.sourceFile:p.file;
+  document.getElementById('viewer-title').textContent=p.id+' · '+p.title+(comparing?' · 수정 전':'');
+  const img=document.getElementById('viewer-img');
+  img.src=file;
+  img.alt=p.title+(comparing?' 수정 전':' 현재 시안');
+  document.getElementById('original').href=file;
+  document.getElementById('position').textContent=(selected+1)+' / '+visible.length;
+  compareButton.disabled=!p.sourceFile;
+  compareButton.textContent=comparing?'수정본 보기':'수정 전 보기';
+  compareButton.setAttribute('aria-pressed',String(comparing));
+}
+function show(id){
+  selected=visible.findIndex(p=>p.id===id);
+  if(selected<0)return;
+  comparing=false;
+  updateViewer();
+  if(!viewer.open)viewer.showModal();
+}
+document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{
+  document.querySelectorAll('[data-filter]').forEach(other=>{
+    other.classList.toggle('active',other===button);
+    other.setAttribute('aria-pressed',String(other===button));
+  });
+  render(button.dataset.filter);
+}));
+grid.addEventListener('click',event=>{
+  const button=event.target.closest('[data-id]');
+  if(button)show(button.dataset.id);
+});
+compareButton.onclick=()=>{
+  if(!visible[selected].sourceFile)return;
+  comparing=!comparing;
+  updateViewer();
+};
+document.getElementById('close').onclick=()=>viewer.close();
+document.getElementById('prev').onclick=()=>show(visible[(selected+visible.length-1)%visible.length].id);
+document.getElementById('next').onclick=()=>show(visible[(selected+1)%visible.length].id);
+document.addEventListener('keydown',event=>{
+  if(!viewer.open)return;
+  if(event.key==='ArrowRight')document.getElementById('next').click();
+  if(event.key==='ArrowLeft')document.getElementById('prev').click();
+});
+render('all');
+const requestedPage=new URLSearchParams(location.search).get('page');
+if(pages.some(p=>p.id===requestedPage))show(requestedPage);
+</script></body></html>

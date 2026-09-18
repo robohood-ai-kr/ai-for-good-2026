@@ -11,6 +11,13 @@ export function publicPaths() {
   for (const [sector, spec] of Object.entries(sectors)) {
     paths.push(`${sector}/index.html`, `${sector}/image-gallery.html`, `${sector}/screens.json`);
     for (const asset of ['app.css', 'app.mjs', 'state.mjs', sector === 'manufacturing' ? 'rgb-part.png' : 'tray-task.png']) paths.push(`${sector}/assets/${asset}`);
+    if (sector === 'small-business') {
+      const scenarioImages = [
+        ...Object.values(spec.scenarios).map(item => item.image),
+        ...spec.datasetExamples.map(item => item.image),
+      ];
+      for (const image of new Set(scenarioImages)) paths.push(`${sector}/assets/scenarios/${image}`);
+    }
     for (let n = 1; n <= spec.names.length; n++) {
       const id = screenId(sector, n);
       paths.push(`${sector}/${id}.html`, `${sector}/references/${id}.png`);

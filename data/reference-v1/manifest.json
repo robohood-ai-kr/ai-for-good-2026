@@ -1,0 +1,1812 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-17T19:18:24.673Z",
+  "bucket_id": "robohood-reference-v1",
+  "bucket_public": false,
+  "local_media_root": "data/local/reference-v1",
+  "selection": "Small deterministic convenience sample, not a train/test split or representative benchmark",
+  "counts": {
+    "assets": 48,
+    "bytes": 26706253,
+    "manufacturing_images": 24,
+    "manufacturing_masks": 12,
+    "small_business_video_files": 12,
+    "small_business_episodes": 9
+  },
+  "assets": [
+    {
+      "id": "manufacturing-visa-pcb1-data-images-normal-0783-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Normal/0783.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 272162,
+      "sha256": "2953a4bae577ddb435cf5ce36f3e01f5a0b6a997199f75eff984c61b190c01d2",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Normal/0783.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1073953280,
+      "upstream_label": "normal",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-normal-0828-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Normal/0828.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 282594,
+      "sha256": "f75067dfa73fd5afb0a947f3879de904b68c82f1adcf903a101750bb9b3bb7f0",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Normal/0828.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1074226176,
+      "upstream_label": "normal",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-normal-0110-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Normal/0110.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 266815,
+      "sha256": "403e08aa7213b4c4c9d08703ed1a36df92403874a3d2c5a2087f24403527c904",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Normal/0110.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1074509312,
+      "upstream_label": "normal",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-normal-1001-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Normal/1001.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 252606,
+      "sha256": "bc44342c6d26e645701bb1f5c939eb5e9ef4dc7a16fbe30ce3093df97ab7301a",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Normal/1001.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1074777088,
+      "upstream_label": "normal",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-normal-0666-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Normal/0666.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 269132,
+      "sha256": "ddcc225e30867fecc12d94ff9e0176e9a4df8beb4c71f77d210df4b60830f2b9",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Normal/0666.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1075030528,
+      "upstream_label": "normal",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-normal-0909-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Normal/0909.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 279791,
+      "sha256": "4d3c36ac0e36d64b8518f81f067f367e96bebe20ee3ad72379050532b6446856",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Normal/0909.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1075300352,
+      "upstream_label": "normal",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-normal-0585-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Normal/0585.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 264674,
+      "sha256": "aefe4490b721077e1974aeb73341f739e9bc0316fe458cc2d744e32d8dea4b09",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Normal/0585.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1075580928,
+      "upstream_label": "normal",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-normal-0747-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Normal/0747.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 278947,
+      "sha256": "d8d9c53ad6147f9f746f15422c657914144eafe0a4fdf8c48f18c61658dec925",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Normal/0747.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1075846144,
+      "upstream_label": "normal",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-normal-0189-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Normal/0189.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 264564,
+      "sha256": "e9f44ea6d6186ab806bc833ea1d1131f667e4513eb3a24c0b4bf7aca3b342ed2",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Normal/0189.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1076125696,
+      "upstream_label": "normal",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-normal-0981-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Normal/0981.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 290001,
+      "sha256": "261419fcd9030418b67286f53e3b52bee458db432ead4a0a825d063a6c25a166",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Normal/0981.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1076390912,
+      "upstream_label": "normal",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-normal-0459-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Normal/0459.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 258169,
+      "sha256": "ca3d55c477d60135e8f0869361fba70d4ee015481d466b45e8feb43a7ac9ed3d",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Normal/0459.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1076681728,
+      "upstream_label": "normal",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-normal-0297-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Normal/0297.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 263957,
+      "sha256": "2782729ea0a64f8d31c551bd9c7220a393800479b6ab583094cce16c2f99b446",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Normal/0297.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1076940800,
+      "upstream_label": "normal",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-anomaly-055-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Anomaly/055.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 244807,
+      "sha256": "95cb1b4b9610e9452291459f532e9369acf6e8f58b5b07abf53cc43112843cdc",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Anomaly/055.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 922783744,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-anomaly-037-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Anomaly/037.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 280214,
+      "sha256": "fa2e269d8719dcbdf41598b72f9836de5413dc4ebffe9f419eb684a62a8aec56",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Anomaly/037.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 923029504,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-anomaly-073-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Anomaly/073.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 264004,
+      "sha256": "f2c672946729be8bc2ab5aeb0e9c3a0f5e126b7dac16a5f54c0a37e736282bf0",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Anomaly/073.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 923310592,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-anomaly-006-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Anomaly/006.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 254004,
+      "sha256": "130738852d074373e18fcf9f610dbebbfeb92724b7ee9875912437322b53965f",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Anomaly/006.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 923575296,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-anomaly-042-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Anomaly/042.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 263268,
+      "sha256": "54e5bceb2e20c09fc0c4634515111a6e581248966adf2dc4da89f4f234e80011",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Anomaly/042.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 923830272,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-anomaly-024-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Anomaly/024.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 249793,
+      "sha256": "2b2f19d8bfbb2761a5f2b3afba2d73f04435eb68d5f10a590a2d9de74a3475c5",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Anomaly/024.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 924094464,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-anomaly-060-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Anomaly/060.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 252937,
+      "sha256": "c49aabaf0a5cdaa93d77ceba9a7f392ae51c710830e7eda24e29ba11a9bfb13a",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Anomaly/060.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 924344832,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-anomaly-015-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Anomaly/015.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 277362,
+      "sha256": "a5c044990118bd3fae4019c6df32e4b14cb7c81bb7da2deb44ce5b5c9cd49a94",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Anomaly/015.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 924598784,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-anomaly-051-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Anomaly/051.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 256140,
+      "sha256": "fefb62dfe5ab6946104009aeb94d1261bd9f0b34026a4a7cd14add7b053ec1ef",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Anomaly/051.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 924876800,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-anomaly-033-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Anomaly/033.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 269872,
+      "sha256": "97ea033ede8dc38894cc300973176add4ddc48075fbe0a1af5f3faf337844b90",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Anomaly/033.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 925133824,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-anomaly-086-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Anomaly/086.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 214973,
+      "sha256": "ba17adea64c5aff07f0d87a5eb41c01938cd13780ab4d5c5152f622a44933a24",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Anomaly/086.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 925404672,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-images-anomaly-068-jpg",
+      "object_key": "manufacturing/visa/pcb1/Data/Images/Anomaly/068.JPG",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 259733,
+      "sha256": "2d5c96ec2cf8cc3fb2ded81671569a60604b395194613a9642c710ad7d67b221",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "mjpeg",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": 0.04
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/jpeg",
+      "asset_kind": "inspection_image",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Images/Anomaly/068.JPG",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 925620224,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": null
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-masks-anomaly-055-png",
+      "object_key": "manufacturing/visa/pcb1/Data/Masks/Anomaly/055.png",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 3110,
+      "sha256": "b2efd22b60aa2b9dd1c1e7f8d19fb429658686718a4e3288919e3e721a42a837",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "png",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": null
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/png",
+      "asset_kind": "segmentation_mask",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Masks/Anomaly/055.png",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1204945920,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": "pcb1/Data/Images/Anomaly/055.JPG"
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-masks-anomaly-037-png",
+      "object_key": "manufacturing/visa/pcb1/Data/Masks/Anomaly/037.png",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 2147,
+      "sha256": "75393bdd850f2ad7fde24ef5c1504e65b103163c0fbc6668d3284917d842007f",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "png",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": null
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/png",
+      "asset_kind": "segmentation_mask",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Masks/Anomaly/037.png",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1204950016,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": "pcb1/Data/Images/Anomaly/037.JPG"
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-masks-anomaly-073-png",
+      "object_key": "manufacturing/visa/pcb1/Data/Masks/Anomaly/073.png",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 2212,
+      "sha256": "78d36eace685a622f870c7e7311fbf160c823efddad620feaa738a8093233a24",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "png",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": null
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/png",
+      "asset_kind": "segmentation_mask",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Masks/Anomaly/073.png",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1204953088,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": "pcb1/Data/Images/Anomaly/073.JPG"
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-masks-anomaly-006-png",
+      "object_key": "manufacturing/visa/pcb1/Data/Masks/Anomaly/006.png",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 2068,
+      "sha256": "ee257792128656121e070f19638e3477d0bc563eda316d2543e72c06594437c2",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "png",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": null
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/png",
+      "asset_kind": "segmentation_mask",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Masks/Anomaly/006.png",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1204895744,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": "pcb1/Data/Images/Anomaly/006.JPG"
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-masks-anomaly-042-png",
+      "object_key": "manufacturing/visa/pcb1/Data/Masks/Anomaly/042.png",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 1737,
+      "sha256": "64b311ffe9ea66ed9922997fcea26090e47600f3b68788faf75b2616f9b43a42",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "png",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": null
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/png",
+      "asset_kind": "segmentation_mask",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Masks/Anomaly/042.png",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1204898816,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": "pcb1/Data/Images/Anomaly/042.JPG"
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-masks-anomaly-024-png",
+      "object_key": "manufacturing/visa/pcb1/Data/Masks/Anomaly/024.png",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 1923,
+      "sha256": "97e1f772ee42acbb1e6d8122d17e68f9d4c34ac87a3d08d9721534d63c63d277",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "png",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": null
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/png",
+      "asset_kind": "segmentation_mask",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Masks/Anomaly/024.png",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1204901376,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": "pcb1/Data/Images/Anomaly/024.JPG"
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-masks-anomaly-060-png",
+      "object_key": "manufacturing/visa/pcb1/Data/Masks/Anomaly/060.png",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 1767,
+      "sha256": "78c16244a224f3bb7b4eeb3d0188bc74dbc4019fdccc49c61ad2f4ec16c6a24a",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "png",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": null
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/png",
+      "asset_kind": "segmentation_mask",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Masks/Anomaly/060.png",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1204903936,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": "pcb1/Data/Images/Anomaly/060.JPG"
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-masks-anomaly-015-png",
+      "object_key": "manufacturing/visa/pcb1/Data/Masks/Anomaly/015.png",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 1819,
+      "sha256": "8c3ac38c731a85e5af7e7bcc4b5db09b464c9f1f8dc02c83e4f6d42fedc02328",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "png",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": null
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/png",
+      "asset_kind": "segmentation_mask",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Masks/Anomaly/015.png",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1204906496,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": "pcb1/Data/Images/Anomaly/015.JPG"
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-masks-anomaly-051-png",
+      "object_key": "manufacturing/visa/pcb1/Data/Masks/Anomaly/051.png",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 1950,
+      "sha256": "bc7720f3701abe5973da3d0aa87b2a298338e830da01a323bdfb00b0545df0d5",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "png",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": null
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/png",
+      "asset_kind": "segmentation_mask",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Masks/Anomaly/051.png",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1204909056,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": "pcb1/Data/Images/Anomaly/051.JPG"
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-masks-anomaly-033-png",
+      "object_key": "manufacturing/visa/pcb1/Data/Masks/Anomaly/033.png",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 1832,
+      "sha256": "460f5098f3a53a96ff7c3533f38f1a96287e0f3e3b6d66e63158500c242ee4af",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "png",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": null
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/png",
+      "asset_kind": "segmentation_mask",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Masks/Anomaly/033.png",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1204911616,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": "pcb1/Data/Images/Anomaly/033.JPG"
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-masks-anomaly-086-png",
+      "object_key": "manufacturing/visa/pcb1/Data/Masks/Anomaly/086.png",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 2972,
+      "sha256": "7ffa048f5b2dbd88335d9109608a138b3600823556c8d7f81077b8c89dc7b211",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "png",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": null
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/png",
+      "asset_kind": "segmentation_mask",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Masks/Anomaly/086.png",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1204889088,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": "pcb1/Data/Images/Anomaly/086.JPG"
+    },
+    {
+      "id": "manufacturing-visa-pcb1-data-masks-anomaly-068-png",
+      "object_key": "manufacturing/visa/pcb1/Data/Masks/Anomaly/068.png",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 2066,
+      "sha256": "4d37238deaff55b4bc3a869fcae5c4488138742643ab7174a7bb1d318f9bcc05",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "png",
+            "codec_type": "video",
+            "width": 1404,
+            "height": 1070,
+            "avg_frame_rate": "25/1"
+          }
+        ],
+        "duration_seconds": null
+      },
+      "transformations": [],
+      "source_id": "visa",
+      "scenario_id": "RH-MF-001",
+      "media_type": "image/png",
+      "asset_kind": "segmentation_mask",
+      "source_url": "https://amazon-visual-anomaly.s3.us-west-2.amazonaws.com/VisA_20220922.tar",
+      "source_member": "pcb1/Data/Masks/Anomaly/068.png",
+      "source_archive_etag": "\"05c830591a1172938cb714895c9e0cfb-113\"",
+      "source_byte_offset": 1204892672,
+      "upstream_label": "anomaly",
+      "upstream_label_status": "publisher_provided",
+      "task": "pcb_visual_inspection",
+      "episode_id": null,
+      "camera_id": null,
+      "related_image_member": "pcb1/Data/Images/Anomaly/068.JPG"
+    },
+    {
+      "id": "small-business-hoyer-clip-001-mp4",
+      "object_key": "small-business/hoyer/clip_001.mp4",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 1491517,
+      "sha256": "c446153ad8663c0a7b392239bc92ddd4442d271dd9485f9494c905c6dfba96d3",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1080,
+            "avg_frame_rate": "30/1"
+          }
+        ],
+        "duration_seconds": 2.033333
+      },
+      "transformations": [
+        "audio_removed",
+        "container_metadata_removed",
+        "video_stream_copied_no_reencoding"
+      ],
+      "source_id": "hoyer-egocentric",
+      "scenario_id": "RH-SB-001",
+      "media_type": "video/mp4",
+      "asset_kind": "human_demonstration",
+      "source_url": "https://huggingface.co/datasets/HoyerChou/EgocentricVideos/resolve/81efb2a752042805b26e6e24b0d36cc4a1c226b6/2026-01-05_19-35-47-pick-place.zip",
+      "source_member": "2026-01-05_19-35-47-pick-place/clip_001.mp4",
+      "source_sha256": "7f7526cd8bdd8092a088ddd8874cf8ac8f7fde549e1cd5500f972f2190f803f8",
+      "upstream_label": null,
+      "upstream_label_status": "unlabeled_demonstration",
+      "task": "tabletop_pick_place",
+      "episode_id": "hoyer-pick-place-1",
+      "source_session_id": "2026-01-05_19-35-47-pick-place",
+      "camera_id": "egocentric"
+    },
+    {
+      "id": "small-business-hoyer-clip-002-mp4",
+      "object_key": "small-business/hoyer/clip_002.mp4",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 1524403,
+      "sha256": "58b68b52a92826b9d0fd5576f442ae8bd4697045fe1e8dd00ae5698027e196fa",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1080,
+            "avg_frame_rate": "30/1"
+          }
+        ],
+        "duration_seconds": 2.3
+      },
+      "transformations": [
+        "audio_removed",
+        "container_metadata_removed",
+        "video_stream_copied_no_reencoding"
+      ],
+      "source_id": "hoyer-egocentric",
+      "scenario_id": "RH-SB-001",
+      "media_type": "video/mp4",
+      "asset_kind": "human_demonstration",
+      "source_url": "https://huggingface.co/datasets/HoyerChou/EgocentricVideos/resolve/81efb2a752042805b26e6e24b0d36cc4a1c226b6/2026-01-05_19-35-47-pick-place.zip",
+      "source_member": "2026-01-05_19-35-47-pick-place/clip_002.mp4",
+      "source_sha256": "163bf28c4dcba888da9b51be137466d1f3fcb4a7354a82419cd01b233d944cb6",
+      "upstream_label": null,
+      "upstream_label_status": "unlabeled_demonstration",
+      "task": "tabletop_pick_place",
+      "episode_id": "hoyer-pick-place-2",
+      "source_session_id": "2026-01-05_19-35-47-pick-place",
+      "camera_id": "egocentric"
+    },
+    {
+      "id": "small-business-hoyer-clip-003-mp4",
+      "object_key": "small-business/hoyer/clip_003.mp4",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 1511933,
+      "sha256": "dd50a9239f951e9f9e39d2207deadf0b36886de3168c2f5573f2094e87bcccd6",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1080,
+            "avg_frame_rate": "30/1"
+          }
+        ],
+        "duration_seconds": 2.033333
+      },
+      "transformations": [
+        "audio_removed",
+        "container_metadata_removed",
+        "video_stream_copied_no_reencoding"
+      ],
+      "source_id": "hoyer-egocentric",
+      "scenario_id": "RH-SB-001",
+      "media_type": "video/mp4",
+      "asset_kind": "human_demonstration",
+      "source_url": "https://huggingface.co/datasets/HoyerChou/EgocentricVideos/resolve/81efb2a752042805b26e6e24b0d36cc4a1c226b6/2026-01-05_19-35-47-pick-place.zip",
+      "source_member": "2026-01-05_19-35-47-pick-place/clip_003.mp4",
+      "source_sha256": "625a55e103ce7e51da322e6bf46af3d436cff199b92875bda83a57d4a6797d16",
+      "upstream_label": null,
+      "upstream_label_status": "unlabeled_demonstration",
+      "task": "tabletop_pick_place",
+      "episode_id": "hoyer-pick-place-3",
+      "source_session_id": "2026-01-05_19-35-47-pick-place",
+      "camera_id": "egocentric"
+    },
+    {
+      "id": "small-business-hoyer-clip-004-mp4",
+      "object_key": "small-business/hoyer/clip_004.mp4",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 1598081,
+      "sha256": "ad5208bca68acf2153a51fc75deb43b1abba72a975b0de76173f3ceb60368f85",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1080,
+            "avg_frame_rate": "30/1"
+          }
+        ],
+        "duration_seconds": 2.133333
+      },
+      "transformations": [
+        "audio_removed",
+        "container_metadata_removed",
+        "video_stream_copied_no_reencoding"
+      ],
+      "source_id": "hoyer-egocentric",
+      "scenario_id": "RH-SB-001",
+      "media_type": "video/mp4",
+      "asset_kind": "human_demonstration",
+      "source_url": "https://huggingface.co/datasets/HoyerChou/EgocentricVideos/resolve/81efb2a752042805b26e6e24b0d36cc4a1c226b6/2026-01-05_19-35-47-pick-place.zip",
+      "source_member": "2026-01-05_19-35-47-pick-place/clip_004.mp4",
+      "source_sha256": "2380f006470d1caa1b56bf769253dd764fb7f4d872497b190a4c1a3249127294",
+      "upstream_label": null,
+      "upstream_label_status": "unlabeled_demonstration",
+      "task": "tabletop_pick_place",
+      "episode_id": "hoyer-pick-place-4",
+      "source_session_id": "2026-01-05_19-35-47-pick-place",
+      "camera_id": "egocentric"
+    },
+    {
+      "id": "small-business-hoyer-clip-005-mp4",
+      "object_key": "small-business/hoyer/clip_005.mp4",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 1360904,
+      "sha256": "15232333931849097c13033df9bf1955daeeba1d62594fffe24df539abadcb24",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1080,
+            "avg_frame_rate": "30/1"
+          }
+        ],
+        "duration_seconds": 2.133008
+      },
+      "transformations": [
+        "audio_removed",
+        "container_metadata_removed",
+        "video_stream_copied_no_reencoding"
+      ],
+      "source_id": "hoyer-egocentric",
+      "scenario_id": "RH-SB-001",
+      "media_type": "video/mp4",
+      "asset_kind": "human_demonstration",
+      "source_url": "https://huggingface.co/datasets/HoyerChou/EgocentricVideos/resolve/81efb2a752042805b26e6e24b0d36cc4a1c226b6/2026-01-05_19-35-47-pick-place.zip",
+      "source_member": "2026-01-05_19-35-47-pick-place/clip_005.mp4",
+      "source_sha256": "026fcc978b2c1be798acf6549a7fdee7b61a520b735718fa7b555722afd4f247",
+      "upstream_label": null,
+      "upstream_label_status": "unlabeled_demonstration",
+      "task": "tabletop_pick_place",
+      "episode_id": "hoyer-pick-place-5",
+      "source_session_id": "2026-01-05_19-35-47-pick-place",
+      "camera_id": "egocentric"
+    },
+    {
+      "id": "small-business-hoyer-clip-006-mp4",
+      "object_key": "small-business/hoyer/clip_006.mp4",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 1647582,
+      "sha256": "78477eee326a259727a2706dba66445ccc0cf09cf31479e015ea29dfb742ac81",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1080,
+            "avg_frame_rate": "30/1"
+          }
+        ],
+        "duration_seconds": 2.2
+      },
+      "transformations": [
+        "audio_removed",
+        "container_metadata_removed",
+        "video_stream_copied_no_reencoding"
+      ],
+      "source_id": "hoyer-egocentric",
+      "scenario_id": "RH-SB-001",
+      "media_type": "video/mp4",
+      "asset_kind": "human_demonstration",
+      "source_url": "https://huggingface.co/datasets/HoyerChou/EgocentricVideos/resolve/81efb2a752042805b26e6e24b0d36cc4a1c226b6/2026-01-05_19-35-47-pick-place.zip",
+      "source_member": "2026-01-05_19-35-47-pick-place/clip_006.mp4",
+      "source_sha256": "1795468dea1cc2dd4ce843dbd7d500338548bcff75f4839e509b5c5dc60dafbf",
+      "upstream_label": null,
+      "upstream_label_status": "unlabeled_demonstration",
+      "task": "tabletop_pick_place",
+      "episode_id": "hoyer-pick-place-6",
+      "source_session_id": "2026-01-05_19-35-47-pick-place",
+      "camera_id": "egocentric"
+    },
+    {
+      "id": "small-business-smartdeer-ep0001-left-mp4",
+      "object_key": "small-business/smartdeer/ep0001_left.mp4",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 2101724,
+      "sha256": "e2b6b706a1cf2dbb43ec466cdb2f68fb247a1851c5bc19552da175c1047cf3e0",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 960,
+            "height": 720,
+            "avg_frame_rate": "30/1"
+          }
+        ],
+        "duration_seconds": 17
+      },
+      "transformations": [],
+      "source_id": "smartdeer-egocentric",
+      "scenario_id": "RH-SB-001",
+      "media_type": "video/mp4",
+      "asset_kind": "human_demonstration",
+      "source_url": "https://huggingface.co/datasets/SmartDeer/egocentric-manipulation-sample/resolve/803028bfb69c002053d66a56b961d35197aeb0ea/dataset/train/ep0001_left.mp4",
+      "source_member": "dataset/train/ep0001_left.mp4",
+      "upstream_label": "twist_cap",
+      "upstream_label_status": "pending_verification",
+      "upstream_task_verified": false,
+      "upstream_review_status": "pending",
+      "task": "twist_cap",
+      "episode_id": "smartdeer-ep0001",
+      "camera_id": "left",
+      "source_sha256": "e2b6b706a1cf2dbb43ec466cdb2f68fb247a1851c5bc19552da175c1047cf3e0"
+    },
+    {
+      "id": "small-business-smartdeer-ep0001-right-mp4",
+      "object_key": "small-business/smartdeer/ep0001_right.mp4",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 2113755,
+      "sha256": "ef284b95512fa0df763de359aeb69e9a48c386a7fd1793c0ab76dd55645e4e77",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 960,
+            "height": 720,
+            "avg_frame_rate": "30/1"
+          }
+        ],
+        "duration_seconds": 17
+      },
+      "transformations": [],
+      "source_id": "smartdeer-egocentric",
+      "scenario_id": "RH-SB-001",
+      "media_type": "video/mp4",
+      "asset_kind": "human_demonstration",
+      "source_url": "https://huggingface.co/datasets/SmartDeer/egocentric-manipulation-sample/resolve/803028bfb69c002053d66a56b961d35197aeb0ea/dataset/train/ep0001_right.mp4",
+      "source_member": "dataset/train/ep0001_right.mp4",
+      "upstream_label": "twist_cap",
+      "upstream_label_status": "pending_verification",
+      "upstream_task_verified": false,
+      "upstream_review_status": "pending",
+      "task": "twist_cap",
+      "episode_id": "smartdeer-ep0001",
+      "camera_id": "right",
+      "source_sha256": "ef284b95512fa0df763de359aeb69e9a48c386a7fd1793c0ab76dd55645e4e77"
+    },
+    {
+      "id": "small-business-smartdeer-ep0002-left-mp4",
+      "object_key": "small-business/smartdeer/ep0002_left.mp4",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 1278702,
+      "sha256": "ac0cbc3c6a9d8024b26f47dc9c2e7a73c640021a5c83d16f27e0b6c79a8213d8",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 960,
+            "height": 720,
+            "avg_frame_rate": "30/1"
+          }
+        ],
+        "duration_seconds": 12
+      },
+      "transformations": [],
+      "source_id": "smartdeer-egocentric",
+      "scenario_id": "RH-SB-001",
+      "media_type": "video/mp4",
+      "asset_kind": "human_demonstration",
+      "source_url": "https://huggingface.co/datasets/SmartDeer/egocentric-manipulation-sample/resolve/803028bfb69c002053d66a56b961d35197aeb0ea/dataset/train/ep0002_left.mp4",
+      "source_member": "dataset/train/ep0002_left.mp4",
+      "upstream_label": "twist_cap",
+      "upstream_label_status": "pending_verification",
+      "upstream_task_verified": false,
+      "upstream_review_status": "pending",
+      "task": "twist_cap",
+      "episode_id": "smartdeer-ep0002",
+      "camera_id": "left",
+      "source_sha256": "ac0cbc3c6a9d8024b26f47dc9c2e7a73c640021a5c83d16f27e0b6c79a8213d8"
+    },
+    {
+      "id": "small-business-smartdeer-ep0002-right-mp4",
+      "object_key": "small-business/smartdeer/ep0002_right.mp4",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 1301407,
+      "sha256": "32a8889d1026ef5a52225709f1afb5b24d37c3efedeb647b4e094d7d4f8dc5bb",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 960,
+            "height": 720,
+            "avg_frame_rate": "30/1"
+          }
+        ],
+        "duration_seconds": 12
+      },
+      "transformations": [],
+      "source_id": "smartdeer-egocentric",
+      "scenario_id": "RH-SB-001",
+      "media_type": "video/mp4",
+      "asset_kind": "human_demonstration",
+      "source_url": "https://huggingface.co/datasets/SmartDeer/egocentric-manipulation-sample/resolve/803028bfb69c002053d66a56b961d35197aeb0ea/dataset/train/ep0002_right.mp4",
+      "source_member": "dataset/train/ep0002_right.mp4",
+      "upstream_label": "twist_cap",
+      "upstream_label_status": "pending_verification",
+      "upstream_task_verified": false,
+      "upstream_review_status": "pending",
+      "task": "twist_cap",
+      "episode_id": "smartdeer-ep0002",
+      "camera_id": "right",
+      "source_sha256": "32a8889d1026ef5a52225709f1afb5b24d37c3efedeb647b4e094d7d4f8dc5bb"
+    },
+    {
+      "id": "small-business-smartdeer-ep0003-left-mp4",
+      "object_key": "small-business/smartdeer/ep0003_left.mp4",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 2202899,
+      "sha256": "09f7a6f553d5b94566119b211375f3b26083ebeac177fea31312faad9f95a4e3",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 960,
+            "height": 720,
+            "avg_frame_rate": "30/1"
+          }
+        ],
+        "duration_seconds": 19
+      },
+      "transformations": [],
+      "source_id": "smartdeer-egocentric",
+      "scenario_id": "RH-SB-001",
+      "media_type": "video/mp4",
+      "asset_kind": "human_demonstration",
+      "source_url": "https://huggingface.co/datasets/SmartDeer/egocentric-manipulation-sample/resolve/803028bfb69c002053d66a56b961d35197aeb0ea/dataset/train/ep0003_left.mp4",
+      "source_member": "dataset/train/ep0003_left.mp4",
+      "upstream_label": "twist_cap",
+      "upstream_label_status": "pending_verification",
+      "upstream_task_verified": false,
+      "upstream_review_status": "pending",
+      "task": "twist_cap",
+      "episode_id": "smartdeer-ep0003",
+      "camera_id": "left",
+      "source_sha256": "09f7a6f553d5b94566119b211375f3b26083ebeac177fea31312faad9f95a4e3"
+    },
+    {
+      "id": "small-business-smartdeer-ep0003-right-mp4",
+      "object_key": "small-business/smartdeer/ep0003_right.mp4",
+      "bucket_id": "robohood-reference-v1",
+      "byte_size": 2217224,
+      "sha256": "4ca99960b3e7e117236a8d14bf4aeed07c92ccb27a2b311a4ef8862f9f547ec2",
+      "origin_type": "external_reference",
+      "review_status": "pending",
+      "visual_review": "not_yet_reviewed",
+      "media": {
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 960,
+            "height": 720,
+            "avg_frame_rate": "30/1"
+          }
+        ],
+        "duration_seconds": 19
+      },
+      "transformations": [],
+      "source_id": "smartdeer-egocentric",
+      "scenario_id": "RH-SB-001",
+      "media_type": "video/mp4",
+      "asset_kind": "human_demonstration",
+      "source_url": "https://huggingface.co/datasets/SmartDeer/egocentric-manipulation-sample/resolve/803028bfb69c002053d66a56b961d35197aeb0ea/dataset/train/ep0003_right.mp4",
+      "source_member": "dataset/train/ep0003_right.mp4",
+      "upstream_label": "twist_cap",
+      "upstream_label_status": "pending_verification",
+      "upstream_task_verified": false,
+      "upstream_review_status": "pending",
+      "task": "twist_cap",
+      "episode_id": "smartdeer-ep0003",
+      "camera_id": "right",
+      "source_sha256": "4ca99960b3e7e117236a8d14bf4aeed07c92ccb27a2b311a4ef8862f9f547ec2"
+    }
+  ]
+}

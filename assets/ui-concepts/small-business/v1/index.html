@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RoboHood · 소상공인 중심 UI v1</title>
+<style>
+:root{color-scheme:light;--bg:#f4f6f2;--ink:#142a22;--muted:#5b6c64;--green:#116342;--line:#d7e1d9;--mint:#e5f2e9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.5}
+a{color:var(--green);text-underline-offset:3px}
+button{font:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:3px solid #cf9123;outline-offset:4px}
+header{background:#fff;border-bottom:1px solid var(--line);padding:36px max(24px,calc((100vw - 1360px)/2))}
+.eyebrow{font-size:13px;font-weight:750;letter-spacing:.05em;color:var(--green)}
+h1{font-size:clamp(26px,3vw,40px);line-height:1.2;margin:12px 0}
+.lead{margin:0;max-width:860px;color:var(--muted)}
+.badges,.links,.filters{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.badges{margin:20px 0}
+.badge{padding:5px 12px;background:var(--mint);border-radius:100px;font-size:13px}
+.badge.warn{background:#fff2d8;color:#745416}
+.links{font-size:14px;gap:18px;margin-bottom:26px}
+.filters{padding-top:18px;border-top:1px solid var(--line)}
+.filters button{border:1px solid var(--line);border-radius:8px;background:white;color:var(--ink);padding:9px 15px}
+.filters button[aria-pressed="true"]{background:var(--green);color:#fff;border-color:var(--green)}
+main{max-width:1408px;margin:auto;padding:30px 24px 48px}
+.summary{margin:0 0 18px;color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.card{min-width:0;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.preview{display:flex;align-items:center;justify-content:center;width:100%;height:380px;background:#eaf0e9;border:0;padding:18px}
+.preview img{display:block;max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 5px 18px #233c2615}
+.card.mobile .preview{height:540px;background:#eef3ef}
+.info{padding:20px}
+.topline{display:flex;align-items:center;gap:10px}
+.number{font-size:13px;font-weight:800;color:var(--green)}
+h2{font-size:19px;margin:0;line-height:1.35}
+.tag{margin-left:auto;flex-shrink:0;font-size:12px;color:var(--muted);border:1px solid var(--line);padding:3px 7px;border-radius:5px}
+.info p{font-size:14px;color:var(--muted);margin:10px 0}
+.info a{font-size:13px}
+.note{font-size:13px;color:var(--muted);margin-top:28px}
+dialog{border:1px solid var(--line);border-radius:12px;width:min(96vw,1700px);max-height:96vh;padding:0;background:var(--bg)}
+dialog::backdrop{background:#10261be6}
+.viewer-head,.viewer-foot{display:flex;align-items:center;gap:16px;padding:14px 18px;background:#fff}
+.viewer-head{position:sticky;top:0;border-bottom:1px solid var(--line);z-index:1}
+#viewer-title{font-weight:700;margin-right:auto}
+.viewer-head a{font-size:13px}
+.viewer-head button,.viewer-foot button{background:white;border:1px solid var(--line);border-radius:7px;padding:7px 13px}
+.viewer-image{display:block;width:auto;max-width:100%;max-height:calc(96vh - 142px);margin:auto;object-fit:contain}
+.viewer-image.zoomed{width:100%;max-width:1600px;max-height:none}
+.viewer-image.zoomed.mobile{max-width:640px}
+.viewer-foot{justify-content:center;border-top:1px solid var(--line)}
+#position{min-width:80px;text-align:center;color:var(--muted);font-size:14px}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.preview{height:auto;min-height:180px}.preview img{max-height:450px}.card.mobile .preview{height:560px}header{padding:28px 20px}.viewer-head{flex-wrap:wrap;gap:8px}#viewer-title{flex-basis:100%}.tag{display:none}}
+</style>
+</head>
+<body>
+<header>
+<div class="eyebrow">ROBOHOOD / SMALL BUSINESS / V1</div>
+<h1>소상공인 현장과 청년을 잇는 데이터 플랫폼</h1>
+<p class="lead">요청·현장 협의 → 교육·유급 배정 → 영상 수집·검수 → 데이터 제공·수행 이력. 제조업 기획과 분리한 20개 페이지 시안입니다.</p>
+<div class="badges"><span class="badge">데스크톱 15개</span><span class="badge">모바일 5개</span><span class="badge">청년 Physical AI 현장 전문인력</span><span class="badge warn">생성 시안 · 가상 영상 · 모의 지급</span></div>
+<nav class="links" aria-label="관련 문서"><a href="../../../../docs/small-business/v1/PROJECT_PLAN.md">소상공인 기획 v1</a><a href="../../../../docs/small-business/v1/UI_SCREEN_PLAN.md">화면 설계·흐름</a><a href="prompts.json">생성 프롬프트</a><a href="../../v1/index.html">제조업 v1 갤러리 ↗</a></nav>
+<nav class="filters" aria-label="화면 필터"><button data-filter="all" aria-pressed="true">전체 20</button><button data-filter="desktop" aria-pressed="false">데스크톱 15</button><button data-filter="mobile" aria-pressed="false">모바일 5</button><button data-filter="탐색·요청" aria-pressed="false">탐색·요청</button><button data-filter="교육·배정" aria-pressed="false">교육·배정</button><button data-filter="수집·검수" aria-pressed="false">수집·검수</button><button data-filter="데이터·보상" aria-pressed="false">데이터·보상</button></nav>
+</header>
+<main>
+<p id="summary" class="summary" aria-live="polite"></p>
+<div id="grid" class="grid"></div>
+<p class="note">각 페이지를 누르면 확대됩니다. 좌우 방향키로 이동하고 Esc로 닫을 수 있습니다. 이미지 안의 버튼은 작동하지 않습니다. 각 화면은 서로 다른 시점의 예시이며 실제 데이터·제품 구현·고용·지급을 증명하지 않습니다. 구현 요구사항은 기획·MVP 문서를 우선합니다.</p>
+</main>
+<dialog id="viewer" aria-labelledby="viewer-title"><div class="viewer-head"><span id="viewer-title"></span><a id="original" target="_blank" rel="noopener">PNG 원본 열기 ↗</a><button id="zoom" type="button" aria-pressed="false">확대</button><button id="close" type="button">닫기</button></div><img class="viewer-image" id="viewer-img" alt=""><div class="viewer-foot"><button id="prev" type="button">이전</button><span id="position"></span><button id="next" type="button">다음</button></div></dialog>
+<script>
+const pages=[
+  {
+    "id": "01",
+    "title": "서비스 소개",
+    "format": "desktop",
+    "file": "01-service-home.png",
+    "goal": "청년·소상공인·요청 기업·운영팀의 역할과 유급 데이터 수집 가치",
+    "group": "탐색·요청"
+  },
+  {
+    "id": "02",
+    "title": "로그인·작업 공간",
+    "format": "desktop",
+    "file": "02-workspace-entry.png",
+    "goal": "허용된 역할·데모 작업 공간으로 진입",
+    "group": "탐색·요청"
+  },
+  {
+    "id": "03",
+    "title": "작업 공간 개요",
+    "format": "desktop",
+    "file": "03-workspace-overview.png",
+    "goal": "과제의 진행 단계와 검수·보상 등 다음 행동 확인",
+    "group": "탐색·요청"
+  },
+  {
+    "id": "04",
+    "title": "현장 탐색",
+    "format": "desktop",
+    "file": "04-field-explorer.png",
+    "goal": "생활권·허용 업무·협의 상태로 모의 현장 탐색",
+    "group": "탐색·요청"
+  },
+  {
+    "id": "05",
+    "title": "현장 상세·수집 조건",
+    "format": "desktop",
+    "file": "05-site-detail.png",
+    "goal": "소상공인의 촬영 범위·일정·이용 조건과 역할 구분",
+    "group": "탐색·요청"
+  },
+  {
+    "id": "06",
+    "title": "수집 과제 목록",
+    "format": "desktop",
+    "file": "06-task-list.png",
+    "goal": "한 과제의 참여자·수집 방식·진행 상태 탐색",
+    "group": "탐색·요청"
+  },
+  {
+    "id": "07",
+    "title": "데이터 요청 등록",
+    "format": "desktop",
+    "file": "07-new-request.png",
+    "goal": "사용 목적·영상 명세·검수 기준·비용 부담 정의",
+    "group": "탐색·요청"
+  },
+  {
+    "id": "08",
+    "title": "과제 상세·유급 작업 조건",
+    "format": "desktop",
+    "file": "08-task-detail.png",
+    "goal": "명세·참여자·교육·보상·감독 조건을 한눈에 확인",
+    "group": "탐색·요청"
+  },
+  {
+    "id": "09",
+    "title": "교육·현장 인력 배정",
+    "format": "desktop",
+    "file": "09-training-matching.png",
+    "goal": "직무·과제별 적격·감독·조건 확인 후 배정",
+    "group": "교육·배정"
+  },
+  {
+    "id": "10",
+    "title": "모바일 교육·과제 적격",
+    "format": "mobile",
+    "file": "10-mobile-training.png",
+    "goal": "교육과 모의 실습을 거쳐 과제별 참여 조건 확인",
+    "group": "교육·배정"
+  },
+  {
+    "id": "11",
+    "title": "모바일 작업함",
+    "format": "mobile",
+    "file": "11-mobile-inbox.png",
+    "goal": "배정 요청·현재 업무·다음 행동 확인",
+    "group": "수집·검수"
+  },
+  {
+    "id": "12",
+    "title": "모바일 작업 전 확인",
+    "format": "mobile",
+    "file": "12-mobile-preflight.png",
+    "goal": "필수 진입 조건을 충족하지 않으면 수집 차단",
+    "group": "수집·검수"
+  },
+  {
+    "id": "13",
+    "title": "모바일 영상 수집",
+    "format": "mobile",
+    "file": "13-mobile-collection.png",
+    "goal": "허용된 1인칭 영상과 작업 구간·변수 기록",
+    "group": "수집·검수"
+  },
+  {
+    "id": "14",
+    "title": "모바일 보완·중단 보고",
+    "format": "mobile",
+    "file": "14-mobile-rework.png",
+    "goal": "구체적인 보완 사유·시간·보상·이의 제기 경로",
+    "group": "수집·검수"
+  },
+  {
+    "id": "15",
+    "title": "영상 검수·구간 라벨",
+    "format": "desktop",
+    "file": "15-quality-review-aligned.png",
+    "goal": "실제 구현 시 영상·구간·개인정보·품질 판정 연결",
+    "group": "수집·검수"
+  },
+  {
+    "id": "16",
+    "title": "데이터셋 라이브러리",
+    "format": "desktop",
+    "file": "16-dataset-library.png",
+    "goal": "승인된 데이터와 반려·원본을 분리해 탐색",
+    "group": "데이터·보상"
+  },
+  {
+    "id": "17",
+    "title": "데이터셋 상세·버전",
+    "format": "desktop",
+    "file": "17-dataset-detail.png",
+    "goal": "세션 출처·파일·이용 범위·버전 기록 확인",
+    "group": "데이터·보상"
+  },
+  {
+    "id": "18",
+    "title": "수행·보상 이력",
+    "format": "desktop",
+    "file": "18-work-compensation.png",
+    "goal": "작업·준비·보완 시간과 검수·지급 상태 분리",
+    "group": "데이터·보상"
+  },
+  {
+    "id": "19",
+    "title": "데이터 접근·이용 승인",
+    "format": "desktop",
+    "file": "19-data-access-aligned.png",
+    "goal": "수집 허용과 데이터 이용 권한을 별도로 관리",
+    "group": "데이터·보상"
+  },
+  {
+    "id": "20",
+    "title": "작업 공간 설정",
+    "format": "desktop",
+    "file": "20-workspace-settings.png",
+    "goal": "조직 유형과 과제 역할·권한·운영 책임 분리",
+    "group": "데이터·보상"
+  }
+];
+let visible=pages;
+let selected=0;
+let zoomed=false;
+const grid=document.getElementById('grid');
+const viewer=document.getElementById('viewer');
+function render(filter){
+  visible=pages.filter(p=>filter==='all'||p.format===filter||p.group===filter);
+  document.getElementById('summary').textContent='화면 '+visible.length+'개 · '+(filter==='all'?'전체 흐름':filter==='desktop'?'데스크톱':filter==='mobile'?'현장 모바일':filter);
+  grid.innerHTML=visible.map(p=>'<article class="card '+p.format+'"><button class="preview" data-id="'+p.id+'" aria-label="'+p.id+' '+p.title+' 크게 보기"><img src="'+p.file+'" alt="'+p.title+' 화면 시안" loading="lazy"></button><div class="info"><div class="topline"><span class="number">'+p.id+'</span><h2>'+p.title+'</h2><span class="tag">'+(p.format==='mobile'?'모바일':'데스크톱')+'</span></div><p>'+p.goal+'</p><a href="'+p.file+'" target="_blank" rel="noopener">PNG 원본 ↗</a></div></article>').join('');
+}
+function updateViewer(){
+  const p=visible[selected];
+  document.getElementById('viewer-title').textContent=p.id+' · '+p.title;
+  const img=document.getElementById('viewer-img');img.src=p.file;img.alt=p.title+' · 소상공인 v1 시안';
+  img.className='viewer-image '+p.format+(zoomed?' zoomed':'');
+  document.getElementById('zoom').textContent=zoomed?'화면에 맞춤':'확대';
+  document.getElementById('zoom').setAttribute('aria-pressed',String(zoomed));
+  document.getElementById('original').href=p.file;
+  document.getElementById('position').textContent=(selected+1)+' / '+visible.length;
+  const url=new URL(location.href);url.searchParams.set('page',p.id);history.replaceState(null,'',url);
+}
+function show(id){
+  selected=visible.findIndex(p=>p.id===id);if(selected<0)return;zoomed=false;updateViewer();if(!viewer.open)viewer.showModal();viewer.scrollTop=0;
+}
+function step(delta){selected=(selected+delta+visible.length)%visible.length;updateViewer();}
+document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{
+  if(viewer.open)viewer.close();
+  document.querySelectorAll('[data-filter]').forEach(other=>other.setAttribute('aria-pressed',String(other===button)));
+  render(button.dataset.filter);
+}));
+grid.addEventListener('click',event=>{const button=event.target.closest('[data-id]');if(button)show(button.dataset.id);});
+document.getElementById('close').onclick=()=>viewer.close();
+document.getElementById('zoom').onclick=()=>{zoomed=!zoomed;updateViewer();viewer.scrollTop=0;};
+document.getElementById('prev').onclick=()=>step(-1);
+document.getElementById('next').onclick=()=>step(1);
+viewer.addEventListener('close',()=>{const url=new URL(location.href);url.searchParams.delete('page');history.replaceState(null,'',url);});
+document.addEventListener('keydown',event=>{
+  if(!viewer.open)return;
+  if(event.key==='ArrowLeft'){event.preventDefault();step(-1);}
+  if(event.key==='ArrowRight'){event.preventDefault();step(1);}
+});
+render('all');
+const initialPage=new URL(location.href).searchParams.get('page');if(initialPage)show(initialPage);
+</script>
+</body>
+</html>

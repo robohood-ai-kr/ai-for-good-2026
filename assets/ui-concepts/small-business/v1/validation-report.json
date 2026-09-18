@@ -1,0 +1,303 @@
+{
+  "version": "small-business-v1",
+  "date": "2026-09-18",
+  "status": "passed",
+  "scope": "Asset files, gallery script syntax, Markdown link target files, static HTML links, generated gallery image references and local HTTP availability; not product, labor, payment or data-pipeline validation.",
+  "activePages": 20,
+  "desktop": 15,
+  "mobile": 5,
+  "storedPngFiles": 22,
+  "sourceImagesPreserved": true,
+  "galleryScriptSyntax": "passed",
+  "markdownFilesChecked": 12,
+  "localLinksChecked": 199,
+  "http": [
+    {
+      "id": "01",
+      "status": 200
+    },
+    {
+      "id": "02",
+      "status": 200
+    },
+    {
+      "id": "03",
+      "status": 200
+    },
+    {
+      "id": "04",
+      "status": 200
+    },
+    {
+      "id": "05",
+      "status": 200
+    },
+    {
+      "id": "06",
+      "status": 200
+    },
+    {
+      "id": "07",
+      "status": 200
+    },
+    {
+      "id": "08",
+      "status": 200
+    },
+    {
+      "id": "09",
+      "status": 200
+    },
+    {
+      "id": "10",
+      "status": 200
+    },
+    {
+      "id": "11",
+      "status": 200
+    },
+    {
+      "id": "12",
+      "status": 200
+    },
+    {
+      "id": "13",
+      "status": 200
+    },
+    {
+      "id": "14",
+      "status": 200
+    },
+    {
+      "id": "15",
+      "status": 200
+    },
+    {
+      "id": "16",
+      "status": 200
+    },
+    {
+      "id": "17",
+      "status": 200
+    },
+    {
+      "id": "18",
+      "status": 200
+    },
+    {
+      "id": "19",
+      "status": 200
+    },
+    {
+      "id": "20",
+      "status": 200
+    }
+  ],
+  "images": [
+    {
+      "id": "01",
+      "file": "01-service-home.png",
+      "format": "desktop",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1340945,
+      "sha256": "380bd7c2d48fb8eb02668fb6297e1dc3e4ffd955c3810b93b76d9f5a76cbca42"
+    },
+    {
+      "id": "02",
+      "file": "02-workspace-entry.png",
+      "format": "desktop",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1225160,
+      "sha256": "871fc5beb4641772724bf94a191e4e713d11d571d120bb6a1829276363a0ad51"
+    },
+    {
+      "id": "03",
+      "file": "03-workspace-overview.png",
+      "format": "desktop",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1363324,
+      "sha256": "98e84b6b347e351d37f08ac7083cf8de6a91048be6ff5bb2d7b0f3202f2c6a6c"
+    },
+    {
+      "id": "04",
+      "file": "04-field-explorer.png",
+      "format": "desktop",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1314620,
+      "sha256": "244803923ea75bb6a8bbead62c2b4f5a74f3c9192528f4edb3a63bec5f69e16b"
+    },
+    {
+      "id": "05",
+      "file": "05-site-detail.png",
+      "format": "desktop",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1414276,
+      "sha256": "b487bc2b2b5e6ac466af4f6e51a06140b6b3912b4b03848b545edf43b32860cf"
+    },
+    {
+      "id": "06",
+      "file": "06-task-list.png",
+      "format": "desktop",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1326871,
+      "sha256": "a07f10626a7e3228baf0d61ae87b5bbb299bda910d86e950aaad0a213ba88dbd"
+    },
+    {
+      "id": "07",
+      "file": "07-new-request.png",
+      "format": "desktop",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1210290,
+      "sha256": "5704de2eb7702227b35a7d140e27407da5f11b89f932355551d5ad744206b87a"
+    },
+    {
+      "id": "08",
+      "file": "08-task-detail.png",
+      "format": "desktop",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1446042,
+      "sha256": "9d23b4113ff92e2e858ca1ef75c9c3462c7f2341886d46a527532a7e836acdc0"
+    },
+    {
+      "id": "09",
+      "file": "09-training-matching.png",
+      "format": "desktop",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1285792,
+      "sha256": "fd29e6903237a596b6906571772c154510dde3c85b625cf8e85034666905f7fc"
+    },
+    {
+      "id": "10",
+      "file": "10-mobile-training.png",
+      "format": "mobile",
+      "width": 863,
+      "height": 1822,
+      "bytes": 1352177,
+      "sha256": "cb5fb6fd599ddce2609ddea5bb19bddd7a631c1647abdde3679f41f4e9081c7a"
+    },
+    {
+      "id": "11",
+      "file": "11-mobile-inbox.png",
+      "format": "mobile",
+      "width": 863,
+      "height": 1822,
+      "bytes": 1190941,
+      "sha256": "dfbb9baffc274be944099b98fbc197cd24a5a82580b716b4ab4c84da14e2dfe1"
+    },
+    {
+      "id": "12",
+      "file": "12-mobile-preflight.png",
+      "format": "mobile",
+      "width": 864,
+      "height": 1821,
+      "bytes": 1271099,
+      "sha256": "303dd2d4c13035d1ee55f06491765bc1e609e6fd83ffe7050d1b1b2ae440a759"
+    },
+    {
+      "id": "13",
+      "file": "13-mobile-collection.png",
+      "format": "mobile",
+      "width": 863,
+      "height": 1822,
+      "bytes": 1338407,
+      "sha256": "57a930e7bed5c2e90c8f79af374df72a98861e52f77e2992afc5a976b1e2a6fe"
+    },
+    {
+      "id": "14",
+      "file": "14-mobile-rework.png",
+      "format": "mobile",
+      "width": 863,
+      "height": 1822,
+      "bytes": 1346495,
+      "sha256": "83f84b826dd1906c17fc4d04aa7ceb9012f3409ba0e328f11df3000b5397a75e"
+    },
+    {
+      "id": "15",
+      "file": "15-quality-review-aligned.png",
+      "format": "desktop",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1402367,
+      "sha256": "72e1c6041b72995a1260d7bc9362124b4df00f453bffab5e2696f5337339e935"
+    },
+    {
+      "id": "16",
+      "file": "16-dataset-library.png",
+      "format": "desktop",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1334468,
+      "sha256": "d101dcecbd769c928cdd161e9b7354e3a745671d41cbd497044ad9bb95a3c562"
+    },
+    {
+      "id": "17",
+      "file": "17-dataset-detail.png",
+      "format": "desktop",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1314844,
+      "sha256": "bf02d55d9901f6dab5b203cb7d521afec248ab1b13475ffc1896609b834c5662"
+    },
+    {
+      "id": "18",
+      "file": "18-work-compensation.png",
+      "format": "desktop",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1301859,
+      "sha256": "ee314b836f86513b2e59047d2e2064599602f3cadd79b950cfbcd4df926739eb"
+    },
+    {
+      "id": "19",
+      "file": "19-data-access-aligned.png",
+      "format": "desktop",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1408723,
+      "sha256": "f381cf8f05f87ce6dac6d51c4f435fc36c9988acbc45cdcce29ed3b638c1a247"
+    },
+    {
+      "id": "20",
+      "file": "20-workspace-settings.png",
+      "format": "desktop",
+      "width": 1586,
+      "height": 992,
+      "bytes": 1269953,
+      "sha256": "bac37990eaded341dc7f95361b2473b28b62f62d23d96973e54fe11a897832bc"
+    }
+  ],
+  "failures": [],
+  "browserVerification": {
+    "method": "cua_repl on local gallery",
+    "allPages": 20,
+    "desktopFilter": 15,
+    "mobileFilter": 5,
+    "stageFilters": {
+      "교육·배정": 2,
+      "수집·검수": 5,
+      "데이터·보상": 5
+    },
+    "modalOpenClose": "passed",
+    "arrowNavigation": "04 to 05 passed",
+    "deepLinkReload": "page=12 passed",
+    "zoomToggle": "passed; mobile readable with scroll",
+    "horizontalOverflow": false
+  },
+  "visualReview": {
+    "pages": 20,
+    "refinedPages": [
+      "15",
+      "19"
+    ],
+    "notes": "Generated screenshots reviewed; reviewer role and pending requester access clarified. Images remain non-functional concepts."
+  }
+}
