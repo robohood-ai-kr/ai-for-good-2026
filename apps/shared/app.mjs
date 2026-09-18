@@ -116,6 +116,10 @@ function render() {
   });
   $$('[data-action=label]').forEach(b=>b.classList.toggle('rh-selected', ({normal:'정상',defect:'불량',hold:'판정 보류'}[state.label]) === b.textContent.trim()));
   $$('[data-action=label]').forEach(b=>b.setAttribute('aria-pressed',String(b.classList.contains('rh-selected'))));
+  const filterTabs = $$('[data-action=filter-tab]');
+  if (filterTabs.length && !filterTabs.some((b) => b.getAttribute('aria-pressed') === 'true')) {
+    filterTabs.forEach((b, i) => b.setAttribute('aria-pressed', String(i === 0)));
+  }
   $$("[data-role-label]").forEach(
     (el) => (el.textContent = config.roles[state.role] ?? "데모 역할"),
   );
