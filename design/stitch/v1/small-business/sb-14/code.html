@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>RoboHood 소상공인 - 보완 및 세션 보고</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Public Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config Verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary": "#515f74",
+            "surface": "#f7fafe",
+            "surface-tint": "#0053db",
+            "surface-dim": "#d7dade",
+            "text-primary": "#0F172A",
+            "surface-container-highest": "#e0e3e7",
+            "action-hover": "#1D4ED8",
+            "outline": "#737686",
+            "secondary-fixed-dim": "#b9c7df",
+            "tertiary-fixed": "#ffdbcd",
+            "error-text": "#B91C1C",
+            "on-primary-fixed-variant": "#003ea8",
+            "on-secondary-fixed-variant": "#3a485b",
+            "tertiary-container": "#bc4800",
+            "on-error": "#ffffff",
+            "warning-bg": "#FFFBEB",
+            "surface-selected": "#EFF6FF",
+            "inverse-on-surface": "#eef1f5",
+            "outline-variant": "#c3c6d7",
+            "warning-text": "#92400E",
+            "neutral-status-bg": "#F4F7FB",
+            "on-tertiary-fixed": "#360f00",
+            "surface-variant": "#e0e3e7",
+            "on-background": "#181c1f",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#ffb596",
+            "text-secondary": "#475569",
+            "secondary-fixed": "#d5e3fc",
+            "inverse-primary": "#b4c5ff",
+            "surface-bright": "#f7fafe",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed-variant": "#7d2d00",
+            "on-surface": "#181c1f",
+            "success-bg": "#F0FDF4",
+            "info-text": "#1E40AF",
+            "on-primary-container": "#eeefff",
+            "on-surface-variant": "#434655",
+            "focus-ring": "#2563EB",
+            "on-tertiary": "#ffffff",
+            "info-bg": "#EFF6FF",
+            "primary-container": "#2563eb",
+            "primary-fixed": "#dbe1ff",
+            "background": "#f7fafe",
+            "border-control": "#64748B",
+            "on-tertiary-container": "#ffede6",
+            "error-bg": "#FEF2F2",
+            "text-inverse": "#FFFFFF",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#f1f4f8",
+            "surface-canvas": "#F4F7FB",
+            "neutral-status-text": "#475569",
+            "secondary-container": "#d5e3fc",
+            "inverse-surface": "#2d3134",
+            "primary": "#004ac6",
+            "action-pressed": "#1E40AF",
+            "tertiary": "#943700",
+            "error-container": "#ffdad6",
+            "on-primary-fixed": "#00174b",
+            "border-subtle": "#D5DDE7",
+            "on-secondary-fixed": "#0d1c2e",
+            "surface-card": "#FFFFFF",
+            "error": "#ba1a1a",
+            "surface-container": "#ebeef2",
+            "primary-fixed-dim": "#b4c5ff",
+            "surface-subtle": "#F8FAFC",
+            "success-text": "#166534",
+            "surface-container-high": "#e5e8ec",
+            "text-hint": "#64748B",
+            "on-secondary-container": "#57657a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem",
+            "margin-tablet": "1.5rem",
+            "margin": "1rem",
+            "space-md": "1rem",
+            "margin-desktop": "2rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "gutter-desktop": "1.5rem"
+          },
+          "fontFamily": {
+            "body-md": ["Public Sans"],
+            "label-sm": ["Public Sans"],
+            "headline-md": ["Public Sans"],
+            "headline-lg": ["Public Sans"],
+            "label-md": ["Public Sans"],
+            "label-lg": ["Public Sans"],
+            "body-sm": ["Public Sans"],
+            "headline-sm": ["Public Sans"],
+            "headline-lg-mobile": ["Public Sans"],
+            "body-lg": ["Public Sans"]
+          },
+          "fontSize": {
+            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+            "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+            "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+            "headline-lg-mobile": ["26px", {"lineHeight": "34px", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-surface-canvas text-text-primary min-h-screen flex justify-center selection:bg-primary-container selection:text-text-inverse">
+<!-- Mobile Device Viewport Mockup (390px fixed container for precise mobile layout) -->
+<div class="w-full max-w-[390px] min-h-screen bg-surface-canvas flex flex-col border-x border-border-subtle shadow-sm pb-10">
+<!-- Top System Header (Focused task layout: suppress global drawer/shell as per Task-Focused Journey) -->
+<header class="sticky top-0 z-30 bg-surface-card border-b border-border-subtle px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<button aria-label="이전 화면" class="w-8 h-8 flex items-center justify-center rounded-lg text-text-secondary hover:bg-surface-subtle transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<div>
+<span class="inline-block px-1.5 py-0.5 rounded bg-surface-subtle text-text-hint font-label-sm text-label-sm">
+            소상공인 v1 · 데모 데이터
+          </span>
+<h1 class="font-headline-sm text-headline-sm text-text-primary tracking-tight">보완 요청 및 세션 보고</h1>
+</div>
+</div>
+<button aria-label="고객센터 지원" class="w-8 h-8 flex items-center justify-center rounded-lg text-text-secondary hover:bg-surface-subtle transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="help_outline">help_outline</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-4 space-y-4">
+<!-- Session Identity & Meta Strip -->
+<div class="flex items-center justify-between bg-surface-card px-3.5 py-2.5 rounded-lg border border-border-subtle">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="assignment">assignment</span>
+<span class="font-label-md text-label-md text-text-secondary">과제 식별 코드</span>
+</div>
+<span class="font-label-lg text-label-lg text-text-primary tracking-tight font-semibold">RH-SB-001 (세션 #03)</span>
+</div>
+<!-- Warning / Notification Card -->
+<div class="bg-warning-bg rounded-lg border border-[#FDE68A] p-4 space-y-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-warning-text text-[20px]" data-icon="warning">warning</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[12px] font-semibold bg-[#FEF3C7] text-warning-text border border-[#FCD34D]">
+              보완 요청 (검수 의견 반영 필요)
+            </span>
+</div>
+<span class="text-[11px] font-label-sm text-text-hint">접수: 14:20</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#78350F] leading-snug">
+          해당 세션의 데이터 품질 검수 중 기준 미달 구간이 감지되었습니다. 아래 검수 사유를 확인하고 부분 재촬영을 진행해 주십시오.
+        </p>
+</div>
+<!-- Section: Inspection Reason & Details Box (Bento Card Style) -->
+<section class="bg-surface-card rounded-lg border border-border-subtle overflow-hidden">
+<div class="px-4 py-3 border-b border-border-subtle bg-surface-subtle flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="video_library">video_library</span>
+<h2 class="font-label-lg text-label-lg text-text-primary">구체적 보완 사유</h2>
+</div>
+<span class="font-label-sm text-label-sm text-text-secondary">구간 라벨링 검수</span>
+</div>
+<div class="p-4 space-y-3.5">
+<!-- Inspector Info -->
+<div class="flex items-center justify-between text-body-sm text-text-secondary pb-2 border-b border-border-subtle">
+<span class="font-label-md text-label-md text-text-hint">검수 담당자</span>
+<div class="flex items-center gap-1.5 font-label-md text-label-md text-text-primary">
+<span class="w-2 h-2 rounded-full bg-focus-ring"></span>
+              박연구원 (현장 코디네이터 검수팀)
+            </div>
+</div>
+<!-- Reason Detail -->
+<div>
+<span class="block font-label-sm text-label-sm text-text-hint mb-1">상세 결격 사유</span>
+<div class="p-3 bg-neutral-status-bg rounded-lg border border-border-subtle text-text-primary font-body-sm text-body-sm leading-relaxed">
+              “카메라 화각 하향 편차로 인해 트레이 우측 가장자리 컵 배치 시점 <span class="font-semibold text-error-text underline decoration-1 underline-offset-2">1.2초간 프레임 이탈</span> 발생.”
+            </div>
+</div>
+<!-- Remediation Scope -->
+<div>
+<span class="block font-label-sm text-label-sm text-text-hint mb-1">지정 보완 작업 범위</span>
+<div class="flex items-start gap-2 p-3 bg-surface-selected rounded-lg border border-primary-fixed">
+<span class="material-symbols-outlined text-focus-ring text-[18px] shrink-0 mt-0.5" data-icon="replay">replay</span>
+<p class="font-label-md text-label-md text-info-text leading-snug">
+                트레이 전체 컵 3종 재배치 구간 (약 3분 분량) 부분 재촬영
+              </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Paid Work & Remuneration Terms (Fair Agreement Card) -->
+<section class="bg-surface-card rounded-lg border border-border-subtle p-4 space-y-3">
+<div class="flex items-center gap-1.5 pb-2 border-b border-border-subtle">
+<span class="material-symbols-outlined text-success-text text-[18px]" data-icon="payments">payments</span>
+<h2 class="font-label-lg text-label-lg text-text-primary">유급 작업 및 보상 조건 확인</h2>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-1">
+<div class="p-2.5 rounded-lg bg-surface-canvas border border-border-subtle">
+<span class="block font-label-sm text-label-sm text-text-hint">예상 소요 시간</span>
+<span class="font-label-lg text-label-lg text-text-primary mt-1 block">약 10분 내외</span>
+<span class="text-[11px] font-body-sm text-text-secondary">준비 5분 + 재촬영 5분</span>
+</div>
+<div class="p-2.5 rounded-lg bg-success-bg border border-[#BBF7D0]">
+<span class="block font-label-sm text-label-sm text-success-text">보완 시 보상 유지</span>
+<span class="font-label-lg text-label-lg text-success-text mt-1 block">25,000원 전액</span>
+<span class="text-[11px] font-body-sm text-success-text">추가 시간 인정 정산</span>
+</div>
+</div>
+<!-- Ethical Policy Notice Box -->
+<div class="p-3 bg-surface-subtle rounded-lg border border-border-subtle flex items-start gap-2">
+<span class="material-symbols-outlined text-text-secondary text-[16px] shrink-0 mt-0.5" data-icon="gavel">gavel</span>
+<p class="font-body-sm text-body-sm text-text-secondary leading-snug">
+<strong class="font-label-md text-label-md text-text-primary">상생 및 표준 계약 원칙:</strong><br/>
+            수행 인력의 사전 합의 없이 일방적인 무급 재작업을 강제하지 않습니다. (동일 세션 최대 1회 보완 한정)
+          </p>
+</div>
+</section>
+<!-- Section: Urgent Safety Abort Report (Emergency Section) -->
+<section class="bg-surface-card rounded-lg border border-border-subtle p-4 space-y-3">
+<div class="flex items-center justify-between pb-2 border-b border-border-subtle">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-error-text text-[18px]" data-icon="report_problem">report_problem</span>
+<h2 class="font-label-lg text-label-lg text-error-text">현장 긴급 안전 중단 보고</h2>
+</div>
+<span class="text-[11px] font-semibold text-error-text px-1.5 py-0.5 rounded bg-error-bg">현장안전 최우선</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary leading-snug">
+          현장 내 위험 요소(뜨거운 조리기구, 칼, 급격한 고객 동선 방해 등) 발생 시 작업을 즉시 중단하고 보고할 수 있습니다.
+        </p>
+<!-- Reason Dropdown -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-text-primary" for="abort-reason-select">
+            중단 사유 선택
+          </label>
+<div class="relative">
+<select class="w-full bg-surface-card border border-border-control rounded-lg px-3 py-2 text-body-md font-body-md text-text-primary focus:outline-none focus:ring-2 focus:ring-focus-ring focus:border-focus-ring appearance-none pr-9" id="abort-reason-select">
+<option disabled="" selected="" value="">위험 또는 불가 요소를 선택하세요</option>
+<option value="heat_hazard">조리기구 고열/화재 위험 발생</option>
+<option value="sharp_hazard">칼/절단기구 등 현장 안전 위협</option>
+<option value="crowd_hazard">피크 타임 인파로 인한 동선 완전 차단</option>
+<option value="device_error">로봇/카메라 마운트 결착 불량 및 파손 위험</option>
+<option value="other">기타 소상공인 영업 직접 방해 사유</option>
+</select>
+<span class="material-symbols-outlined text-text-hint absolute right-2.5 top-2.5 pointer-events-none text-[20px]" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Optional text note -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-text-hint" for="abort-detail">
+            현장 세부 상황 (선택 사항)
+          </label>
+<input class="w-full bg-surface-card border border-border-control rounded-lg px-3 py-2 text-body-md font-body-md text-text-primary placeholder:text-text-hint focus:outline-none focus:ring-2 focus:ring-focus-ring focus:border-focus-ring" id="abort-detail" placeholder="상황을 간략히 메모하세요 (예: 피크 주문 폭주로 중단)" type="text"/>
+</div>
+<!-- Submit Abort Report Button -->
+<button class="w-full py-2 px-3 bg-error-bg text-error-text border border-[#FECACA] rounded-lg font-label-md text-label-md hover:bg-[#FEE2E2] active:bg-[#FCA5A5] transition-colors flex items-center justify-center gap-1.5" onclick="confirmEmergencyAbort()" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="cancel">cancel</span>
+          안전 사유로 세션 즉시 중단 보고
+        </button>
+</section>
+<!-- Agreement Checkbox -->
+<div class="bg-surface-card p-3.5 rounded-lg border border-border-subtle flex items-start gap-2.5">
+<input checked="" class="w-[18px] h-[18px] mt-0.5 rounded border-border-control text-primary focus:ring-focus-ring focus:ring-offset-1 transition cursor-pointer" id="terms-check" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-text-primary cursor-pointer select-none" for="terms-check">
+          위 보완 사유 및 10분 내외 추가 작업 조건을 확인하였으며, 안내된 가이드에 따라 재촬영을 진행하는 데 동의합니다.
+        </label>
+</div>
+</main>
+<!-- Fixed / Docked Bottom Action Bar -->
+<div class="sticky bottom-0 z-40 bg-surface-card border-t border-border-subtle p-4 space-y-2.5 shadow-lg">
+<div class="flex gap-2">
+<!-- Secondary / Outlined Button: Inquiry / Objection -->
+<button class="flex-1 h-12 bg-surface-card border border-border-subtle rounded-lg text-text-primary font-label-lg text-label-lg hover:bg-surface-subtle active:bg-surface-container transition-colors flex items-center justify-center gap-1" onclick="openAppealModal()" type="button">
+<span class="material-symbols-outlined text-[18px] text-text-secondary" data-icon="chat_bubble_outline">chat_bubble_outline</span>
+          감독관 직통 문의
+        </button>
+<!-- Primary Action Button (48px / #2563EB) -->
+<button class="flex-[1.5] h-12 bg-primary-container text-text-inverse rounded-lg font-label-lg text-label-lg hover:bg-action-hover active:bg-action-pressed shadow-sm transition-all flex items-center justify-center gap-1.5 font-semibold" onclick="restartSessionRemediation()" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="videocam">videocam</span>
+          보완 수집 재시작 및 동의
+        </button>
+</div>
+<p class="text-center font-label-sm text-label-sm text-text-hint">
+        문의 시 현장 지원 코디네이터가 1분 이내에 유선 연결됩니다.
+      </p>
+</div>
+</div>
+<!-- Interactive Feedback Mock Handlers (Inline JS) -->
+<script>
+    function confirmEmergencyAbort() {
+      const select = document.getElementById('abort-reason-select');
+      if (!select.value) {
+        alert('중단 사유를 목록에서 먼저 선택해 주십시오.');
+        select.focus();
+        return;
+      }
+      const confirmed = confirm('안전 사유로 수집 세션을 중단 보고하시겠습니까?\n보고 즉시 감독관에게 긴급 알림이 발송되며 기본 대기 보상이 유지됩니다.');
+      if (confirmed) {
+        alert('긴급 중단 보고가 정상 접수되었습니다. 현장 안전 구역으로 즉시 이동하십시오.');
+      }
+    }
+
+    function openAppealModal() {
+      alert('감독관 직통 회선 (02-555-0199) 연결 준비 중입니다.\n과제 코드: RH-SB-001 (세션 #03)');
+    }
+
+    function restartSessionRemediation() {
+      const checkbox = document.getElementById('terms-check');
+      if (!checkbox.checked) {
+        alert('보완 사유 확인 및 동의 체크박스에 체크해 주십시오.');
+        checkbox.focus();
+        return;
+      }
+      alert('보완 촬영 모드로 전환합니다.\n카메라 뷰파인더 가이드라인(화각 중앙선)을 주시해 주십시오.');
+    }
+  </script>
+</body></html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>RoboHood 소상공인 - 데모 작업 공간 진입 (SB-02)</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Public Sans & Noto Sans KR -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans+KR:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS v3 with config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error-container": "#93000a",
+            "warning-bg": "#FFFBEB",
+            "surface-subtle": "#F8FAFC",
+            "surface": "#f7fafe",
+            "primary-fixed-dim": "#b4c5ff",
+            "inverse-surface": "#2d3134",
+            "on-secondary-fixed-variant": "#3a485b",
+            "on-error": "#ffffff",
+            "neutral-status-text": "#475569",
+            "surface-dim": "#d7dade",
+            "text-secondary": "#475569",
+            "surface-container-high": "#e5e8ec",
+            "on-background": "#181c1f",
+            "action-pressed": "#1E40AF",
+            "on-surface-variant": "#434655",
+            "background": "#f7fafe",
+            "text-inverse": "#FFFFFF",
+            "warning-text": "#92400E",
+            "tertiary-fixed": "#ffdbcd",
+            "surface-bright": "#f7fafe",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#dbe1ff",
+            "secondary": "#515f74",
+            "surface-container": "#ebeef2",
+            "info-bg": "#EFF6FF",
+            "on-primary-fixed-variant": "#003ea8",
+            "action-hover": "#1D4ED8",
+            "on-tertiary-fixed": "#360f00",
+            "surface-container-highest": "#e0e3e7",
+            "text-primary": "#0F172A",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "surface-tint": "#0053db",
+            "border-subtle": "#D5DDE7",
+            "surface-card": "#FFFFFF",
+            "success-bg": "#F0FDF4",
+            "outline": "#737686",
+            "on-secondary-fixed": "#0d1c2e",
+            "surface-container-low": "#f1f4f8",
+            "tertiary-fixed-dim": "#ffb596",
+            "tertiary-container": "#bc4800",
+            "on-surface": "#181c1f",
+            "error-text": "#B91C1C",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed-dim": "#b9c7df",
+            "error-bg": "#FEF2F2",
+            "inverse-on-surface": "#eef1f5",
+            "inverse-primary": "#b4c5ff",
+            "surface-variant": "#e0e3e7",
+            "text-hint": "#64748B",
+            "on-primary-container": "#eeefff",
+            "error-container": "#ffdad6",
+            "surface-canvas": "#F4F7FB",
+            "secondary-fixed": "#d5e3fc",
+            "border-control": "#64748B",
+            "on-primary-fixed": "#00174b",
+            "on-secondary-container": "#57657a",
+            "on-tertiary-container": "#ffede6",
+            "primary": "#004ac6",
+            "info-text": "#1E40AF",
+            "neutral-status-bg": "#F4F7FB",
+            "focus-ring": "#2563EB",
+            "surface-selected": "#EFF6FF",
+            "tertiary": "#943700",
+            "outline-variant": "#c3c6d7",
+            "on-tertiary-fixed-variant": "#7d2d00",
+            "secondary-container": "#d5e3fc",
+            "success-text": "#166534",
+            "on-tertiary": "#ffffff",
+            "primary-container": "#2563eb"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-tablet": "1.5rem",
+            "space-md": "1rem",
+            "gutter-desktop": "1.5rem",
+            "gutter": "1rem",
+            "space-xl": "2rem",
+            "margin-desktop": "2rem",
+            "space-sm": "0.5rem",
+            "margin": "1rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Public Sans", "Noto Sans KR", "sans-serif"],
+            "label-sm": ["Public Sans", "Noto Sans KR", "sans-serif"],
+            "headline-lg-mobile": ["Public Sans", "Noto Sans KR", "sans-serif"],
+            "label-lg": ["Public Sans", "Noto Sans KR", "sans-serif"],
+            "body-md": ["Public Sans", "Noto Sans KR", "sans-serif"],
+            "headline-lg": ["Public Sans", "Noto Sans KR", "sans-serif"],
+            "label-md": ["Public Sans", "Noto Sans KR", "sans-serif"],
+            "headline-md": ["Public Sans", "Noto Sans KR", "sans-serif"],
+            "body-sm": ["Public Sans", "Noto Sans KR", "sans-serif"],
+            "headline-sm": ["Public Sans", "Noto Sans KR", "sans-serif"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      background-color: #F4F7FB;
+      color: #0F172A;
+      font-family: 'Public Sans', 'Noto Sans KR', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-surface-canvas text-text-primary min-h-screen flex flex-col antialiased selection:bg-primary-fixed selection:text-primary">
+<!-- TOP MINIMAL UTILITY BAR (Demarcating Demo Environment & Scope) -->
+<header class="w-full bg-surface-card border-b border-border-subtle h-14 px-6 md:px-10 flex items-center justify-between z-30">
+<div class="flex items-center space-x-3 cursor-pointer" onclick="location.href='#SB-01'">
+<div class="w-7 h-7 bg-primary-container rounded flex items-center justify-center text-text-inverse font-bold text-label-md">
+<span class="material-symbols-outlined text-text-inverse" data-icon="smart_toy">smart_toy</span>
+</div>
+<span class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">RoboHood</span>
+<span class="text-text-hint">|</span>
+<span class="text-body-md font-body-md text-text-secondary font-medium">소상공인</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm bg-neutral-status-bg text-neutral-status-text border border-border-subtle">
+        소상공인 v1 · 데모 데이터
+      </span>
+</div>
+<div class="flex items-center space-x-4">
+<span class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded text-label-sm font-label-sm bg-info-bg text-info-text border border-border-subtle">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified_user">verified_user</span>
+<span class="">모의 실습 샌드박스 활성화됨</span>
+</span>
+<a class="text-body-sm font-body-sm text-text-hint hover:text-text-primary flex items-center gap-1 transition-colors duration-150" href="#help">
+<span class="material-symbols-outlined text-[18px]" data-icon="help_outline">help_outline</span>
+<span class="">시스템 안내</span>
+</a>
+</div>
+</header>
+<!-- MAIN VIEWPORT CONTAINER -->
+<main class="flex-1 max-w-[1440px] w-full mx-auto px-6 py-8 md:py-12 flex flex-col items-center justify-center">
+<!-- PAGE TITLE SECTION -->
+<div class="w-full max-w-4xl text-center mb-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 mb-3 rounded-full bg-surface-card border border-border-subtle shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-text-secondary">화면 번호: SB-02 · 데모 로그인 및 작업 공간 선택</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-text-primary mb-3 tracking-tight">
+        RoboHood 데모 작업 공간 진입
+      </h1>
+<p class="text-body-lg font-body-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
+        참여 목적과 허용된 역할에 맞는 작업 공간을 선택하여 둘러보세요. 본 시스템은 소상공인 현장 데이터 수집 및 공간 협의를 위한 모의 실습 및 데모 환경입니다.
+      </p>
+</div>
+<!-- MAIN BENTO CONTAINER: 4 ROLES + DIRECT LOGIN CARD -->
+<div class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- LEFT COLUMN: 4 ROLES SELECTION (BENTO TILES) -->
+<div class="lg:col-span-7 flex flex-col space-y-4">
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]" data-icon="badge">badge</span>
+<h2 class="text-headline-sm font-headline-sm text-text-primary font-bold">1단계: 참여 역할 선택</h2>
+</div>
+<span class="text-body-sm font-body-sm text-text-hint">사전 정의된 4대 가상 프로필</span>
+</div>
+<!-- Clarification Banner on Roles -->
+<div class="p-3 bg-warning-bg border border-border-subtle rounded-lg flex items-start gap-2.5">
+<span class="material-symbols-outlined text-warning-text mt-0.5 text-[18px]" data-icon="info">info</span>
+<p class="text-body-sm font-body-sm text-warning-text leading-snug">
+            역할 선택만으로 임의의 최고 관리자/검수 권한이 자동 획득되지 않으며, 사전에 정의된 역할별 모의 권한 환경(Sandbox Scope)으로 진입합니다.
+          </p>
+</div>
+<!-- 4 Role Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1" id="roleGrid">
+<!-- Role 1: Field Operator -->
+<div class="cursor-pointer border-2 border-primary bg-surface-selected rounded-lg p-4 transition-all duration-150 relative shadow-sm hover:shadow" id="card-operator" onclick="selectRole('operator', 'operator_demo@robohood.ai', '데모 오퍼레이터 김민수')">
+<div class="flex items-start justify-between mb-2">
+<div class="w-9 h-9 rounded-lg bg-info-bg text-info-text flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-info-bg text-info-text font-semibold">현장 인력</span>
+</div>
+<h3 class="text-label-lg font-label-lg text-text-primary mb-1 flex items-center gap-1.5">
+<span class="">현장 오퍼레이터</span>
+<span class="material-symbols-outlined text-primary text-[18px] role-check" data-icon="check_circle" data-weight="fill">check_circle</span>
+</h3>
+<p class="text-body-sm font-body-sm text-text-secondary leading-snug">
+              청년 현장 전문인력, 배정 과제 확인, 모바일 수집 및 수행 이력 확인
+            </p>
+<div class="mt-3 pt-2.5 border-t border-border-subtle flex items-center justify-between text-label-sm font-label-sm text-text-hint">
+<span class="">기본 계정: 김민수</span>
+<span class="text-primary font-medium">선택됨</span>
+</div>
+</div>
+<!-- Role 2: Merchant / Space Provider -->
+<div class="cursor-pointer border border-border-subtle bg-surface-card rounded-lg p-4 transition-all duration-150 hover:border-border-control hover:bg-surface-subtle relative" id="card-merchant" onclick="selectRole('merchant', 'cafe_owner@robohood.ai', '모의 카페 A 대표 박점주')">
+<div class="flex items-start justify-between mb-2">
+<div class="w-9 h-9 rounded-lg bg-neutral-status-bg text-neutral-status-text flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-neutral-status-bg text-neutral-status-text">현장 제공자</span>
+</div>
+<h3 class="text-label-lg font-label-lg text-text-primary mb-1 flex items-center gap-1.5">
+<span class="">소상공인 대표</span>
+<span class="material-symbols-outlined text-border-subtle text-[18px] role-check hidden" data-icon="check_circle">check_circle</span>
+</h3>
+<p class="text-body-sm font-body-sm text-text-secondary leading-snug">
+              매장 공간 협의, 허용 업무 및 촬영 조건 관리, 방문 일정 승인
+            </p>
+<div class="mt-3 pt-2.5 border-t border-border-subtle flex items-center justify-between text-label-sm font-label-sm text-text-hint">
+<span class="">기본 계정: 박점주</span>
+<span class="text-text-hint">클릭하여 전환</span>
+</div>
+</div>
+<!-- Role 3: Coordinator / Reviewer -->
+<div class="cursor-pointer border border-border-subtle bg-surface-card rounded-lg p-4 transition-all duration-150 hover:border-border-control hover:bg-surface-subtle relative" id="card-coordinator" onclick="selectRole('coordinator', 'qc_lead@robohood.ai', '품질검수팀 이검수관')">
+<div class="flex items-start justify-between mb-2">
+<div class="w-9 h-9 rounded-lg bg-neutral-status-bg text-neutral-status-text flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="video_library">video_library</span>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-neutral-status-bg text-neutral-status-text">운영 및 검수</span>
+</div>
+<h3 class="text-label-lg font-label-lg text-text-primary mb-1 flex items-center gap-1.5">
+<span class="">현장 코디네이터</span>
+<span class="material-symbols-outlined text-border-subtle text-[18px] role-check hidden" data-icon="check_circle">check_circle</span>
+</h3>
+<p class="text-body-sm font-body-sm text-text-secondary leading-snug">
+              과제 배정, 1차 및 최종 품질 검수, 보상 정산 및 지급 관리
+            </p>
+<div class="mt-3 pt-2.5 border-t border-border-subtle flex items-center justify-between text-label-sm font-label-sm text-text-hint">
+<span class="">기본 계정: 이검수관</span>
+<span class="text-text-hint">클릭하여 전환</span>
+</div>
+</div>
+<!-- Role 4: AI / Robotics Researcher -->
+<div class="cursor-pointer border border-border-subtle bg-surface-card rounded-lg p-4 transition-all duration-150 hover:border-border-control hover:bg-surface-subtle relative" id="card-researcher" onclick="selectRole('researcher', 'robot_ai@robohood.ai', 'AI 연구팀 최연구원')">
+<div class="flex items-start justify-between mb-2">
+<div class="w-9 h-9 rounded-lg bg-neutral-status-bg text-neutral-status-text flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-neutral-status-bg text-neutral-status-text">데이터 요청자</span>
+</div>
+<h3 class="text-label-lg font-label-lg text-text-primary mb-1 flex items-center gap-1.5">
+<span class="">AI·로봇 연구원</span>
+<span class="material-symbols-outlined text-border-subtle text-[18px] role-check hidden" data-icon="check_circle">check_circle</span>
+</h3>
+<p class="text-body-sm font-body-sm text-text-secondary leading-snug">
+              신규 데이터 수집 요청 등록, 데이터셋 열람 및 접근 승인 신청
+            </p>
+<div class="mt-3 pt-2.5 border-t border-border-subtle flex items-center justify-between text-label-sm font-label-sm text-text-hint">
+<span class="">기본 계정: 최연구원</span>
+<span class="text-text-hint">클릭하여 전환</span>
+</div>
+</div>
+</div>
+<!-- Sandbox Status Notice -->
+<div class="p-3.5 bg-surface-card border border-border-subtle rounded-lg flex items-center justify-between text-body-sm font-body-sm text-text-secondary">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="database">database</span>
+<span class="">데이터 모의 인스턴스: <strong>RoboHood Sandbox Local-01</strong></span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm bg-success-bg text-success-text">
+            데이터 격리 보장
+          </span>
+</div>
+</div>
+<!-- RIGHT COLUMN: LOGIN FORM & DIRECT ENTRY (SB-03 LINK) -->
+<div class="lg:col-span-5 flex flex-col justify-between">
+<div class="bg-surface-card border border-border-subtle rounded-lg p-6 shadow-sm flex flex-col h-full justify-between">
+<div>
+<div class="flex items-center justify-between border-b border-border-subtle pb-3 mb-5">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-text-primary font-bold">2단계: 간편 데모 로그인</h2>
+<p class="text-body-sm font-body-sm text-text-hint mt-0.5">별도의 패스워드 인증 없이 즉시 진입 가능합니다.</p>
+</div>
+<span class="w-8 h-8 rounded-full bg-info-bg text-info-text flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="lock_open">lock_open</span>
+</span>
+</div>
+<!-- Login Form -->
+<form class="space-y-4" onsubmit="handleWorkspaceEntry(event)">
+<!-- Quick Demo Account Preset Dropdown -->
+<div>
+<label class="block text-label-md font-label-md text-text-primary mb-1" for="demoAccountSelect">
+                  데모 프리셋 계정 선택 <span class="text-primary">*</span>
+</label>
+<div class="relative">
+<select class="w-full bg-surface-card border border-border-control rounded text-body-md font-body-md text-text-primary py-2 px-3 pr-10 focus:ring-2 focus:ring-focus-ring focus:border-focus-ring outline-none" id="demoAccountSelect" onchange="onDropdownChange(this)">
+<option selected="" value="operator">데모 오퍼레이터 김민수 (현장 인력)</option>
+<option value="merchant">모의 카페 A 대표 박점주 (현장 제공자)</option>
+<option value="coordinator">품질검수팀 이검수관 (전문 운영팀)</option>
+<option value="researcher">AI 연구팀 최연구원 (데이터 요청자)</option>
+</select>
+</div>
+</div>
+<!-- ID / Email Input -->
+<div>
+<label class="block text-label-md font-label-md text-text-primary mb-1" for="usernameInput">
+                  아이디 또는 이메일 <span class="text-primary">*</span>
+</label>
+<div class="relative">
+<input class="w-full bg-surface-card border border-border-control rounded text-body-md font-body-md text-text-primary py-2 px-3 focus:ring-2 focus:ring-focus-ring focus:border-focus-ring outline-none placeholder:text-text-hint" id="usernameInput" placeholder="예: operator_demo@robohood.ai" type="text" value="operator_demo@robohood.ai">
+<span class="absolute right-3 top-2.5 text-text-hint material-symbols-outlined text-[18px]" data-icon="alternate_email">alternate_email</span>
+</div>
+</div>
+<!-- Password Input -->
+<div>
+<div class="flex items-center justify-between mb-1">
+<label class="block text-label-md font-label-md text-text-primary" for="passwordInput">
+                    비밀번호 <span class="text-primary">*</span>
+</label>
+<span class="text-label-sm font-label-sm text-text-hint">데모 모드 고정 (자동입력)</span>
+</div>
+<div class="relative">
+<input class="w-full bg-surface-subtle border border-border-subtle rounded text-body-md font-body-md text-text-secondary py-2 px-3 focus:outline-none cursor-not-allowed" id="passwordInput" readonly="" type="password" value="••••••••••••">
+<span class="absolute right-3 top-2.5 text-text-hint material-symbols-outlined text-[18px]" data-icon="lock">lock</span>
+</div>
+</div>
+<!-- Remember & Security notice -->
+<div class="pt-1 flex items-center justify-between text-body-sm font-body-sm">
+<label class="flex items-center gap-2 cursor-pointer text-text-secondary select-none">
+<input checked="" class="w-4 h-4 rounded border-border-control text-primary focus:ring-focus-ring" type="checkbox">
+<span class="">세션 동안 모의 자격 유지</span>
+</label>
+<span class="text-label-sm font-label-sm text-info-text font-medium">데모 권한 매핑 완료</span>
+</div>
+<!-- Submit Action Button -->
+<div class="pt-3">
+<button class="w-full bg-primary-container text-text-inverse hover:bg-action-hover active:bg-action-pressed font-label-lg text-label-lg py-3 px-4 rounded transition-colors duration-150 flex items-center justify-center gap-2 shadow-sm" type="submit" onclick="location.href='#SB-03'">
+<span class="">작업 공간 진입하기 (SB-03)</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Bottom Notice within Card -->
+<div class="mt-6 pt-4 border-t border-border-subtle">
+<div class="flex items-start gap-2 text-text-hint">
+<span class="material-symbols-outlined text-[18px] text-text-hint mt-0.5" data-icon="shield">shield</span>
+<p class="text-body-sm font-body-sm leading-snug">
+                실제 인증(OAuth2/K-Identity 등) 백엔드와 연결되지 않은 클라이언트 시뮬레이션 환경으로, 테스트 목적에 한해 데이터 조작이 허용됩니다.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- MANDATORY DISCLAIMERS & LEGAL CAUTIONS (KRDS Compliance) -->
+<div class="w-full max-w-6xl mt-8 pt-6 border-t border-border-subtle">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-3.5 bg-surface-card border border-border-subtle rounded-lg flex items-start gap-3">
+<span class="material-symbols-outlined text-text-hint text-[20px] mt-0.5" data-icon="gavel">gavel</span>
+<div>
+<h4 class="text-label-md font-label-md text-text-primary mb-0.5">법적 자격 및 계약 주의사항</h4>
+<p class="text-body-sm font-body-sm text-text-secondary leading-relaxed">
+              로그인 화면의 단순 역할 선택이 법적 근로 계약이나 공식 자격 승인을 대체하지 않습니다. 실제 현장 작업 및 보상 집행 시에는 별도의 서면/전자 협약이 수반됩니다.
+            </p>
+</div>
+</div>
+<div class="p-3.5 bg-surface-card border border-border-subtle rounded-lg flex items-start gap-3">
+<span class="material-symbols-outlined text-text-hint text-[20px] mt-0.5" data-icon="cloud_off">cloud_off</span>
+<div>
+<h4 class="text-label-md font-label-md text-text-primary mb-0.5">독립 플랫폼 데모 고지</h4>
+<p class="text-body-sm font-body-sm text-text-secondary leading-relaxed">
+              KAMP 계정/API에 의존하지 않는 독립 데이터 플랫폼 데모입니다. 소상공인 공간 데이터의 자율적 관리와 현장 안전 수칙 준수 검증을 목표로 합니다.
+            </p>
+</div>
+</div>
+</div>
+<!-- FOOTER METRICS & INFO -->
+<footer class="mt-6 flex flex-col sm:flex-row items-center justify-between text-body-sm font-body-sm text-text-hint gap-3">
+<div class="flex items-center gap-2">
+<span class="">© 2025 RoboHood Robotics Data Cooperative. All rights reserved.</span>
+<span class="">·</span>
+<span class="text-label-sm font-label-sm">버전: v1.0.4-demo</span>
+</div>
+<div class="flex items-center space-x-4">
+<a class="hover:text-text-primary transition-colors" href="#">이용 가이드</a>
+<a class="hover:text-text-primary transition-colors" href="#">데이터 윤리 가이드라인</a>
+<a class="hover:text-text-primary transition-colors" href="#">고객지원센터</a>
+</div>
+</footer>
+</div>
+</main>
+<!-- INTERACTIVE LOGIC (VANILLA JS) -->
+<script>
+    const roleMetadata = {
+      operator: {
+        email: 'operator_demo@robohood.ai',
+        name: '데모 오퍼레이터 김민수',
+        cardId: 'card-operator',
+        label: '현장 인력 / 데이터 수집 오퍼레이터'
+      },
+      merchant: {
+        email: 'cafe_owner@robohood.ai',
+        name: '모의 카페 A 대표 박점주',
+        cardId: 'card-merchant',
+        label: '현장 제공자 / 소상공인 대표'
+      },
+      coordinator: {
+        email: 'qc_lead@robohood.ai',
+        name: '품질검수팀 이검수관',
+        cardId: 'card-coordinator',
+        label: '전문 운영팀 / 현장 코디네이터'
+      },
+      researcher: {
+        email: 'robot_ai@robohood.ai',
+        name: 'AI 연구팀 최연구원',
+        cardId: 'card-researcher',
+        label: '데이터 요청자 / AI·로봇 연구원'
+      }
+    };
+
+    let currentRoleKey = 'operator';
+
+    function selectRole(roleKey, email, name) {
+      currentRoleKey = roleKey;
+      
+      // Update form values
+      document.getElementById('usernameInput').value = email;
+      document.getElementById('demoAccountSelect').value = roleKey;
+
+      // Update card UI styles
+      const allCards = ['card-operator', 'card-merchant', 'card-coordinator', 'card-researcher'];
+      allCards.forEach(id => {
+        const el = document.getElementById(id);
+        const checkIcon = el.querySelector('.role-check');
+        const footerSpan = el.querySelector('div.mt-3 span:last-child');
+        
+        if (id === roleMetadata[roleKey].cardId) {
+          el.className = 'cursor-pointer border-2 border-primary bg-surface-selected rounded-lg p-4 transition-all duration-150 relative shadow-sm';
+          if (checkIcon) {
+            checkIcon.classList.remove('hidden', 'text-border-subtle');
+            checkIcon.classList.add('text-primary');
+            checkIcon.setAttribute('data-weight', 'fill');
+            checkIcon.style.fontVariationSettings = "'FILL' 1";
+          }
+          if (footerSpan) {
+            footerSpan.textContent = '선택됨';
+            footerSpan.className = 'text-primary font-medium';
+          }
+        } else {
+          el.className = 'cursor-pointer border border-border-subtle bg-surface-card rounded-lg p-4 transition-all duration-150 hover:border-border-control hover:bg-surface-subtle relative';
+          if (checkIcon) {
+            checkIcon.classList.add('hidden');
+            checkIcon.style.fontVariationSettings = "'FILL' 0";
+          }
+          if (footerSpan) {
+            footerSpan.textContent = '클릭하여 전환';
+            footerSpan.className = 'text-text-hint';
+          }
+        }
+      });
+    }
+
+    function onDropdownChange(selectElement) {
+      const selected = selectElement.value;
+      if (roleMetadata[selected]) {
+        selectRole(selected, roleMetadata[selected].email, roleMetadata[selected].name);
+      }
+    }
+
+    function handleWorkspaceEntry(e) {
+      e.preventDefault();
+      const meta = roleMetadata[currentRoleKey];
+      const targetUser = document.getElementById('usernameInput').value;
+      
+      // Feedback Toast or simulation
+      const btn = e.target.querySelector('button[type="submit"]');
+      const originalHtml = btn.innerHTML;
+      btn.innerHTML = `<span class="material-symbols-outlined animate-spin text-[20px]" data-icon="progress_activity">progress_activity</span> <span>[SB-03] 작업 공간으로 이동 중...</span>`;
+      btn.disabled = true;
+
+      setTimeout(() => {
+        alert(`[데모 진입 완료]\n\n역할: ${meta.label}\n계정: ${targetUser}\n선택된 권한 프로필로 SB-03(작업 공간 개요)으로 이동합니다.`);
+        btn.innerHTML = originalHtml;
+        btn.disabled = false;
+      }, 600);
+    }
+  </script>
+
+
+</body></html>

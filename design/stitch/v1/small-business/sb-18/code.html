@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoboHood 소상공인 v1 - SB-18 수행·보상 이력</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Public Sans Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config verbatim as provided in Style Guidance -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary": "#515f74",
+            "surface": "#f7fafe",
+            "surface-tint": "#0053db",
+            "surface-dim": "#d7dade",
+            "text-primary": "#0F172A",
+            "surface-container-highest": "#e0e3e7",
+            "action-hover": "#1D4ED8",
+            "outline": "#737686",
+            "secondary-fixed-dim": "#b9c7df",
+            "tertiary-fixed": "#ffdbcd",
+            "error-text": "#B91C1C",
+            "on-primary-fixed-variant": "#003ea8",
+            "on-secondary-fixed-variant": "#3a485b",
+            "tertiary-container": "#bc4800",
+            "on-error": "#ffffff",
+            "warning-bg": "#FFFBEB",
+            "surface-selected": "#EFF6FF",
+            "inverse-on-surface": "#eef1f5",
+            "outline-variant": "#c3c6d7",
+            "warning-text": "#92400E",
+            "neutral-status-bg": "#F4F7FB",
+            "on-tertiary-fixed": "#360f00",
+            "surface-variant": "#e0e3e7",
+            "on-background": "#181c1f",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#ffb596",
+            "text-secondary": "#475569",
+            "secondary-fixed": "#d5e3fc",
+            "inverse-primary": "#b4c5ff",
+            "surface-bright": "#f7fafe",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed-variant": "#7d2d00",
+            "on-surface": "#181c1f",
+            "success-bg": "#F0FDF4",
+            "info-text": "#1E40AF",
+            "on-primary-container": "#eeefff",
+            "on-surface-variant": "#434655",
+            "focus-ring": "#2563EB",
+            "on-tertiary": "#ffffff",
+            "info-bg": "#EFF6FF",
+            "primary-container": "#2563eb",
+            "primary-fixed": "#dbe1ff",
+            "background": "#f7fafe",
+            "border-control": "#64748B",
+            "on-tertiary-container": "#ffede6",
+            "error-bg": "#FEF2F2",
+            "text-inverse": "#FFFFFF",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#f1f4f8",
+            "surface-canvas": "#F4F7FB",
+            "neutral-status-text": "#475569",
+            "secondary-container": "#d5e3fc",
+            "inverse-surface": "#2d3134",
+            "primary": "#004ac6",
+            "action-pressed": "#1E40AF",
+            "tertiary": "#943700",
+            "error-container": "#ffdad6",
+            "on-primary-fixed": "#00174b",
+            "border-subtle": "#D5DDE7",
+            "on-secondary-fixed": "#0d1c2e",
+            "surface-card": "#FFFFFF",
+            "error": "#ba1a1a",
+            "surface-container": "#ebeef2",
+            "primary-fixed-dim": "#b4c5ff",
+            "surface-subtle": "#F8FAFC",
+            "success-text": "#166534",
+            "surface-container-high": "#e5e8ec",
+            "text-hint": "#64748B",
+            "on-secondary-container": "#57657a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem",
+            "margin-tablet": "1.5rem",
+            "margin": "1rem",
+            "space-md": "1rem",
+            "margin-desktop": "2rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "gutter-desktop": "1.5rem"
+          },
+          "fontFamily": {
+            "body-md": ["Public Sans"],
+            "label-sm": ["Public Sans"],
+            "headline-md": ["Public Sans"],
+            "headline-lg": ["Public Sans"],
+            "label-md": ["Public Sans"],
+            "label-lg": ["Public Sans"],
+            "body-sm": ["Public Sans"],
+            "headline-sm": ["Public Sans"],
+            "headline-lg-mobile": ["Public Sans"],
+            "body-lg": ["Public Sans"]
+          },
+          "fontSize": {
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-surface-canvas text-text-primary font-body-md antialiased min-h-screen flex">
+<!-- ==================== SHARED COMPONENT: SideNavBar ==================== -->
+<aside class="w-60 h-screen fixed left-0 top-0 flex flex-col z-40 border-r border-border-subtle bg-surface-card justify-between py-4 px-3">
+<!-- Brand Header -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center text-text-inverse font-bold shadow-sm">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">RoboHood 소상공인</span>
+<span class="text-label-sm font-label-sm text-text-hint">소상공인 v1 · 데모 데이터</span>
+</div>
+</div>
+<!-- Quick Action CTA -->
+<button class="w-full mt-2 bg-primary-container hover:bg-action-hover active:bg-action-pressed text-text-inverse font-label-md text-label-md py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 transition-colors duration-150 shadow-sm">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span>현장 데이터 수집 시작</span>
+</button>
+<!-- Main Navigation Menu -->
+<nav class="mt-4 flex flex-col gap-1">
+<!-- Item 1 -->
+<a class="text-text-secondary font-body-md text-body-md hover:bg-surface-subtle hover:text-text-primary rounded-lg flex items-center gap-3 px-3 py-2.5 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>작업 공간 개요</span>
+</a>
+<!-- Item 2 -->
+<a class="text-text-secondary font-body-md text-body-md hover:bg-surface-subtle hover:text-text-primary rounded-lg flex items-center gap-3 px-3 py-2.5 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span>현장 탐색</span>
+</a>
+<!-- Item 3 -->
+<a class="text-text-secondary font-body-md text-body-md hover:bg-surface-subtle hover:text-text-primary rounded-lg flex items-center gap-3 px-3 py-2.5 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span>과제 상세 및 조건</span>
+</a>
+<!-- Item 4 -->
+<a class="text-text-secondary font-body-md text-body-md hover:bg-surface-subtle hover:text-text-primary rounded-lg flex items-center gap-3 px-3 py-2.5 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="video_library">video_library</span>
+<span>구간 라벨링 검수</span>
+</a>
+<!-- Item 5: ACTIVE TAB (수행 및 보상 관리) -->
+<a class="bg-surface-selected text-primary font-label-md text-label-md border-l-4 border-primary rounded-r-lg flex items-center gap-3 px-3 py-2.5 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="payments" data-weight="fill" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span>수행 및 보상 관리</span>
+</a>
+</nav>
+</div>
+<!-- Drawer Footer Nav -->
+<div class="pt-4 border-t border-border-subtle flex flex-col gap-1">
+<a class="text-text-secondary font-body-md text-body-md hover:bg-surface-subtle hover:text-text-primary rounded-lg flex items-center gap-3 px-3 py-2 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>시스템 환경설정</span>
+</a>
+<a class="text-text-secondary font-body-md text-body-md hover:bg-surface-subtle hover:text-text-primary rounded-lg flex items-center gap-3 px-3 py-2 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="headset_mic">headset_mic</span>
+<span>고객센터 지원</span>
+</a>
+<div class="mt-3 p-2.5 bg-neutral-status-bg rounded-lg border border-border-subtle flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-border-subtle flex items-center justify-center text-text-secondary text-label-sm font-label-sm">
+            상공
+          </div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm font-bold text-text-primary">모의 카페 A 대표</span>
+<span class="text-[10px] text-text-hint leading-none">사업자: 104-**-*****</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-hint cursor-pointer" data-icon="more_vert">more_vert</span>
+</div>
+</div>
+</aside>
+<!-- ==================== MAIN CONTENT CANVAS (Offset for 240px Sidebar) ==================== -->
+<div class="ml-60 flex-1 flex flex-col min-w-0">
+<!-- ==================== SHARED COMPONENT: TopNavBar ==================== -->
+<header class="w-full h-16 px-6 flex items-center justify-between border-b border-border-subtle bg-surface-card sticky top-0 z-30">
+<!-- Left: Search & Navigation Group -->
+<div class="flex items-center gap-6">
+<span class="text-headline-sm font-headline-sm font-bold text-primary">RoboHood</span>
+<div class="relative w-72">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-hint text-[20px]" data-icon="search">search</span>
+<input class="w-full bg-surface-subtle border border-border-control rounded-lg pl-9 pr-3 py-1.5 text-body-sm font-body-sm text-text-primary placeholder:text-text-hint focus:outline-none focus:ring-2 focus:ring-focus-ring focus:border-transparent transition-all" placeholder="세션 코드, 과제명, 검수 상태 검색..." type="text"/>
+</div>
+<nav class="hidden md:flex items-center gap-5 ml-2">
+<a class="text-text-secondary font-body-md text-body-md hover:text-text-primary transition-colors duration-150" href="#">작업 공간</a>
+<a class="text-text-secondary font-body-md text-body-md hover:text-text-primary transition-colors duration-150" href="#">현장 탐색</a>
+<a class="text-text-secondary font-body-md text-body-md hover:text-text-primary transition-colors duration-150" href="#">과제 관리</a>
+<!-- Active Tab on Top Bar: 정산 내역 -->
+<a class="border-b-2 border-primary text-primary font-label-lg text-label-lg pb-1" href="#">정산 내역</a>
+</nav>
+</div>
+<!-- Right: Trailing Actions & Profile -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 border-r border-border-subtle pr-3">
+<button class="w-9 h-9 rounded-lg hover:bg-surface-subtle flex items-center justify-center text-text-secondary hover:text-text-primary transition-colors relative" title="알림">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="w-2 h-2 rounded-full bg-error absolute top-2 right-2"></span>
+</button>
+<button class="w-9 h-9 rounded-lg hover:bg-surface-subtle flex items-center justify-center text-text-secondary hover:text-text-primary transition-colors" title="도움말">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+<button class="bg-primary-container hover:bg-action-hover active:bg-action-pressed text-text-inverse font-label-md text-label-md px-3.5 py-2 rounded-lg flex items-center gap-1.5 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="note_add">note_add</span>
+<span>신규 작업 등록</span>
+</button>
+<!-- User Profile Avatar -->
+<div class="flex items-center gap-2 pl-1 cursor-pointer">
+<div class="w-9 h-9 rounded-full bg-surface-container border border-border-subtle flex items-center justify-center font-label-md text-primary">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+</div>
+</div>
+</div>
+</header>
+<!-- ==================== BODY WORKSPACE CONTENT ==================== -->
+<main class="p-8 max-w-[1440px] w-full mx-auto flex flex-col gap-6">
+<!-- Breadcrumb & Top Overview Banner -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-text-hint">
+<span>과제 관리</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span>현장 실습 관리</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-text-primary font-bold">수행·보상 이력 (SB-18)</span>
+</div>
+<!-- Banner Card -->
+<div class="bg-surface-card border border-border-subtle rounded-lg p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-info-bg border border-secondary-fixed flex items-center justify-center text-info-text shrink-0">
+<span class="material-symbols-outlined text-[28px]" data-icon="engineering">engineering</span>
+</div>
+<div>
+<div class="flex items-center gap-2.5">
+<h1 class="text-headline-md font-headline-md text-text-primary tracking-tight">수행·보상 이력 종합 요약</h1>
+<span class="bg-info-bg text-info-text text-label-sm font-label-sm px-2 py-0.5 rounded-lg border border-secondary-fixed">
+                  소상공인 협력 사업
+                </span>
+<span class="bg-neutral-status-bg text-neutral-status-text text-label-sm font-label-sm px-2 py-0.5 rounded-lg border border-border-subtle">
+                  소상공인 v1 · 데모 데이터
+                </span>
+</div>
+<p class="text-body-md font-body-md text-text-secondary mt-1">
+                청년 Physical AI 현장 전문인력 (데이터 수집 오퍼레이터: <strong class="text-text-primary font-semibold">김민수</strong>) 수행 및 보상 이력 요약
+              </p>
+</div>
+</div>
+<!-- Quick Actions in Banner -->
+<div class="flex items-center gap-2.5 self-start md:self-auto">
+<button class="bg-surface-card border border-border-subtle hover:bg-surface-subtle text-text-primary font-label-md text-label-md px-3.5 py-2 rounded-lg flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+<span>이력 엑셀 다운로드</span>
+</button>
+<button class="bg-surface-card border border-border-subtle hover:bg-surface-subtle text-text-primary font-label-md text-label-md px-3.5 py-2 rounded-lg flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="history">history</span>
+<span>동기화 기록</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ==================== 4 METRIC STAT CARDS (Bento Grid Style) ==================== -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1: 총 수행 세션 -->
+<div class="bg-surface-card border border-border-subtle rounded-lg p-5 flex flex-col justify-between transition-all hover:border-border-control">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-text-secondary">총 수행 세션</span>
+<div class="w-8 h-8 rounded-lg bg-surface-subtle flex items-center justify-center text-text-secondary">
+<span class="material-symbols-outlined text-[20px]" data-icon="task_alt">task_alt</span>
+</div>
+</div>
+<div class="mt-3">
+<div class="text-headline-lg font-headline-lg text-text-primary tracking-tight">8건</div>
+<div class="text-body-sm font-body-sm text-text-hint mt-1 flex items-center gap-1.5 flex-wrap">
+<span class="text-success-text font-semibold">정상 승인 6건</span> · 
+              <span class="text-warning-text font-semibold">보완 1건</span> · 
+              <span>대기 1건</span>
+</div>
+</div>
+<div class="w-full bg-surface-subtle rounded-full h-1.5 mt-3 overflow-hidden flex">
+<div class="bg-success-text h-full" style="width: 75%;" title="승인 6건"></div>
+<div class="bg-warning-text h-full" style="width: 12.5%;" title="보완 1건"></div>
+<div class="bg-outline-variant h-full" style="width: 12.5%;" title="대기 1건"></div>
+</div>
+</div>
+<!-- Card 2: 총 작업 시간 -->
+<div class="bg-surface-card border border-border-subtle rounded-lg p-5 flex flex-col justify-between transition-all hover:border-border-control">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-text-secondary">총 작업 시간</span>
+<div class="w-8 h-8 rounded-lg bg-surface-subtle flex items-center justify-center text-text-secondary">
+<span class="material-symbols-outlined text-[20px]" data-icon="timer">timer</span>
+</div>
+</div>
+<div class="mt-3">
+<div class="text-headline-lg font-headline-lg text-text-primary tracking-tight">6시간 20분</div>
+<div class="text-body-sm font-body-sm text-text-hint mt-1 flex items-center gap-1.5 flex-wrap">
+<span>준비 1.5h</span> · 
+              <span class="text-primary font-semibold">수집 4.2h</span> · 
+              <span>보완 0.5h</span>
+</div>
+</div>
+<div class="w-full bg-surface-subtle rounded-full h-1.5 mt-3 overflow-hidden flex">
+<div class="bg-secondary-fixed-dim h-full" style="width: 24%;" title="준비 1.5h"></div>
+<div class="bg-primary-container h-full" style="width: 68%;" title="수집 4.2h"></div>
+<div class="bg-tertiary h-full" style="width: 8%;" title="보완 0.5h"></div>
+</div>
+</div>
+<!-- Card 3: 누적 합의 보상 -->
+<div class="bg-surface-card border border-border-subtle rounded-lg p-5 flex flex-col justify-between transition-all hover:border-border-control">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-text-secondary">누적 합의 보상</span>
+<div class="w-8 h-8 rounded-lg bg-info-bg flex items-center justify-center text-info-text">
+<span class="material-symbols-outlined text-[20px]" data-icon="paid">paid</span>
+</div>
+</div>
+<div class="mt-3">
+<div class="text-headline-lg font-headline-lg text-primary tracking-tight">195,000원</div>
+<div class="text-body-sm font-body-sm text-text-hint mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-text-secondary" data-icon="info">info</span>
+<span>모의 협의 기준 (가상 단가)</span>
+</div>
+</div>
+<div class="mt-3 flex items-center justify-between text-label-sm font-label-sm text-text-secondary pt-1 border-t border-surface-subtle">
+<span>평균 세션 보상</span>
+<span class="font-bold text-text-primary">24,375원</span>
+</div>
+</div>
+<!-- Card 4: 정산 상태 요약 -->
+<div class="bg-surface-card border border-border-subtle rounded-lg p-5 flex flex-col justify-between transition-all hover:border-border-control">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-text-secondary">정산 상태 요약</span>
+<div class="w-8 h-8 rounded-lg bg-success-bg flex items-center justify-center text-success-text">
+<span class="material-symbols-outlined text-[20px]" data-icon="receipt_long">receipt_long</span>
+</div>
+</div>
+<div class="mt-3">
+<div class="text-body-md font-body-md text-text-primary">
+<span class="text-headline-sm font-headline-sm text-info-text font-bold">45,000원</span>
+<span class="text-label-sm font-label-sm text-text-hint ml-1">대기</span>
+</div>
+<div class="text-body-sm font-body-sm text-text-hint mt-1">
+              지급 확인: <span class="text-success-text font-bold">150,000원</span>
+</div>
+</div>
+<div class="mt-3 flex items-center gap-2">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm px-2 py-0.5 rounded bg-info-bg text-info-text font-semibold">
+              모의 지급 대기 2건
+            </span>
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm px-2 py-0.5 rounded bg-success-bg text-success-text font-semibold">
+              확인 6건
+            </span>
+</div>
+</div>
+</section>
+<!-- ==================== KEY PRINCIPLE CALLOUT ==================== -->
+<div class="bg-info-bg border border-secondary-fixed rounded-lg p-4 flex items-start gap-3.5">
+<span class="material-symbols-outlined text-info-text text-[22px] shrink-0 mt-0.5" data-icon="verified_user">verified_user</span>
+<div class="flex-1 text-body-sm font-body-sm text-text-secondary leading-relaxed">
+<strong class="text-text-primary font-semibold">RoboHood 운영 원칙 안내:</strong>
+          본 시스템은 현장 <span class="text-info-text font-semibold underline underline-offset-2">‘검수 상태(데이터 품질 승인 여부)’</span>와 <span class="text-info-text font-semibold underline underline-offset-2">‘보상 정산 상태(모의 정산 진행 단계)’</span>를 명확히 분리하여 관리합니다.
+          모든 금액 표기는 실제 금융 계좌 이체가 아닌 실습 표준에 따른 <strong class="text-text-primary font-semibold">모의 정산 및 지급 대기</strong> 단계로 기록됩니다.
+        </div>
+</div>
+<!-- ==================== DATA TABLE CARD SECTION ==================== -->
+<section class="bg-surface-card border border-border-subtle rounded-lg flex flex-col overflow-hidden shadow-none">
+<!-- Table Header & Controls Bar -->
+<div class="p-4 border-b border-border-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-surface-card">
+<!-- Filter Tabs -->
+<div class="flex items-center gap-1.5 p-1 bg-surface-subtle border border-border-subtle rounded-lg w-fit">
+<button class="bg-surface-card text-text-primary shadow-sm font-label-md text-label-md px-3 py-1.5 rounded transition-all">
+              전체 내역 (4)
+            </button>
+<button class="text-text-secondary hover:text-text-primary hover:bg-surface-card/60 font-label-md text-label-md px-3 py-1.5 rounded transition-all">
+              검수 승인 (3)
+            </button>
+<button class="text-text-secondary hover:text-text-primary hover:bg-surface-card/60 font-label-md text-label-md px-3 py-1.5 rounded transition-all">
+              모의 지급 대기 (2)
+            </button>
+<button class="text-text-secondary hover:text-text-primary hover:bg-surface-card/60 font-label-md text-label-md px-3 py-1.5 rounded transition-all">
+              지급 확인 완료 (1)
+            </button>
+</div>
+<!-- Secondary Filters & Table Search -->
+<div class="flex items-center gap-2">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-text-hint text-[18px]" data-icon="filter_list">filter_list</span>
+<select class="bg-surface-subtle border border-border-control rounded-lg pl-8 pr-8 py-1.5 text-body-sm font-body-sm text-text-primary focus:ring-2 focus:ring-focus-ring focus:outline-none cursor-pointer">
+<option>전체 현장(생활권)</option>
+<option>모의 카페 A</option>
+<option>모의 식당 C</option>
+</select>
+</div>
+<button class="border border-border-subtle hover:bg-surface-subtle text-text-secondary px-2.5 py-1.5 rounded-lg flex items-center justify-center transition-colors" title="새로고침">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+</button>
+</div>
+</div>
+<!-- Table Container (Horizontal Scroll for Responsive Density) -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-subtle border-b border-border-subtle text-[12px] font-label-md uppercase text-text-secondary tracking-wider">
+<th class="py-3.5 px-4 font-semibold">세션 코드</th>
+<th class="py-3.5 px-4 font-semibold">과제명</th>
+<th class="py-3.5 px-4 font-semibold">현장(생활권)</th>
+<th class="py-3.5 px-4 font-semibold">작업일자</th>
+<th class="py-3.5 px-4 font-semibold">작업 소요 시간<span class="text-[11px] font-normal text-text-hint block">(준비+수집+보완)</span></th>
+<th class="py-3.5 px-4 font-semibold text-right">합의 보상액</th>
+<th class="py-3.5 px-4 font-semibold text-center">검수 상태</th>
+<th class="py-3.5 px-4 font-semibold text-center">보상 정산 상태</th>
+<th class="py-3.5 px-4 font-semibold text-center">조치 / 상세</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-subtle text-body-sm font-body-sm">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-subtle transition-colors group">
+<td class="py-3.5 px-4 font-semibold text-primary font-mono flex items-center gap-1.5">
+<span class="material-symbols-outlined text-text-hint text-[16px]" data-icon="qr_code_2">qr_code_2</span>
+                  RH-SB-001-S01
+                </td>
+<td class="py-3.5 px-4 font-medium text-text-primary">
+                  트레이 위 컵 정리
+                  <span class="block text-[11px] text-text-hint">소형 집기류 3D 바운딩박스</span>
+</td>
+<td class="py-3.5 px-4 text-text-secondary">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+                    모의 카페 A
+                  </div>
+</td>
+<td class="py-3.5 px-4 text-text-secondary font-mono">2026-09-18</td>
+<td class="py-3.5 px-4 text-text-primary">
+<span class="font-semibold">45분</span>
+<span class="text-text-hint text-label-sm font-label-sm block">10 + 25 + 10</span>
+</td>
+<td class="py-3.5 px-4 text-right font-semibold text-text-primary font-mono">
+                  25,000원
+                </td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-success-bg text-success-text text-label-md font-label-md border border-success-text/20">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+                    검수 승인
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-info-bg text-info-text text-label-md font-label-md border border-secondary-fixed">
+<span class="material-symbols-outlined text-[14px]" data-icon="pending_actions">pending_actions</span>
+                    모의 지급 대기
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<button class="bg-surface-card border border-border-subtle hover:bg-surface-subtle text-text-primary text-label-md font-label-md px-3 py-1.5 rounded-lg inline-flex items-center gap-1 transition-colors">
+<span>상세 보기</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-subtle transition-colors group">
+<td class="py-3.5 px-4 font-semibold text-primary font-mono flex items-center gap-1.5">
+<span class="material-symbols-outlined text-text-hint text-[16px]" data-icon="qr_code_2">qr_code_2</span>
+                  RH-SB-001-S02
+                </td>
+<td class="py-3.5 px-4 font-medium text-text-primary">
+                  트레이 위 컵 정리
+                  <span class="block text-[11px] text-text-hint">반사 재질 유리잔 세부 라벨</span>
+</td>
+<td class="py-3.5 px-4 text-text-secondary">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+                    모의 카페 A
+                  </div>
+</td>
+<td class="py-3.5 px-4 text-text-secondary font-mono">2026-09-19</td>
+<td class="py-3.5 px-4 text-text-primary">
+<span class="font-semibold">40분</span>
+<span class="text-text-hint text-label-sm font-label-sm block">10 + 30 + 0</span>
+</td>
+<td class="py-3.5 px-4 text-right font-semibold text-text-primary font-mono">
+                  25,000원
+                </td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-success-bg text-success-text text-label-md font-label-md border border-success-text/20">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+                    검수 승인
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-info-bg text-info-text text-label-md font-label-md border border-secondary-fixed">
+<span class="material-symbols-outlined text-[14px]" data-icon="pending_actions">pending_actions</span>
+                    모의 지급 대기
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<button class="bg-surface-card border border-border-subtle hover:bg-surface-subtle text-text-primary text-label-md font-label-md px-3 py-1.5 rounded-lg inline-flex items-center gap-1 transition-colors">
+<span>상세 보기</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: 보완 검토 행 -->
+<tr class="hover:bg-surface-subtle transition-colors group bg-warning-bg/20">
+<td class="py-3.5 px-4 font-semibold text-primary font-mono flex items-center gap-1.5">
+<span class="material-symbols-outlined text-warning-text text-[16px]" data-icon="warning">warning</span>
+                  RH-SB-003-S01
+                </td>
+<td class="py-3.5 px-4 font-medium text-text-primary">
+                  주방 퇴식구 시야 확보
+                  <span class="block text-[11px] text-warning-text">조도 부족 구간 재수집 요청</span>
+</td>
+<td class="py-3.5 px-4 text-text-secondary">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                    모의 식당 C
+                  </div>
+</td>
+<td class="py-3.5 px-4 text-text-secondary font-mono">2026-09-15</td>
+<td class="py-3.5 px-4 text-text-primary">
+<span class="font-semibold">60분</span>
+<span class="text-text-hint text-label-sm font-label-sm block">15 + 30 + 15</span>
+</td>
+<td class="py-3.5 px-4 text-right font-semibold text-text-primary font-mono">
+                  35,000원
+                </td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-warning-bg text-warning-text text-label-md font-label-md border border-warning-text/30 font-semibold">
+<span class="material-symbols-outlined text-[14px]" data-icon="feedback">feedback</span>
+                    보완 검토
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-warning-bg text-warning-text text-label-md font-label-md border border-warning-text/30 font-semibold">
+<span class="material-symbols-outlined text-[14px]" data-icon="hourglass_top">hourglass_top</span>
+                    조건 확인 중
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<button class="bg-surface-card border border-warning-text/50 hover:bg-warning-bg text-warning-text text-label-md font-label-md px-3 py-1.5 rounded-lg inline-flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[14px]" data-icon="edit_note">edit_note</span>
+<span>보완 내역</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: 지급 완료 행 -->
+<tr class="hover:bg-surface-subtle transition-colors group">
+<td class="py-3.5 px-4 font-semibold text-primary font-mono flex items-center gap-1.5">
+<span class="material-symbols-outlined text-text-hint text-[16px]" data-icon="qr_code_2">qr_code_2</span>
+                  RH-SB-004-S01
+                </td>
+<td class="py-3.5 px-4 font-medium text-text-primary">
+                  출입구 바닥 조도 데이터
+                  <span class="block text-[11px] text-text-hint">라이다 왜곡 보정 완료</span>
+</td>
+<td class="py-3.5 px-4 text-text-secondary">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+                    모의 카페 A
+                  </div>
+</td>
+<td class="py-3.5 px-4 text-text-secondary font-mono">2026-09-10</td>
+<td class="py-3.5 px-4 text-text-primary">
+<span class="font-semibold">35분</span>
+<span class="text-text-hint text-label-sm font-label-sm block">10 + 25 + 0</span>
+</td>
+<td class="py-3.5 px-4 text-right font-semibold text-text-primary font-mono">
+                  20,000원
+                </td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-success-bg text-success-text text-label-md font-label-md border border-success-text/20">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+                    검수 승인
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-success-bg text-success-text text-label-md font-label-md border border-success-text/20">
+<span class="material-symbols-outlined text-[14px]" data-icon="task_alt">task_alt</span>
+                    지급 확인 완료
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<button class="bg-surface-card border border-border-subtle hover:bg-surface-subtle text-text-primary text-label-md font-label-md px-3 py-1.5 rounded-lg inline-flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[14px]" data-icon="receipt">receipt</span>
+<span>정산 영수증</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Pagination -->
+<div class="py-3 px-4 bg-surface-subtle border-t border-border-subtle flex items-center justify-between text-body-sm font-body-sm text-text-secondary">
+<div class="flex items-center gap-2">
+<span>표시 중: <strong class="text-text-primary">4</strong> 건 (전체 8개 세션 중)</span>
+<span class="text-border-control">|</span>
+<span class="text-text-hint text-label-sm font-label-sm">표준 정산 승인 주기: 검수 완료 후 영업일 3일 이내</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1 border border-border-subtle rounded bg-surface-card text-text-hint cursor-not-allowed text-label-sm font-label-sm" disabled="">
+              이전
+            </button>
+<button class="px-2.5 py-1 border border-primary bg-primary-container text-text-inverse rounded text-label-sm font-label-sm font-bold">
+              1
+            </button>
+<button class="px-2.5 py-1 border border-border-subtle rounded bg-surface-card text-text-secondary hover:bg-surface-subtle text-label-sm font-label-sm">
+              2
+            </button>
+<button class="px-2.5 py-1 border border-border-subtle rounded bg-surface-card text-text-secondary hover:bg-surface-subtle text-label-sm font-label-sm">
+              다음
+            </button>
+</div>
+</div>
+</section>
+<!-- ==================== POLICY NOTICE FOOTER BOX ==================== -->
+<footer class="bg-surface-card border border-border-subtle rounded-lg p-5 flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-neutral-status-bg border border-border-subtle flex items-center justify-center text-text-hint shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[24px]" data-icon="policy">policy</span>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<h4 class="text-label-lg font-label-lg text-text-primary">소상공인 협력 및 모의 보상 정산 규정 고지</h4>
+<p class="text-body-sm font-body-sm text-text-secondary leading-relaxed">
+            본 보상 내역은 실습 과제 협의에 따른 모의 정산 수치이며, 세무·노무상 자동 고용 관계나 직접 금융 거래를 발생시키지 않습니다. 정산 문의 및 이의 신청은 운영팀 고객지원 창구를 이용해 주십시오.
+          </p>
+<div class="flex items-center gap-4 mt-2 pt-2 border-t border-surface-subtle text-label-sm font-label-sm text-text-hint">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[14px]" data-icon="help_center">help_center</span>
+              정산 문의 및 이의신청 접수처
+            </a>
+<span>•</span>
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[14px]" data-icon="description">description</span>
+              모의 데이터 수집 가이드라인 보기
+            </a>
+<span>•</span>
+<span>고객지원 운영시간: 평일 09:00 ~ 18:00 (점심시간 12:00 ~ 13:00)</span>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

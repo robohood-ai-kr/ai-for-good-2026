@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoboHood - 제조업 Physical AI 데이터 플랫폼 (MF-01)</title>
+<!-- Google Fonts: Noto Sans KR & Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-background": "#131b2e",
+            "error": "#ba1a1a",
+            "surface-variant": "#dae2fd",
+            "surface": "#faf8ff",
+            "inverse-surface": "#283044",
+            "on-error-container": "#93000a",
+            "background": "#faf8ff",
+            "on-primary-fixed-variant": "#003ea8",
+            "secondary-fixed": "#d5e3fc",
+            "tertiary": "#2c4bb9",
+            "surface-tint": "#0053db",
+            "on-primary": "#ffffff",
+            "primary-fixed": "#dbe1ff",
+            "on-error": "#ffffff",
+            "tertiary-fixed": "#dde1ff",
+            "inverse-primary": "#b4c5ff",
+            "on-surface-variant": "#434655",
+            "primary": "#004ac6",
+            "surface-container-highest": "#dae2fd",
+            "on-tertiary-fixed": "#001453",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#131b2e",
+            "error-container": "#ffdad6",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#f2f3ff",
+            "surface-container-lowest": "#ffffff",
+            "primary-container": "#2563eb",
+            "on-secondary-fixed-variant": "#3a485b",
+            "on-tertiary-fixed-variant": "#173bab",
+            "on-secondary-container": "#57657a",
+            "surface-dim": "#d2d9f4",
+            "secondary-fixed-dim": "#b9c7df",
+            "on-tertiary-container": "#eff0ff",
+            "primary-fixed-dim": "#b4c5ff",
+            "surface-bright": "#faf8ff",
+            "secondary": "#515f74",
+            "surface-container": "#eaedff",
+            "inverse-on-surface": "#eef0ff",
+            "on-primary-fixed": "#00174b",
+            "surface-container-high": "#e2e7ff",
+            "secondary-container": "#d5e3fc",
+            "outline-variant": "#c3c6d7",
+            "tertiary-fixed-dim": "#b8c4ff",
+            "tertiary-container": "#4865d4",
+            "on-primary-container": "#eeefff",
+            "outline": "#737686",
+            "on-secondary-fixed": "#0d1c2e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "1rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem",
+            "margin": "1.5rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Noto Sans", "Noto Sans KR", "sans-serif"],
+            "body-md": ["Noto Sans", "Noto Sans KR", "sans-serif"],
+            "headline-md-mobile": ["Noto Sans", "Noto Sans KR", "sans-serif"],
+            "body-lg": ["Noto Sans", "Noto Sans KR", "sans-serif"],
+            "body-md-medium": ["Noto Sans", "Noto Sans KR", "sans-serif"],
+            "label-md": ["Noto Sans", "Noto Sans KR", "sans-serif"],
+            "headline-lg-mobile": ["Noto Sans", "Noto Sans KR", "sans-serif"],
+            "label-sm": ["Noto Sans", "Noto Sans KR", "sans-serif"],
+            "headline-lg": ["Noto Sans", "Noto Sans KR", "sans-serif"],
+            "body-lg-medium": ["Noto Sans", "Noto Sans KR", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-md": ["24px", {"lineHeight": "36px", "fontWeight": "600"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "headline-md-mobile": ["22px", {"lineHeight": "33px", "fontWeight": "600"}],
+            "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+            "body-md-medium": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+            "label-md": ["15px", {"lineHeight": "22px", "fontWeight": "500"}],
+            "headline-lg-mobile": ["24px", {"lineHeight": "36px", "fontWeight": "700"}],
+            "label-sm": ["13px", {"lineHeight": "18px", "fontWeight": "600"}],
+            "headline-lg": ["32px", {"lineHeight": "48px", "fontWeight": "700"}],
+            "body-lg-medium": ["17px", {"lineHeight": "26px", "fontWeight": "500"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #F4F7FB;
+      color: #131b2e;
+      font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Industrial LCD clean border styling */
+    .industrial-border {
+      border: 1px solid #D5DDE7;
+    }
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+    /* Smooth tab switching transition */
+    .role-card:hover {
+      border-color: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.08);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-[#F4F7FB] text-on-surface">
+<!-- ================= TOP NAVIGATION BAR ================= -->
+<!-- Executed from TopNavBar JSON: docked full-width top-0 h-16, bg-surface-container-lowest, shadow-sm, border-b border-outline-variant -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 h-16 bg-surface-container-lowest border-b border-outline-variant shadow-sm">
+<!-- Left: Brand Logo & Simulation Badge & Primary Links -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="smart_toy">smart_toy</span>
+<a class="text-headline-md font-headline-md font-bold text-primary tracking-tight" href="#hero">RoboHood</a>
+</div>
+<!-- Persistent Simulation Badge (Mandatory Requirement) -->
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#EFF6FF] border border-[#BFDBFE] text-[#1E40AF] text-label-sm font-label-sm">
+<span class="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse"></span>
+        제조업 v1 · 데모 데이터
+      </span>
+<!-- Desktop Navigation Anchors -->
+<nav class="hidden lg:flex items-center gap-6 ml-6">
+<a class="text-body-md font-body-md text-secondary hover:text-on-surface transition-colors duration-150" href="#about">플랫폼 소개</a>
+<a class="text-body-md font-body-md text-secondary hover:text-on-surface transition-colors duration-150" href="#stakeholders">4대 참여 가치</a>
+<a class="text-body-md font-body-md text-secondary hover:text-on-surface transition-colors duration-150" href="#pipeline">데이터 파이프라인</a>
+<a class="text-body-md font-body-md text-secondary hover:text-on-surface transition-colors duration-150" href="#mockup-cell">실증 모의셀 (MF-21)</a>
+<a class="text-body-md font-body-md text-secondary hover:text-on-surface transition-colors duration-150" href="#compliance">보안·산업안전</a>
+</nav>
+</div>
+<!-- Right: Actions & User Trigger -->
+<div class="flex items-center gap-3">
+<!-- Trailing icon actions verbatim: notifications, swap_horiz, help -->
+<button aria-label="알림" class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface-variant transition-colors" type="button">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button aria-label="모의 환경 전환" class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface-variant transition-colors" title="실증 셀 전환" type="button">
+<span class="material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span>
+</button>
+<button aria-label="도움말" class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface-variant transition-colors" type="button">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<div class="h-6 w-px bg-outline-variant mx-1 hidden sm:block"></div>
+<!-- Secondary CTA: 데모 둘러보기 -->
+<a class="hidden sm:inline-flex items-center gap-1 px-3.5 py-2 rounded-lg bg-surface-container-lowest border border-outline-variant text-on-surface text-label-md font-label-md hover:bg-surface-container transition-colors" href="#mockup-cell">
+<span class="material-symbols-outlined text-sm" data-icon="explore">explore</span>
+        데모 둘러보기
+      </a>
+<!-- Primary CTA: 워크스페이스 로그인 (MF-02) -->
+<a class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary-container text-on-primary text-label-md font-label-md hover:bg-primary transition-colors shadow-sm" href="#login-modal" onclick="alert('[MF-02 안내] 워크스페이스 권한 인증 창으로 전환됩니다. 현장 오퍼레이터/FDE 계정으로 로그인해주세요.');">
+<span class="material-symbols-outlined text-sm" data-icon="login">login</span>
+        워크스페이스 로그인
+      </a>
+</div>
+</header>
+<!-- ================= MAIN CONTENT WRAPPER ================= -->
+<main class="flex-1 mt-16">
+<!-- HERO SECTION -->
+<section class="relative py-16 lg:py-24 px-6 max-w-[1440px] mx-auto overflow-hidden" id="hero">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<!-- Hero Left Copy -->
+<div class="lg:col-span-6 space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] text-primary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-base" data-icon="verified">verified</span>
+<span>산업용 Physical AI 실증 센서 리그 &amp; 디지털 트윈 연계</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface tracking-tight leading-tight">
+            제조업 Physical AI의 시작,<br/>
+<span class="text-primary">안전하고 검증된</span> 현장 데이터 파이프라인
+          </h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl">
+            RoboHood는 과장된 양산 실적 대신, <strong>제조 현장 비가동 센서 리그</strong>와 <strong>NVIDIA Isaac Sim / Gazebo</strong> 연동 기반으로 산업안전보건법 제31조를 준수하는 고정밀 모달리티(4K RGB-D, 3D LiDAR, IMU) 데이터를 안전하게 수집·검수·자산화합니다.
+          </p>
+<!-- Core Call to Actions -->
+<div class="pt-2 flex flex-wrap items-center gap-4">
+<a class="h-11 px-6 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-body-lg-medium text-body-lg-medium inline-flex items-center gap-2 shadow-sm transition-all duration-150" href="#login-modal" onclick="alert('MF-02 워크스페이스 대시보드로 이동합니다.');">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+              시작하기 / 워크스페이스 진입
+            </a>
+<a class="h-11 px-6 rounded-lg bg-surface-container-lowest hover:bg-surface-container border border-outline-variant text-on-surface font-body-lg-medium text-body-lg-medium inline-flex items-center gap-2 transition-all duration-150" href="#mockup-cell">
+<span class="material-symbols-outlined text-primary" data-icon="precision_manufacturing">precision_manufacturing</span>
+              실증 모의셀 탐색 (MF-21)
+            </a>
+</div>
+<!-- Trust Badges List -->
+<div class="pt-6 border-t border-outline-variant flex flex-wrap items-center gap-y-2 gap-x-6 text-label-sm font-label-sm text-secondary">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base" data-icon="security">security</span>
+              산안법 제31조 안전교육 100% 이수
+            </div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base" data-icon="lock">lock</span>
+              공정 기밀 격리 &amp; 비식별화
+            </div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base" data-icon="payments">payments</span>
+              청년 오퍼레이터 법정 유급 수당 보장
+            </div>
+</div>
+</div>
+<!-- Hero Right: Industrial Telemetry & Isaac Sim Multi-view Rig (Hero Card) -->
+<div class="lg:col-span-6">
+<div class="bg-surface-container-lowest industrial-border rounded-xl shadow-sm p-5 space-y-4">
+<!-- Rig Header Status -->
+<div class="flex items-center justify-between border-b border-[#F1F5F9] pb-3">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#166534] ring-4 ring-[#F0FDF4]"></span>
+<span class="text-label-md font-label-md text-on-surface">창원 1공장 4축 로봇 조립 리그 #A-02</span>
+</div>
+<span class="px-2.5 py-0.5 rounded text-label-sm font-label-sm bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534] flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="sensors">sensors</span>
+                정상 가동 (60 FPS 동기화)
+              </span>
+</div>
+<!-- Visualizer Card Grid (RGB-D + Point Cloud + Isaac Sim Sync) -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Camera 01: 4K RGB Workcell -->
+<div class="relative bg-surface-container-low rounded-lg p-2.5 industrial-border overflow-hidden">
+<div class="flex justify-between items-center text-label-sm text-secondary mb-1">
+<span>CAM-01 [4K RGB]</span>
+<span class="text-[#166534] text-xs font-semibold">● REC</span>
+</div>
+<div class="h-32 rounded bg-surface-container flex flex-col items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-3xl text-secondary opacity-60" data-icon="videocam">videocam</span>
+<div class="absolute bottom-1 left-2 text-[11px] text-secondary font-mono">1920x1080@60Hz · H.265</div>
+<!-- Simulated Face Masking Bounding Box -->
+<div class="absolute top-4 right-6 w-12 h-10 border border-dashed border-primary bg-primary/10 rounded flex items-center justify-center">
+<span class="text-[9px] text-primary font-bold">비식별화</span>
+</div>
+</div>
+</div>
+<!-- Camera 02: 3D Point Cloud LiDAR -->
+<div class="relative bg-surface-container-low rounded-lg p-2.5 industrial-border overflow-hidden">
+<div class="flex justify-between items-center text-label-sm text-secondary mb-1">
+<span>LiDAR-01 [XYZI PCL]</span>
+<span class="text-primary text-xs font-semibold">동기화 완료</span>
+</div>
+<div class="h-32 rounded bg-[#0A1128] flex flex-col items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-3xl text-[#00E5FF] opacity-80" data-icon="grid_4x4">grid_4x4</span>
+<div class="absolute inset-0 opacity-20 bg-[radial-gradient(#2563eb_1px,transparent_1px)] [background-size:8px_8px]"></div>
+<div class="absolute bottom-1 left-2 text-[11px] text-surface-variant font-mono">Points: 245,760 / Frame</div>
+</div>
+</div>
+<!-- Telemetry Channel 03: Isaac Sim Virtual Twin Mirror -->
+<div class="relative bg-surface-container-low rounded-lg p-2.5 industrial-border overflow-hidden">
+<div class="flex justify-between items-center text-label-sm text-secondary mb-1">
+<span>Isaac Sim [Twin Sync]</span>
+<span class="text-[#2563EB] text-xs font-semibold">URDF v2.4</span>
+</div>
+<div class="h-28 rounded bg-surface-container flex flex-col items-center justify-center relative">
+<span class="material-symbols-outlined text-3xl text-primary opacity-70" data-icon="view_in_ar">view_in_ar</span>
+<div class="absolute bottom-1 left-2 text-[11px] text-secondary font-mono">Physics Jitter: &lt; 1.4ms</div>
+</div>
+</div>
+<!-- Telemetry Channel 04: Industrial Safety Interlock (E-Stop status) -->
+<div class="relative bg-surface-container-low rounded-lg p-2.5 industrial-border overflow-hidden flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center text-label-sm text-secondary mb-1">
+<span>안전 인터록 (E-Stop)</span>
+<span class="text-[#166534] text-xs font-semibold">준수</span>
+</div>
+<div class="space-y-1 mt-2">
+<div class="flex justify-between text-xs text-on-surface-variant">
+<span>하드웨어 루프</span>
+<span class="text-[#166534] font-medium">연계 정상</span>
+</div>
+<div class="flex justify-between text-xs text-on-surface-variant">
+<span>최대 토크 임계</span>
+<span class="font-mono text-on-surface">34.2 Nm / 40 Nm</span>
+</div>
+<div class="flex justify-between text-xs text-on-surface-variant">
+<span>배포 게이트 승인</span>
+<span class="font-mono text-primary font-medium">3-Way 통과</span>
+</div>
+</div>
+</div>
+<div class="text-[10px] text-secondary text-right pt-2 border-t border-outline-variant">
+                  검수관: FDE 박태준 (인증됨)
+                </div>
+</div>
+</div>
+<!-- Realtime Telemetry Feed Summary Bar -->
+<div class="p-3 bg-[#F8FAFC] rounded-lg border border-[#D5DDE7] flex items-center justify-between text-label-sm font-label-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="dataset">dataset</span>
+<span>실증 데이터 전송률: <strong class="text-on-surface font-mono">1.24 GB/s</strong> (무손실 압축)</span>
+</div>
+<span class="text-xs text-secondary font-mono">ROS2 Humble · MCAP Format</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= METRIC KPI TICKER BAR ================= -->
+<section class="bg-surface-container-lowest border-y border-outline-variant py-6">
+<div class="max-w-[1440px] mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x-0 md:divide-x divide-outline-variant">
+<!-- KPI 1 -->
+<div class="px-4">
+<div class="text-xs text-secondary mb-1 font-medium">현장 검증 Physical AI 데이터셋</div>
+<div class="text-headline-lg font-headline-lg text-primary tabular-nums">18<span class="text-base text-on-surface-variant font-normal ml-1">종 규격화</span></div>
+<div class="text-label-sm text-secondary mt-0.5">조립 · 정렬 · 이상감지 표준셋</div>
+</div>
+<!-- KPI 2 -->
+<div class="px-4">
+<div class="text-xs text-secondary mb-1 font-medium">권역별 실증 모의셀 (MF-21)</div>
+<div class="text-headline-lg font-headline-lg text-on-surface tabular-nums">4<span class="text-base text-on-surface-variant font-normal ml-1">개 권역</span></div>
+<div class="text-label-sm text-secondary mt-0.5">창원 · 울산 · 구미 · 화성 거점</div>
+</div>
+<!-- KPI 3 -->
+<div class="px-4">
+<div class="text-xs text-secondary mb-1 font-medium">안전 인터록 (E-Stop) 준수율</div>
+<div class="text-headline-lg font-headline-lg text-[#166534] tabular-nums">100<span class="text-base text-[#166534] font-normal ml-0.5">%</span></div>
+<div class="text-label-sm text-secondary mt-0.5">산안법 제31조 무사고 표준 프로토콜</div>
+</div>
+<!-- KPI 4 -->
+<div class="px-4">
+<div class="text-xs text-secondary mb-1 font-medium">청년 수집 오퍼레이터 실무 수당</div>
+<div class="text-headline-lg font-headline-lg text-primary tabular-nums">28,500<span class="text-base text-on-surface-variant font-normal ml-1">원/시간</span></div>
+<div class="text-label-sm text-secondary mt-0.5">유급 수당 보장 &amp; 공인 포트폴리오</div>
+</div>
+</div>
+</section>
+<!-- ================= 4-STAKEHOLDER VALUE GRID ================= -->
+<section class="py-20 px-6 max-w-[1440px] mx-auto" id="stakeholders">
+<div class="text-center max-w-3xl mx-auto mb-12">
+<span class="px-3 py-1 rounded bg-[#EFF6FF] text-[#1E40AF] text-label-sm font-label-sm border border-[#BFDBFE]">
+          Physical AI 상생 참여 모델
+        </span>
+<h2 class="text-headline-lg font-headline-lg text-on-surface mt-3">
+          4대 핵심 참여자 상생 가치
+        </h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-2">
+          단순 외주나 단발성 수집이 아닙니다. 제조 기업, AI 연구팀, 청년 오퍼레이터, 공정 엔지니어가 신뢰 기반으로 동반 성장하는 지속가능한 생태계입니다.
+        </p>
+</div>
+<!-- 4-Column Grid Bento Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Role 1: 제조 현장 · 기업 -->
+<div class="role-card bg-surface-container-lowest p-6 rounded-xl industrial-border transition-all duration-200 flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 rounded-lg bg-[#EFF6FF] text-primary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-2xl" data-icon="factory">factory</span>
+</div>
+<span class="text-xs font-semibold text-primary uppercase tracking-wide">01 · 제조 현장 / 기업</span>
+<h3 class="text-headline-md font-headline-md text-on-surface mt-1 mb-2">비가동 센서 리그 데이터 자산화</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">
+              양산 라인의 멈춤 없이 전용 센서 리그로 모의 데이터를 수집하고, 생산 도면 및 핵심 공정 기밀을 철저히 암호화 분리하여 자산 가치를 환원받습니다.
+            </p>
+</div>
+<div class="pt-4 border-t border-outline-variant space-y-2">
+<div class="flex items-center gap-2 text-label-sm text-secondary">
+<span class="material-symbols-outlined text-[#166534] text-base" data-icon="check_circle">check_circle</span>
+              공정 노하우 및 도면 제로 유출
+            </div>
+<div class="flex items-center gap-2 text-label-sm text-secondary">
+<span class="material-symbols-outlined text-[#166534] text-base" data-icon="check_circle">check_circle</span>
+              실증 모의셀 활용 추가 인센티브
+            </div>
+</div>
+</div>
+<!-- Role 2: Physical AI 연구팀 / 스타트업 -->
+<div class="role-card bg-surface-container-lowest p-6 rounded-xl industrial-border transition-all duration-200 flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 rounded-lg bg-[#EFF6FF] text-primary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-2xl" data-icon="smart_toy">smart_toy</span>
+</div>
+<span class="text-xs font-semibold text-primary uppercase tracking-wide">02 · 연구팀 / 스타트업</span>
+<h3 class="text-headline-md font-headline-md text-on-surface mt-1 mb-2">실증 연동 고품질 데이터셋</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">
+              NVIDIA Isaac Sim 및 Gazebo 환경과 100% 캘리브레이션된 4K RGB-D 및 3D 포인트클라우드를 확보하여 파운데이션 모델을 신속 검증합니다.
+            </p>
+</div>
+<div class="pt-4 border-t border-outline-variant space-y-2">
+<div class="flex items-center gap-2 text-label-sm text-secondary">
+<span class="material-symbols-outlined text-[#166534] text-base" data-icon="check_circle">check_circle</span>
+              ROS2 / MCAP 규격 즉시 호환
+            </div>
+<div class="flex items-center gap-2 text-label-sm text-secondary">
+<span class="material-symbols-outlined text-[#166534] text-base" data-icon="check_circle">check_circle</span>
+              현장 방문 없는 원격 가상 검증
+            </div>
+</div>
+</div>
+<!-- Role 3: 청년 수집 인력 (오퍼레이터) -->
+<div class="role-card bg-surface-container-lowest p-6 rounded-xl industrial-border transition-all duration-200 flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 rounded-lg bg-[#EFF6FF] text-primary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-2xl" data-icon="engineering">engineering</span>
+</div>
+<span class="text-xs font-semibold text-primary uppercase tracking-wide">03 · 청년 오퍼레이터</span>
+<h3 class="text-headline-md font-headline-md text-on-surface mt-1 mb-2">유급 실무 수당 &amp; 커리어 자산</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">
+              산안법 제31조 안전보건 교육 이수 후 시간당 28,500원의 투명한 실무 수당을 보장받으며 공인 실증 수집 이력 포트폴리오를 공식 발급받습니다.
+            </p>
+</div>
+<div class="pt-4 border-t border-outline-variant space-y-2">
+<div class="flex items-center gap-2 text-label-sm text-secondary">
+<span class="material-symbols-outlined text-[#166534] text-base" data-icon="check_circle">check_circle</span>
+              시간당 28,500원 합리적 유급 보상
+            </div>
+<div class="flex items-center gap-2 text-label-sm text-secondary">
+<span class="material-symbols-outlined text-[#166534] text-base" data-icon="check_circle">check_circle</span>
+              Physical AI 전문 경력 인증서
+            </div>
+</div>
+</div>
+<!-- Role 4: 현장 적용 엔지니어 (FDE) -->
+<div class="role-card bg-surface-container-lowest p-6 rounded-xl industrial-border transition-all duration-200 flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 rounded-lg bg-[#EFF6FF] text-primary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-2xl" data-icon="verified_user">verified_user</span>
+</div>
+<span class="text-xs font-semibold text-primary uppercase tracking-wide">04 · 현장 엔지니어 (FDE)</span>
+<h3 class="text-headline-md font-headline-md text-on-surface mt-1 mb-2">독립적 3-Way 배포 게이트</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">
+              데이터의 유효성, 안전 인터록(E-Stop) 물리 검증, 모델 적합도를 심사하는 독립 권한을 부여받아 공정 무결성을 책임 통제합니다.
+            </p>
+</div>
+<div class="pt-4 border-t border-outline-variant space-y-2">
+<div class="flex items-center gap-2 text-label-sm text-secondary">
+<span class="material-symbols-outlined text-[#166534] text-base" data-icon="check_circle">check_circle</span>
+              3-Way 배포 승인 최종 서명권
+            </div>
+<div class="flex items-center gap-2 text-label-sm text-secondary">
+<span class="material-symbols-outlined text-[#166534] text-base" data-icon="check_circle">check_circle</span>
+              E-Stop 연동 하드웨어 통제 권한
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 5-STEP DATA PIPELINE FLOW ================= -->
+<section class="py-20 bg-surface-container-lowest border-y border-outline-variant" id="pipeline">
+<div class="max-w-[1440px] mx-auto px-6">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+<div>
+<span class="px-3 py-1 rounded bg-[#EFF6FF] text-[#1E40AF] text-label-sm font-label-sm border border-[#BFDBFE]">
+              엔드투엔드 파이프라인
+            </span>
+<h2 class="text-headline-lg font-headline-lg text-on-surface mt-2">
+              Physical AI 데이터 5단계 검증 아키텍처
+            </h2>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-md mt-2 md:mt-0">
+            현장 과제 등록부터 시뮬레이터 검증, 실시간 디지털 트윈 피드백까지 표준화된 5개 단계로 데이터의 안전성과 정밀도를 보장합니다.
+          </p>
+</div>
+<!-- 5 Steps Flow Horizontal Stepper -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+<!-- Step 1 -->
+<div class="relative bg-surface-container-low p-5 rounded-xl industrial-border">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-bold font-mono px-2 py-0.5 rounded bg-primary text-on-primary">STEP 01</span>
+<span class="text-xs font-mono text-secondary">MF-05</span>
+</div>
+<h4 class="text-body-lg-medium font-body-lg-medium text-on-surface mb-2">현장 과제 및 센서 파라미터 설계</h4>
+<p class="text-label-md font-label-md text-on-surface-variant">
+              제조 공정 태스크 정의, 조도·진동 범위 설정, RGB-D 및 LiDAR 주파수 설계.
+            </p>
+<div class="mt-4 pt-3 border-t border-outline-variant text-[12px] text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="tune">tune</span>
+              공정 파라미터 표준 템플릿
+            </div>
+</div>
+<!-- Step 2 -->
+<div class="relative bg-surface-container-low p-5 rounded-xl industrial-border">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-bold font-mono px-2 py-0.5 rounded bg-primary text-on-primary">STEP 02</span>
+<span class="text-xs font-mono text-secondary">MF-07/08</span>
+</div>
+<h4 class="text-body-lg-medium font-body-lg-medium text-on-surface mb-2">오퍼레이터 매칭 &amp; 정밀 수집</h4>
+<p class="text-label-md font-label-md text-on-surface-variant">
+              산안법 제31조 안전 교육 완료 청년 매칭, 하네스 및 센서 리그 착용 정밀 수집.
+            </p>
+<div class="mt-4 pt-3 border-t border-outline-variant text-[12px] text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="badge">badge</span>
+              유급 수당 실시간 산출
+            </div>
+</div>
+<!-- Step 3 -->
+<div class="relative bg-surface-container-low p-5 rounded-xl industrial-border">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-bold font-mono px-2 py-0.5 rounded bg-primary text-on-primary">STEP 03</span>
+<span class="text-xs font-mono text-secondary">MF-09</span>
+</div>
+<h4 class="text-body-lg-medium font-body-lg-medium text-on-surface mb-2">이중 검수 &amp; 개인정보 마스킹</h4>
+<p class="text-label-md font-label-md text-on-surface-variant">
+              전문가 품질 태깅, 불량품 레이블링, 얼굴·명찰 100% 자동 블러링 비식별화.
+            </p>
+<div class="mt-4 pt-3 border-t border-outline-variant text-[12px] text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="visibility_off">visibility_off</span>
+              개인정보 완벽 보호
+            </div>
+</div>
+<!-- Step 4 -->
+<div class="relative bg-surface-container-low p-5 rounded-xl industrial-border">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-bold font-mono px-2 py-0.5 rounded bg-primary text-on-primary">STEP 04</span>
+<span class="text-xs font-mono text-secondary">MF-14</span>
+</div>
+<h4 class="text-body-lg-medium font-body-lg-medium text-on-surface mb-2">시뮬레이터 시험 &amp; 3-Way 배포</h4>
+<p class="text-label-md font-label-md text-on-surface-variant">
+              Isaac Sim 물리 엔진 일치성 검증, FDE 3-Way 안전 게이트 최종 서명 승인.
+            </p>
+<div class="mt-4 pt-3 border-t border-outline-variant text-[12px] text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="gavel">gavel</span>
+              FDE 무결성 배포 승인
+            </div>
+</div>
+<!-- Step 5 -->
+<div class="relative bg-surface-container-low p-5 rounded-xl industrial-border">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-bold font-mono px-2 py-0.5 rounded bg-primary text-on-primary">STEP 05</span>
+<span class="text-xs font-mono text-secondary">MF-15/16</span>
+</div>
+<h4 class="text-body-lg-medium font-body-lg-medium text-on-surface mb-2">디지털 트윈 관제 &amp; 타겟 재수집</h4>
+<p class="text-label-md font-label-md text-on-surface-variant">
+              실시간 상태 원격 텔레오퍼레이션 모니터링, 예측 이상치 발견 시 타겟 과제 트리거.
+            </p>
+<div class="mt-4 pt-3 border-t border-outline-variant text-[12px] text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="sync">sync</span>
+              폐루프(Closed Loop) 개선
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= MOCKUP CELL & VERIFICATION WORKSPACE PREVIEW (MF-21) ================= -->
+<section class="py-20 px-6 max-w-[1440px] mx-auto" id="mockup-cell">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-5 space-y-6">
+<span class="px-3 py-1 rounded bg-[#EFF6FF] text-[#1E40AF] text-label-sm font-label-sm border border-[#BFDBFE]">
+            실증 모의셀 탐색 (MF-21)
+          </span>
+<h2 class="text-headline-lg font-headline-lg text-on-surface">
+            실제 공장 중단 없이,<br/>
+            독립 모의셀에서 완벽 검증
+          </h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant">
+            RoboHood는 가동 중인 양산 공장을 위태롭게 하지 않습니다. 창원, 울산 등 주요 권역에 구축된 <strong>비가동 실증 모의셀</strong>을 통해 다축 로봇암, 벨트 컨베이어, 정밀 그리퍼 환경에서 로봇 조작 모델을 안전하게 사전 시험합니다.
+          </p>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-0.5" data-icon="check_circle">check_circle</span>
+<div>
+<strong class="text-on-surface font-body-md-medium">현장 물리 안전 인터록 (E-Stop 듀얼 서킷)</strong>
+<p class="text-label-md text-secondary">이상 거동 시 0.04초 내 전원 차단 하드웨어 회로 내장</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-0.5" data-icon="check_circle">check_circle</span>
+<div>
+<strong class="text-on-surface font-body-md-medium">다양한 산업용 그리퍼 및 조립 타겟 라이브러리</strong>
+<p class="text-label-md text-secondary">흡착식, 평행 2핑거, 적응형 3핑거 교체형 리그 완비</p>
+</div>
+</li>
+</ul>
+<div class="pt-2">
+<button class="px-5 py-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant hover:bg-surface-container text-on-surface text-body-md-medium font-body-md-medium inline-flex items-center gap-2 transition-colors" onclick="alert('MF-21 권역별 실증 모의셀 예약 및 상태 대시보드로 이동합니다.');" type="button">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+              권역별 모의셀 4곳 실시간 예약 현황 확인
+            </button>
+</div>
+</div>
+<!-- Right Side: Interactive Rig Specification Board -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-6 rounded-xl industrial-border shadow-sm">
+<div class="flex items-center justify-between border-b border-[#F1F5F9] pb-4 mb-4">
+<div>
+<h4 class="text-body-lg-medium font-body-lg-medium text-on-surface">모의셀 실증 규격 (Standard Cell Spec)</h4>
+<p class="text-label-sm text-secondary">NVIDIA Isaac Sim 2023.1.1 + ROS2 Humble 완벽 호환</p>
+</div>
+<span class="px-3 py-1 rounded bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534] text-label-sm font-label-sm">
+              상태: 예약 가능
+            </span>
+</div>
+<!-- Spec Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#F8FAFC] border-b-2 border-[#D5DDE7] text-label-md font-label-md text-secondary">
+<th class="py-2.5 px-3">하드웨어 모듈</th>
+<th class="py-2.5 px-3">장착 사양</th>
+<th class="py-2.5 px-3">데이터 대역폭</th>
+<th class="py-2.5 px-3">안전 등급</th>
+</tr>
+</thead>
+<tbody class="text-body-md font-body-md divide-y divide-outline-variant">
+<tr>
+<td class="py-3 px-3 font-medium text-on-surface">Vision Sensor</td>
+<td class="py-3 px-3 text-on-surface-variant">Intel RealSense D455 x 3 EA</td>
+<td class="py-3 px-3 font-mono text-sm">60 FPS / RGB-D Sync</td>
+<td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-[#EFF6FF] text-[#1E40AF] text-xs">IP65 방진</span></td>
+</tr>
+<tr>
+<td class="py-3 px-3 font-medium text-on-surface">LiDAR Rig</td>
+<td class="py-3 px-3 text-on-surface-variant">Ouster OS1-32 Ch (Rev 7)</td>
+<td class="py-3 px-3 font-mono text-sm">10/20 Hz PCL Raw</td>
+<td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-[#EFF6FF] text-[#1E40AF] text-xs">Class 1 Eye-Safe</span></td>
+</tr>
+<tr>
+<td class="py-3 px-3 font-medium text-on-surface">Robot Arm</td>
+<td class="py-3 px-3 text-on-surface-variant">협동로봇 6축 12kg 가반하중</td>
+<td class="py-3 px-3 font-mono text-sm">1000 Hz Joint State</td>
+<td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-[#F0FDF4] text-[#166534] text-xs">ISO 10218-1</span></td>
+</tr>
+<tr>
+<td class="py-3 px-3 font-medium text-on-surface">Physical E-Stop</td>
+<td class="py-3 px-3 text-on-surface-variant">하드와이어 듀얼 인터록</td>
+<td class="py-3 px-3 font-mono text-sm">응답 &lt; 40ms</td>
+<td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-[#FEF2F2] text-[#B91C1C] text-xs font-semibold">SIL 3 / PL e</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-4 p-3 bg-surface-container-low rounded-lg border border-outline-variant flex items-center justify-between text-label-sm">
+<span class="text-secondary">공정 기밀 격리 솔루션 적용: <strong>외부 망 분리 &amp; 사내 전용 노드 구축</strong></span>
+<span class="text-primary font-medium">네트워크 무선 절체 완료</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= COMPLIANCE & SAFETY BANNER ================= -->
+<section class="py-16 bg-[#F8FAFC] border-t border-outline-variant" id="compliance">
+<div class="max-w-[1440px] mx-auto px-6">
+<div class="bg-surface-container-lowest p-8 rounded-xl industrial-border shadow-sm">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-lg bg-[#EFF6FF] text-[#1E40AF] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="verified_user">verified_user</span>
+</div>
+<div>
+<h3 class="text-body-lg-medium font-body-lg-medium text-on-surface mb-1">산업안전보건법 제31조 준수</h3>
+<p class="text-label-md font-label-md text-on-surface-variant">
+                  모든 청년 오퍼레이터는 현장 투입 전 4시간 필수 안전교육을 이수하며, 작업 중 안전 인터록과 보호장구 규정을 엄격히 준수합니다.
+                </p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-lg bg-[#EFF6FF] text-[#1E40AF] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="lock_person">lock_person</span>
+</div>
+<div>
+<h3 class="text-body-lg-medium font-body-lg-medium text-on-surface mb-1">작업자 100% 자동 마스킹</h3>
+<p class="text-label-md font-label-md text-on-surface-variant">
+                  수집된 4K 비디오 스트림에서 작업자의 얼굴, 사원증, 명찰을 온디바이스 AI로 감지하여 영구 블러 처리 후 데이터셋에 편입합니다.
+                </p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-lg bg-[#EFF6FF] text-[#1E40AF] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="branding_watermark">branding_watermark</span>
+</div>
+<div>
+<h3 class="text-body-lg-medium font-body-lg-medium text-on-surface mb-1">제3자 유출 방지 포렌식 워터마크</h3>
+<p class="text-label-md font-label-md text-on-surface-variant">
+                  데이터 반출 및 연구 활용 시 다운로더 식별 암호화 워터마크를 각 프레임에 삽입하여 산업 기밀 무단 복제를 철저히 방지합니다.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= CONVERSION / CTA SECTION ================= -->
+<section class="py-20 px-6 max-w-[1440px] mx-auto text-center">
+<div class="bg-gradient-to-b from-[#EFF6FF] to-surface-container-lowest p-10 md:p-14 rounded-2xl industrial-border max-w-4xl mx-auto shadow-sm space-y-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest text-primary text-label-sm font-label-sm border border-[#BFDBFE]">
+<span class="material-symbols-outlined text-sm" data-icon="rocket_launch">rocket_launch</span>
+          대한민국 제조 Physical AI의 표준 생태계
+        </span>
+<h2 class="text-headline-lg font-headline-lg text-on-surface tracking-tight">
+          신뢰할 수 있는 데이터로<br/>제조 로봇의 지능을 완성하세요
+        </h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl mx-auto">
+          제조 현장 파트너십, Physical AI 연구 데이터셋 요청, 또는 청년 오퍼레이터 지원을 지금 시작하세요.
+        </p>
+<div class="flex flex-wrap justify-center gap-4 pt-2">
+<a class="h-11 px-8 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-body-lg-medium text-body-lg-medium inline-flex items-center gap-2 shadow-sm transition-colors" href="#login-modal" onclick="alert('MF-02 워크스페이스 로그인 화면으로 이동합니다.');">
+<span class="material-symbols-outlined" data-icon="login">login</span>
+            플랫폼 워크스페이스 시작
+          </a>
+<a class="h-11 px-8 rounded-lg bg-surface-container-lowest hover:bg-surface-container border border-outline-variant text-on-surface font-body-lg-medium text-body-lg-medium inline-flex items-center gap-2 transition-colors" href="#contact-footer">
+<span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
+            실증 연구 협약 문의
+          </a>
+</div>
+</div>
+</section>
+</main>
+<!-- ================= FOOTER ================= -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant py-12 px-6" id="contact-footer">
+<div class="max-w-[1440px] mx-auto space-y-8">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-outline-variant pb-6">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="smart_toy">smart_toy</span>
+<span class="text-headline-md font-headline-md font-bold text-primary">RoboHood</span>
+<span class="text-xs font-mono text-secondary px-2 py-0.5 rounded bg-surface-container">v1.4.2 (LTS)</span>
+</div>
+<p class="text-label-md font-label-md text-secondary">
+            제조업 중심 독립 Physical AI 데이터 플랫폼 · 센서 리그 실증 &amp; 디지털 트윈 연계
+          </p>
+</div>
+<!-- Simulation Notice Badge in Footer -->
+<div class="p-2.5 rounded-lg bg-[#EFF6FF] border border-[#BFDBFE] text-label-sm text-[#1E40AF] flex items-center gap-2">
+<span class="material-symbols-outlined text-base" data-icon="info">info</span>
+<span>본 플랫폼의 모든 데이터는 연구 실증용 비가동 센서 리그 및 디지털 트윈 모의 데이터 기반입니다.</span>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-label-md font-label-md">
+<div>
+<div class="text-xs font-semibold text-on-surface uppercase mb-3">플랫폼 규격</div>
+<ul class="space-y-2 text-secondary">
+<li><a class="hover:text-primary" href="#pipeline">5단계 데이터 파이프라인</a></li>
+<li><a class="hover:text-primary" href="#mockup-cell">실증 모의셀 규격 (MF-21)</a></li>
+<li><a class="hover:text-primary" href="#hero">Isaac Sim 연동 사양</a></li>
+<li><a class="hover:text-primary" href="#hero">ROS2 MCAP 표준 포맷</a></li>
+</ul>
+</div>
+<div>
+<div class="text-xs font-semibold text-on-surface uppercase mb-3">참여자 포털</div>
+<ul class="space-y-2 text-secondary">
+<li><a class="hover:text-primary" href="#stakeholders">제조 기업 데이터 자산화</a></li>
+<li><a class="hover:text-primary" href="#stakeholders">AI 연구팀 데이터 신청</a></li>
+<li><a class="hover:text-primary" href="#stakeholders">청년 오퍼레이터 등록 (시급 28,500원)</a></li>
+<li><a class="hover:text-primary" href="#stakeholders">FDE 검수 포털</a></li>
+</ul>
+</div>
+<div>
+<div class="text-xs font-semibold text-on-surface uppercase mb-3">컴플라이언스 &amp; 안전</div>
+<ul class="space-y-2 text-secondary">
+<li><a class="hover:text-primary" href="#compliance">산안법 제31조 안전보건 기준</a></li>
+<li><a class="hover:text-primary" href="#compliance">공정 기밀 격리 보안 지침</a></li>
+<li><a class="hover:text-primary" href="#compliance">자동 비식별화 기술 보고서</a></li>
+<li><a class="hover:text-primary" href="#compliance">E-Stop 안전 인증 사양</a></li>
+</ul>
+</div>
+<div>
+<div class="text-xs font-semibold text-on-surface uppercase mb-3">운영 총괄 지원</div>
+<ul class="space-y-2 text-secondary">
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm" data-icon="mail">mail</span> support@ro闇</li></ul></div></div></div></footer></body></html>

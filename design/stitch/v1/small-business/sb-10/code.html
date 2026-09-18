@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoboHood - 교육 이수 및 과제 적격 판정</title>
+<!-- Google Fonts: Public Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "text-inverse": "#FFFFFF",
+            "surface-dim": "#d7dade",
+            "info-text": "#1E40AF",
+            "border-control": "#64748B",
+            "surface-container-highest": "#e0e3e7",
+            "success-text": "#166534",
+            "on-tertiary-fixed-variant": "#7d2d00",
+            "outline": "#737686",
+            "inverse-surface": "#2d3134",
+            "on-surface": "#181c1f",
+            "surface-variant": "#e0e3e7",
+            "action-pressed": "#1E40AF",
+            "info-bg": "#EFF6FF",
+            "error-text": "#B91C1C",
+            "on-primary-fixed-variant": "#003ea8",
+            "on-background": "#181c1f",
+            "on-surface-variant": "#434655",
+            "action-hover": "#1D4ED8",
+            "text-primary": "#0F172A",
+            "surface-bright": "#f7fafe",
+            "text-secondary": "#475569",
+            "error-container": "#ffdad6",
+            "surface": "#f7fafe",
+            "on-error-container": "#93000a",
+            "primary-fixed": "#dbe1ff",
+            "on-primary-fixed": "#00174b",
+            "focus-ring": "#2563EB",
+            "on-primary-container": "#eeefff",
+            "inverse-on-surface": "#eef1f5",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#ffb596",
+            "tertiary-container": "#bc4800",
+            "surface-canvas": "#F4F7FB",
+            "inverse-primary": "#b4c5ff",
+            "success-bg": "#F0FDF4",
+            "on-tertiary": "#ffffff",
+            "surface-container": "#ebeef2",
+            "border-subtle": "#D5DDE7",
+            "neutral-status-text": "#475569",
+            "on-secondary-fixed": "#0d1c2e",
+            "on-tertiary-container": "#ffede6",
+            "primary-fixed-dim": "#b4c5ff",
+            "primary-container": "#2563eb",
+            "secondary-fixed": "#d5e3fc",
+            "tertiary-fixed": "#ffdbcd",
+            "surface-container-low": "#f1f4f8",
+            "surface-tint": "#0053db",
+            "on-tertiary-fixed": "#360f00",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "on-secondary-container": "#57657a",
+            "text-hint": "#64748B",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#d5e3fc",
+            "warning-text": "#92400E",
+            "primary": "#004ac6",
+            "error-bg": "#FEF2F2",
+            "on-secondary-fixed-variant": "#3a485b",
+            "outline-variant": "#c3c6d7",
+            "surface-selected": "#EFF6FF",
+            "tertiary": "#943700",
+            "warning-bg": "#FFFBEB",
+            "neutral-status-bg": "#F4F7FB",
+            "secondary": "#515f74",
+            "background": "#f7fafe",
+            "on-error": "#ffffff",
+            "secondary-fixed-dim": "#b9c7df",
+            "surface-subtle": "#F8FAFC",
+            "surface-card": "#FFFFFF",
+            "surface-container-high": "#e5e8ec"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter-desktop": "1.5rem",
+            "gutter": "1rem",
+            "margin-tablet": "1.5rem",
+            "space-xs": "0.25rem",
+            "margin-desktop": "2rem",
+            "space-lg": "1.5rem",
+            "margin": "1rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "label-md": ["Public Sans"],
+            "headline-lg": ["Public Sans"],
+            "body-md": ["Public Sans"],
+            "body-lg": ["Public Sans"],
+            "headline-sm": ["Public Sans"],
+            "headline-md": ["Public Sans"],
+            "body-sm": ["Public Sans"],
+            "label-lg": ["Public Sans"],
+            "label-sm": ["Public Sans"],
+            "headline-lg-mobile": ["Public Sans"]
+          },
+          "fontSize": {
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-canvas min-h-screen text-text-primary flex justify-center selection:bg-primary selection:text-text-inverse font-body-md antialiased">
+<!-- Mobile Form Factor Container (390px strict emulation container on desktop, fluid on mobile) -->
+<main class="w-full max-w-[390px] min-h-screen bg-surface-canvas flex flex-col border-x border-border-subtle relative pb-36 shadow-sm">
+<!-- Top Header Component (Task-focused TopAppBar without global navigation bars) -->
+<header class="w-full h-16 px-4 bg-surface-card border-b border-border-subtle flex items-center justify-between sticky top-0 z-30 shadow-[0_1px_3px_rgba(15,23,42,0.04)]">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-selected border border-border-subtle flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="smart_toy">smart_toy</span>
+</div>
+<div>
+<div class="flex items-center space-x-1.5">
+<span class="font-headline-sm text-headline-sm font-bold tracking-tight text-primary leading-none">RoboHood 현장인력</span>
+</div>
+<p class="font-label-sm text-label-sm text-text-secondary mt-0.5">소상공인 v1 · 데모 데이터</p>
+</div>
+</div>
+<div class="flex items-center space-x-1">
+<button aria-label="도움말" class="w-8 h-8 rounded-lg flex items-center justify-center text-text-secondary hover:bg-surface-subtle transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="help_outline">help_outline</span>
+</button>
+<button aria-label="알림" class="w-8 h-8 rounded-lg flex items-center justify-center text-text-secondary hover:bg-surface-subtle transition-colors relative" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-1.5 h-1.5 bg-error rounded-full"></span>
+</button>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="px-4 py-4 space-y-4">
+<!-- Section Title & Meta -->
+<div class="pt-1">
+<div class="flex items-center space-x-1 text-primary mb-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified_user">verified_user</span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Qualification Assessment</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-text-primary">교육 이수 및 과제 적격 판정</h1>
+<p class="font-body-sm text-body-sm text-text-secondary mt-1">소상공인 매장 대상 Physical AI 수집 투입 전 역량 검증 요약</p>
+</div>
+<!-- Bento Summary Card -->
+<section class="bg-surface-card rounded-xl border border-border-subtle p-4 shadow-[0_2px_8px_rgba(15,23,42,0.04)]">
+<div class="flex items-center justify-between pb-3 border-b border-border-subtle">
+<div>
+<span class="font-label-sm text-label-sm text-text-secondary">현재 직무</span>
+<div class="flex items-center space-x-1.5 mt-0.5">
+<span class="font-label-lg text-label-lg text-text-primary font-bold">데이터 수집 오퍼레이터</span>
+<span class="font-label-sm text-label-sm text-text-hint">(현장 인력)</span>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-lg font-label-md text-label-md bg-warning-bg text-warning-text border border-[#FDE68A]">
+<span class="w-1.5 h-1.5 rounded-full bg-warning-text mr-1.5"></span>
+            조건부 적격 (평가 대기 1건)
+          </span>
+</div>
+<!-- Metric Grid -->
+<div class="grid grid-cols-2 gap-2.5 pt-3">
+<div class="bg-surface-canvas p-3 rounded-lg border border-border-subtle">
+<span class="font-label-sm text-label-sm text-text-secondary block">이수 완료 진도</span>
+<div class="flex items-baseline space-x-1 mt-1">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">3</span>
+<span class="font-body-md text-body-md text-text-hint">/ 4 과정</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-1.5 bg-surface-dim rounded-full mt-2 overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-300" style="width: 75%"></div>
+</div>
+</div>
+<div class="bg-surface-canvas p-3 rounded-lg border border-border-subtle flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-text-secondary">과제 매칭 상태</span>
+<div>
+<span class="font-label-md text-label-md text-text-primary block mt-1">1개 과제 대기</span>
+<span class="font-label-sm text-label-sm text-info-text flex items-center mt-0.5">
+<span class="material-symbols-outlined text-[14px] mr-0.5" data-icon="pending">pending</span>
+                평가 즉시 해제
+              </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Educational Courses List Section -->
+<section class="space-y-2.5">
+<div class="flex items-center justify-between px-0.5">
+<h2 class="font-headline-sm text-headline-sm text-text-primary text-[17px]">교육 코스 목록</h2>
+<span class="font-label-sm text-label-sm text-text-hint">총 4개 커리큘럼</span>
+</div>
+<!-- Course 1 -->
+<article class="bg-surface-card rounded-lg border border-border-subtle p-3.5 hover:bg-surface-subtle transition-colors">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start space-x-2.5">
+<div class="w-7 h-7 rounded-lg bg-success-bg text-success-text flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<h3 class="font-label-lg text-label-lg text-text-primary font-bold">소상공인 현장 안전 및 상생 매너</h3>
+<p class="font-body-sm text-body-sm text-text-secondary mt-0.5">영업 방해 최소화 동선 수칙 및 현장 소통 지침</p>
+<div class="flex items-center space-x-2 mt-2 font-label-sm text-label-sm text-text-hint">
+<span class="flex items-center">
+<span class="material-symbols-outlined text-[13px] mr-1" data-icon="event_available">event_available</span>
+                    2026-09-12 이수
+                  </span>
+<span>•</span>
+<span>온라인 VOD</span>
+</div>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded font-label-md text-label-md bg-success-bg text-success-text shrink-0">
+              이수 완료
+            </span>
+</div>
+</article>
+<!-- Course 2 -->
+<article class="bg-surface-card rounded-lg border border-border-subtle p-3.5 hover:bg-surface-subtle transition-colors">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start space-x-2.5">
+<div class="w-7 h-7 rounded-lg bg-success-bg text-success-text flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<h3 class="font-label-lg text-label-lg text-text-primary font-bold">1인칭 POV 카메라 장착 및 앵글 규정</h3>
+<p class="font-body-sm text-body-sm text-text-secondary mt-0.5">Physical AI 로봇 학습용 광각 하향 시야각 보정 가이드</p>
+<div class="flex items-center space-x-2 mt-2 font-label-sm text-label-sm text-text-hint">
+<span class="flex items-center">
+<span class="material-symbols-outlined text-[13px] mr-1" data-icon="event_available">event_available</span>
+                    2026-09-14 이수
+                  </span>
+<span>•</span>
+<span>장비 캘리브레이션</span>
+</div>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded font-label-md text-label-md bg-success-bg text-success-text shrink-0">
+              이수 완료
+            </span>
+</div>
+</article>
+<!-- Course 3 -->
+<article class="bg-surface-card rounded-lg border border-border-subtle p-3.5 hover:bg-surface-subtle transition-colors">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start space-x-2.5">
+<div class="w-7 h-7 rounded-lg bg-success-bg text-success-text flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<h3 class="font-label-lg text-label-lg text-text-primary font-bold">비식별화 원칙 (고객·얼굴 자동 블러 및 촬영 제한)</h3>
+<p class="font-body-sm text-body-sm text-text-secondary mt-0.5">개인정보보호법 및 결제 단말기·사생활 보호 영역 처리</p>
+<div class="flex items-center space-x-2 mt-2 font-label-sm text-label-sm text-text-hint">
+<span class="flex items-center">
+<span class="material-symbols-outlined text-[13px] mr-1" data-icon="event_available">event_available</span>
+                    2026-09-15 이수
+                  </span>
+<span>•</span>
+<span>규정 준수 시험 통과</span>
+</div>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded font-label-md text-label-md bg-success-bg text-success-text shrink-0">
+              이수 완료
+            </span>
+</div>
+</article>
+<!-- Course 4 (Under Review) -->
+<article class="bg-surface-card rounded-lg border-2 border-primary-fixed-dim p-3.5 bg-gradient-to-br from-surface-card to-info-bg/30 relative">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start space-x-2.5">
+<div class="w-7 h-7 rounded-lg bg-info-bg text-info-text flex items-center justify-center shrink-0 mt-0.5 animate-pulse">
+<span class="material-symbols-outlined text-[18px]" data-icon="hourglass_top">hourglass_top</span>
+</div>
+<div>
+<div class="flex items-center space-x-1.5">
+<h3 class="font-label-lg text-label-lg text-text-primary font-bold">RH-SB-001 카페 컵 수집 모의 평가</h3>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mt-0.5">테이블 정리 1인칭 영상 5분 제출 과제 심사</p>
+<div class="mt-2.5 p-2 bg-surface-card rounded border border-border-subtle flex items-center space-x-2">
+<span class="material-symbols-outlined text-info-text text-[16px]" data-icon="assignment_ind">assignment_ind</span>
+<p class="font-body-sm text-body-sm text-text-primary">
+                    제출 영상 판정 중 <span class="text-text-hint font-label-sm">(담당 코디네이터 박연구원)</span>
+</p>
+</div>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded font-label-md text-label-md bg-info-bg text-info-text shrink-0 border border-[#BFDBFE]">
+              평가 검토 중
+            </span>
+</div>
+</article>
+</section>
+<!-- Assignment Matching Status Section -->
+<section class="space-y-2.5 pt-1">
+<div class="flex items-center justify-between px-0.5">
+<h2 class="font-headline-sm text-headline-sm text-text-primary text-[17px]">과제 적격 매칭 현황</h2>
+<span class="font-label-sm text-label-sm text-text-hint">현장 투입 가능 여부</span>
+</div>
+<!-- Matching Item 1 -->
+<div class="bg-surface-card rounded-lg border border-border-subtle p-3.5">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center space-x-2">
+<span class="px-1.5 py-0.5 bg-surface-canvas rounded text-text-secondary font-label-sm text-label-sm">과제 ID</span>
+<h3 class="font-label-lg text-label-lg text-text-primary font-bold">RH-SB-001 트레이 위 컵 정리</h3>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mt-1">소상공인 베이커리·카페 공간 모바일 트레이 집품 수집</p>
+</div>
+<span class="w-2.5 h-2.5 rounded-full bg-warning-text mt-1.5 shrink-0" title="대기 중"></span>
+</div>
+<div class="mt-3 pt-2.5 border-t border-border-subtle flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-info-text font-medium flex items-center">
+<span class="material-symbols-outlined text-[15px] mr-1" data-icon="lock_clock">lock_clock</span>
+              모의 평가 완료 후 즉시 활성화 예정
+            </span>
+<span class="font-label-sm text-label-sm text-text-hint">단가: 35,000원/세션</span>
+</div>
+</div>
+<!-- Matching Item 2 -->
+<div class="bg-surface-card rounded-lg border border-border-subtle p-3.5 opacity-90">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center space-x-2">
+<span class="px-1.5 py-0.5 bg-surface-canvas rounded text-text-secondary font-label-sm text-label-sm">과제 ID</span>
+<h3 class="font-label-lg text-label-lg text-text-primary font-bold">RH-SB-002 퇴식구 정리</h3>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mt-1">분리수거대 및 잔반 처리 스테이션 다각도 데이터셋</p>
+</div>
+<span class="w-2.5 h-2.5 rounded-full bg-border-control mt-1.5 shrink-0" title="추가 이수 필요"></span>
+</div>
+<div class="mt-3 pt-2.5 border-t border-border-subtle flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-error-text font-medium flex items-center">
+<span class="material-symbols-outlined text-[15px] mr-1" data-icon="warning">warning</span>
+              추가 실습 교육 필요 안내
+            </span>
+<button class="font-label-sm text-label-sm text-primary hover:underline flex items-center" type="button">
+              신청하기
+              <span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- System Disclaimer Banner -->
+<aside class="bg-neutral-status-bg rounded-lg border border-border-subtle p-3 text-text-secondary">
+<div class="flex items-start space-x-2">
+<span class="material-symbols-outlined text-text-hint text-[18px] shrink-0 mt-0.5" data-icon="info">info</span>
+<p class="font-body-sm text-body-sm leading-relaxed text-text-secondary">
+            본 시스템은 모의 실습/데모 환경이며 자동 FDE 승급이나 고용 보장을 표현하지 않습니다.
+          </p>
+</div>
+</aside>
+</div>
+<!-- Sticky Bottom Action Dock (Task-focused bottom controls) -->
+<div class="fixed bottom-0 w-full max-w-[390px] bg-surface-card/95 backdrop-blur-md border-t border-border-subtle p-3 z-40 shadow-[0_-4px_12px_rgba(15,23,42,0.06)]">
+<div class="grid grid-cols-5 gap-2">
+<!-- Secondary Action (36-40px height) -->
+<button class="col-span-2 h-12 bg-surface-card border border-border-subtle hover:bg-surface-subtle text-text-primary rounded-lg font-label-lg text-label-lg transition-colors flex items-center justify-center space-x-1 active:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_circle">play_circle</span>
+<span>미이수 교육 이어보기</span>
+</button>
+<!-- Primary Action (48px height, solid #2563EB) -->
+<button class="col-span-3 h-12 bg-primary-container hover:bg-action-hover active:bg-action-pressed text-text-inverse rounded-lg font-label-lg text-label-lg font-semibold transition-colors flex items-center justify-center space-x-1.5 shadow-sm" type="button">
+<span>작업함으로 이동</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<script>
+    // Lightweight interactivity for button feedback
+    document.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        // Micro visual ripple / feedback state
+        this.classList.add('scale-[0.98]');
+        setTimeout(() => this.classList.remove('scale-[0.98]'), 120);
+      });
+    });
+  </script>
+</body></html>

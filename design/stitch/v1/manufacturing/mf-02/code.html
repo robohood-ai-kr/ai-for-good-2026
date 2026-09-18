@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoboHood - 제조업 Physical AI 데이터 플랫폼 | 로그인 및 워크스페이스 선택</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-background": "#131b2e",
+            "error": "#ba1a1a",
+            "surface-variant": "#dae2fd",
+            "surface": "#faf8ff",
+            "inverse-surface": "#283044",
+            "on-error-container": "#93000a",
+            "background": "#faf8ff",
+            "on-primary-fixed-variant": "#003ea8",
+            "secondary-fixed": "#d5e3fc",
+            "tertiary": "#2c4bb9",
+            "surface-tint": "#0053db",
+            "on-primary": "#ffffff",
+            "primary-fixed": "#dbe1ff",
+            "on-error": "#ffffff",
+            "tertiary-fixed": "#dde1ff",
+            "inverse-primary": "#b4c5ff",
+            "on-surface-variant": "#434655",
+            "primary": "#004ac6",
+            "surface-container-highest": "#dae2fd",
+            "on-tertiary-fixed": "#001453",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#131b2e",
+            "error-container": "#ffdad6",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#f2f3ff",
+            "surface-container-lowest": "#ffffff",
+            "primary-container": "#2563eb",
+            "on-secondary-fixed-variant": "#3a485b",
+            "on-tertiary-fixed-variant": "#173bab",
+            "on-secondary-container": "#57657a",
+            "surface-dim": "#d2d9f4",
+            "secondary-fixed-dim": "#b9c7df",
+            "on-tertiary-container": "#eff0ff",
+            "primary-fixed-dim": "#b4c5ff",
+            "surface-bright": "#faf8ff",
+            "secondary": "#515f74",
+            "surface-container": "#eaedff",
+            "inverse-on-surface": "#eef0ff",
+            "on-primary-fixed": "#00174b",
+            "surface-container-high": "#e2e7ff",
+            "secondary-container": "#d5e3fc",
+            "outline-variant": "#c3c6d7",
+            "tertiary-fixed-dim": "#b8c4ff",
+            "tertiary-container": "#4865d4",
+            "on-primary-container": "#eeefff",
+            "outline": "#737686",
+            "on-secondary-fixed": "#0d1c2e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "1rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem",
+            "margin": "1.5rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Noto Sans"],
+            "body-md": ["Noto Sans"],
+            "headline-md-mobile": ["Noto Sans"],
+            "body-lg": ["Noto Sans"],
+            "body-md-medium": ["Noto Sans"],
+            "label-md": ["Noto Sans"],
+            "headline-lg-mobile": ["Noto Sans"],
+            "label-sm": ["Noto Sans"],
+            "headline-lg": ["Noto Sans"],
+            "body-lg-medium": ["Noto Sans"]
+          },
+          "fontSize": {
+            "headline-md": ["24px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md-mobile": ["22px", { "lineHeight": "33px", "fontWeight": "600" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "body-md-medium": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "label-md": ["15px", { "lineHeight": "22px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "label-sm": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "body-lg-medium": ["17px", { "lineHeight": "26px", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    body {
+      background-color: #F4F7FB;
+      color: #131b2e;
+      font-family: 'Noto Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-surface-container-low text-on-surface antialiased selection:bg-secondary-container">
+<!-- TOP APP BAR (From Shared Components JSON) -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 h-16 bg-surface-container-lowest border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="smart_toy">smart_toy</span>
+<span class="text-headline-md font-headline-md font-bold text-primary tracking-tight">RoboHood</span>
+</div>
+<span class="text-secondary font-body-md text-body-md hidden md:inline">|</span>
+<!-- Mandatory Simulation Badge -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-secondary-container text-primary border border-surface-container-highest">
+<span class="inline-block w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="text-label-sm font-label-sm">제조업 v1 · 데모 데이터</span>
+</div>
+</div>
+<!-- Right Header Actions (TopNavBar from JSON) -->
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="shield_with_heart">shield_with_heart</span>
+<span class="text-label-sm font-label-sm text-on-surface">산안법 안전 인터록 100% 가동</span>
+</div>
+<div class="flex items-center gap-1 border-l border-outline-variant pl-4">
+<button class="p-2 rounded-lg text-secondary hover:bg-surface-container hover:text-on-surface transition-colors" title="시스템 상태 알림" type="button">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 rounded-lg text-secondary hover:bg-surface-container hover:text-on-surface transition-colors" title="워크스페이스 전환" type="button">
+<span class="material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span>
+</button>
+<button class="p-2 rounded-lg text-secondary hover:bg-surface-container hover:text-on-surface transition-colors" title="도움말 센터" type="button">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+</div>
+<div class="flex items-center gap-2 pl-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-primary font-body-md-medium border border-outline-variant" title="현장 운영 총괄 관리자 프로필">
+<span class="material-symbols-outlined text-lg" data-icon="person">person</span>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN VIEW CONTAINER (1440px Optimization) -->
+<main class="flex-1 pt-20 pb-10 px-4 md:px-8 max-w-[1440px] w-full mx-auto flex flex-col gap-6">
+<!-- Screen Meta Bar: Code & Breadcrumb -->
+<div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm border border-outline-variant">MF-02</span>
+<h1 class="text-headline-md font-headline-md text-on-background">로그인 및 워크스페이스 선택</h1>
+<span class="text-secondary font-body-md text-body-md">•</span>
+<span class="text-body-md font-body-md text-secondary">Physical AI Data Workspace Entry</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant text-label-sm font-label-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+          보안 모의 샌드박스 망분리 연결됨
+        </span>
+</div>
+</div>
+<!-- DUAL PANEL ARCHITECTURE -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT PANEL (5 Cols): Brand Identity & Industrial Status -->
+<div class="lg:col-span-5 flex flex-col gap-5">
+<!-- Platform Overview Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant shadow-sm flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="precision_manufacturing">precision_manufacturing</span>
+<div>
+<h2 class="text-headline-md font-headline-md text-on-surface">RoboHood Platform</h2>
+<p class="text-label-sm font-label-sm text-secondary">제조업 Physical AI 데이터 플랫폼</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded bg-secondary-container text-primary font-label-sm text-label-sm border border-outline-variant">v1.4.2 PROD</span>
+</div>
+<p class="text-body-lg font-body-lg text-on-surface leading-relaxed">
+            제조업 현장과 디지털 트윈을 잇는 <strong class="font-body-lg-medium text-primary">안전한 Physical AI 데이터 허브</strong>입니다. 현장 비가동 센서 리그와 합성 시뮬레이션 데이터를 결합하여 로봇 파운데이션 모델을 검증합니다.
+          </p>
+<!-- Status Telemetry Grid -->
+<div class="grid grid-cols-2 gap-3 pt-2">
+<div class="p-3.5 rounded-lg bg-surface-container-low border border-outline-variant flex flex-col gap-1">
+<div class="flex items-center justify-between text-secondary">
+<span class="text-label-sm font-label-sm">실증 모의셀 A-3</span>
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+</div>
+<span class="text-body-lg-medium font-body-lg-medium text-on-surface">정상 가동 중</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">가공 토크 센서 120Hz 동기화</span>
+</div>
+<div class="p-3.5 rounded-lg bg-surface-container-low border border-outline-variant flex flex-col gap-1">
+<div class="flex items-center justify-between text-secondary">
+<span class="text-label-sm font-label-sm">실증 모의셀 B-2</span>
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+</div>
+<span class="text-body-lg-medium font-body-lg-medium text-on-surface">비전 리그 수신 중</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">다각도 4K 60fps 무손실</span>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="lock">lock</span>
+<div class="text-label-sm font-label-sm text-on-surface">
+<span class="font-label-sm text-primary">직무 분리 원칙 준수:</span> 초급 '데이터 수집 오퍼레이터'와 공정 책임 'FDE' 간의 승급 및 모델 제어 영역은 엄격히 차단 분리됩니다.
+            </div>
+</div>
+</div>
+<!-- Compliance & Operational Pledge -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant shadow-sm flex flex-col gap-3">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-primary" data-icon="verified_user">verified_user</span>
+<h3 class="text-label-md font-label-md text-on-surface font-semibold">보안 및 컴플라이언스 준수 서약</h3>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant leading-relaxed">
+            본 시스템은 국가 상징 또는 조작된 성과를 배제하며, 실제 현장 가동 라인의 물리 위험을 원천 방지하기 위해 검증된 <strong class="text-on-surface font-semibold">가상 샌드박스 및 비가동 센서 리그 모의 환경</strong>에서만 격리 실행됩니다.
+          </p>
+<div class="flex items-center justify-between pt-2 border-t border-outline-variant text-label-sm font-label-sm text-secondary">
+<span>K-공장 정보보호 표준 KS X 9201</span>
+<span class="text-primary font-medium">안전 규격 적합인증</span>
+</div>
+</div>
+<!-- System Architecture Visual Cue -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="dataset">dataset</span>
+</div>
+<div>
+<p class="text-label-md font-label-md text-on-surface font-medium">실시간 데이터 파이프라인</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">누적 모의 토큰: 4,821,390 frames</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-container text-secondary text-label-sm font-label-sm font-mono">1.2ms latency</span>
+</div>
+</div>
+<!-- RIGHT PANEL (7 Cols): Authentication & Role Selection Console -->
+<div class="lg:col-span-7 flex flex-col gap-5">
+<!-- Top Role Quick Select Segment (One-click Demo Roles) -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant shadow-sm flex flex-col gap-4">
+<div class="flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant pb-3">
+<div>
+<h2 class="text-label-md font-label-md text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary" data-icon="supervised_user_circle">supervised_user_circle</span>
+                데모 환경 원클릭 직무별 체험 (4대 전문 역할군)
+              </h2>
+<p class="text-label-sm font-label-sm text-secondary">권한 레벨에 따라 진입 가능한 작업 화면 및 제어 스코프가 즉시 전환됩니다.</p>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-label-sm text-label-sm font-medium">빠른 전환 활성화</span>
+</div>
+<!-- 4 Role Selector Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="roleGrid">
+<!-- Role 1: 현장 운영 총괄 관리자 -->
+<button class="role-card text-left p-4 rounded-xl border-2 border-primary-container bg-surface-container-low transition-all hover:bg-surface-container flex flex-col gap-2.5 relative" id="card-manager" onclick="selectRole('manager')" type="button">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg" data-icon="dashboard">dashboard</span>
+</div>
+<div>
+<h3 class="text-label-md font-label-md font-bold text-on-surface">현장 운영 총괄 관리자</h3>
+<p class="text-label-sm font-label-sm text-secondary">박지훈 실장 · 총괄 권한</p>
+</div>
+</div>
+<span class="badge-active px-2 py-0.5 rounded text-xs bg-primary text-on-primary font-medium">선택됨</span>
+</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">
+                워크스페이스 개요(MF-03), 과제 등록(MF-05), 인력 매칭(MF-07), 전체 관제 제어.
+              </div>
+<div class="flex items-center gap-1 pt-1 text-label-sm font-label-sm text-primary font-medium">
+<span>진입 경로: MF-03 종합 대시보드</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</button>
+<!-- Role 2: 현장 적용 엔지니어(FDE) -->
+<button class="role-card text-left p-4 rounded-xl border border-outline-variant bg-surface-container-lowest transition-all hover:border-primary-container hover:bg-surface-container-low flex flex-col gap-2.5 relative" id="card-fde" onclick="selectRole('fde')" type="button">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-secondary-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg" data-icon="engineering">engineering</span>
+</div>
+<div>
+<h3 class="text-label-md font-label-md font-bold text-on-surface">현장 적용 엔지니어 (FDE)</h3>
+<p class="text-label-sm font-label-sm text-secondary">김검수 책임검수관 · 검증 권한</p>
+</div>
+</div>
+<span class="badge-active hidden px-2 py-0.5 rounded text-xs bg-primary text-on-primary font-medium">선택됨</span>
+</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">
+                배포 준비(MF-14), 시뮬레이터 관제(MF-15), 이벤트·재수집(MF-16), 모델 검증 권한. (초급 수집자 차단 영역)
+              </div>
+<div class="flex items-center gap-1 pt-1 text-label-sm font-label-sm text-secondary font-medium">
+<span>진입 경로: MF-14/15 FDE 전용 콘솔</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</button>
+<!-- Role 3: Physical AI 연구원 -->
+<button class="role-card text-left p-4 rounded-xl border border-outline-variant bg-surface-container-lowest transition-all hover:border-primary-container hover:bg-surface-container-low flex flex-col gap-2.5 relative" id="card-researcher" onclick="selectRole('researcher')" type="button">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-secondary-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg" data-icon="science">science</span>
+</div>
+<div>
+<h3 class="text-label-md font-label-md font-bold text-on-surface">Physical AI 연구원</h3>
+<p class="text-label-sm font-label-sm text-secondary">김도현 수석연구원 · 모델 권한</p>
+</div>
+</div>
+<span class="badge-active hidden px-2 py-0.5 rounded text-xs bg-primary text-on-primary font-medium">선택됨</span>
+</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">
+                데이터셋 라이브러리(MF-10), 데이터셋 상세(MF-11), 모델 레지스트리(MF-12), 과제 요청 권한.
+              </div>
+<div class="flex items-center gap-1 pt-1 text-label-sm font-label-sm text-secondary font-medium">
+<span>진입 경로: MF-10 데이터셋 탐색</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</button>
+<!-- Role 4: 현장 수집 오퍼레이터 (청년 인력) -->
+<button class="role-card text-left p-4 rounded-xl border border-outline-variant bg-surface-container-lowest transition-all hover:border-primary-container hover:bg-surface-container-low flex flex-col gap-2.5 relative" id="card-operator" onclick="selectRole('operator')" type="button">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-secondary-container text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg" data-icon="qr_code_scanner">qr_code_scanner</span>
+</div>
+<div>
+<h3 class="text-label-md font-label-md font-bold text-on-surface">현장 수집 오퍼레이터</h3>
+<p class="text-label-sm font-label-sm text-secondary">김민준 팀장 · 모바일 수집 권한</p>
+</div>
+</div>
+<span class="badge-active hidden px-2 py-0.5 rounded text-xs bg-primary text-on-primary font-medium">선택됨</span>
+</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">
+                모바일 전용 작업함(MF-17), 현장 수집(MF-08), 경력·교육(MF-18) 안내 (모바일 뷰 QR 지원).
+              </div>
+<div class="flex items-center gap-1 pt-1 text-label-sm font-label-sm text-secondary font-medium">
+<span>진입 경로: MF-17 모바일 웹 작업함</span>
+<span class="material-symbols-outlined text-sm" data-icon="phone_iphone">phone_iphone</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Login Credentials & Target Workspace Selector Form -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant shadow-sm flex flex-col gap-5">
+<!-- Tab switch: 사번/계정 로그인 vs 제조현장 하드웨어 키/SSO -->
+<div class="flex border-b border-outline-variant gap-4">
+<button class="pb-3 text-body-md-medium font-body-md-medium text-primary border-b-2 border-primary flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="badge">badge</span>
+              사번 / 엔터프라이즈 계정
+            </button>
+<button class="pb-3 text-body-md font-body-md text-secondary hover:text-on-surface flex items-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="vpn_key">vpn_key</span>
+              현장 FIDO2 보안 키 / SSO
+            </button>
+</div>
+<form class="flex flex-col gap-4" onsubmit="event.preventDefault(); handleLogin();">
+<!-- Workspace Selector Dropdown -->
+<div class="flex flex-col gap-1.5">
+<label class="text-label-md font-label-md text-on-surface font-medium flex items-center justify-between" for="workspace-select">
+<span>접속 대상 모의 워크스페이스 셀렉터</span>
+<span class="text-label-sm font-label-sm text-primary font-normal">격리 샌드박스 망 연결</span>
+</label>
+<div class="relative">
+<select class="w-full h-11 px-3.5 pr-10 rounded-lg bg-surface-container-lowest border border-outline text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 appearance-none transition-all" id="workspace-select">
+<option selected="" value="WS-01">[WS-01] 시흥 스마트허브 정밀 가공 A셀 (제조업 v1 · 데모) - 현재 활성</option>
+<option value="WS-02">[WS-02] 안산 로봇 모빌리티 실증 2셀 (차체 용접 모의 샌드박스)</option>
+<option value="WS-03">[WS-03] 창원 사출 성형 멀티뷰 실증셀 (조립 검사 비전 8-Cam)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 pointer-events-none text-secondary" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Email / ID Input -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="text-label-md font-label-md text-on-surface font-medium" for="user-id">계정 이메일 또는 제조 사번</label>
+<div class="relative">
+<input class="w-full h-11 px-3.5 pl-10 rounded-lg bg-surface-container-lowest border border-outline text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20" id="user-id" type="text" value="operator.lead@robohood-plant.io"/>
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-secondary text-lg" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+<!-- Password -->
+<div class="flex flex-col gap-1.5">
+<label class="text-label-md font-label-md text-on-surface font-medium" for="user-pw">비밀번호</label>
+<div class="relative">
+<input class="w-full h-11 px-3.5 pl-10 rounded-lg bg-surface-container-lowest border border-outline text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20" id="user-pw" type="password" value="••••••••••••"/>
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-secondary text-lg" data-icon="key">key</span>
+</div>
+</div>
+</div>
+<!-- 2FA OTP Field -->
+<div class="flex flex-col gap-1.5">
+<label class="text-label-md font-label-md text-on-surface font-medium flex items-center justify-between" for="otp-code">
+<span>제조현장 2차 보안 인증 (2FA OTP)</span>
+<span class="text-label-sm font-label-sm text-secondary">데모 모드: 자동 입력됨</span>
+</label>
+<div class="relative">
+<input class="w-full h-11 px-3.5 pl-10 font-mono tracking-widest rounded-lg bg-surface-container-low border border-outline text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20" id="otp-code" readonly="" type="text" value="849-204"/>
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-secondary text-lg" data-icon="lock_clock">lock_clock</span>
+<button class="absolute right-2.5 top-2 px-2.5 py-1 text-label-sm font-label-sm bg-surface-container text-primary rounded border border-outline-variant hover:bg-surface-container-highest" type="button">OTP 재발급</button>
+</div>
+</div>
+<!-- Options Checkboxes -->
+<div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-primary-container border-outline focus:ring-primary-container" type="checkbox"/>
+<span class="text-label-md font-label-md text-on-surface">현장 승인 단말기 세션 유지 (8시간)</span>
+</label>
+<a class="text-label-md font-label-md text-primary hover:underline" href="#">인증 수단 분실 문의</a>
+</div>
+<!-- Action Buttons -->
+<div class="pt-2 flex flex-col sm:flex-row gap-3">
+<button class="flex-1 h-11 bg-primary-container hover:bg-primary text-on-primary rounded-lg text-body-lg-medium font-body-lg-medium flex items-center justify-center gap-2 shadow-sm transition-colors duration-150" id="btn-login-main" type="submit">
+<span class="material-symbols-outlined text-xl" data-icon="login">login</span>
+<span id="login-btn-text">선택된 권한으로 워크스페이스 진입</span>
+</button>
+<button class="h-11 px-4 bg-surface-container-lowest border border-outline-variant hover:bg-surface-container text-on-surface rounded-lg text-body-lg font-body-lg flex items-center justify-center gap-2 transition-colors" onclick="launchSimulatorModal()" type="button">
+<span class="material-symbols-outlined text-secondary text-lg" data-icon="desktop_windows">desktop_windows</span>
+<span>모의 샌드박스 사전 점검</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Mobile Operator Special Guide Notice -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="devices">devices</span>
+<div>
+<p class="text-label-md font-label-md font-semibold text-on-surface">현장 모바일 작업함 (오퍼레이터 전용)</p>
+<p class="text-label-sm font-label-sm text-secondary">휴대용 태블릿 및 스마트 기기에서 QR을 스캔하여 전용 화면으로 직접 연결하세요.</p>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest border border-outline-variant hover:border-primary text-primary text-label-sm font-label-sm flex items-center gap-1.5" onclick="showQrModal()" type="button">
+<span class="material-symbols-outlined text-base" data-icon="qr_code">qr_code</span>
+<span>QR 코드 표시</span>
+</button>
+</div>
+</div>
+</div>
+<!-- SYSTEM HEALTH BAR (Engineered Slate Canvas Standard) -->
+<div class="mt-4 p-4 rounded-xl bg-surface-container-lowest border border-outline-variant shadow-sm flex flex-wrap items-center justify-between gap-4 text-label-sm font-label-sm">
+<div class="flex flex-wrap items-center gap-6 text-secondary">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="text-on-surface font-medium">플랫폼 상태:</span>
+<span>전 구역 정상 운용 중</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base" data-icon="speed">speed</span>
+<span>평균 지연시간: <strong class="text-on-surface font-mono">1.2ms</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-primary" data-icon="security">security</span>
+<span>보안 암호화: TLS 1.3 End-to-End</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base" data-icon="hub">hub</span>
+<span>연동 센서 노드: 128 / 128 온라인</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span>헬프데스크: 02-840-7700 (제조현장 긴급기술지원반)</span>
+<span class="text-outline-variant">|</span>
+<span class="font-mono">MF-02-REV4.8</span>
+</div>
+</div>
+</main>
+<!-- MODAL: QR Code For Mobile Handheld Terminal -->
+<div class="fixed inset-0 z-50 bg-on-background/50 hidden items-center justify-center p-4 backdrop-blur-xs" id="qr-modal">
+<div class="bg-surface-container-lowest rounded-xl max-w-md w-full p-6 border border-outline-variant shadow-lg flex flex-col gap-4">
+<div class="flex items-center justify-between border-b border-outline-variant pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="qr_code_scanner">qr_code_scanner</span>
+<h3 class="text-headline-md-mobile font-headline-md-mobile text-on-surface">현장 모바일 작업함 연결</h3>
+</div>
+<button class="text-secondary hover:text-on-surface" onclick="closeQrModal()" type="button">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<p class="text-label-md font-label-md text-on-surface-variant">
+        현장 수집 오퍼레이터(청년 인력) 전용 뷰는 스마트폰 및 현장용 터치 패드에 최적화되어 있습니다. 아래 데모 QR 코드를 통해 MF-17 화면에 진입할 수 있습니다.
+      </p>
+<div class="flex flex-col items-center justify-center p-6 bg-surface-container-low rounded-xl border border-outline-variant gap-3">
+<!-- Visual Stylized QR Mockup -->
+<div class="w-44 h-44 bg-surface-container-lowest p-3 rounded-lg border-2 border-primary-container flex flex-col justify-between shadow-inner">
+<div class="flex justify-between">
+<div class="w-10 h-10 border-4 border-primary bg-primary-container/20"></div>
+<div class="w-10 h-10 border-4 border-primary bg-primary-container/20"></div>
+</div>
+<div class="flex justify-center items-center py-2">
+<span class="material-symbols-outlined text-3xl text-primary" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="flex justify-between">
+<div class="w-10 h-10 border-4 border-primary bg-primary-container/20"></div>
+<div class="grid grid-cols-2 gap-1 w-10 h-10 p-1">
+<div class="bg-primary"></div>
+<div class="bg-primary-container"></div>
+<div class="bg-primary"></div>
+<div class="bg-secondary"></div>
+</div>
+</div>
+</div>
+<span class="text-label-sm font-label-sm font-mono text-secondary">https://robohood.internal/m/workbox-mf17</span>
+</div>
+<div class="flex justify-end gap-2 pt-2">
+<button class="px-4 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-label-md font-label-md" onclick="closeQrModal()" type="button">닫기</button>
+<button class="px-4 py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary text-label-md font-label-md" onclick="window.alert('현장 모바일 작업함(MF-17) 시뮬레이터로 이동합니다.'); closeQrModal();" type="button">시뮬레이터 직접 열기</button>
+</div>
+</div>
+</div>
+<!-- MODAL: Sandbox Check Modal -->
+<div class="fixed inset-0 z-50 bg-on-background/50 hidden items-center justify-center p-4 backdrop-blur-xs" id="sim-modal">
+<div class="bg-surface-container-lowest rounded-xl max-w-lg w-full p-6 border border-outline-variant shadow-lg flex flex-col gap-4">
+<div class="flex items-center justify-between border-b border-outline-variant pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+<h3 class="text-headline-md-mobile font-headline-md-mobile text-on-surface">모의 샌드박스 격리 상태 확인</h3>
+</div>
+<button class="text-secondary hover:text-on-surface" onclick="closeSimulatorModal()" type="button">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-2.5 text-body-md font-body-md text-on-surface">
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant flex items-center justify-between">
+<span class="text-label-md font-label-md">물리 PLC 라인 격리 인터록</span>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-secondary-container text-primary font-bold">100% 안전 차단</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant flex items-center justify-between">
+<span class="text-label-md font-label-md">비가동 센서 리그 동기화 (ROS2 Foxy)</span>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-secondary-container text-primary font-bold">250Hz 정상</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant flex items-center justify-between">
+<span class="text-label-md font-label-md">합성 시뮬레이션 엔진 렌더러</span>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-secondary-container text-primary font-bold">Omniverse RTX Ready</span>
+</div>
+</div>
+<p class="text-label-sm font-label-sm text-secondary">
+        모의 실증셀은 제조현장의 어떠한 실제 공구 및 가공 로봇에도 직접 구동 신호를 전송하지 않으므로, 작업자와 연구원 모두 무위험 상태에서 데이터셋을 수집 및 검증할 수 있습니다.
+      </p>
+<div class="flex justify-end gap-2 pt-2">
+<button class="px-5 py-2.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary text-label-md font-label-md" onclick="closeSimulatorModal()" type="button">확인 및 복귀</button>
+</div>
+</div>
+</div>
+<!-- INTERACTIVE ROLE SELECTION LOGIC -->
+<script>
+    const roleData = {
+      manager: {
+        email: "jihun.park@robohood-plant.io",
+        title: "현장 운영 총괄 관리자",
+        btnText: "총괄 관리자 권한으로 워크스페이스 진입 (MF-03)",
+        alertMsg: "[MF-03] 현장 운영 총괄 대시보드로 이동합니다. 워크스페이스 개요, 과제 등록 및 배정 권한이 활성화되었습니다."
+      },
+      fde: {
+        email: "geomsu.kim.fde@robohood-plant.io",
+        title: "현장 적용 엔지니어 (FDE)",
+        btnText: "FDE 책임검수관 권한으로 진입 (MF-14)",
+        alertMsg: "[MF-14/15] FDE 전용 배포 및 시뮬레이터 관제 콘솔로 이동합니다. 초급 오퍼레이터 차단 검증 영역 제어가 허용됩니다."
+      },
+      researcher: {
+        email: "dohyun.kim.ai@robohood-plant.io",
+        title: "Physical AI 수석 연구원",
+        btnText: "AI 연구원 권한으로 진입 (MF-10)",
+        alertMsg: "[MF-10] 데이터셋 라이브러리 및 모델 레지스트리로 이동합니다. 물리 모델 평가 및 과제 제안 권한이 활성화됩니다."
+      },
+      operator: {
+        email: "minjun.kim.op@robohood-plant.io",
+        title: "현장 수집 오퍼레이터",
+        btnText: "오퍼레이터 권한으로 진입 (MF-17 모바일)",
+        alertMsg: "[MF-17] 모바일 전용 작업함으로 연결됩니다. 할당된 비가동 리그 센서 수집 및 안전 수칙 체크리스트가 로드됩니다."
+      }
+    };
+
+    let currentSelectedRole = 'manager';
+
+    function selectRole(roleKey) {
+      currentSelectedRole = roleKey;
+      const roles = ['manager', 'fde', 'researcher', 'operator'];
+      
+      roles.forEach(r => {
+        const card = document.getElementById(`card-${r}`);
+        const badge = card.querySelector('.badge-active');
+        if (r === roleKey) {
+          card.classList.remove('bg-surface-container-lowest', 'border-outline-variant');
+          card.classList.add('bg-surface-container-low', 'border-2', 'border-primary-container');
+          badge.classList.remove('hidden');
+        } else {
+          card.classList.remove('bg-surface-container-low', 'border-2', 'border-primary-container');
+          card.classList.add('bg-surface-container-lowest', 'border', 'border-outline-variant');
+          badge.classList.add('hidden');
+        }
+      });
+
+      // Update Form Inputs
+      document.getElementById('user-id').value = roleData[roleKey].email;
+      document.getElementById('login-btn-text').innerText = roleData[roleKey].btnText;
+    }
+
+    function handleLogin() {
+      const roleInfo = roleData[currentSelectedRole];
+      const workspace = document.getElementById('workspace-select').value;
+      alert(`[RoboHood 플랫폼 인증 성공]\n\n• 권한: ${roleInfo.title}\n• 워크스페이스: ${workspace}\n• 보안 인증: 산안법 안전 인터록 가상 환경 연동\n\n${roleInfo.alertMsg}`);
+    }
+
+    function showQrModal() {
+      const modal = document.getElementById('qr-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeQrModal() {
+      const modal = document.getElementById('qr-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function launchSimulatorModal() {
+      const modal = document.getElementById('sim-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeSimulatorModal() {
+      const modal = document.getElementById('sim-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  </script>
+</body></html>

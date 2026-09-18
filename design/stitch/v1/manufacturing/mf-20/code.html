@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-surface" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MF-20 워크스페이스 설정 - RoboHood</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#faf8ff",
+            "surface-container": "#eaedff",
+            "inverse-surface": "#283044",
+            "surface-container-highest": "#dae2fd",
+            "on-background": "#131b2e",
+            "secondary-container": "#d5e3fc",
+            "inverse-on-surface": "#eef0ff",
+            "tertiary-container": "#4865d4",
+            "on-secondary-fixed": "#0d1c2e",
+            "on-tertiary-container": "#eff0ff",
+            "on-secondary-fixed-variant": "#3a485b",
+            "primary-fixed-dim": "#b4c5ff",
+            "surface-container-low": "#f2f3ff",
+            "on-surface-variant": "#434655",
+            "background": "#faf8ff",
+            "tertiary": "#2c4bb9",
+            "tertiary-fixed": "#dde1ff",
+            "on-surface": "#131b2e",
+            "on-tertiary": "#ffffff",
+            "surface-container-high": "#e2e7ff",
+            "primary": "#004ac6",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed-variant": "#173bab",
+            "on-error-container": "#93000a",
+            "on-primary-container": "#eeefff",
+            "on-primary-fixed": "#00174b",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#dae2fd",
+            "outline-variant": "#c3c6d7",
+            "secondary": "#515f74",
+            "tertiary-fixed-dim": "#b8c4ff",
+            "surface-dim": "#d2d9f4",
+            "error-container": "#ffdad6",
+            "surface-bright": "#faf8ff",
+            "inverse-primary": "#b4c5ff",
+            "primary-fixed": "#dbe1ff",
+            "secondary-fixed-dim": "#b9c7df",
+            "primary-container": "#2563eb",
+            "secondary-fixed": "#d5e3fc",
+            "surface-tint": "#0053db",
+            "outline": "#737686",
+            "on-secondary-container": "#57657a",
+            "on-primary-fixed-variant": "#003ea8",
+            "on-tertiary-fixed": "#001453"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "gutter": "1.5rem",
+            "gutter-mobile": "1rem",
+            "margin": "1.5rem",
+            "margin-mobile": "1rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Noto Sans", "sans-serif"],
+            "headline-md": ["Noto Sans", "sans-serif"],
+            "headline-lg-mobile": ["Noto Sans", "sans-serif"],
+            "headline-md-mobile": ["Noto Sans", "sans-serif"],
+            "body-lg-medium": ["Noto Sans", "sans-serif"],
+            "body-lg": ["Noto Sans", "sans-serif"],
+            "body-md-medium": ["Noto Sans", "sans-serif"],
+            "body-md": ["Noto Sans", "sans-serif"],
+            "label-md": ["Noto Sans", "sans-serif"],
+            "label-sm": ["Noto Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-lg": ["32px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "headline-md-mobile": ["22px", { "lineHeight": "33px", "fontWeight": "600" }],
+            "body-lg-medium": ["17px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "body-md-medium": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-md": ["15px", { "lineHeight": "22px", "fontWeight": "500" }],
+            "label-sm": ["13px", { "lineHeight": "18px", "fontWeight": "600" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="h-full bg-surface text-on-surface antialiased overflow-hidden flex flex-col">
+<!-- ==================== TOP NAV BAR ==================== -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 h-16 bg-surface-container-lowest border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
+<span class="text-headline-md font-headline-md font-bold text-primary tracking-tight">RoboHood</span>
+</div>
+<div class="h-5 w-px bg-outline-variant"></div>
+<!-- Persistent Simulation Indicator Badge -->
+<div class="flex items-center gap-2 px-2.5 py-1 rounded bg-blue-50 border border-blue-200 text-blue-800">
+<span class="inline-block w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+<span class="font-label-sm text-label-sm font-semibold">제조업 v1 · 데모 데이터</span>
+</div>
+<!-- Quick Search Bar -->
+<div class="relative hidden lg:block w-72">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-lg">search</span>
+<input class="w-full pl-9 pr-3 py-1.5 bg-surface-container-low border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface placeholder:text-secondary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" placeholder="파라미터, 노드 ID, 권한 규정 검색..." type="text"/>
+</div>
+</div>
+<!-- Trailing Icon Actions and User Profile -->
+<div class="flex items-center gap-3">
+<button class="p-2 rounded-lg text-secondary hover:bg-surface-container hover:text-on-surface transition-colors duration-150 relative" title="알림">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 rounded-lg text-secondary hover:bg-surface-container hover:text-on-surface transition-colors duration-150" title="모의 환경 전환">
+<span class="material-symbols-outlined">swap_horiz</span>
+</button>
+<button class="p-2 rounded-lg text-secondary hover:bg-surface-container hover:text-on-surface transition-colors duration-150" title="도움말">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="h-5 w-px bg-outline-variant mx-1"></div>
+<div class="flex items-center gap-3 pl-2">
+<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-sm shadow-sm">
+          박
+        </div>
+<div class="hidden sm:flex flex-col text-left">
+<span class="font-label-md text-label-md font-semibold text-on-surface">박지훈 실장</span>
+<span class="font-label-sm text-label-sm text-secondary">현장 운영 총괄 관리자</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-base">expand_more</span>
+</div>
+</div>
+</header>
+<!-- ==================== BODY WRAPPER ==================== -->
+<div class="flex h-full pt-16 overflow-hidden">
+<!-- ==================== SIDE NAV BAR (240px) ==================== -->
+<aside class="fixed top-16 left-0 bottom-0 w-60 z-40 flex flex-col justify-between p-4 bg-surface-container-low border-r border-outline-variant">
+<!-- Main Nav Items -->
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>개요</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span>현장 탐색</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span>현장 과제</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">dataset</span>
+<span>데이터</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span>모델</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">precision_manufacturing</span>
+<span>장비</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span>배포·관제</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">engineering</span>
+<span>현장 인력</span>
+</a>
+<!-- ACTIVE TAB: 설정 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-secondary-container text-primary font-body-md-medium text-body-md-medium transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span>설정</span>
+</a>
+</nav>
+<!-- Sidebar Footer -->
+<div class="pt-4 border-t border-outline-variant space-y-2">
+<div class="px-3 py-2 rounded-lg bg-surface-container-highest/60 border border-outline-variant/60">
+<p class="font-label-sm text-label-sm font-semibold text-on-surface">EdgeBox #02 가동 중</p>
+<p class="font-label-sm text-label-sm text-secondary truncate">192.168.10.45 · PTP 정밀</p>
+</div>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">help_center</span>
+<span>도움말 &amp; 지원</span>
+</a>
+</div>
+</aside>
+<!-- ==================== MAIN WORKSPACE CANVAS ==================== -->
+<main class="flex-1 ml-60 overflow-y-auto bg-[#F4F7FB] p-6 lg:p-8">
+<div class="max-w-7xl mx-auto space-y-6">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pb-4 border-b border-outline-variant">
+<div>
+<div class="flex items-center gap-3">
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">MF-20 워크스페이스 설정</h1>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                정상 가동
+              </span>
+</div>
+<p class="font-body-md text-body-md text-secondary mt-1">
+              [WS-01] 시흥 스마트허브 정밀 가공 A셀 <span class="text-outline">·</span> 제조업 v1 · 데모 환경
+            </p>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md-medium text-body-md-medium text-on-surface hover:bg-surface-container-low transition-colors duration-150">
+              초기화
+            </button>
+<button class="px-5 py-2.5 bg-primary-container text-on-primary rounded-lg font-body-md-medium text-body-md-medium shadow-sm hover:bg-blue-700 active:bg-blue-800 transition-colors duration-150 flex items-center gap-2">
+<span class="material-symbols-outlined text-base">save</span>
+<span>변경 사항 저장 (Save Changes)</span>
+</button>
+</div>
+</div>
+<!-- Master Split Layout: Left Sub-Nav + Right Details -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Left Sub-Navigation (4 Cols on Large) -->
+<div class="lg:col-span-3 bg-surface-container-lowest border border-outline-variant rounded-xl p-3 shadow-sm space-y-1">
+<p class="px-3 py-2 font-label-sm text-label-sm text-secondary uppercase tracking-wider">설정 카테고리</p>
+<button class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg bg-secondary-container text-primary font-body-md-medium text-body-md-medium text-left">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">corporate_fare</span>
+<span>기본 정보 및 조직</span>
+</span>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low font-body-md text-body-md text-left transition-colors">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-lg">badge</span>
+<span>멤버 및 직무 권한 관리</span>
+</span>
+<span class="inline-flex items-center justify-center px-2 py-0.5 text-xs font-semibold rounded-full bg-surface-container text-secondary">4개 직무</span>
+</button>
+<button class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low font-body-md text-body-md text-left transition-colors">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-lg">sensors</span>
+<span>실증 모의셀 및 센서 노드</span>
+</span>
+<span class="w-2 h-2 rounded-full bg-emerald-500 mr-1"></span>
+</button>
+<button class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low font-body-md text-body-md text-left transition-colors">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-lg">view_in_ar</span>
+<span>디지털 트윈 &amp; 시뮬레이터 연동</span>
+</span>
+</button>
+<button class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low font-body-md text-body-md text-left transition-colors">
+<span class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-lg">security</span>
+<span>보안, 암호화 &amp; 감사 로그</span>
+</span>
+</button>
+<div class="pt-4 mt-2 border-t border-outline-variant px-3 pb-2">
+<div class="flex items-center justify-between text-xs text-secondary mb-1">
+<span>환경 동기화 주기</span>
+<span class="font-semibold text-on-surface">120 Hz</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full w-4/5"></div>
+</div>
+</div>
+</div>
+<!-- Right Detail Panels (9 Cols) -->
+<div class="lg:col-span-9 space-y-6">
+<!-- Section 1: 조직 및 워크스페이스 기본 정보 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-outline-variant/60">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">tune</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">1. 조직 및 워크스페이스 기본 정보</h2>
+</div>
+<span class="text-xs font-semibold px-2.5 py-1 bg-blue-50 text-blue-700 border border-blue-200 rounded-md">ID: WS-01-SHG</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<!-- Field 1 -->
+<div>
+<label class="block font-label-md text-label-md font-semibold text-on-surface mb-1.5">
+                    워크스페이스 명칭
+                  </label>
+<input class="w-full h-11 px-3.5 bg-surface-container-lowest border border-outline rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" type="text" value="시흥 스마트허브 정밀 가공 A셀 (WS-01)"/>
+<p class="font-label-sm text-label-sm text-secondary mt-1">현장 표준 식별자 및 디지털 트윈 매핑 인덱스</p>
+</div>
+<!-- Field 2 -->
+<div>
+<label class="block font-label-md text-label-md font-semibold text-on-surface mb-1.5">
+                    관할 센터
+                  </label>
+<input class="w-full h-11 px-3.5 bg-surface-container-lowest border border-outline rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" type="text" value="경기 시흥 디지털 제조 혁신 허브 3호 모의셀"/>
+<p class="font-label-sm text-label-sm text-secondary mt-1">물리 실증 설비 위치 및 지정 구역</p>
+</div>
+<!-- Field 3 -->
+<div>
+<label class="block font-label-md text-label-md font-semibold text-on-surface mb-1.5">
+                    공정 유형
+                  </label>
+<input class="w-full h-11 px-3.5 bg-surface-container-lowest border border-outline rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" type="text" value="CNC 고속 절삭 가공 및 금형 사출 비가동 센서 실증"/>
+</div>
+<!-- Field 4 -->
+<div>
+<label class="block font-label-md text-label-md font-semibold text-on-surface mb-1.5">
+                    보안 레벨
+                  </label>
+<div class="flex items-center justify-between h-11 px-3.5 bg-surface-container-low border border-outline rounded-lg">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+<span class="font-body-md-medium text-body-md-medium text-on-surface">Level 3 (망분리 모의 샌드박스 가상화 환경)</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-base">lock</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: 4대 참여 직무별 멤버 할당 및 권한 매트릭스 요약 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4 mb-4 border-b border-outline-variant/60">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">groups</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">2. 4대 참여 직무별 멤버 할당 및 권한 매트릭스</h2>
+</div>
+<button class="text-primary hover:underline font-label-md text-label-md font-semibold flex items-center gap-1">
+<span>새 구성원 초대</span>
+<span class="material-symbols-outlined text-base">person_add</span>
+</button>
+</div>
+<!-- Mandatory Policy Banner -->
+<div class="mb-5 p-3.5 rounded-lg bg-amber-50 border border-amber-200 flex items-start gap-3">
+<span class="material-symbols-outlined text-amber-700 text-xl shrink-0 mt-0.5">policy</span>
+<div>
+<p class="font-label-md text-label-md font-semibold text-amber-900">직무 승급 정책 규정 준수</p>
+<p class="font-label-sm text-label-sm text-amber-800">
+                    현장 수집 오퍼레이터의 공정 엔지니어(FDE) 자동 승급 불가 원칙 유지 (현장 안전 관리 규정 제14조 2항 의무 적용)
+                  </p>
+</div>
+</div>
+<!-- Roles Table / Cards -->
+<div class="divide-y divide-outline-variant/60 border border-outline-variant rounded-lg overflow-hidden">
+<!-- Role 1: Site Admin -->
+<div class="p-4 bg-surface-container-lowest hover:bg-surface-container-low transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-blue-100 text-primary flex items-center justify-center font-bold text-base">
+                      총괄
+                    </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-body-md-medium text-body-md-medium text-on-surface font-semibold">박지훈 실장</span>
+<span class="px-2 py-0.5 text-xs font-semibold rounded bg-blue-100 text-blue-800">운영 총괄 관리자</span>
+</div>
+<p class="font-label-sm text-label-sm text-secondary">계정: admin@robohood-plant.io · 전역 설정 및 라이선스 총괄</p>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-center">
+<span class="text-xs px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-medium">전체 인가 권한</span>
+<button class="p-1.5 text-secondary hover:text-on-surface"><span class="material-symbols-outlined text-lg">edit</span></button>
+</div>
+</div>
+<!-- Role 2: FDE -->
+<div class="p-4 bg-surface-container-lowest hover:bg-surface-container-low transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-base">
+                      FDE
+                    </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-body-md-medium text-body-md-medium text-on-surface font-semibold">김검수 책임검수관</span>
+<span class="px-2 py-0.5 text-xs font-semibold rounded bg-indigo-100 text-indigo-800">현장 적용 엔지니어 (FDE Master Lv.3)</span>
+</div>
+<p class="font-label-sm text-label-sm text-secondary">3-Way 게이트 인가권 보유 · 물리 캘리브레이션 승인 자격</p>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-center">
+<span class="text-xs px-2.5 py-1 rounded bg-indigo-50 text-indigo-700 border border-indigo-200 font-medium">게이트 서명권</span>
+<button class="p-1.5 text-secondary hover:text-on-surface"><span class="material-symbols-outlined text-lg">edit</span></button>
+</div>
+</div>
+<!-- Role 3: AI Researcher -->
+<div class="p-4 bg-surface-container-lowest hover:bg-surface-container-low transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-teal-100 text-teal-700 flex items-center justify-center font-bold text-base">
+                      연구
+                    </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-body-md-medium text-body-md-medium text-on-surface font-semibold">김도현 수석연구원 외 3명</span>
+<span class="px-2 py-0.5 text-xs font-semibold rounded bg-teal-100 text-teal-800">Physical AI 연구팀</span>
+</div>
+<p class="font-label-sm text-label-sm text-secondary">Isaac Sim 파이프라인 접근 · 모델 가중치 배포 신청 권한</p>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-center">
+<span class="text-xs px-2.5 py-1 rounded bg-teal-50 text-teal-700 border border-teal-200 font-medium">연구 라이선스 4/5</span>
+<button class="p-1.5 text-secondary hover:text-on-surface"><span class="material-symbols-outlined text-lg">edit</span></button>
+</div>
+</div>
+<!-- Role 4: Operator -->
+<div class="p-4 bg-surface-container-lowest hover:bg-surface-container-low transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-base">
+                      수집
+                    </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-body-md-medium text-body-md-medium text-on-surface font-semibold">로컬 청년 수집 1팀 (김민준 팀장 외 2명)</span>
+<span class="px-2 py-0.5 text-xs font-semibold rounded bg-amber-100 text-amber-900">현장 수집 오퍼레이터</span>
+</div>
+<p class="font-label-sm text-label-sm text-secondary">모바일 웹 한정 권한 · 실시간 센서 스트림 캡처 전용</p>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-center">
+<span class="text-xs px-2.5 py-1 rounded bg-slate-100 text-slate-600 font-medium">단말기 3대 바인딩</span>
+<button class="p-1.5 text-secondary hover:text-on-surface"><span class="material-symbols-outlined text-lg">edit</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: 실증 모의셀 인프라 연결 상태 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-outline-variant/60">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">lan</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">3. 실증 모의셀 인프라 연결 상태</h2>
+</div>
+<button class="text-secondary hover:text-primary font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-base">refresh</span>
+<span>상태 갱신</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Node 1 -->
+<div class="p-4 rounded-xl border border-outline-variant bg-surface-container-low flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Isaac Sim 4.0 클러스터</span>
+<span class="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                        온라인
+                      </span>
+</div>
+<p class="font-label-sm text-label-sm text-secondary mb-3">Omniverse 가상화 인스턴스 4기</p>
+</div>
+<div class="pt-3 border-t border-outline-variant/60 flex items-center justify-between text-xs font-medium">
+<span class="text-secondary">동기화 레이트</span>
+<span class="text-primary font-bold">120 Hz 고속 렌더</span>
+</div>
+</div>
+<!-- Node 2 -->
+<div class="p-4 rounded-xl border border-outline-variant bg-surface-container-low flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md font-semibold text-on-surface">EdgeBox #02 가속기</span>
+<span class="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                        동기화 완료
+                      </span>
+</div>
+<p class="font-label-sm text-label-sm text-secondary mb-3">gRPC / PTP 정밀 타임스탬프 링크</p>
+</div>
+<div class="pt-3 border-t border-outline-variant/60 flex items-center justify-between text-xs font-medium">
+<span class="text-secondary">통신 지연 (Latency)</span>
+<span class="text-emerald-600 font-bold">1.2 ms (Ultra Low)</span>
+</div>
+</div>
+<!-- Node 3 -->
+<div class="p-4 rounded-xl border border-outline-variant bg-surface-container-low flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md font-semibold text-on-surface">물리 비상정지 루프</span>
+<span class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 bg-blue-100 px-2 py-0.5 rounded">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                        이중 인터록
+                      </span>
+</div>
+<p class="font-label-sm text-label-sm text-secondary mb-3">CNC 릴레이 하드웨어 비상 회로</p>
+</div>
+<div class="pt-3 border-t border-outline-variant/60 flex items-center justify-between text-xs font-medium">
+<span class="text-secondary">E-Stop 반응 검증</span>
+<span class="text-on-surface font-bold">정상 (0 ms 차단)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 4: 알림 및 감사(Audit) 로깅 설정 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4 mb-4 border-b border-outline-variant/60">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">encrypted</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">4. 알림 및 감사(Audit) 로깅 설정</h2>
+</div>
+<span class="text-xs text-secondary font-medium">ISO/IEC 27001 표준 기준 준수</span>
+</div>
+<div class="space-y-4">
+<!-- Toggle Item 1 -->
+<div class="flex items-center justify-between p-3.5 rounded-lg border border-outline-variant/70 hover:bg-surface-container-low transition-colors">
+<div class="pr-4">
+<p class="font-body-md-medium text-body-md-medium font-semibold text-on-surface">이상치 결함 발생 시 FDE 자동 긴급 알림</p>
+<p class="font-label-sm text-label-sm text-secondary">비가동 센서 진동·온도 한계치 초과 시 SMS 및 사내 메신저 웹훅 즉시 발송</p>
+</div>
+<!-- Switch Component -->
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Toggle Item 2 -->
+<div class="flex items-center justify-between p-3.5 rounded-lg border border-outline-variant/70 hover:bg-surface-container-low transition-colors">
+<div class="pr-4">
+<p class="font-body-md-medium text-body-md-medium font-semibold text-on-surface">데이터 세트 다운로드 시 이중 결재(2FA 승인) 요구</p>
+<p class="font-label-sm text-label-sm text-secondary">원천 센서 스트림 및 가공 로그 외부 반출 시 총괄 관리자의 OTP 추가 인증 필수</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Select Field -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 rounded-lg border border-outline-variant/70 gap-3">
+<div>
+<p class="font-body-md-medium text-body-md-medium font-semibold text-on-surface">원천 비디오 프레임 감사 로그 영구 보존 주기</p>
+<p class="font-label-sm text-label-sm text-secondary">규정 준수 및 위변조 방지 블록체인 타임스탬프 보존 옵션</p>
+</div>
+<div class="shrink-0 w-full sm:w-48">
+<select class="w-full h-10 px-3 bg-surface-container-lowest border border-outline rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary">
+<option selected="">3년 보존 (규정 준수)</option>
+<option>1년 보존 (표준형)</option>
+<option>5년 보존 (장기 감사용)</option>
+<option>영구 보존 (스토리지 추가)</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Save Footer for Easy Ergonomics -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low border border-outline-variant rounded-xl">
+<span class="font-label-sm text-label-sm text-secondary">
+                마지막 수정: 2025. 02. 24 16:42 (총괄 관리자 박지훈)
+              </span>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md-medium text-body-md-medium text-on-surface hover:bg-surface-container transition-colors">
+                  취소
+                </button>
+<button class="px-5 py-2 bg-primary-container text-on-primary rounded-lg font-body-md-medium text-body-md-medium hover:bg-blue-700 transition-colors shadow-sm">
+                  변경 사항 저장
+                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

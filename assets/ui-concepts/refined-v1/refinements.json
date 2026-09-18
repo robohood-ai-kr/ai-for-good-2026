@@ -1,0 +1,156 @@
+[
+  {
+    "id": "sb-13",
+    "screenId": "sb-13",
+    "sector": "small-business",
+    "stage": "content",
+    "prompt": "Edit this RoboHood mobile UI mockup. Keep its vertical composition and blue action buttons, cup first-person scene, video selection, segment editor, verdict and notes. CRITICAL fix: image must be fully opaque RGB, flat uniform #F4F7FB background with solid white cards, absolutely no transparency, torn edges, masking artifacts, black background, stippling or erasure. Re-render ALL text cleanly as legible Korean. Header 작업 영상 수집. Section title 생성된 장면 · 영상 예시. Exactly three empty nonbreakable cups and adult hands, no faces. v1 · 모의 데모 badge. Buttons 영상 선택 (로컬 미리보기), 구간 추가, 검수에 제출, 작업 중단. Footer 작업함 / 수집 / 교육 / 이력. Fill the entire rectangular portrait canvas neatly. No gradients."
+  },
+  {
+    "id": "mf-14",
+    "screenId": "mf-14",
+    "sector": "manufacturing",
+    "stage": "content",
+    "prompt": "Edit this RoboHood desktop 배포 준비 UI. Preserve clear three linked cards above and checklist/execution summary below, blue white slate palette and readable Korean. Remove invented data counts (1,200), person names, actual camera hardware picture, USB connection, operational factory, and model performance. Replace dataset contents with 'RH-MF-001', 'RGB 이미지', '검수 상태 확인'. Center card title 평가 방식, content '미선정', '평가 미실행', '담당: 현장 적용 FDE'. Right card title 모의 장치, show blue simple browser monitor icon, text '브라우저 UI', '실제 장치 미연결'. Make four preflight boxes UNCHECKED with labels 데이터 이용 / 입력 형식 / 담당 FDE / 중단 방법. Execution summary shows '브라우저 UI 시연', '실제 모델·장치 미연결', button 모의 실행. Top role is '현장 적용 FDE' not a named person. Important footnote exactly '브라우저 상태 시연이며 실제 추론·장치 제어가 아닙니다.' No fabricated counts or completed checks. Fully opaque flat canvas no gradients."
+  },
+  {
+    "id": "mf-18",
+    "screenId": "mf-18",
+    "sector": "manufacturing",
+    "stage": "content",
+    "prompt": "Edit this RoboHood 나의 현장 경력 mobile screen. Keep friendly blue robot illustration, metal sample photo, blue card and readable light UI. Replace misleading completed education and acquired advanced roles with correct entry-level career framing. Main current role '데이터 수집'. Task card '연결 과제 RH-MF-001' and '한빛 정밀 · 모의 현장'. Education heading '준비할 기초 교육', cards '현장 안전 기초' and 'RGB 촬영·기록', each marked '안내 예시' not completed. Bottom heading must be '선택할 수 있는 전문 경로', cards '품질 관리', '현장 기술지원', 'FDE'. Directly beneath in prominent readable callout render EXACT '별도 역량·채용 요건 필요'. Second line '자동 승급·채용 보장이 아닙니다.' Remove 보유 역량 and 이수한 교육 and any certifications or proficiency claims. Keep v1 모의 데모 badge. Fully opaque #F4F7FB background, white cards, solid #2563EB no gradients."
+  },
+  {
+    "id": "mf-02-opacity",
+    "screenId": "mf-02",
+    "sector": "manufacturing",
+    "stage": "opacity",
+    "prompt": "Edit the attached RoboHood Korean UI mockup. Repair it into a complete FULLY OPAQUE rectangular screenshot, with no alpha/transparency anywhere. Replace all transparent/black/gray/dark faded background areas with SOLID #F4F7FB; sidebar and cards SOLID #FFFFFF. No vignettes, gradients, glow, shadow, cutouts, torn edges, erasure artifacts or transparent letter antialiasing. Re-render clean crisp Korean text #0F172A, secondary #475569 and action blue #2563EB so every title and label is readable. Preserve the layout, photo subjects, page purpose, buttons and aspect ratio. This is NOT a cutout asset. Fill every canvas pixel with opaque content. Keep 'v1 · 모의 데모'. All people anonymous roles, remove invented dates and real-looking personal names. Youth collector and reviewer are separate; FDE means '현장 적용 FDE', responsible for specialist model/device application, NOT synonym for reviewer or beginner automatic promotion. Wherever five work conditions appear use exactly: '교육·과제 적격', '현장 촬영 허용', '안전·감독', '수행 범위·시간', '보상·보완 조건'. Do not substitute location-access permission for filming permission. Manufacturing case is RH-MF-001 / 소형 부품 외관 검사 / 한빛 정밀 모의 현장 / RGB 이미지. Small-business case RH-SB-001 / 트레이 위 컵 정리 / 모의 카페 A. Remove raw website URLs. No live AI, authentication, actual employment or pay claims. Keep photos clearly labelled 생성 이미지."
+  },
+  {
+    "id": "mf-07-opacity",
+    "screenId": "mf-07",
+    "sector": "manufacturing",
+    "stage": "opacity",
+    "prompt": "Edit the attached RoboHood Korean UI mockup. Repair it into a complete FULLY OPAQUE rectangular screenshot, with no alpha/transparency anywhere. Replace all transparent/black/gray/dark faded background areas with SOLID #F4F7FB; sidebar and cards SOLID #FFFFFF. No vignettes, gradients, glow, shadow, cutouts, torn edges, erasure artifacts or transparent letter antialiasing. Re-render clean crisp Korean text #0F172A, secondary #475569 and action blue #2563EB so every title and label is readable. Preserve the layout, photo subjects, page purpose, buttons and aspect ratio. This is NOT a cutout asset. Fill every canvas pixel with opaque content. Keep 'v1 · 모의 데모'. All people anonymous roles, remove invented dates and real-looking personal names. Youth collector and reviewer are separate; FDE means '현장 적용 FDE', responsible for specialist model/device application, NOT synonym for reviewer or beginner automatic promotion. Wherever five work conditions appear use exactly: '교육·과제 적격', '현장 촬영 허용', '안전·감독', '수행 범위·시간', '보상·보완 조건'. Do not substitute location-access permission for filming permission. Manufacturing case is RH-MF-001 / 소형 부품 외관 검사 / 한빛 정밀 모의 현장 / RGB 이미지. Small-business case RH-SB-001 / 트레이 위 컵 정리 / 모의 카페 A. Remove raw website URLs. No live AI, authentication, actual employment or pay claims. Keep photos clearly labelled 생성 이미지."
+  },
+  {
+    "id": "mf-08-opacity",
+    "screenId": "mf-08",
+    "sector": "manufacturing",
+    "stage": "opacity",
+    "prompt": "Edit the attached RoboHood Korean UI mockup. Repair it into a complete FULLY OPAQUE rectangular screenshot, with no alpha/transparency anywhere. Replace all transparent/black/gray/dark faded background areas with SOLID #F4F7FB; sidebar and cards SOLID #FFFFFF. No vignettes, gradients, glow, shadow, cutouts, torn edges, erasure artifacts or transparent letter antialiasing. Re-render clean crisp Korean text #0F172A, secondary #475569 and action blue #2563EB so every title and label is readable. Preserve the layout, photo subjects, page purpose, buttons and aspect ratio. This is NOT a cutout asset. Fill every canvas pixel with opaque content. Keep 'v1 · 모의 데모'. All people anonymous roles, remove invented dates and real-looking personal names. Youth collector and reviewer are separate; FDE means '현장 적용 FDE', responsible for specialist model/device application, NOT synonym for reviewer or beginner automatic promotion. Wherever five work conditions appear use exactly: '교육·과제 적격', '현장 촬영 허용', '안전·감독', '수행 범위·시간', '보상·보완 조건'. Do not substitute location-access permission for filming permission. Manufacturing case is RH-MF-001 / 소형 부품 외관 검사 / 한빛 정밀 모의 현장 / RGB 이미지. Small-business case RH-SB-001 / 트레이 위 컵 정리 / 모의 카페 A. Remove raw website URLs. No live AI, authentication, actual employment or pay claims. Keep photos clearly labelled 생성 이미지."
+  },
+  {
+    "id": "mf-11-opacity",
+    "screenId": "mf-11",
+    "sector": "manufacturing",
+    "stage": "opacity",
+    "prompt": "Edit the attached RoboHood Korean UI mockup. Repair it into a complete FULLY OPAQUE rectangular screenshot, with no alpha/transparency anywhere. Replace all transparent/black/gray/dark faded background areas with SOLID #F4F7FB; sidebar and cards SOLID #FFFFFF. No vignettes, gradients, glow, shadow, cutouts, torn edges, erasure artifacts or transparent letter antialiasing. Re-render clean crisp Korean text #0F172A, secondary #475569 and action blue #2563EB so every title and label is readable. Preserve the layout, photo subjects, page purpose, buttons and aspect ratio. This is NOT a cutout asset. Fill every canvas pixel with opaque content. Keep 'v1 · 모의 데모'. All people anonymous roles, remove invented dates and real-looking personal names. Youth collector and reviewer are separate; FDE means '현장 적용 FDE', responsible for specialist model/device application, NOT synonym for reviewer or beginner automatic promotion. Wherever five work conditions appear use exactly: '교육·과제 적격', '현장 촬영 허용', '안전·감독', '수행 범위·시간', '보상·보완 조건'. Do not substitute location-access permission for filming permission. Manufacturing case is RH-MF-001 / 소형 부품 외관 검사 / 한빛 정밀 모의 현장 / RGB 이미지. Small-business case RH-SB-001 / 트레이 위 컵 정리 / 모의 카페 A. Remove raw website URLs. No live AI, authentication, actual employment or pay claims. Keep photos clearly labelled 생성 이미지."
+  },
+  {
+    "id": "mf-13-opacity",
+    "screenId": "mf-13",
+    "sector": "manufacturing",
+    "stage": "opacity",
+    "prompt": "Edit the attached RoboHood Korean UI mockup. Repair it into a complete FULLY OPAQUE rectangular screenshot, with no alpha/transparency anywhere. Replace all transparent/black/gray/dark faded background areas with SOLID #F4F7FB; sidebar and cards SOLID #FFFFFF. No vignettes, gradients, glow, shadow, cutouts, torn edges, erasure artifacts or transparent letter antialiasing. Re-render clean crisp Korean text #0F172A, secondary #475569 and action blue #2563EB so every title and label is readable. Preserve the layout, photo subjects, page purpose, buttons and aspect ratio. This is NOT a cutout asset. Fill every canvas pixel with opaque content. Keep 'v1 · 모의 데모'. All people anonymous roles, remove invented dates and real-looking personal names. Youth collector and reviewer are separate; FDE means '현장 적용 FDE', responsible for specialist model/device application, NOT synonym for reviewer or beginner automatic promotion. Wherever five work conditions appear use exactly: '교육·과제 적격', '현장 촬영 허용', '안전·감독', '수행 범위·시간', '보상·보완 조건'. Do not substitute location-access permission for filming permission. Manufacturing case is RH-MF-001 / 소형 부품 외관 검사 / 한빛 정밀 모의 현장 / RGB 이미지. Small-business case RH-SB-001 / 트레이 위 컵 정리 / 모의 카페 A. Remove raw website URLs. No live AI, authentication, actual employment or pay claims. Keep photos clearly labelled 생성 이미지."
+  },
+  {
+    "id": "mf-16-opacity",
+    "screenId": "mf-16",
+    "sector": "manufacturing",
+    "stage": "opacity",
+    "prompt": "Edit the attached RoboHood Korean UI mockup. Repair it into a complete FULLY OPAQUE rectangular screenshot, with no alpha/transparency anywhere. Replace all transparent/black/gray/dark faded background areas with SOLID #F4F7FB; sidebar and cards SOLID #FFFFFF. No vignettes, gradients, glow, shadow, cutouts, torn edges, erasure artifacts or transparent letter antialiasing. Re-render clean crisp Korean text #0F172A, secondary #475569 and action blue #2563EB so every title and label is readable. Preserve the layout, photo subjects, page purpose, buttons and aspect ratio. This is NOT a cutout asset. Fill every canvas pixel with opaque content. Keep 'v1 · 모의 데모'. All people anonymous roles, remove invented dates and real-looking personal names. Youth collector and reviewer are separate; FDE means '현장 적용 FDE', responsible for specialist model/device application, NOT synonym for reviewer or beginner automatic promotion. Wherever five work conditions appear use exactly: '교육·과제 적격', '현장 촬영 허용', '안전·감독', '수행 범위·시간', '보상·보완 조건'. Do not substitute location-access permission for filming permission. Manufacturing case is RH-MF-001 / 소형 부품 외관 검사 / 한빛 정밀 모의 현장 / RGB 이미지. Small-business case RH-SB-001 / 트레이 위 컵 정리 / 모의 카페 A. Remove raw website URLs. No live AI, authentication, actual employment or pay claims. Keep photos clearly labelled 생성 이미지."
+  },
+  {
+    "id": "mf-17-opacity",
+    "screenId": "mf-17",
+    "sector": "manufacturing",
+    "stage": "opacity",
+    "prompt": "Edit the attached RoboHood Korean UI mockup. Repair it into a complete FULLY OPAQUE rectangular screenshot, with no alpha/transparency anywhere. Replace all transparent/black/gray/dark faded background areas with SOLID #F4F7FB; sidebar and cards SOLID #FFFFFF. No vignettes, gradients, glow, shadow, cutouts, torn edges, erasure artifacts or transparent letter antialiasing. Re-render clean crisp Korean text #0F172A, secondary #475569 and action blue #2563EB so every title and label is readable. Preserve the layout, photo subjects, page purpose, buttons and aspect ratio. This is NOT a cutout asset. Fill every canvas pixel with opaque content. Keep 'v1 · 모의 데모'. All people anonymous roles, remove invented dates and real-looking personal names. Youth collector and reviewer are separate; FDE means '현장 적용 FDE', responsible for specialist model/device application, NOT synonym for reviewer or beginner automatic promotion. Wherever five work conditions appear use exactly: '교육·과제 적격', '현장 촬영 허용', '안전·감독', '수행 범위·시간', '보상·보완 조건'. Do not substitute location-access permission for filming permission. Manufacturing case is RH-MF-001 / 소형 부품 외관 검사 / 한빛 정밀 모의 현장 / RGB 이미지. Small-business case RH-SB-001 / 트레이 위 컵 정리 / 모의 카페 A. Remove raw website URLs. No live AI, authentication, actual employment or pay claims. Keep photos clearly labelled 생성 이미지."
+  },
+  {
+    "id": "mf-20-opacity",
+    "screenId": "mf-20",
+    "sector": "manufacturing",
+    "stage": "opacity",
+    "prompt": "Edit the attached RoboHood Korean UI mockup. Repair it into a complete FULLY OPAQUE rectangular screenshot, with no alpha/transparency anywhere. Replace all transparent/black/gray/dark faded background areas with SOLID #F4F7FB; sidebar and cards SOLID #FFFFFF. No vignettes, gradients, glow, shadow, cutouts, torn edges, erasure artifacts or transparent letter antialiasing. Re-render clean crisp Korean text #0F172A, secondary #475569 and action blue #2563EB so every title and label is readable. Preserve the layout, photo subjects, page purpose, buttons and aspect ratio. This is NOT a cutout asset. Fill every canvas pixel with opaque content. Keep 'v1 · 모의 데모'. All people anonymous roles, remove invented dates and real-looking personal names. Youth collector and reviewer are separate; FDE means '현장 적용 FDE', responsible for specialist model/device application, NOT synonym for reviewer or beginner automatic promotion. Wherever five work conditions appear use exactly: '교육·과제 적격', '현장 촬영 허용', '안전·감독', '수행 범위·시간', '보상·보완 조건'. Do not substitute location-access permission for filming permission. Manufacturing case is RH-MF-001 / 소형 부품 외관 검사 / 한빛 정밀 모의 현장 / RGB 이미지. Small-business case RH-SB-001 / 트레이 위 컵 정리 / 모의 카페 A. Remove raw website URLs. No live AI, authentication, actual employment or pay claims. Keep photos clearly labelled 생성 이미지."
+  },
+  {
+    "id": "mf-21-opacity",
+    "screenId": "mf-21",
+    "sector": "manufacturing",
+    "stage": "opacity",
+    "prompt": "Edit the attached RoboHood Korean UI mockup. Repair it into a complete FULLY OPAQUE rectangular screenshot, with no alpha/transparency anywhere. Replace all transparent/black/gray/dark faded background areas with SOLID #F4F7FB; sidebar and cards SOLID #FFFFFF. No vignettes, gradients, glow, shadow, cutouts, torn edges, erasure artifacts or transparent letter antialiasing. Re-render clean crisp Korean text #0F172A, secondary #475569 and action blue #2563EB so every title and label is readable. Preserve the layout, photo subjects, page purpose, buttons and aspect ratio. This is NOT a cutout asset. Fill every canvas pixel with opaque content. Keep 'v1 · 모의 데모'. All people anonymous roles, remove invented dates and real-looking personal names. Youth collector and reviewer are separate; FDE means '현장 적용 FDE', responsible for specialist model/device application, NOT synonym for reviewer or beginner automatic promotion. Wherever five work conditions appear use exactly: '교육·과제 적격', '현장 촬영 허용', '안전·감독', '수행 범위·시간', '보상·보완 조건'. Do not substitute location-access permission for filming permission. Manufacturing case is RH-MF-001 / 소형 부품 외관 검사 / 한빛 정밀 모의 현장 / RGB 이미지. Small-business case RH-SB-001 / 트레이 위 컵 정리 / 모의 카페 A. Remove raw website URLs. No live AI, authentication, actual employment or pay claims. Keep photos clearly labelled 생성 이미지."
+  },
+  {
+    "id": "sb-09-opacity",
+    "screenId": "sb-09",
+    "sector": "small-business",
+    "stage": "opacity",
+    "prompt": "Edit the attached RoboHood Korean UI mockup. Repair it into a complete FULLY OPAQUE rectangular screenshot, with no alpha/transparency anywhere. Replace all transparent/black/gray/dark faded background areas with SOLID #F4F7FB; sidebar and cards SOLID #FFFFFF. No vignettes, gradients, glow, shadow, cutouts, torn edges, erasure artifacts or transparent letter antialiasing. Re-render clean crisp Korean text #0F172A, secondary #475569 and action blue #2563EB so every title and label is readable. Preserve the layout, photo subjects, page purpose, buttons and aspect ratio. This is NOT a cutout asset. Fill every canvas pixel with opaque content. Keep 'v1 · 모의 데모'. All people anonymous roles, remove invented dates and real-looking personal names. Youth collector and reviewer are separate; FDE means '현장 적용 FDE', responsible for specialist model/device application, NOT synonym for reviewer or beginner automatic promotion. Wherever five work conditions appear use exactly: '교육·과제 적격', '현장 촬영 허용', '안전·감독', '수행 범위·시간', '보상·보완 조건'. Do not substitute location-access permission for filming permission. Manufacturing case is RH-MF-001 / 소형 부품 외관 검사 / 한빛 정밀 모의 현장 / RGB 이미지. Small-business case RH-SB-001 / 트레이 위 컵 정리 / 모의 카페 A. Remove raw website URLs. No live AI, authentication, actual employment or pay claims. Keep photos clearly labelled 생성 이미지."
+  },
+  {
+    "id": "sb-10-opacity",
+    "screenId": "sb-10",
+    "sector": "small-business",
+    "stage": "opacity",
+    "prompt": "Edit the attached RoboHood Korean UI mockup. Repair it into a complete FULLY OPAQUE rectangular screenshot, with no alpha/transparency anywhere. Replace all transparent/black/gray/dark faded background areas with SOLID #F4F7FB; sidebar and cards SOLID #FFFFFF. No vignettes, gradients, glow, shadow, cutouts, torn edges, erasure artifacts or transparent letter antialiasing. Re-render clean crisp Korean text #0F172A, secondary #475569 and action blue #2563EB so every title and label is readable. Preserve the layout, photo subjects, page purpose, buttons and aspect ratio. This is NOT a cutout asset. Fill every canvas pixel with opaque content. Keep 'v1 · 모의 데모'. All people anonymous roles, remove invented dates and real-looking personal names. Youth collector and reviewer are separate; FDE means '현장 적용 FDE', responsible for specialist model/device application, NOT synonym for reviewer or beginner automatic promotion. Wherever five work conditions appear use exactly: '교육·과제 적격', '현장 촬영 허용', '안전·감독', '수행 범위·시간', '보상·보완 조건'. Do not substitute location-access permission for filming permission. Manufacturing case is RH-MF-001 / 소형 부품 외관 검사 / 한빛 정밀 모의 현장 / RGB 이미지. Small-business case RH-SB-001 / 트레이 위 컵 정리 / 모의 카페 A. Remove raw website URLs. No live AI, authentication, actual employment or pay claims. Keep photos clearly labelled 생성 이미지."
+  },
+  {
+    "id": "sb-11-opacity",
+    "screenId": "sb-11",
+    "sector": "small-business",
+    "stage": "opacity",
+    "prompt": "Edit the attached RoboHood Korean UI mockup. Repair it into a complete FULLY OPAQUE rectangular screenshot, with no alpha/transparency anywhere. Replace all transparent/black/gray/dark faded background areas with SOLID #F4F7FB; sidebar and cards SOLID #FFFFFF. No vignettes, gradients, glow, shadow, cutouts, torn edges, erasure artifacts or transparent letter antialiasing. Re-render clean crisp Korean text #0F172A, secondary #475569 and action blue #2563EB so every title and label is readable. Preserve the layout, photo subjects, page purpose, buttons and aspect ratio. This is NOT a cutout asset. Fill every canvas pixel with opaque content. Keep 'v1 · 모의 데모'. All people anonymous roles, remove invented dates and real-looking personal names. Youth collector and reviewer are separate; FDE means '현장 적용 FDE', responsible for specialist model/device application, NOT synonym for reviewer or beginner automatic promotion. Wherever five work conditions appear use exactly: '교육·과제 적격', '현장 촬영 허용', '안전·감독', '수행 범위·시간', '보상·보완 조건'. Do not substitute location-access permission for filming permission. Manufacturing case is RH-MF-001 / 소형 부품 외관 검사 / 한빛 정밀 모의 현장 / RGB 이미지. Small-business case RH-SB-001 / 트레이 위 컵 정리 / 모의 카페 A. Remove raw website URLs. No live AI, authentication, actual employment or pay claims. Keep photos clearly labelled 생성 이미지."
+  },
+  {
+    "id": "sb-12-opacity",
+    "screenId": "sb-12",
+    "sector": "small-business",
+    "stage": "opacity",
+    "prompt": "Edit the attached RoboHood Korean UI mockup. Repair it into a complete FULLY OPAQUE rectangular screenshot, with no alpha/transparency anywhere. Replace all transparent/black/gray/dark faded background areas with SOLID #F4F7FB; sidebar and cards SOLID #FFFFFF. No vignettes, gradients, glow, shadow, cutouts, torn edges, erasure artifacts or transparent letter antialiasing. Re-render clean crisp Korean text #0F172A, secondary #475569 and action blue #2563EB so every title and label is readable. Preserve the layout, photo subjects, page purpose, buttons and aspect ratio. This is NOT a cutout asset. Fill every canvas pixel with opaque content. Keep 'v1 · 모의 데모'. All people anonymous roles, remove invented dates and real-looking personal names. Youth collector and reviewer are separate; FDE means '현장 적용 FDE', responsible for specialist model/device application, NOT synonym for reviewer or beginner automatic promotion. Wherever five work conditions appear use exactly: '교육·과제 적격', '현장 촬영 허용', '안전·감독', '수행 범위·시간', '보상·보완 조건'. Do not substitute location-access permission for filming permission. Manufacturing case is RH-MF-001 / 소형 부품 외관 검사 / 한빛 정밀 모의 현장 / RGB 이미지. Small-business case RH-SB-001 / 트레이 위 컵 정리 / 모의 카페 A. Remove raw website URLs. No live AI, authentication, actual employment or pay claims. Keep photos clearly labelled 생성 이미지."
+  },
+  {
+    "id": "sb-14-opacity",
+    "screenId": "sb-14",
+    "sector": "small-business",
+    "stage": "opacity",
+    "prompt": "Edit the attached RoboHood Korean UI mockup. Repair it into a complete FULLY OPAQUE rectangular screenshot, with no alpha/transparency anywhere. Replace all transparent/black/gray/dark faded background areas with SOLID #F4F7FB; sidebar and cards SOLID #FFFFFF. No vignettes, gradients, glow, shadow, cutouts, torn edges, erasure artifacts or transparent letter antialiasing. Re-render clean crisp Korean text #0F172A, secondary #475569 and action blue #2563EB so every title and label is readable. Preserve the layout, photo subjects, page purpose, buttons and aspect ratio. This is NOT a cutout asset. Fill every canvas pixel with opaque content. Keep 'v1 · 모의 데모'. All people anonymous roles, remove invented dates and real-looking personal names. Youth collector and reviewer are separate; FDE means '현장 적용 FDE', responsible for specialist model/device application, NOT synonym for reviewer or beginner automatic promotion. Wherever five work conditions appear use exactly: '교육·과제 적격', '현장 촬영 허용', '안전·감독', '수행 범위·시간', '보상·보완 조건'. Do not substitute location-access permission for filming permission. Manufacturing case is RH-MF-001 / 소형 부품 외관 검사 / 한빛 정밀 모의 현장 / RGB 이미지. Small-business case RH-SB-001 / 트레이 위 컵 정리 / 모의 카페 A. Remove raw website URLs. No live AI, authentication, actual employment or pay claims. Keep photos clearly labelled 생성 이미지."
+  },
+  {
+    "id": "sb-15-opacity",
+    "screenId": "sb-15",
+    "sector": "small-business",
+    "stage": "opacity",
+    "prompt": "Edit the attached RoboHood Korean UI mockup. Repair it into a complete FULLY OPAQUE rectangular screenshot, with no alpha/transparency anywhere. Replace all transparent/black/gray/dark faded background areas with SOLID #F4F7FB; sidebar and cards SOLID #FFFFFF. No vignettes, gradients, glow, shadow, cutouts, torn edges, erasure artifacts or transparent letter antialiasing. Re-render clean crisp Korean text #0F172A, secondary #475569 and action blue #2563EB so every title and label is readable. Preserve the layout, photo subjects, page purpose, buttons and aspect ratio. This is NOT a cutout asset. Fill every canvas pixel with opaque content. Keep 'v1 · 모의 데모'. All people anonymous roles, remove invented dates and real-looking personal names. Youth collector and reviewer are separate; FDE means '현장 적용 FDE', responsible for specialist model/device application, NOT synonym for reviewer or beginner automatic promotion. Wherever five work conditions appear use exactly: '교육·과제 적격', '현장 촬영 허용', '안전·감독', '수행 범위·시간', '보상·보완 조건'. Do not substitute location-access permission for filming permission. Manufacturing case is RH-MF-001 / 소형 부품 외관 검사 / 한빛 정밀 모의 현장 / RGB 이미지. Small-business case RH-SB-001 / 트레이 위 컵 정리 / 모의 카페 A. Remove raw website URLs. No live AI, authentication, actual employment or pay claims. Keep photos clearly labelled 생성 이미지."
+  },
+  {
+    "id": "sb-15-terminology",
+    "screenId": "sb-15",
+    "sector": "small-business",
+    "stage": "terminology",
+    "prompt": "Make ONLY these precise Korean text corrections on the supplied UI screenshot, keeping its opaque blue-white UI, layout, all photos and buttons unchanged. 1) top-right role '카페 사장님' -> '검수 담당'. 2) in left 세션 정보 table: '촬영 방식 RGB 이미지' -> '촬영 방식 1인칭 영상'. 3) '청소년 수집자 (예시)' -> '청년 수집 담당 (예시)'. 4) center heading '영상 미리보기' -> '작업 영상 예시'. Everything remains a mockup. Entire image fully opaque, no alpha/transparency or fades."
+  },
+  {
+    "id": "sb-09-terminology",
+    "screenId": "sb-09",
+    "sector": "small-business",
+    "stage": "terminology",
+    "prompt": "Make ONLY these precise Korean text corrections on the supplied UI screenshot, keeping its opaque blue-white UI, layout, photos and buttons unchanged. Replace '청소년 수집자 (예시)' with '청년 수집 담당 (예시)'. In task description replace '다양한 각도에서 촬영합니다.' with '1인칭 영상으로 기록합니다.' Replace the chip '상반신 시점(손 촬영)' with '1인칭 시점(손 촬영)'. In camera guide remove the sentence claiming 학습·연구 purpose and replace with '데이터 이용은 목적별 별도 승인이 필요합니다.' Entire image fully opaque, no alpha/transparency or fades."
+  },
+  {
+    "id": "mf-07-terminology",
+    "screenId": "mf-07",
+    "sector": "manufacturing",
+    "stage": "terminology",
+    "prompt": "Make ONLY precise text corrections in the lower-left FDE panel of this supplied Korean UI screenshot. Preserve every other panel, layout, figures and blue-white styling. FDE panel heading stays '현장 적용 FDE (별도 배정)'. Subtitle must be '현장 모델·장치 적용을 지원하는 별도 전문 직무입니다.' Card title stays '현장 적용 FDE (전문가)'. Card role line becomes '모델·장치 적용 지원 (예시)'. Card description becomes '모델 평가, 장치 연동, 배포·운영을 담당합니다.' Two main work bullets become '현장 모델·장치 적용' and '운영 문제 확인과 재수집 요청'. Remove descriptions of this role as ordinary data inspection or collection guide. Fully opaque image no alpha/transparency or dark fades."
+  },
+  {
+    "id": "mf-11-terminology",
+    "screenId": "mf-11",
+    "sector": "manufacturing",
+    "stage": "terminology",
+    "prompt": "Make ONLY these precise Korean text corrections on the supplied UI screenshot, preserving its layout, photos, blue-white opaque styling and other labels. In basic information table replace row label '검수 담당 (현장 적용 FDE)' with '검수 담당', and replace its value '현장 적용 FDE (예시)' with '검수 담당 B (예시)'. In upper-right provenance chain replace subtitles under 요청/현장/수집/검수 with respectively 'RH-MF-001' / '한빛 정밀 모의 현장' / '수집 담당 A' / '검수 담당 B'. Do NOT replace these provenance captions with five work-condition labels. Replace description claiming 교육·연구 목적 approval with '이용 목적별 별도 승인이 필요한 모의 데이터입니다.' Fully opaque image no alpha/transparency or dark fades."
+  }
+]

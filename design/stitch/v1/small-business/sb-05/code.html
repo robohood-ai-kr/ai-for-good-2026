@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SB-05 현장 상세·수집 조건 - RoboHood</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Public Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error-container": "#93000a",
+            "warning-bg": "#FFFBEB",
+            "surface-subtle": "#F8FAFC",
+            "surface": "#f7fafe",
+            "primary-fixed-dim": "#b4c5ff",
+            "inverse-surface": "#2d3134",
+            "on-secondary-fixed-variant": "#3a485b",
+            "on-error": "#ffffff",
+            "neutral-status-text": "#475569",
+            "surface-dim": "#d7dade",
+            "text-secondary": "#475569",
+            "surface-container-high": "#e5e8ec",
+            "on-background": "#181c1f",
+            "action-pressed": "#1E40AF",
+            "on-surface-variant": "#434655",
+            "background": "#f7fafe",
+            "text-inverse": "#FFFFFF",
+            "warning-text": "#92400E",
+            "tertiary-fixed": "#ffdbcd",
+            "surface-bright": "#f7fafe",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#dbe1ff",
+            "secondary": "#515f74",
+            "surface-container": "#ebeef2",
+            "info-bg": "#EFF6FF",
+            "on-primary-fixed-variant": "#003ea8",
+            "action-hover": "#1D4ED8",
+            "on-tertiary-fixed": "#360f00",
+            "surface-container-highest": "#e0e3e7",
+            "text-primary": "#0F172A",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "surface-tint": "#0053db",
+            "border-subtle": "#D5DDE7",
+            "surface-card": "#FFFFFF",
+            "success-bg": "#F0FDF4",
+            "outline": "#737686",
+            "on-secondary-fixed": "#0d1c2e",
+            "surface-container-low": "#f1f4f8",
+            "tertiary-fixed-dim": "#ffb596",
+            "tertiary-container": "#bc4800",
+            "on-surface": "#181c1f",
+            "error-text": "#B91C1C",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed-dim": "#b9c7df",
+            "error-bg": "#FEF2F2",
+            "inverse-on-surface": "#eef1f5",
+            "inverse-primary": "#b4c5ff",
+            "surface-variant": "#e0e3e7",
+            "text-hint": "#64748B",
+            "on-primary-container": "#eeefff",
+            "error-container": "#ffdad6",
+            "surface-canvas": "#F4F7FB",
+            "secondary-fixed": "#d5e3fc",
+            "border-control": "#64748B",
+            "on-primary-fixed": "#00174b",
+            "on-secondary-container": "#57657a",
+            "on-tertiary-container": "#ffede6",
+            "primary": "#004ac6",
+            "info-text": "#1E40AF",
+            "neutral-status-bg": "#F4F7FB",
+            "focus-ring": "#2563EB",
+            "surface-selected": "#EFF6FF",
+            "tertiary": "#943700",
+            "outline-variant": "#c3c6d7",
+            "on-tertiary-fixed-variant": "#7d2d00",
+            "secondary-container": "#d5e3fc",
+            "success-text": "#166534",
+            "on-tertiary": "#ffffff",
+            "primary-container": "#2563eb"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-tablet": "1.5rem",
+            "space-md": "1rem",
+            "gutter-desktop": "1.5rem",
+            "gutter": "1rem",
+            "space-xl": "2rem",
+            "margin-desktop": "2rem",
+            "space-sm": "0.5rem",
+            "margin": "1rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Public Sans", "sans-serif"],
+            "label-sm": ["Public Sans", "sans-serif"],
+            "headline-lg-mobile": ["Public Sans", "sans-serif"],
+            "label-lg": ["Public Sans", "sans-serif"],
+            "body-md": ["Public Sans", "sans-serif"],
+            "headline-lg": ["Public Sans", "sans-serif"],
+            "label-md": ["Public Sans", "sans-serif"],
+            "headline-md": ["Public Sans", "sans-serif"],
+            "body-sm": ["Public Sans", "sans-serif"],
+            "headline-sm": ["Public Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-surface-canvas text-text-primary antialiased min-h-screen flex flex-col font-body-md text-body-md">
+<!-- SHARED COMPONENT: TopNavBar (web_header) -->
+<header class="w-full h-16 px-6 flex items-center justify-between border-b border-border-subtle bg-surface-card z-50 sticky top-0">
+<div class="flex items-center space-x-6">
+<div class="flex items-center space-x-3">
+<span class="text-headline-sm font-headline-sm font-bold text-primary">RoboHood</span>
+<span class="text-label-sm font-label-sm px-2 py-0.5 bg-surface-container rounded text-text-secondary">소상공인 실습 포털</span>
+</div>
+<!-- Search Bar on Left -->
+<div class="relative w-72">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-text-hint text-[18px]">search</span>
+<input class="w-full pl-9 pr-3 py-1.5 bg-surface-subtle text-text-primary placeholder:text-text-hint font-body-sm text-body-sm border border-border-control rounded-lg focus:outline-none focus:ring-2 focus:ring-focus-ring focus:border-transparent" placeholder="현장 구역, 매장명, 과제 태그 검색" type="text"/>
+</div>
+<!-- Navigation Links: "현장 탐색" matches SB-05 Context -->
+<nav class="hidden md:flex items-center space-x-6 pl-4">
+<a class="text-text-secondary font-body-md text-body-md hover:bg-surface-subtle hover:text-text-primary px-2 py-1 transition-colors duration-150 ease-in-out" href="#">작업 공간</a>
+<a class="border-b-2 border-primary text-primary font-label-lg text-label-lg pb-1 px-2 transition-colors duration-150 ease-in-out" href="#">현장 탐색</a>
+<a class="text-text-secondary font-body-md text-body-md hover:bg-surface-subtle hover:text-text-primary px-2 py-1 transition-colors duration-150 ease-in-out" href="#">과제 관리</a>
+<a class="text-text-secondary font-body-md text-body-md hover:bg-surface-subtle hover:text-text-primary px-2 py-1 transition-colors duration-150 ease-in-out" href="#">정산 내역</a>
+</nav>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center space-x-4">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-3.5 py-2 rounded-lg hover:bg-action-hover active:bg-action-pressed transition-colors duration-150 flex items-center space-x-1 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>신규 작업 등록</span>
+</button>
+<div class="flex items-center space-x-1 border-l border-border-subtle pl-3 text-text-secondary">
+<button class="p-2 hover:bg-surface-subtle rounded-lg text-text-secondary hover:text-text-primary transition-colors" title="알림">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="p-2 hover:bg-surface-subtle rounded-lg text-text-secondary hover:text-text-primary transition-colors" title="도움말">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+</button>
+</div>
+<div class="flex items-center space-x-2 pl-2">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-label-md border border-primary-fixed-dim overflow-hidden">
+<span class="material-symbols-outlined text-[18px]">storefront</span>
+</div>
+<div class="hidden xl:flex flex-col text-left">
+<span class="text-label-md font-label-md text-text-primary">서교 모의점주</span>
+<span class="text-label-sm font-label-sm text-text-hint">소상공인 대표 프로필</span>
+</div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 min-h-[calc(100vh-64px)]">
+<!-- SHARED COMPONENT: SideNavBar (persistent_drawer) -->
+<aside class="w-60 h-screen fixed left-0 top-0 flex flex-col z-40 bg-surface-card border-r border-border-subtle pt-16">
+<div class="p-4 border-b border-border-subtle">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">smart_toy</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-lg font-label-lg text-text-primary">RoboHood 소상공인</span>
+<span class="text-label-sm font-label-sm text-text-hint">소상공인 v1 · 데모 데이터</span>
+</div>
+</div>
+<button class="w-full mt-3 py-2 px-3 bg-surface-subtle border border-border-subtle hover:bg-surface-container text-primary font-label-md text-label-md rounded-lg flex items-center justify-center space-x-1.5 transition-all">
+<span class="material-symbols-outlined text-[16px]">sensors</span>
+<span>현장 데이터 수집 시작</span>
+</button>
+</div>
+<!-- Navigation Links List: '현장 탐색' highlighted -->
+<nav class="flex-1 py-4 px-2 space-y-1">
+<a class="flex items-center space-x-3 px-3 py-2.5 text-text-secondary font-body-md text-body-md hover:bg-surface-subtle rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span>작업 공간 개요</span>
+</a>
+<a class="flex items-center space-x-3 px-3 py-2.5 bg-surface-selected text-primary font-label-md text-label-md border-l-4 border-primary rounded-r-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span>현장 탐색</span>
+</a>
+<a class="flex items-center space-x-3 px-3 py-2.5 text-text-secondary font-body-md text-body-md hover:bg-surface-subtle rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">assignment</span>
+<span>과제 상세 및 조건</span>
+</a>
+<a class="flex items-center space-x-3 px-3 py-2.5 text-text-secondary font-body-md text-body-md hover:bg-surface-subtle rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">video_library</span>
+<span>구간 라벨링 검수</span>
+</a>
+<a class="flex items-center space-x-3 px-3 py-2.5 text-text-secondary font-body-md text-body-md hover:bg-surface-subtle rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+<span>수행 및 보상 관리</span>
+</a>
+</nav>
+<!-- Footer Drawer Tabs -->
+<div class="p-3 border-t border-border-subtle space-y-1 bg-surface-card">
+<a class="flex items-center space-x-3 px-3 py-2 text-text-secondary hover:bg-surface-subtle rounded-lg font-body-sm text-body-sm transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+<span>시스템 환경설정</span>
+</a>
+<a class="flex items-center space-x-3 px-3 py-2 text-text-secondary hover:bg-surface-subtle rounded-lg font-body-sm text-body-sm transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">headset_mic</span>
+<span>고객센터 지원</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas (Desktop 1440px target fluid layout, pl-60 for fixed sidebar) -->
+<main class="flex-1 ml-60 p-6 md:p-8 bg-surface-canvas min-w-0">
+<div class="max-w-[1240px] mx-auto space-y-6">
+<!-- 1. Breadcrumbs & Page Header -->
+<section class="space-y-3">
+<nav aria-label="Breadcrumb" class="flex items-center space-x-2 text-text-hint font-body-sm text-body-sm">
+<span class="hover:text-text-primary cursor-pointer">현장 탐색</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="hover:text-text-primary cursor-pointer">모의 실습 현장 상세</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-text-primary font-label-md text-label-md">모의 카페 A (성수·마포 서교 구역)</span>
+</nav>
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 bg-surface-card p-6 rounded-lg border border-border-subtle">
+<div class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded text-[12px] font-semibold bg-success-bg text-success-text border border-success-text/20">
+<span class="w-1.5 h-1.5 rounded-full bg-success-text mr-1.5"></span>
+                  협의 완료 (실습 가능)
+                </span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded text-[12px] font-semibold bg-neutral-status-bg text-neutral-status-text border border-border-subtle">
+                  소상공인 v1 · 데모 데이터
+                </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-info-bg text-info-text">
+                  화면 ID: SB-05
+                </span>
+</div>
+<h1 class="text-headline-md font-headline-md text-text-primary tracking-tight">
+                모의 카페 A 현장 상세 및 수집 협의 조건
+              </h1>
+<p class="text-text-secondary font-body-sm text-body-sm">
+                로봇 팔 및 자율 배달 로봇 실습 인공지능 학습을 위한 매장 내 물리 작업 범위, POV 카메라 촬영 제약 사항 가이드라인입니다.
+              </p>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<button class="px-3.5 py-2 text-text-secondary bg-surface-card border border-border-subtle rounded-lg font-label-md text-label-md hover:bg-surface-subtle transition-colors flex items-center space-x-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+<span>협약서 PDF 인쇄</span>
+</button>
+<button class="px-4 py-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-action-hover active:bg-action-pressed transition-colors shadow-sm flex items-center space-x-2" type="button">
+<span class="material-symbols-outlined text-[18px]">assignment_add</span>
+<span>이 현장에 데이터 수집 요청 등록 (SB-07 연결)</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Bento Grid Layout: Main Workspace Left (8 Cols) vs Auxiliary Conditions Right (4 Cols) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- LEFT COLUMN (8 Cols) - 현장 상세 및 촬영 허용 기준 -->
+<div class="lg:col-span-8 space-y-6">
+<!-- Bento Card 1: 매장 기본 프로필 & 시각 식별 배너 -->
+<div class="bg-surface-card rounded-lg border border-border-subtle overflow-hidden">
+<div class="grid grid-cols-1 md:grid-cols-3">
+<div class="relative h-48 md:h-auto min-h-[180px]">
+<img class="w-full h-full object-cover" data-alt="A modern cafe interior in Seoul with polished concrete floors, light wood furniture, clean stainless steel counter, warm atmospheric natural lighting, and zero patrons present. The aesthetic is clean, professional, and orderly, following a muted corporate blue and warm gray tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDsaG_OSk3oSgd1Mk1K0HQjXUDq6bjgdZHBUtRmvkW7SxhMsCYJ64yEH5XzTXrVaq8lf6nL-_ZevnIZlFO79N749Typ3VdBxKIdmv3o_qFshXa-HuwKcOO6g6Lvqy7VMxX1W0pF1QZr-gg7rZTNc1JewjxE-LC38ywO5x0deRCeK76xaWVkcUSAI34ot2gm6cqzueP5TFSRGzltUy8A9bzmteR3D20SuSk5k3JakExwKMH2Q1559Y"/>
+<div class="absolute bottom-2 left-2 px-2 py-1 bg-text-primary/75 text-text-inverse rounded text-label-sm font-label-sm backdrop-blur-sm flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>마포 서교 실습구역 #C-104</span>
+</div>
+</div>
+<div class="p-5 md:col-span-2 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-primary font-bold uppercase tracking-wider">현장 개요 메타데이터</span>
+<span class="text-label-sm font-label-sm text-text-hint">등록 식별자: LOC-202609-088</span>
+</div>
+<h2 class="text-headline-sm font-headline-sm text-text-primary mt-1">카페 메르시 서교 모의점</h2>
+<dl class="grid grid-cols-2 gap-y-2 gap-x-4 mt-4 font-body-sm text-body-sm">
+<div>
+<dt class="text-text-hint font-label-sm text-label-sm">업종 분류</dt>
+<dd class="text-text-primary font-medium mt-0.5">식음료 (카페 / 베이커리 복합)</dd>
+</div>
+<div>
+<dt class="text-text-hint font-label-sm text-label-sm">현장 대표자</dt>
+<dd class="text-text-primary font-medium mt-0.5">모의 카페 대표 (점주 김서교)</dd>
+</div>
+<div class="col-span-2">
+<dt class="text-text-hint font-label-sm text-label-sm">실습 장소 위치</dt>
+<dd class="text-text-primary font-medium mt-0.5 flex items-center space-x-1">
+<span>서울특별시 마포구 서교동 394-12 지하 1층 모의 실습 구역</span>
+<button class="text-primary hover:underline text-[12px]">복사</button>
+</dd>
+</div>
+</dl>
+</div>
+<div class="mt-4 pt-3 border-t border-border-subtle flex items-center justify-between text-body-sm text-text-secondary">
+<span class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-[16px] text-text-hint">aspect_ratio</span>
+<span>실습 가능 면적: 78.5㎡ (약 23.7평)</span>
+</span>
+<span class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-[16px] text-success-text">wifi</span>
+<span>5G 현장 송출 AP 구축완료</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Card 2: 허용 모의 업무 명세 (Work Scope Accordion/Grid) -->
+<div class="bg-surface-card rounded-lg border border-border-subtle p-6 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-[22px]">check_circle</span>
+<h2 class="text-headline-sm font-headline-sm text-text-primary">허용 모의 업무 명세</h2>
+</div>
+<span class="text-label-sm font-label-sm text-text-hint">소상공인 사전 협약 태스크 3건</span>
+</div>
+<p class="text-text-secondary font-body-sm text-body-sm">
+                청년 실습 인력 및 자율주행 모바일 매니퓰레이터(Mobile Manipulator)가 수집할 수 있는 지정 태스크입니다.
+              </p>
+<div class="space-y-3">
+<!-- 업무 1: 완전 허용 -->
+<div class="p-4 rounded-lg border border-border-subtle bg-surface-subtle hover:bg-surface-container-low transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-3">
+<div class="p-2 rounded bg-info-bg text-info-text mt-0.5">
+<span class="material-symbols-outlined text-[20px]">local_cafe</span>
+</div>
+<div>
+<div class="flex items-center space-x-2">
+<span class="font-label-lg text-label-lg text-text-primary">1) 트레이 위 빈 컵 수집 및 정돈</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-success-bg text-success-text">허용</span>
+</div>
+<p class="text-text-secondary font-body-sm text-body-sm mt-1">
+                          홀 테이블 및 리턴 카운터에 배치된 다회용 머그컵/유리잔의 그리퍼 파지 위치 및 트레이 집품 궤적 데이터 캡처.
+                        </p>
+<div class="flex items-center gap-4 mt-2 text-label-sm font-label-sm text-text-hint">
+<span>수집 데이터: RGB-D 뎁스, 매니퓰레이터 엔드이펙터 궤적</span>
+<span>소요 시간: 회당 15분 이내</span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-hint">drag_indicator</span>
+</div>
+</div>
+<!-- 업무 2: 완전 허용 -->
+<div class="p-4 rounded-lg border border-border-subtle bg-surface-subtle hover:bg-surface-container-low transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-3">
+<div class="p-2 rounded bg-info-bg text-info-text mt-0.5">
+<span class="material-symbols-outlined text-[20px]">view_in_ar</span>
+</div>
+<div>
+<div class="flex items-center space-x-2">
+<span class="font-label-lg text-label-lg text-text-primary">2) 카운터 주변 소형 집기류 3D 바운딩박스 촬영</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-success-bg text-success-text">허용</span>
+</div>
+<p class="text-text-secondary font-body-sm text-body-sm mt-1">
+                          스트로우 디스펜서, 냅킨 홀더, 시럽 펌프 등 정형/비정형 소형 소모품 객체 검출(Object Detection)용 다각도 스캐닝.
+                        </p>
+<div class="flex items-center gap-4 mt-2 text-label-sm font-label-sm text-text-hint">
+<span>수집 데이터: 3D Bounding Box 라벨, 라이다 포인트클라우드</span>
+<span>조명 조건: 500 Lux 이상 유지</span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-hint">drag_indicator</span>
+</div>
+</div>
+<!-- 업무 3: 조건부 허용 -->
+<div class="p-4 rounded-lg border border-warning-text/30 bg-warning-bg/40 transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-3">
+<div class="p-2 rounded bg-warning-bg text-warning-text mt-0.5">
+<span class="material-symbols-outlined text-[20px]">delete_sweep</span>
+</div>
+<div>
+<div class="flex items-center space-x-2">
+<span class="font-label-lg text-label-lg text-text-primary">3) 퇴식구 및 분리수거대 테이블 정돈</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-warning-bg text-warning-text border border-warning-text/30">조건부 허용</span>
+</div>
+<p class="text-text-secondary font-body-sm text-body-sm mt-1">
+                          음료 잔여물 유출 방지 커버 장착 필수. 파손 위험 물질(도자기, 날카로운 쓰레기) 존재 시 즉시 수기 작업 중단 후 점주 승인 필요.
+                        </p>
+<div class="flex items-center gap-4 mt-2 text-label-sm font-label-sm text-warning-text">
+<span class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+<span>사전 안전 장갑 착용 의무화 구역</span>
+</span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-hint">drag_indicator</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Card 3: 엄격 금지 및 배제 구역 (Danger Zone Panel) -->
+<div class="bg-surface-card rounded-lg border border-error/30 p-6 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2 text-error">
+<span class="material-symbols-outlined text-[24px]">block</span>
+<h2 class="text-headline-sm font-headline-sm font-bold">엄격 금지 및 배제 구역 (Zero-Tolerance Zone)</h2>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-error-bg text-error-text border border-error/20">
+                  위반 시 과제 파기 및 패널티
+                </span>
+</div>
+<p class="text-text-secondary font-body-sm text-body-sm">
+                소상공인 영업 자산 보호 및 고위험 화상·감전 사고 방지를 위해 다음 4개 항목에 대한 촬영 및 로봇 접근이 전면 차단됩니다.
+              </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+<div class="p-3.5 rounded bg-error-bg/40 border border-error/20 flex items-start space-x-3">
+<span class="material-symbols-outlined text-error-text text-[20px] mt-0.5">local_fire_department</span>
+<div>
+<h3 class="font-label-lg text-label-lg text-error-text">에스프레소 머신 스팀 노즐</h3>
+<p class="text-text-secondary font-body-sm text-body-sm mt-0.5">고온 고압 증기로 인한 센서 열화 및 화상 위험 (접근 1m 절대 불가)</p>
+</div>
+</div>
+<div class="p-3.5 rounded bg-error-bg/40 border border-error/20 flex items-start space-x-3">
+<span class="material-symbols-outlined text-error-text text-[20px] mt-0.5">water_damage</span>
+<div>
+<h3 class="font-label-lg text-label-lg text-error-text">온수 디스펜서 및 보일러 배관 주변</h3>
+<p class="text-text-secondary font-body-sm text-body-sm mt-0.5">누수 및 고열로 인한 로봇 전기 쇼트 위험 배제</p>
+</div>
+</div>
+<div class="p-3.5 rounded bg-error-bg/40 border border-error/20 flex items-start space-x-3">
+<span class="material-symbols-outlined text-error-text text-[20px] mt-0.5">ac_unit</span>
+<div>
+<h3 class="font-label-lg text-label-lg text-error-text">제빙기 내부 및 식자재 보관 랙</h3>
+<p class="text-text-secondary font-body-sm text-body-sm mt-0.5">식품 위생법상 이물질 혼입 방지 구역 (개방 촬영 금지)</p>
+</div>
+</div>
+<div class="p-3.5 rounded bg-error-bg/40 border border-error/20 flex items-start space-x-3">
+<span class="material-symbols-outlined text-error-text text-[20px] mt-0.5">face_retouching_off</span>
+<div>
+<h3 class="font-label-lg text-label-lg text-error-text">고객 얼굴 직접 노출 구역</h3>
+<p class="text-text-secondary font-body-sm text-body-sm mt-0.5">개인정보보호법 제15조 준수: 홀 손님 얼굴 정면 렌즈 지향 절대 불가</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Card 4: 현장 안전 관리자 정보 & 비상 핫라인 -->
+<div class="bg-surface-card rounded-lg border border-border-subtle p-5">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-center space-x-3">
+<div class="w-11 h-11 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+</div>
+<div>
+<div class="flex items-center space-x-2">
+<span class="text-label-lg font-label-lg text-text-primary">현장 책임 점주: 김서교 대표</span>
+<span class="px-2 py-0.5 text-[11px] font-medium bg-neutral-status-bg text-neutral-status-text rounded">상시 상주</span>
+</div>
+<p class="text-body-sm text-body-sm text-text-secondary mt-0.5">
+                      비상 연락망 (모의 단말): <strong class="text-text-primary font-medium">0507-1422-9011 (내선 101)</strong>
+</p>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<button class="px-3 py-1.5 bg-surface-subtle hover:bg-surface-container text-text-primary border border-border-subtle rounded-lg font-label-md text-label-md transition-colors flex items-center space-x-1" type="button">
+<span class="material-symbols-outlined text-[16px]">call</span>
+<span>점주 모의 호출</span>
+</button>
+<button class="px-3 py-1.5 bg-error-bg hover:bg-error-container text-error-text rounded-lg font-label-md text-label-md transition-colors flex items-center space-x-1" type="button">
+<span class="material-symbols-outlined text-[16px]">emergency</span>
+<span>긴급 작업 중단 보고</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN (4 Cols) - 수집 조건 및 협의 명세 -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Card: 촬영 권장 시간대 -->
+<div class="bg-surface-card rounded-lg border border-border-subtle p-5 space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="text-headline-sm font-headline-sm text-text-primary flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-[20px]">schedule</span>
+<span>촬영 권장 시간대</span>
+</h3>
+<span class="text-label-sm font-label-sm text-success-text font-semibold">동선 미발생 시간</span>
+</div>
+<div class="p-3.5 rounded bg-info-bg/50 border border-border-subtle space-y-2">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-info-text">1. 매장 오픈 전 세팅 타임</span>
+<span class="text-text-primary">08:30 ~ 10:00</span>
+</div>
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-info-text">2. 브레이크 타임 (최적)</span>
+<span class="text-text-primary">14:00 ~ 16:00</span>
+</div>
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-info-text">3. 마감 정리 타임</span>
+<span class="text-text-primary">21:00 ~ 22:30</span>
+</div>
+</div>
+<p class="text-text-hint font-body-sm text-body-sm">
+                * 고객 밀집 시간대(11:30 ~ 13:30)는 소상공인 매출 보호를 위해 삼각대 거치 및 장비 반입이 엄격히 제한됩니다.
+              </p>
+</div>
+<!-- Card: 권장 영상 규격 및 실시간 익명화 -->
+<div class="bg-surface-card rounded-lg border border-border-subtle p-5 space-y-4">
+<h3 class="text-headline-sm font-headline-sm text-text-primary flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-[20px]">videocam</span>
+<span>권장 영상 기술 규격</span>
+</h3>
+<div class="space-y-3 font-body-sm text-body-sm">
+<div class="flex items-start justify-between pb-2 border-b border-border-subtle">
+<span class="text-text-secondary">기기 마운트</span>
+<span class="font-medium text-text-primary text-right">1인칭 POV 체스트 / 헤드셋</span>
+</div>
+<div class="flex items-start justify-between pb-2 border-b border-border-subtle">
+<span class="text-text-secondary">해상도 / 프레임</span>
+<span class="font-medium text-text-primary text-right">FHD 1080p (1920x1080) @ 60fps</span>
+</div>
+<div class="flex items-start justify-between pb-2 border-b border-border-subtle">
+<span class="text-text-secondary">비식별화 필수</span>
+<span class="font-semibold text-error-text text-right flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px]">blur_on</span>
+<span>얼굴·명찰 실시간 블러</span>
+</span>
+</div>
+<div class="flex items-start justify-between">
+<span class="text-text-secondary">데이터 포맷</span>
+<span class="font-medium text-text-primary text-right">H.265 (HEVC) + IMU 로우데이터</span>
+</div>
+</div>
+<div class="p-3 bg-surface-subtle rounded border border-border-subtle text-label-sm font-label-sm text-text-secondary flex items-start space-x-2">
+<span class="material-symbols-outlined text-primary text-[16px] mt-0.5">info</span>
+<span>RoboHood Edge 모바일 앱 연동 시 촬영과 동시에 얼굴 익명화가 온디바이스로 처리됩니다.</span>
+</div>
+</div>
+<!-- Card: 현장 협의 이력 및 상태 타임라인 -->
+<div class="bg-surface-card rounded-lg border border-border-subtle p-5 space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="text-headline-sm font-headline-sm text-text-primary flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-[20px]">history_edu</span>
+<span>현장 협의 이력</span>
+</h3>
+<span class="text-label-sm font-label-sm text-text-hint">총 3단계 완료</span>
+</div>
+<div class="space-y-4 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-border-subtle">
+<div class="relative flex items-start space-x-3">
+<div class="w-7 h-7 rounded-full bg-success-bg text-success-text flex items-center justify-center text-[12px] font-bold border border-success-text/30 z-10">
+                    ✓
+                  </div>
+<div>
+<div class="text-label-md font-label-md text-text-primary">현장 실사 및 안전 점검 완료</div>
+<div class="text-text-hint text-label-sm font-label-sm">2026-09-15 · 점주 및 전문 실무관 입회</div>
+</div>
+</div>
+<div class="relative flex items-start space-x-3">
+<div class="w-7 h-7 rounded-full bg-success-bg text-success-text flex items-center justify-center text-[12px] font-bold border border-success-text/30 z-10">
+                    ✓
+                  </div>
+<div>
+<div class="text-label-md font-label-md text-text-primary">공간 제공 모의 협약 체결</div>
+<div class="text-text-hint text-label-sm font-label-sm">2026-09-10 · 전자 서명 완료 (v1.2)</div>
+</div>
+</div>
+<div class="relative flex items-start space-x-3">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center text-[12px] font-bold z-10">
+                    3
+                  </div>
+<div>
+<div class="text-label-md font-label-md text-text-primary">데이터 수집 인력 접수 진행 중</div>
+<div class="text-text-hint text-label-sm font-label-sm">현재 단계 · 최대 동시 수집 2팀 허용</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card: 법적 정책 및 소상공인 보호 안내 고지 (Notice Box) -->
+<div class="bg-surface-subtle rounded-lg border border-border-subtle p-4 space-y-2">
+<div class="flex items-center space-x-1.5 text-text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px] text-text-secondary">gavel</span>
+<span>현장 이용 정책 및 법적 고지</span>
+</div>
+<p class="text-text-secondary font-body-sm text-body-sm leading-relaxed">
+                "본 매장은 모의 현장 협의 공간이며 소상공인은 단순 공간 제공자로서 청년 인력의 직속 고용주가 아닙니다. 작업 중 발생한 설비 훼손 및 안전 사고는 플랫폼 보증 공제 보험(현대해상 모의 담보) 규정에 의거하여 처리됩니다."
+              </p>
+<div class="pt-2 text-right">
+<a class="text-primary hover:underline text-label-sm font-label-sm font-medium inline-flex items-center space-x-0.5" href="#">
+<span>책임 한계 및 보상 규약 보기</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+    // Micro-interaction: Smooth state change when clicking mock actions
+    document.addEventListener('DOMContentLoaded', () => {
+      const actionBtn = document.querySelector('button:has(.material-symbols-outlined:contains("assignment_add"))');
+      if(actionBtn) {
+        actionBtn.addEventListener('click', () => {
+          console.log('[RoboHood] SB-07 과제 수집 등록 화면 라우팅 트리거');
+        });
+      }
+    });
+  </script>
+</body></html>

@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoboHood - 교육·현장 인력 배정 (SB-09)</title>
+<!-- Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS via CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error-container": "#93000a",
+            "warning-bg": "#FFFBEB",
+            "surface-subtle": "#F8FAFC",
+            "surface": "#f7fafe",
+            "primary-fixed-dim": "#b4c5ff",
+            "inverse-surface": "#2d3134",
+            "on-secondary-fixed-variant": "#3a485b",
+            "on-error": "#ffffff",
+            "neutral-status-text": "#475569",
+            "surface-dim": "#d7dade",
+            "text-secondary": "#475569",
+            "surface-container-high": "#e5e8ec",
+            "on-background": "#181c1f",
+            "action-pressed": "#1E40AF",
+            "on-surface-variant": "#434655",
+            "background": "#f7fafe",
+            "text-inverse": "#FFFFFF",
+            "warning-text": "#92400E",
+            "tertiary-fixed": "#ffdbcd",
+            "surface-bright": "#f7fafe",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#dbe1ff",
+            "secondary": "#515f74",
+            "surface-container": "#ebeef2",
+            "info-bg": "#EFF6FF",
+            "on-primary-fixed-variant": "#003ea8",
+            "action-hover": "#1D4ED8",
+            "on-tertiary-fixed": "#360f00",
+            "surface-container-highest": "#e0e3e7",
+            "text-primary": "#0F172A",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "surface-tint": "#0053db",
+            "border-subtle": "#D5DDE7",
+            "surface-card": "#FFFFFF",
+            "success-bg": "#F0FDF4",
+            "outline": "#737686",
+            "on-secondary-fixed": "#0d1c2e",
+            "surface-container-low": "#f1f4f8",
+            "tertiary-fixed-dim": "#ffb596",
+            "tertiary-container": "#bc4800",
+            "on-surface": "#181c1f",
+            "error-text": "#B91C1C",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed-dim": "#b9c7df",
+            "error-bg": "#FEF2F2",
+            "inverse-on-surface": "#eef1f5",
+            "inverse-primary": "#b4c5ff",
+            "surface-variant": "#e0e3e7",
+            "text-hint": "#64748B",
+            "on-primary-container": "#eeefff",
+            "error-container": "#ffdad6",
+            "surface-canvas": "#F4F7FB",
+            "secondary-fixed": "#d5e3fc",
+            "border-control": "#64748B",
+            "on-primary-fixed": "#00174b",
+            "on-secondary-container": "#57657a",
+            "on-tertiary-container": "#ffede6",
+            "primary": "#004ac6",
+            "info-text": "#1E40AF",
+            "neutral-status-bg": "#F4F7FB",
+            "focus-ring": "#2563EB",
+            "surface-selected": "#EFF6FF",
+            "tertiary": "#943700",
+            "outline-variant": "#c3c6d7",
+            "on-tertiary-fixed-variant": "#7d2d00",
+            "secondary-container": "#d5e3fc",
+            "success-text": "#166534",
+            "on-tertiary": "#ffffff",
+            "primary-container": "#2563eb"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-tablet": "1.5rem",
+            "space-md": "1rem",
+            "gutter-desktop": "1.5rem",
+            "gutter": "1rem",
+            "space-xl": "2rem",
+            "margin-desktop": "2rem",
+            "space-sm": "0.5rem",
+            "margin": "1rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Public Sans"],
+            "label-sm": ["Public Sans"],
+            "headline-lg-mobile": ["Public Sans"],
+            "label-lg": ["Public Sans"],
+            "body-md": ["Public Sans"],
+            "headline-lg": ["Public Sans"],
+            "label-md": ["Public Sans"],
+            "headline-md": ["Public Sans"],
+            "body-sm": ["Public Sans"],
+            "headline-sm": ["Public Sans"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-surface-canvas text-text-primary antialiased font-body-md min-h-screen flex flex-col">
+<!-- ================= PERSISTENT SIDE NAVIGATION (Shared Component Anchor) ================= -->
+<aside class="w-60 h-screen fixed left-0 top-0 flex flex-col z-40 bg-surface-card border-r border-border-subtle">
+<!-- Header / Brand Section -->
+<div class="p-4 border-b border-border-subtle">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-text-inverse">
+<span class="material-symbols-outlined text-[20px]" data-icon="smart_toy">smart_toy</span>
+</div>
+<div>
+<h1 class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight leading-none">RoboHood 소상공인</h1>
+<p class="text-body-sm font-body-sm text-text-hint mt-1">소상공인 v1 · 데모 데이터</p>
+</div>
+</div>
+</div>
+<!-- Quick CTA Action -->
+<div class="px-3 pt-3 pb-1">
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 bg-primary hover:bg-action-hover active:bg-action-pressed text-text-inverse rounded-lg text-label-md font-label-md transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_circle">add_circle</span>
+<span>현장 데이터 수집 시작</span>
+</button>
+</div>
+<!-- Main Navigation Items -->
+<nav class="flex-1 px-3 py-2 space-y-1 overflow-y-auto">
+<!-- 1. 작업 공간 개요 -->
+<a class="flex items-center gap-3 px-3 py-2 text-text-secondary font-body-md text-body-md hover:bg-surface-subtle rounded-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span>작업 공간 개요</span>
+</a>
+<!-- 2. 현장 탐색 -->
+<a class="flex items-center gap-3 px-3 py-2 text-text-secondary font-body-md text-body-md hover:bg-surface-subtle rounded-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="explore">explore</span>
+<span>현장 탐색</span>
+</a>
+<!-- 3. 과제 상세 및 조건 -->
+<a class="flex items-center gap-3 px-3 py-2 text-text-secondary font-body-md text-body-md hover:bg-surface-subtle rounded-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="assignment">assignment</span>
+<span>과제 상세 및 조건</span>
+</a>
+<!-- ACTIVE TAB: 교육·현장 인력 배정 (과제 수행을 위한 인력 배정 컨텍스트) -->
+<a class="flex items-center gap-3 px-3 py-2 bg-surface-selected text-primary font-label-md text-label-md border-l-4 border-primary rounded-r-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="group" data-weight="fill" style="font-variation-settings: 'FILL' 1;">group</span>
+<span>교육·현장 인력 배정</span>
+</a>
+<!-- 4. 구간 라벨링 검수 -->
+<a class="flex items-center gap-3 px-3 py-2 text-text-secondary font-body-md text-body-md hover:bg-surface-subtle rounded-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="video_library">video_library</span>
+<span>구간 라벨링 검수</span>
+</a>
+<!-- 5. 수행 및 보상 관리 -->
+<a class="flex items-center gap-3 px-3 py-2 text-text-secondary font-body-md text-body-md hover:bg-surface-subtle rounded-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="payments">payments</span>
+<span>수행 및 보상 관리</span>
+</a>
+</nav>
+<!-- Drawer Footer Nav -->
+<div class="p-3 border-t border-border-subtle space-y-1 bg-surface-card">
+<a class="flex items-center gap-3 px-3 py-2 text-text-secondary font-body-md text-body-md hover:bg-surface-subtle rounded-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span>시스템 환경설정</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-secondary font-body-md text-body-md hover:bg-surface-subtle rounded-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="headset_mic">headset_mic</span>
+<span>고객센터 지원</span>
+</a>
+</div>
+</aside>
+<!-- ================= TOP APP BAR (Shared Component Anchor) ================= -->
+<header class="w-full h-16 pl-60 fixed top-0 right-0 z-30 bg-surface-card border-b border-border-subtle flex items-center justify-between px-6">
+<div class="flex items-center gap-6">
+<div class="relative w-80">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[20px] text-text-hint" data-icon="search">search</span>
+<input class="w-full pl-9 pr-3 py-1.5 bg-surface-card border border-border-control rounded text-body-sm font-body-sm text-text-primary placeholder:text-text-hint focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-1" placeholder="과제 코드, 현장명, 인력 검색..." type="text"/>
+</div>
+<!-- Top Nav Links (Desktop) -->
+<nav class="hidden md:flex items-center space-x-6 text-body-md font-body-md">
+<a class="border-b-2 border-primary text-primary font-label-lg text-label-lg pb-1" href="#">작업 공간</a>
+<a class="text-text-secondary hover:text-text-primary transition-colors" href="#">현장 탐색</a>
+<a class="text-text-secondary hover:text-text-primary transition-colors" href="#">과제 관리</a>
+<a class="text-text-secondary hover:text-text-primary transition-colors" href="#">정산 내역</a>
+</nav>
+</div>
+<!-- Trailing Actions & Profile -->
+<div class="flex items-center gap-3">
+<button class="px-3 py-1.5 bg-primary hover:bg-action-hover text-text-inverse rounded text-label-md font-label-md font-semibold transition-colors" type="button">
+        신규 작업 등록
+      </button>
+<div class="h-5 w-px bg-border-subtle mx-1"></div>
+<button aria-label="알림" class="p-1.5 text-text-secondary hover:text-text-primary hover:bg-surface-subtle rounded transition-colors relative" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full ring-2 ring-surface-card"></span>
+</button>
+<button aria-label="도움말" class="p-1.5 text-text-secondary hover:text-text-primary hover:bg-surface-subtle rounded transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="help_outline">help_outline</span>
+</button>
+<div class="flex items-center gap-2 pl-2">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-label-md border border-primary-fixed-dim">
+<span>김</span>
+</div>
+<div class="hidden lg:block text-left">
+<p class="text-label-sm font-label-sm font-semibold text-text-primary leading-tight">김대표 (성수점)</p>
+<p class="text-label-sm font-label-sm text-text-hint leading-tight">소상공인 관리자</p>
+</div>
+</div>
+</div>
+</header>
+<!-- ================= MAIN CONTENT CANVAS ================= -->
+<main class="pl-60 pt-16 flex-1 bg-surface-canvas p-6 lg:p-8 space-y-6">
+<!-- Breadcrumb & Header Section -->
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-text-hint">
+<a class="hover:text-primary transition-colors" href="#">작업 공간</a>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-text-primary font-semibold">현장 인력 및 교육 관리</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-semibold">수동 배정 (SB-09)</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h2 class="text-headline-md font-headline-md text-text-primary tracking-tight">청년 현장 인력 적격 검증 및 과제 수동 배정</h2>
+<p class="text-body-md font-body-md text-text-secondary mt-1">
+            직무 교육 이수 및 안전 적격을 통과한 <span class="font-semibold text-text-primary">'청년 Physical AI 현장 전문인력'</span>을 모의 과제에 투명하게 배정합니다.
+          </p>
+</div>
+<div class="flex items-center gap-2 self-start md:self-auto">
+<button class="inline-flex items-center gap-1.5 px-3 py-2 bg-surface-card border border-border-subtle rounded-lg text-text-primary hover:bg-surface-subtle text-label-md font-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="history">history</span>
+            배정 로그 조회
+          </button>
+<button class="inline-flex items-center gap-1.5 px-3 py-2 bg-primary hover:bg-action-hover text-text-inverse rounded-lg text-label-md font-label-md transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified_user">verified_user</span>
+            인력 적격 일괄 검증
+          </button>
+</div>
+</div>
+</div>
+<!-- Cautionary System Banner -->
+<div class="rounded-lg bg-warning-bg border border-border-subtle p-4 flex items-start gap-3">
+<span class="material-symbols-outlined text-[22px] text-warning-text shrink-0 mt-0.5" data-icon="warning" data-weight="fill" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div class="text-body-sm font-body-sm">
+<span class="font-bold text-warning-text">배정 원칙 및 차단 가이드:</span>
+<span class="text-text-primary ml-1">
+          조건 미충족 인력은 과제 배정이 시스템적으로 원천 차단됩니다. 본 플랫폼은 직무 교육 이수 및 사전 검증된 작업자의 안전한 모의 실습을 목적으로 하며, 자동 FDE 승급이나 고용 보장을 지원하지 않습니다.
+        </span>
+</div>
+</div>
+<!-- 2. Status Metric Cards (4 Columns) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Metric 1: 등록 인력 -->
+<div class="bg-surface-card border border-border-subtle rounded-lg p-4 flex items-center justify-between">
+<div>
+<p class="text-label-sm font-label-sm text-text-hint font-medium">풀 등록 전체 인력</p>
+<p class="text-headline-md font-headline-md text-text-primary mt-1">18<span class="text-body-md font-body-md text-text-secondary ml-1">명</span></p>
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-info-text mt-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="info">info</span>
+            모의 환경 파견 풀
+          </span>
+</div>
+<div class="w-11 h-11 rounded-lg bg-surface-canvas border border-border-subtle flex items-center justify-center text-text-secondary">
+<span class="material-symbols-outlined text-[22px]" data-icon="badge">badge</span>
+</div>
+</div>
+<!-- Metric 2: 교육 이수 적격 인력 -->
+<div class="bg-surface-card border border-border-subtle rounded-lg p-4 flex items-center justify-between">
+<div>
+<p class="text-label-sm font-label-sm text-text-hint font-medium">교육 이수 적격 인력</p>
+<p class="text-headline-md font-headline-md text-primary mt-1">12<span class="text-body-md font-body-md text-text-secondary ml-1">명</span></p>
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-success-bg text-success-text text-label-sm font-label-sm font-semibold mt-1">
+<span class="material-symbols-outlined text-[13px]" data-icon="check_circle">check_circle</span>
+            배정 가능 풀
+          </span>
+</div>
+<div class="w-11 h-11 rounded-lg bg-success-bg border border-border-subtle flex items-center justify-center text-success-text">
+<span class="material-symbols-outlined text-[22px]" data-icon="task_alt">task_alt</span>
+</div>
+</div>
+<!-- Metric 3: 평가 검토 대기 -->
+<div class="bg-surface-card border border-border-subtle rounded-lg p-4 flex items-center justify-between">
+<div>
+<p class="text-label-sm font-label-sm text-text-hint font-medium">모의 평가 심사 대기</p>
+<p class="text-headline-md font-headline-md text-warning-text mt-1">4<span class="text-body-md font-body-md text-text-secondary ml-1">명</span></p>
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-warning-bg text-warning-text text-label-sm font-label-sm font-semibold mt-1">
+<span class="material-symbols-outlined text-[13px]" data-icon="pending">pending</span>
+            조건부 적격 상태
+          </span>
+</div>
+<div class="w-11 h-11 rounded-lg bg-warning-bg border border-border-subtle flex items-center justify-center text-warning-text">
+<span class="material-symbols-outlined text-[22px]" data-icon="hourglass_top">hourglass_top</span>
+</div>
+</div>
+<!-- Metric 4: 부적격 / 미이수 -->
+<div class="bg-surface-card border border-border-subtle rounded-lg p-4 flex items-center justify-between">
+<div>
+<p class="text-label-sm font-label-sm text-text-hint font-medium">안전·필수 미이수 (차단)</p>
+<p class="text-headline-md font-headline-md text-error-text mt-1">2<span class="text-body-md font-body-md text-text-secondary ml-1">명</span></p>
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-error-bg text-error-text text-label-sm font-label-sm font-semibold mt-1">
+<span class="material-symbols-outlined text-[13px]" data-icon="block">block</span>
+            배정 잠금 대상
+          </span>
+</div>
+<div class="w-11 h-11 rounded-lg bg-error-bg border border-border-subtle flex items-center justify-center text-error-text">
+<span class="material-symbols-outlined text-[22px]" data-icon="person_cancel">person_cancel</span>
+</div>
+</div>
+</div>
+<!-- 3. 수동 과제 배정 워크스페이스 (Bento Split View: 4 cols left / 8 cols right) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- [좌측: 대상 과제 선택 & 자격 요건 패널] 4 Cols -->
+<section class="lg:col-span-4 bg-surface-card border border-border-subtle rounded-lg p-5 space-y-5">
+<div class="flex items-center justify-between border-b border-border-subtle pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="assignment_turned_in">assignment_turned_in</span>
+<h3 class="text-headline-sm font-headline-sm text-text-primary font-bold">대상 과제 지정</h3>
+</div>
+<span class="px-2 py-0.5 rounded bg-info-bg text-info-text text-label-sm font-label-sm font-semibold">모의 과제 활성</span>
+</div>
+<!-- Task Selector Card -->
+<div class="p-3.5 bg-surface-selected border border-focus-ring rounded-lg space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm font-bold text-primary">과제 코드: RH-SB-001</span>
+<span class="text-label-sm font-label-sm text-text-hint">수집 일정: 오늘 14:00</span>
+</div>
+<h4 class="text-label-lg font-label-lg text-text-primary font-bold">트레이 위 컵 정리 영상 수집</h4>
+<p class="text-body-sm font-body-sm text-text-secondary">로봇 팔 매니퓰레이션 학습을 위한 1인칭 POV 카메라 데이터셋 취득 실습</p>
+<div class="pt-2 border-t border-border-subtle/60 flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-text-hint">배치 현장</span>
+<span class="font-semibold text-text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-text-hint" data-icon="storefront">storefront</span>
+              모의 카페 A (성수 센터)
+            </span>
+</div>
+</div>
+<!-- Required Eligibility Criteria List -->
+<div class="space-y-3">
+<h4 class="text-label-md font-label-md text-text-hint uppercase tracking-wider font-semibold">필수 적격 요건 (System Check)</h4>
+<ul class="space-y-2.5">
+<li class="flex items-start gap-2.5 p-2 rounded bg-surface-subtle border border-border-subtle text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-success-text text-[18px] shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+<div>
+<p class="font-semibold text-text-primary">1인칭 POV 앵글 규정 교육 이수</p>
+<p class="text-label-sm font-label-sm text-text-hint">카메라 수평 오차 ±3° 이내 착용 프로토콜 수료</p>
+</div>
+</li>
+<li class="flex items-start gap-2.5 p-2 rounded bg-surface-subtle border border-border-subtle text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-success-text text-[18px] shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+<div>
+<p class="font-semibold text-text-primary">개인정보 비식별화 교육 이수</p>
+<p class="text-label-sm font-label-sm text-text-hint">타 방문객 안면 및 번호판 블라인드 수칙 숙지</p>
+</div>
+</li>
+<li class="flex items-start gap-2.5 p-2 rounded bg-surface-subtle border border-border-subtle text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-success-text text-[18px] shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+<div>
+<p class="font-semibold text-text-primary">현장 안전 수칙 서약 완료</p>
+<p class="text-label-sm font-label-sm text-text-hint">작업장 안전보호구 착용 및 긴급 전원 차단 서약</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Policy Card -->
+<div class="p-3 bg-surface-canvas rounded border border-border-subtle space-y-1.5">
+<div class="flex items-center gap-1.5 text-label-md font-label-md text-text-secondary font-semibold">
+<span class="material-symbols-outlined text-[16px] text-text-hint" data-icon="verified">verified</span>
+<span>배정 공정성 원칙</span>
+</div>
+<p class="text-label-sm font-label-sm text-text-hint leading-relaxed">
+            과제 배정은 교육 점수 및 모의 평가를 엄격히 반영하여 주관적 개입 없이 시스템 적격 조건을 통과한 청년 인력만을 대상으로 진행됩니다.
+          </p>
+</div>
+</section>
+<!-- [우측: 적격 인력 목록 및 배정 심사 테이블] 8 Cols -->
+<section class="lg:col-span-8 bg-surface-card border border-border-subtle rounded-lg overflow-hidden flex flex-col">
+<!-- Table Header Control Bar -->
+<div class="p-4 border-b border-border-subtle flex flex-wrap items-center justify-between gap-3 bg-surface-card">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-text-primary font-bold">인력 적격 검증 및 배정 심사</h3>
+<p class="text-body-sm font-body-sm text-text-hint">해당 과제 요건(POV, 비식별화, 안전서약)을 충족한 지원자를 실시간 검토합니다.</p>
+</div>
+<!-- Quick Filters -->
+<div class="flex items-center gap-2">
+<div class="inline-flex rounded-lg border border-border-subtle bg-surface-subtle p-0.5 text-label-sm font-label-sm font-medium">
+<button class="px-2.5 py-1 rounded bg-surface-card text-primary font-semibold shadow-xs" type="button">전체 (4)</button>
+<button class="px-2.5 py-1 text-text-secondary hover:text-text-primary" type="button">적격 (2)</button>
+<button class="px-2.5 py-1 text-text-secondary hover:text-text-primary" type="button">조건부/미충족 (2)</button>
+</div>
+<button class="p-1.5 text-text-secondary hover:text-text-primary border border-border-subtle rounded-lg bg-surface-card" title="새로고침" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+</button>
+</div>
+</div>
+<!-- Dynamic Allocation Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-subtle border-b border-border-subtle text-label-md font-label-md text-text-secondary">
+<th class="py-3 px-4">인력명 / ID</th>
+<th class="py-3 px-4">직무 구분</th>
+<th class="py-3 px-4">교육 이수 현황</th>
+<th class="py-3 px-4">모의 실습 평가</th>
+<th class="py-3 px-4">최근 배정 이력</th>
+<th class="py-3 px-4 text-right">배정 조치</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-subtle text-body-sm font-body-sm">
+<!-- 행 1: 김민수 (적격 승인 대상) -->
+<tr class="hover:bg-surface-subtle transition-colors bg-surface-selected/40 border-l-4 border-l-primary">
+<td class="py-3.5 px-4 font-semibold text-text-primary">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-label-sm">
+                      KM
+                    </div>
+<div>
+<p class="text-text-primary font-bold">김민수</p>
+<p class="text-label-sm font-label-sm text-text-hint">RH-OP-2401</p>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-text-secondary">
+                  데이터 수집 오퍼레이터
+                </td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 w-fit rounded bg-success-bg text-success-text text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[12px]" data-icon="check">check</span>
+                      4/4 이수 완료 (적격)
+                    </span>
+<span class="text-label-sm font-label-sm text-text-hint">안전·POV·비식별 통과</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="text-success-text font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="sentiment_satisfied">sentiment_satisfied</span>
+                    모의 평가 통과 (98점)
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-text-secondary">
+                  최근 2건 정상 완료
+                </td>
+<td class="py-3.5 px-4 text-right">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 bg-focus-ring hover:bg-action-hover active:bg-action-pressed text-text-inverse rounded text-label-md font-label-md font-semibold transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="how_to_reg">how_to_reg</span>
+                    배정 승인
+                  </button>
+</td>
+</tr>
+<!-- 행 2: 이지은 (적격 대기 대상) -->
+<tr class="hover:bg-surface-subtle transition-colors">
+<td class="py-3.5 px-4 font-semibold text-text-primary">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-label-sm">
+                      LJ
+                    </div>
+<div>
+<p class="text-text-primary font-bold">이지은</p>
+<p class="text-label-sm font-label-sm text-text-hint">RH-OP-2412</p>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-text-secondary">
+                  데이터 수집 오퍼레이터
+                </td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 w-fit rounded bg-success-bg text-success-text text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[12px]" data-icon="check">check</span>
+                      4/4 이수 완료 (적격)
+                    </span>
+<span class="text-label-sm font-label-sm text-text-hint">필수 커리큘럼 충족</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="text-success-text font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="sentiment_satisfied">sentiment_satisfied</span>
+                    모의 평가 통과 (94점)
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-text-hint">
+                  대기 중 (유휴 상태)
+                </td>
+<td class="py-3.5 px-4 text-right">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 bg-surface-card border border-focus-ring text-focus-ring hover:bg-surface-selected rounded text-label-md font-label-md font-semibold transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="person_add">person_add</span>
+                    배정 선택
+                  </button>
+</td>
+</tr>
+<!-- 행 3: 박도현 (조건부 적격 / 심사 중 차단) -->
+<tr class="hover:bg-surface-subtle transition-colors bg-surface-subtle/30" onclick="showBlockReason('박도현', '모의 실습 평가 심사 미완료', '현장 센서 동기화 실습 채점이 진행 중(채점관 검토 대기 1건)입니다. 평가 결과 확정 전까지 배정이 자동 보류됩니다.', '모의 실습 채점 독려 및 심사 결과 확인')">
+<td class="py-3.5 px-4 font-semibold text-text-primary">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-container text-text-secondary flex items-center justify-center font-bold text-label-sm">
+                      PD
+                    </div>
+<div>
+<p class="text-text-primary font-bold">박도현</p>
+<p class="text-label-sm font-label-sm text-text-hint">RH-FL-1904</p>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-text-secondary">
+                  현장 인력
+                </td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 w-fit rounded bg-warning-bg text-warning-text text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[12px]" data-icon="hourglass_empty">hourglass_empty</span>
+                      3/4 이수 (조건부 적격)
+                    </span>
+<span class="text-label-sm font-label-sm text-text-hint">실습 평가 제출 완료</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="text-warning-text font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="pending">pending</span>
+                    모의 평가 심사 중
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-text-secondary">
+                  1건 진행 중
+                </td>
+<td class="py-3.5 px-4 text-right">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 bg-surface-container text-neutral-status-text border border-border-subtle rounded text-label-md font-label-md cursor-not-allowed opacity-80" disabled="" title="클릭하여 차단 사유 조회" type="button">
+<span class="material-symbols-outlined text-[14px]" data-icon="lock">lock</span>
+                    배정 차단 (모의평가 미완료)
+                  </button>
+</td>
+</tr>
+<!-- 행 4: 최영호 (미적격 / 안전교육 미이수) -->
+<tr class="hover:bg-surface-subtle transition-colors bg-error-bg/10" onclick="showBlockReason('최영호', '필수 현장 안전 수칙 및 비식별화 교육 미이수', '해당 인력은 4개 필수 이수과목 중 1과목(기초 안내)만 수료하였으며, 소상공인 현장 작업에 필수적인 [산업안전] 및 [개인정보보호] 과정을 미이수하였습니다.', '필수 법정 안전 교육 이수 및 모의 평가 응시 필요')">
+<td class="py-3.5 px-4 font-semibold text-text-primary">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-error-bg text-error-text flex items-center justify-center font-bold text-label-sm">
+                      CY
+                    </div>
+<div>
+<p class="text-text-primary font-bold">최영호</p>
+<p class="text-label-sm font-label-sm text-text-hint">RH-NEW-3301</p>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-text-secondary">
+                  신규 신청
+                </td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 w-fit rounded bg-error-bg text-error-text text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[12px]" data-icon="close">close</span>
+                      1/4 이수 (미적격)
+                    </span>
+<span class="text-label-sm font-label-sm text-error-text font-medium">안전 교육 미이수</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-text-hint">
+                  미응시 (자격 미달)
+                </td>
+<td class="py-3.5 px-4 text-text-hint">
+                  이력 없음 (신규)
+                </td>
+<td class="py-3.5 px-4 text-right">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 bg-surface-container text-error-text border border-error/30 rounded text-label-md font-label-md cursor-not-allowed opacity-80" disabled="" title="클릭하여 차단 사유 조회" type="button">
+<span class="material-symbols-outlined text-[14px]" data-icon="block">block</span>
+                    배정 불가 (안전교육 미이수)
+                  </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- 4. Inline Inspector / Block Reason Drawer Box -->
+<div class="m-4 p-4 rounded-lg bg-surface-canvas border border-border-subtle transition-all duration-200" id="block-reason-box">
+<div class="flex items-start justify-between">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] text-warning-text mt-0.5" data-icon="gpp_bad" id="block-icon">gpp_bad</span>
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="text-label-md font-label-md font-bold text-text-primary" id="block-target">인력 선택 시 실시간 자격 판정 사유가 표시됩니다.</span>
+<span class="px-2 py-0.5 rounded bg-warning-bg text-warning-text text-label-sm font-label-sm font-semibold" id="block-badge">조건부 잠금</span>
+</div>
+<p class="text-body-sm font-body-sm text-text-secondary" id="block-description">
+                  미충족 인력(박도현, 최영호) 행을 클릭하여 구체적인 결격 사유 및 시스템 요구사항을 검토할 수 있습니다.
+                </p>
+<div class="pt-2 flex items-center gap-2 text-label-sm font-label-sm text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+<span id="block-action">요구 액션: 미이수 과목 수강 확인 및 현장 모의 실습 평가 통과 대기</span>
+</div>
+</div>
+</div>
+<button class="text-text-hint hover:text-text-primary text-body-sm p-1" onclick="resetBlockReason()" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</div>
+</div>
+<!-- Table Footer / Pagination Metadata -->
+<div class="px-4 py-3 bg-surface-card border-t border-border-subtle flex items-center justify-between text-body-sm font-body-sm text-text-secondary">
+<div class="flex items-center gap-2">
+<span>표시 중: 4명 중 4명</span>
+<span class="text-text-hint">·</span>
+<span class="text-label-sm font-label-sm text-text-hint">실시간 물리 AI 평가 시스템 v2.4 연동</span>
+</div>
+<div class="flex items-center gap-1 text-label-sm font-label-sm">
+<span class="px-2 py-1 bg-surface-subtle border border-border-subtle rounded text-text-hint">1 / 1 페이지</span>
+</div>
+</div>
+</section>
+</div>
+<!-- 5. System Disclaimer Footer -->
+<footer class="pt-4 border-t border-border-subtle text-center text-body-sm font-body-sm text-text-hint">
+<p>RoboHood 소상공인 지원 플랫폼 v1 · 모의 시뮬레이션 데모 데이터가 적용되어 있습니다.</p>
+<p class="text-label-sm font-label-sm mt-0.5 text-secondary">청년 인력의 현장 안전 확보 및 데이터 신뢰성 규정을 위해 적격 기준을 통과하지 못한 작업자의 과제 배정을 엄격히 제한합니다.</p>
+</footer>
+</main>
+<!-- Interactive JavaScript for Inline Block Verification Panel -->
+<script>
+    function showBlockReason(name, reason, description, action) {
+      const box = document.getElementById('block-reason-box');
+      const target = document.getElementById('block-target');
+      const badge = document.getElementById('block-badge');
+      const desc = document.getElementById('block-description');
+      const act = document.getElementById('block-action');
+      const icon = document.getElementById('block-icon');
+
+      target.innerText = `[${name}] 배정 제한 상세 내역 - ${reason}`;
+      desc.innerText = description;
+      act.innerText = `요구 액션: ${action}`;
+
+      if (name === '최영호') {
+        badge.className = "px-2 py-0.5 rounded bg-error-bg text-error-text text-label-sm font-label-sm font-semibold";
+        badge.innerText = "원천 배정 불가";
+        icon.className = "material-symbols-outlined text-[20px] text-error-text mt-0.5";
+        icon.innerText = "cancel";
+      } else {
+        badge.className = "px-2 py-0.5 rounded bg-warning-bg text-warning-text text-label-sm font-label-sm font-semibold";
+        badge.innerText = "조건부 승인 대기";
+        icon.className = "material-symbols-outlined text-[20px] text-warning-text mt-0.5";
+        icon.innerText = "gpp_bad";
+      }
+
+      box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function resetBlockReason() {
+      const target = document.getElementById('block-target');
+      const badge = document.getElementById('block-badge');
+      const desc = document.getElementById('block-description');
+      const act = document.getElementById('block-action');
+      const icon = document.getElementById('block-icon');
+
+      target.innerText = "인력 선택 시 실시간 자격 판정 사유가 표시됩니다.";
+      badge.className = "px-2 py-0.5 rounded bg-warning-bg text-warning-text text-label-sm font-label-sm font-semibold";
+      badge.innerText = "조건부 잠금";
+      desc.innerText = "미충족 인력(박도현, 최영호) 행을 클릭하여 구체적인 결격 사유 및 시스템 요구사항을 검토할 수 있습니다.";
+      act.innerText = "요구 액션: 미이수 과목 수강 확인 및 현장 모의 실습 평가 통과 대기";
+      icon.className = "material-symbols-outlined text-[20px] text-warning-text mt-0.5";
+      icon.innerText = "gpp_bad";
+    }
+  </script>
+</body></html>

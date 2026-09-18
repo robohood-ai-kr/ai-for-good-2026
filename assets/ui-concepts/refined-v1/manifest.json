@@ -1,0 +1,872 @@
+{
+  "tool": "built-in image_gen",
+  "version": "v1",
+  "screens": [
+    {
+      "id": "mf-01",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-01.png",
+      "prompt": "prompts.json#mf-01",
+      "generationFile": "exec-cb235bf5-ddea-477a-a5f1-bfb39c2df47e.png",
+      "refinement": null,
+      "sha256": "afd2720fd5b53bc7b1fa4ddf85aa99150975aa65aa3234274327b88bef156a29",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-cb235bf5-ddea-477a-a5f1-bfb39c2df47e.png",
+          "prompt": "prompts.json#mf-01"
+        }
+      ]
+    },
+    {
+      "id": "mf-02",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-02.png",
+      "prompt": "prompts.json#mf-02",
+      "generationFile": "exec-3e623ea5-c430-4ae3-9c94-f2b1fa5e022a.png",
+      "refinement": "refinements.json#mf-02-opacity",
+      "sha256": "29ba9252c2cb244a4f5132e9d870ba4cfe451c64cc38638836ed84227435caf6",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-983081c7-29e0-4cab-8040-89229d4d927c.png",
+          "prompt": "prompts.json#mf-02"
+        },
+        {
+          "stage": "opacity",
+          "generationFile": "exec-3e623ea5-c430-4ae3-9c94-f2b1fa5e022a.png",
+          "prompt": "refinements.json#mf-02-opacity"
+        }
+      ]
+    },
+    {
+      "id": "mf-03",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-03.png",
+      "prompt": "prompts.json#mf-03",
+      "generationFile": "exec-1da7553e-a60d-45df-9d4e-e4a968c9778f.png",
+      "refinement": null,
+      "sha256": "b9cc3ac9b8d52a0e70c995faaf19029bd81e359e4969fb8b5c79c8c9e0bb3bbe",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-1da7553e-a60d-45df-9d4e-e4a968c9778f.png",
+          "prompt": "prompts.json#mf-03"
+        }
+      ]
+    },
+    {
+      "id": "mf-04",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-04.png",
+      "prompt": "prompts.json#mf-04",
+      "generationFile": "exec-829f4938-5158-40d5-bb5c-231f7b0783c8.png",
+      "refinement": null,
+      "sha256": "5cb2ae3b0e55c8ac1123f139a9999dcf74828a7e9a94a8b4951e30718fac1d57",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-829f4938-5158-40d5-bb5c-231f7b0783c8.png",
+          "prompt": "prompts.json#mf-04"
+        }
+      ]
+    },
+    {
+      "id": "mf-05",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-05.png",
+      "prompt": "prompts.json#mf-05",
+      "generationFile": "exec-82888d6f-5301-4621-b20c-b725f58f6b76.png",
+      "refinement": null,
+      "sha256": "a0f69b77886b8a6cdf54e3cd0bc09c0f00a19e529ec4e5d88bbcaaf1a737196d",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-82888d6f-5301-4621-b20c-b725f58f6b76.png",
+          "prompt": "prompts.json#mf-05"
+        }
+      ]
+    },
+    {
+      "id": "mf-06",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-06.png",
+      "prompt": "prompts.json#mf-06",
+      "generationFile": "exec-1271d184-ad2a-4c68-8b54-243c62d76eb9.png",
+      "refinement": null,
+      "sha256": "eda4d85546e57d27e7c93948479ef4d7d5bc27dc2ffcd7f0f46fc43fc3e4f4e1",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-1271d184-ad2a-4c68-8b54-243c62d76eb9.png",
+          "prompt": "prompts.json#mf-06"
+        }
+      ]
+    },
+    {
+      "id": "mf-07",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-07.png",
+      "prompt": "prompts.json#mf-07",
+      "generationFile": "exec-ec82a5df-44fc-4521-9b5a-36171f30bb2f.png",
+      "refinement": "refinements.json#mf-07-terminology",
+      "sha256": "8b56deba20ab076b9b42bd823cc5d1c9f9d6783c55b5e88718f982a676459ff2",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-c6ebf2c7-77c6-485c-bf2b-0794bcecc7da.png",
+          "prompt": "prompts.json#mf-07"
+        },
+        {
+          "stage": "opacity",
+          "generationFile": "exec-9a6050b6-b997-47e8-b211-1631ad610a58.png",
+          "prompt": "refinements.json#mf-07-opacity"
+        },
+        {
+          "stage": "terminology",
+          "generationFile": "exec-ec82a5df-44fc-4521-9b5a-36171f30bb2f.png",
+          "prompt": "refinements.json#mf-07-terminology"
+        }
+      ]
+    },
+    {
+      "id": "mf-08",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-08.png",
+      "prompt": "prompts.json#mf-08",
+      "generationFile": "exec-c5eb3438-74d7-4215-8775-167e604529dd.png",
+      "refinement": "refinements.json#mf-08-opacity",
+      "sha256": "4f9e43b3f0542a46711758351bf806cf226637b7de3631607b4b6604c7442bb3",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-e096b650-7661-40ea-9edc-ac0db343b61b.png",
+          "prompt": "prompts.json#mf-08"
+        },
+        {
+          "stage": "opacity",
+          "generationFile": "exec-c5eb3438-74d7-4215-8775-167e604529dd.png",
+          "prompt": "refinements.json#mf-08-opacity"
+        }
+      ]
+    },
+    {
+      "id": "mf-09",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-09.png",
+      "prompt": "prompts.json#mf-09",
+      "generationFile": "exec-3b497260-a075-4707-80f9-1356a59ac9c3.png",
+      "refinement": null,
+      "sha256": "77a5a27c7034e0f60cc16a1809afdc65ee51af72bb875cd1948fe4f814c7e507",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-3b497260-a075-4707-80f9-1356a59ac9c3.png",
+          "prompt": "prompts.json#mf-09"
+        }
+      ]
+    },
+    {
+      "id": "mf-10",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-10.png",
+      "prompt": "prompts.json#mf-10",
+      "generationFile": "exec-73cbe21f-f925-454e-a97e-e2f048e205e4.png",
+      "refinement": null,
+      "sha256": "a87042c0db5c542efb52660686f7be4988b23e9c81ee66176b55236d8e5c6f4a",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-73cbe21f-f925-454e-a97e-e2f048e205e4.png",
+          "prompt": "prompts.json#mf-10"
+        }
+      ]
+    },
+    {
+      "id": "mf-11",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-11.png",
+      "prompt": "prompts.json#mf-11",
+      "generationFile": "exec-6aa6e617-e101-47c7-97d3-e53f9c16deee.png",
+      "refinement": "refinements.json#mf-11-terminology",
+      "sha256": "031230f099da21f2c5c1858d05b35dbc0575f023a8c8b8fdcf4f9f0ac7adc105",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-16d974eb-563d-4dfb-9dec-ed235946444e.png",
+          "prompt": "prompts.json#mf-11"
+        },
+        {
+          "stage": "opacity",
+          "generationFile": "exec-aa4a296a-1c23-4012-a672-59c1f17dbe99.png",
+          "prompt": "refinements.json#mf-11-opacity"
+        },
+        {
+          "stage": "terminology",
+          "generationFile": "exec-6aa6e617-e101-47c7-97d3-e53f9c16deee.png",
+          "prompt": "refinements.json#mf-11-terminology"
+        }
+      ]
+    },
+    {
+      "id": "mf-12",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-12.png",
+      "prompt": "prompts.json#mf-12",
+      "generationFile": "exec-f1eefc8d-b478-4ff1-8b3f-cd817ace0e6e.png",
+      "refinement": null,
+      "sha256": "6ee7d5f841c8275cde6b39c24810c6a8923a858d2fbb2164a9b4567092911a0e",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-f1eefc8d-b478-4ff1-8b3f-cd817ace0e6e.png",
+          "prompt": "prompts.json#mf-12"
+        }
+      ]
+    },
+    {
+      "id": "mf-13",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-13.png",
+      "prompt": "prompts.json#mf-13",
+      "generationFile": "exec-66e2a547-40f6-4bd9-bc8b-491a7b2d1833.png",
+      "refinement": "refinements.json#mf-13-opacity",
+      "sha256": "2d0e28349eaa1ee2a06dd84316d2538dab0e5560a4046ecb3d1bc9acaa0ed438",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-541df3e2-7182-4f3b-810e-4de96c25493e.png",
+          "prompt": "prompts.json#mf-13"
+        },
+        {
+          "stage": "opacity",
+          "generationFile": "exec-66e2a547-40f6-4bd9-bc8b-491a7b2d1833.png",
+          "prompt": "refinements.json#mf-13-opacity"
+        }
+      ]
+    },
+    {
+      "id": "mf-14",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-14.png",
+      "prompt": "prompts.json#mf-14",
+      "generationFile": "exec-f9acf2d0-0554-477a-a594-447c86ac3aef.png",
+      "refinement": "refinements.json#mf-14",
+      "sha256": "ebada04b604191d19edc94da9c2e8ff85b2680b40ec47f3117d32c2851998655",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-5b028b57-7f2b-41b5-8d09-dee82f3b9f29.png",
+          "prompt": "prompts.json#mf-14"
+        },
+        {
+          "stage": "content",
+          "generationFile": "exec-f9acf2d0-0554-477a-a594-447c86ac3aef.png",
+          "prompt": "refinements.json#mf-14"
+        }
+      ]
+    },
+    {
+      "id": "mf-15",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-15.png",
+      "prompt": "prompts.json#mf-15",
+      "generationFile": "exec-6202a50c-b429-469f-8713-163e86e5f3e3.png",
+      "refinement": null,
+      "sha256": "fb74afd340873e8affba581ef3c607b001c482f793852c15f62170b8b8fa7829",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-6202a50c-b429-469f-8713-163e86e5f3e3.png",
+          "prompt": "prompts.json#mf-15"
+        }
+      ]
+    },
+    {
+      "id": "mf-16",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-16.png",
+      "prompt": "prompts.json#mf-16",
+      "generationFile": "exec-03e6d99d-48d4-4b8d-898a-2c1014f82954.png",
+      "refinement": "refinements.json#mf-16-opacity",
+      "sha256": "7214aca2c8a21c71639e29c2d1cc906c78f198dddfb8efd9429f4b26587dd4bd",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-38cd0332-2657-4a54-a754-1f1cf04af37a.png",
+          "prompt": "prompts.json#mf-16"
+        },
+        {
+          "stage": "opacity",
+          "generationFile": "exec-03e6d99d-48d4-4b8d-898a-2c1014f82954.png",
+          "prompt": "refinements.json#mf-16-opacity"
+        }
+      ]
+    },
+    {
+      "id": "mf-17",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-17.png",
+      "prompt": "prompts.json#mf-17",
+      "generationFile": "exec-09a9476f-72ca-4aaf-8d96-705b6e4bac13.png",
+      "refinement": "refinements.json#mf-17-opacity",
+      "sha256": "ef1564a81de7290d318c09f11ff4ec6df5a5c91098a1cbb10d0e4956dd02fbca",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-b3fdc9a5-111b-4627-9b4c-175a9cdff233.png",
+          "prompt": "prompts.json#mf-17"
+        },
+        {
+          "stage": "opacity",
+          "generationFile": "exec-09a9476f-72ca-4aaf-8d96-705b6e4bac13.png",
+          "prompt": "refinements.json#mf-17-opacity"
+        }
+      ]
+    },
+    {
+      "id": "mf-18",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-18.png",
+      "prompt": "prompts.json#mf-18",
+      "generationFile": "exec-cae042ae-ae8f-4e19-b14f-140a7056b3f6.png",
+      "refinement": "refinements.json#mf-18",
+      "sha256": "a9fd1f720847a3c5c18717164bbd6299ab79fbd8cf4dafdfc78efde57f892fad",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-862720dc-9aa8-43c7-8e04-0821e1ba763a.png",
+          "prompt": "prompts.json#mf-18"
+        },
+        {
+          "stage": "content",
+          "generationFile": "exec-cae042ae-ae8f-4e19-b14f-140a7056b3f6.png",
+          "prompt": "refinements.json#mf-18"
+        }
+      ]
+    },
+    {
+      "id": "mf-19",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-19.png",
+      "prompt": "prompts.json#mf-19",
+      "generationFile": "exec-f8f7b065-44f7-49f3-9e35-f506e41ef6e0.png",
+      "refinement": null,
+      "sha256": "7476dcf741d2162836f0fd164a97c855c4feace0584603af5367c8da3a66a3a0",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-f8f7b065-44f7-49f3-9e35-f506e41ef6e0.png",
+          "prompt": "prompts.json#mf-19"
+        }
+      ]
+    },
+    {
+      "id": "mf-20",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-20.png",
+      "prompt": "prompts.json#mf-20",
+      "generationFile": "exec-51b330d2-69b3-4275-8e74-c83d1bff074e.png",
+      "refinement": "refinements.json#mf-20-opacity",
+      "sha256": "dd6d5b6f43080fcf43668671f6b61541be9edb0b2ec83cb94f1243d5cf50c40f",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-44910d15-8044-4c1f-89fb-7cfc20264c15.png",
+          "prompt": "prompts.json#mf-20"
+        },
+        {
+          "stage": "opacity",
+          "generationFile": "exec-51b330d2-69b3-4275-8e74-c83d1bff074e.png",
+          "prompt": "refinements.json#mf-20-opacity"
+        }
+      ]
+    },
+    {
+      "id": "mf-21",
+      "sector": "manufacturing",
+      "version": "v1",
+      "variant": "refined",
+      "file": "manufacturing/mf-21.png",
+      "prompt": "prompts.json#mf-21",
+      "generationFile": "exec-c78bd8b2-8ea4-4270-ae0d-06d3219eba62.png",
+      "refinement": "refinements.json#mf-21-opacity",
+      "sha256": "c655a83db3e4556dd2e78247ef8692e7343dfbd1602d981f640ea3c339dc8372",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-dc81b68d-b00e-4be2-ba54-4b56bfa80125.png",
+          "prompt": "prompts.json#mf-21"
+        },
+        {
+          "stage": "opacity",
+          "generationFile": "exec-c78bd8b2-8ea4-4270-ae0d-06d3219eba62.png",
+          "prompt": "refinements.json#mf-21-opacity"
+        }
+      ]
+    },
+    {
+      "id": "sb-01",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-01.png",
+      "prompt": "prompts.json#sb-01",
+      "generationFile": "exec-b9fcb5d6-a455-43b7-8457-28905cc70458.png",
+      "refinement": null,
+      "sha256": "4b16ad3081a04fb074a165d6d59afa1e801102ff69ef66f7466be91a3731590e",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-b9fcb5d6-a455-43b7-8457-28905cc70458.png",
+          "prompt": "prompts.json#sb-01"
+        }
+      ]
+    },
+    {
+      "id": "sb-02",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-02.png",
+      "prompt": "prompts.json#sb-02",
+      "generationFile": "exec-01cc6877-49cb-4120-acff-03c50682ebc7.png",
+      "refinement": null,
+      "sha256": "f097293069157ad9f0440603b750a52a26dd07ac04e2a26955a276f634a141d3",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-01cc6877-49cb-4120-acff-03c50682ebc7.png",
+          "prompt": "prompts.json#sb-02"
+        }
+      ]
+    },
+    {
+      "id": "sb-03",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-03.png",
+      "prompt": "prompts.json#sb-03",
+      "generationFile": "exec-f50fdce0-59c5-413a-a080-1e8b9d88b366.png",
+      "refinement": null,
+      "sha256": "9d9f4adad4d3b3712749f927675eefad180dc66980d74cdd7a9863267424add2",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-f50fdce0-59c5-413a-a080-1e8b9d88b366.png",
+          "prompt": "prompts.json#sb-03"
+        }
+      ]
+    },
+    {
+      "id": "sb-04",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-04.png",
+      "prompt": "prompts.json#sb-04",
+      "generationFile": "exec-9d3506d9-5c38-41f0-9ea3-dd4a57a27a16.png",
+      "refinement": null,
+      "sha256": "25fe78f9ecb372ec226696954ace9a0dfa5abfb9465b357b951dc5c736e23de9",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-9d3506d9-5c38-41f0-9ea3-dd4a57a27a16.png",
+          "prompt": "prompts.json#sb-04"
+        }
+      ]
+    },
+    {
+      "id": "sb-05",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-05.png",
+      "prompt": "prompts.json#sb-05",
+      "generationFile": "exec-271c5fd6-aae6-4215-a164-9bbfed9061a9.png",
+      "refinement": null,
+      "sha256": "f53ca2deea5c9da69ea914bc2aed7f02acc8067d662f687946ede72a29c4a862",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-271c5fd6-aae6-4215-a164-9bbfed9061a9.png",
+          "prompt": "prompts.json#sb-05"
+        }
+      ]
+    },
+    {
+      "id": "sb-06",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-06.png",
+      "prompt": "prompts.json#sb-06",
+      "generationFile": "exec-868d7c62-2acd-4b78-bec5-3d3589fb83d2.png",
+      "refinement": null,
+      "sha256": "15daa32cc50056bf477d0d7f983e45f607d575eda45026a45b9a3edb9f81bc87",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-868d7c62-2acd-4b78-bec5-3d3589fb83d2.png",
+          "prompt": "prompts.json#sb-06"
+        }
+      ]
+    },
+    {
+      "id": "sb-07",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-07.png",
+      "prompt": "prompts.json#sb-07",
+      "generationFile": "exec-04daa918-c3f0-44ae-8b0c-03e5bf58419c.png",
+      "refinement": null,
+      "sha256": "bc85f6837357bb9894137c041392b93d0bfc58d574b2558780fa04946a4ff40b",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-04daa918-c3f0-44ae-8b0c-03e5bf58419c.png",
+          "prompt": "prompts.json#sb-07"
+        }
+      ]
+    },
+    {
+      "id": "sb-08",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-08.png",
+      "prompt": "prompts.json#sb-08",
+      "generationFile": "exec-4e96775e-4a80-4c81-8dbd-b2a3d9d3be4c.png",
+      "refinement": null,
+      "sha256": "8dadf5f0692beba2394d64eff2c0244de78fd430f9235ff008a0e6c567defa2e",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-4e96775e-4a80-4c81-8dbd-b2a3d9d3be4c.png",
+          "prompt": "prompts.json#sb-08"
+        }
+      ]
+    },
+    {
+      "id": "sb-09",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-09.png",
+      "prompt": "prompts.json#sb-09",
+      "generationFile": "exec-7306103b-8f53-4830-85e6-cb49f0092d0e.png",
+      "refinement": "refinements.json#sb-09-terminology",
+      "sha256": "30ce93b21003940855cb2d2d208936bbdb4021c05a1d2a091ca3214cd6a06ebf",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-3bb2daa5-3ff2-401d-b683-46afea2b23c8.png",
+          "prompt": "prompts.json#sb-09"
+        },
+        {
+          "stage": "opacity",
+          "generationFile": "exec-331b93ab-d2a9-42ef-806d-3fbf6161b53c.png",
+          "prompt": "refinements.json#sb-09-opacity"
+        },
+        {
+          "stage": "terminology",
+          "generationFile": "exec-7306103b-8f53-4830-85e6-cb49f0092d0e.png",
+          "prompt": "refinements.json#sb-09-terminology"
+        }
+      ]
+    },
+    {
+      "id": "sb-10",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-10.png",
+      "prompt": "prompts.json#sb-10",
+      "generationFile": "exec-6d781db1-400f-4558-a86e-3d511f11839b.png",
+      "refinement": "refinements.json#sb-10-opacity",
+      "sha256": "a9b8db44e68b6afc7ce9ef99df503271b3401a2322b099a1bdf88a9cf8bb596a",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-2767e2a7-3036-4cb3-8025-d61a47837f21.png",
+          "prompt": "prompts.json#sb-10"
+        },
+        {
+          "stage": "opacity",
+          "generationFile": "exec-6d781db1-400f-4558-a86e-3d511f11839b.png",
+          "prompt": "refinements.json#sb-10-opacity"
+        }
+      ]
+    },
+    {
+      "id": "sb-11",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-11.png",
+      "prompt": "prompts.json#sb-11",
+      "generationFile": "exec-3f81c848-b7b2-4384-8593-c6479e90fb50.png",
+      "refinement": "refinements.json#sb-11-opacity",
+      "sha256": "d7fd1ee2dc05a699b3be290a96d0871bf21c2febfb0158ec1718a5c143b6261e",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-93c4e477-8506-4208-a952-ec741d1f9075.png",
+          "prompt": "prompts.json#sb-11"
+        },
+        {
+          "stage": "opacity",
+          "generationFile": "exec-3f81c848-b7b2-4384-8593-c6479e90fb50.png",
+          "prompt": "refinements.json#sb-11-opacity"
+        }
+      ]
+    },
+    {
+      "id": "sb-12",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-12.png",
+      "prompt": "prompts.json#sb-12",
+      "generationFile": "exec-fcc733c0-c57a-461f-a692-4b752bf2a61b.png",
+      "refinement": "refinements.json#sb-12-opacity",
+      "sha256": "e86d0519cc22cf8009e6d92a4e00bd1b83a6a9d1ae6053fae93a0d962220baea",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-e3c7e64c-1e68-47b7-b510-9c40668a6340.png",
+          "prompt": "prompts.json#sb-12"
+        },
+        {
+          "stage": "opacity",
+          "generationFile": "exec-fcc733c0-c57a-461f-a692-4b752bf2a61b.png",
+          "prompt": "refinements.json#sb-12-opacity"
+        }
+      ]
+    },
+    {
+      "id": "sb-13",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-13.png",
+      "prompt": "prompts.json#sb-13",
+      "generationFile": "exec-2e5c928f-e07c-497b-8dfe-27ee30d5b8c2.png",
+      "refinement": "refinements.json#sb-13",
+      "sha256": "a7b4798d105c2df9b45dd7e6fc07c5838f16fa5040fc272b5467faa1ce60eb9d",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-6bfc4551-fc1d-46be-9003-e85052541273.png",
+          "prompt": "prompts.json#sb-13"
+        },
+        {
+          "stage": "content",
+          "generationFile": "exec-2e5c928f-e07c-497b-8dfe-27ee30d5b8c2.png",
+          "prompt": "refinements.json#sb-13"
+        }
+      ]
+    },
+    {
+      "id": "sb-14",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-14.png",
+      "prompt": "prompts.json#sb-14",
+      "generationFile": "exec-f2c92de6-369b-49d9-926d-13d8aabaf005.png",
+      "refinement": "refinements.json#sb-14-opacity",
+      "sha256": "f72c5dad00ece8b90d1d9f18bd983c817b6ddce6c30f14c7cddd820ea0d669f7",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-bcca387f-b9b7-4622-a889-132b40ee6185.png",
+          "prompt": "prompts.json#sb-14"
+        },
+        {
+          "stage": "opacity",
+          "generationFile": "exec-f2c92de6-369b-49d9-926d-13d8aabaf005.png",
+          "prompt": "refinements.json#sb-14-opacity"
+        }
+      ]
+    },
+    {
+      "id": "sb-15",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-15.png",
+      "prompt": "prompts.json#sb-15",
+      "generationFile": "exec-00c90f49-fe87-4267-8638-7b491b594f26.png",
+      "refinement": "refinements.json#sb-15-terminology",
+      "sha256": "dc08af3a7c5263be931c843f2e8a471c5e908c46ed43b95dfd8dbf1f88e48e34",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-13960cc7-b5db-47b0-96ef-39c6c6b9ab96.png",
+          "prompt": "prompts.json#sb-15"
+        },
+        {
+          "stage": "opacity",
+          "generationFile": "exec-1319c96a-3792-4c3a-aded-6a3f4e120eb5.png",
+          "prompt": "refinements.json#sb-15-opacity"
+        },
+        {
+          "stage": "terminology",
+          "generationFile": "exec-00c90f49-fe87-4267-8638-7b491b594f26.png",
+          "prompt": "refinements.json#sb-15-terminology"
+        }
+      ]
+    },
+    {
+      "id": "sb-16",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-16.png",
+      "prompt": "prompts.json#sb-16",
+      "generationFile": "exec-bbea63ec-e9d4-4a6e-96aa-abbf60a38f8f.png",
+      "refinement": null,
+      "sha256": "b22a9772f4c1017e270c0a016e6674e17ca12c95d1b8ee88d602856df1bae36c",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-bbea63ec-e9d4-4a6e-96aa-abbf60a38f8f.png",
+          "prompt": "prompts.json#sb-16"
+        }
+      ]
+    },
+    {
+      "id": "sb-17",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-17.png",
+      "prompt": "prompts.json#sb-17",
+      "generationFile": "exec-85ec1f51-b048-4f58-8469-c30059f41d32.png",
+      "refinement": null,
+      "sha256": "7ee329475bb2ed5ef03cb794dd14e33d3d1f13b6f8b89175885fcdf2a339d205",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-85ec1f51-b048-4f58-8469-c30059f41d32.png",
+          "prompt": "prompts.json#sb-17"
+        }
+      ]
+    },
+    {
+      "id": "sb-18",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-18.png",
+      "prompt": "prompts.json#sb-18",
+      "generationFile": "exec-ec12ea4e-c920-46b4-86ff-50124868fdb8.png",
+      "refinement": null,
+      "sha256": "fc6f353bc3855d2262477250d9d65915f60d1c20dc9719b0ea97048dd1bdc5b6",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-ec12ea4e-c920-46b4-86ff-50124868fdb8.png",
+          "prompt": "prompts.json#sb-18"
+        }
+      ]
+    },
+    {
+      "id": "sb-19",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-19.png",
+      "prompt": "prompts.json#sb-19",
+      "generationFile": "exec-ff9b1938-03d4-4e72-b6cb-d051a81f86cd.png",
+      "refinement": null,
+      "sha256": "7d49ddd868112cc883921d943f6ae80a0892ffa165b9cb3e63fa88fcf3583e24",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-ff9b1938-03d4-4e72-b6cb-d051a81f86cd.png",
+          "prompt": "prompts.json#sb-19"
+        }
+      ]
+    },
+    {
+      "id": "sb-20",
+      "sector": "small-business",
+      "version": "v1",
+      "variant": "refined",
+      "file": "small-business/sb-20.png",
+      "prompt": "prompts.json#sb-20",
+      "generationFile": "exec-8c059528-e2e3-4270-bfcc-40255df2d751.png",
+      "refinement": null,
+      "sha256": "c4b2e374a8ef835547d11e59556df5e91d0d1058f7cfea80c074abd1abd2eb9c",
+      "generationHistory": [
+        {
+          "stage": "initial",
+          "generationFile": "exec-8c059528-e2e3-4270-bfcc-40255df2d751.png",
+          "prompt": "prompts.json#sb-20"
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "tray-task",
+      "sector": "small-business",
+      "prompt": "Use case: editorial photo UI asset. One photorealistic first-person egocentric view looking down at a clean light oak tabletop in an empty mock cafe training space, landscape 4:3. Only an adult's two hands at bottom edge safely moving THREE empty lightweight unbreakable matte white cups onto a plain rectangular tray. Soft natural daylight, uncluttered, pleasant warm neutral colors, enough whitespace. No faces, customers, hot liquid, glass, logos, text, numbers, UI or overlays. This is a synthetic practice-scene thumbnail for a youth paid data-collection prototype, not documentary evidence. High detail in cup rims, hands and tray, physically plausible.",
+      "file": "small-business/tray-task.png",
+      "generationFile": "exec-fde38392-6b79-4e93-bd23-ef73431025da.png",
+      "sha256": "229b85e726aa09bff1900ba49b44eb2f058ed43fe54abc27ef1328958dc7e9f8"
+    },
+    {
+      "id": "rgb-part",
+      "sector": "manufacturing",
+      "prompt": "Use case: product photo UI asset. One photorealistic close-up safe RGB image collection sample on a clean light gray non-operating workbench. Landscape 4:3. A small machined silver aluminum bracket and one matching component, readable outline and surfaces, subtle machining texture, neutral soft daylight, no hazardous machinery, no people, no robot, no labels, measurements, text, UI or overlays. Blue-gray professional industrial color mood, simple uncluttered composition, focused metal part. This is synthetic illustrative data for a manufacturing visual inspection prototype, not real evidence or defect classification.",
+      "file": "manufacturing/rgb-part.png",
+      "generationFile": "exec-e02c23d1-3028-4a0a-bab9-8b8dadd127bd.png",
+      "sha256": "c4e051753ca644f04d39f264960826df2ee138f7cd9218a8b44123b10a617f22"
+    }
+  ]
+}

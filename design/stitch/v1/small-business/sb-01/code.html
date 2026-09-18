@@ -1,0 +1,558 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>RoboHood 소상공인 - 서비스 소개</title>
+<!-- Google Fonts: Public Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error-container": "#93000a",
+            "warning-bg": "#FFFBEB",
+            "surface-subtle": "#F8FAFC",
+            "surface": "#f7fafe",
+            "primary-fixed-dim": "#b4c5ff",
+            "inverse-surface": "#2d3134",
+            "on-secondary-fixed-variant": "#3a485b",
+            "on-error": "#ffffff",
+            "neutral-status-text": "#475569",
+            "surface-dim": "#d7dade",
+            "text-secondary": "#475569",
+            "surface-container-high": "#e5e8ec",
+            "on-background": "#181c1f",
+            "action-pressed": "#1E40AF",
+            "on-surface-variant": "#434655",
+            "background": "#f7fafe",
+            "text-inverse": "#FFFFFF",
+            "warning-text": "#92400E",
+            "tertiary-fixed": "#ffdbcd",
+            "surface-bright": "#f7fafe",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#dbe1ff",
+            "secondary": "#515f74",
+            "surface-container": "#ebeef2",
+            "info-bg": "#EFF6FF",
+            "on-primary-fixed-variant": "#003ea8",
+            "action-hover": "#1D4ED8",
+            "on-tertiary-fixed": "#360f00",
+            "surface-container-highest": "#e0e3e7",
+            "text-primary": "#0F172A",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "surface-tint": "#0053db",
+            "border-subtle": "#D5DDE7",
+            "surface-card": "#FFFFFF",
+            "success-bg": "#F0FDF4",
+            "outline": "#737686",
+            "on-secondary-fixed": "#0d1c2e",
+            "surface-container-low": "#f1f4f8",
+            "tertiary-fixed-dim": "#ffb596",
+            "tertiary-container": "#bc4800",
+            "on-surface": "#181c1f",
+            "error-text": "#B91C1C",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed-dim": "#b9c7df",
+            "error-bg": "#FEF2F2",
+            "inverse-on-surface": "#eef1f5",
+            "inverse-primary": "#b4c5ff",
+            "surface-variant": "#e0e3e7",
+            "text-hint": "#64748B",
+            "on-primary-container": "#eeefff",
+            "error-container": "#ffdad6",
+            "surface-canvas": "#F4F7FB",
+            "secondary-fixed": "#d5e3fc",
+            "border-control": "#64748B",
+            "on-primary-fixed": "#00174b",
+            "on-secondary-container": "#57657a",
+            "on-tertiary-container": "#ffede6",
+            "primary": "#004ac6",
+            "info-text": "#1E40AF",
+            "neutral-status-bg": "#F4F7FB",
+            "focus-ring": "#2563EB",
+            "surface-selected": "#EFF6FF",
+            "tertiary": "#943700",
+            "outline-variant": "#c3c6d7",
+            "on-tertiary-fixed-variant": "#7d2d00",
+            "secondary-container": "#d5e3fc",
+            "success-text": "#166534",
+            "on-tertiary": "#ffffff",
+            "primary-container": "#2563eb"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-tablet": "1.5rem",
+            "space-md": "1rem",
+            "gutter-desktop": "1.5rem",
+            "gutter": "1rem",
+            "space-xl": "2rem",
+            "margin-desktop": "2rem",
+            "space-sm": "0.5rem",
+            "margin": "1rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Public Sans"],
+            "label-sm": ["Public Sans"],
+            "headline-lg-mobile": ["Public Sans"],
+            "label-lg": ["Public Sans"],
+            "body-md": ["Public Sans"],
+            "headline-lg": ["Public Sans"],
+            "label-md": ["Public Sans"],
+            "headline-md": ["Public Sans"],
+            "body-sm": ["Public Sans"],
+            "headline-sm": ["Public Sans"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-surface-canvas text-text-primary antialiased min-h-screen flex flex-col font-body-md text-body-md selection:bg-info-bg selection:text-primary">
+<!-- 1. 상단 내비게이션 바 (TopNavBar Blueprint Integration) -->
+<header class="w-full h-16 px-6 flex items-center justify-between border-b border-border-subtle bg-surface-card sticky top-0 z-50">
+<!-- 좌측 로고 및 상태 칩 -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-headline-md" data-icon="smart_toy">smart_toy</span>
+<span class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">RoboHood 소상공인</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-lg text-label-sm font-label-sm bg-neutral-status-bg text-neutral-status-text border border-border-subtle">
+        소상공인 v1 · 데모 데이터
+      </span>
+</div>
+<!-- 중앙 내비게이션 링크 -->
+<nav class="hidden md:flex items-center space-x-6">
+<a class="border-b-2 border-primary text-primary font-label-lg text-label-lg pb-1 transition-colors duration-150 ease-in-out" href="#service-intro">서비스 소개</a>
+<a class="text-text-secondary font-body-md text-body-md hover:bg-surface-subtle hover:text-text-primary px-2 py-1 rounded-lg transition-colors duration-150 ease-in-out" href="#field-explore">현장 탐색</a>
+<a class="text-text-secondary font-body-md text-body-md hover:bg-surface-subtle hover:text-text-primary px-2 py-1 rounded-lg transition-colors duration-150 ease-in-out" href="#task-overview">과제 둘러보기</a>
+<a class="text-text-secondary font-body-md text-body-md hover:bg-surface-subtle hover:text-text-primary px-2 py-1 rounded-lg transition-colors duration-150 ease-in-out" href="#guide">안내 가이드</a>
+</nav>
+<!-- 우측 상단 액션 -->
+<div class="flex items-center gap-3">
+<button class="p-2 text-text-secondary hover:bg-surface-subtle hover:text-text-primary rounded-lg transition-colors duration-150 ease-in-out flex items-center justify-center" title="도움말" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="help_outline">help_outline</span>
+</button>
+<button class="p-2 text-text-secondary hover:bg-surface-subtle hover:text-text-primary rounded-lg transition-colors duration-150 ease-in-out flex items-center justify-center" title="알림" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+</button>
+<button class="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 bg-primary hover:bg-action-hover active:bg-action-pressed text-text-inverse text-label-md font-label-md rounded-lg transition-colors duration-150 shadow-none font-semibold" type="button" onclick="location.href='#SB-02'">
+<span class="material-symbols-outlined text-[18px]" data-icon="desktop_windows">desktop_windows</span>
+        데모 작업공간 시작
+      </button>
+</div>
+</header>
+<!-- 메인 컨텐츠 영역 (1440px 최적화 컨테이너) -->
+<main class="flex-1 w-full max-w-[1440px] mx-auto px-6 py-8 space-y-12">
+<!-- 2. 히어로 섹션 (Asymmetric High-end Hero Card) -->
+<section class="bg-surface-card border border-border-subtle rounded-xl p-8 lg:p-12 relative overflow-hidden shadow-none">
+<div class="max-w-4xl space-y-5">
+<!-- 뱃지 -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-info-bg border border-border-subtle">
+<span class="material-symbols-outlined text-info-text text-[18px]" data-icon="verified_user">verified_user</span>
+<span class="text-info-text text-label-md font-label-md">청년 Physical AI 현장 전문인력과 상생하는 데이터 플랫폼</span>
+</div>
+<!-- 헤드라인 & 서브헤드 -->
+<div class="space-y-3">
+<h1 class="text-headline-lg font-headline-lg text-text-primary tracking-tight">
+            소상공인의 안전한 매장 공간과 청년의 유급 데이터 수집 일자리를 연결합니다
+          </h1>
+<p class="text-body-lg font-body-lg text-text-secondary leading-relaxed max-w-3xl">
+            실제 고객 초상권과 안전을 최우선으로 보호하며, 로봇·AI 기업의 필드 데이터 수요를 표준화된 모의 과제 및 유급 수집 체계로 실증합니다.
+          </p>
+</div>
+<!-- CTA 버튼군 -->
+<div class="flex flex-wrap items-center gap-4 pt-2">
+<button class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-primary hover:bg-action-hover active:bg-action-pressed text-text-inverse text-label-lg font-label-lg rounded-lg transition-colors duration-150" type="button" onclick="location.href='#SB-02'">
+<span class="material-symbols-outlined text-[20px]" data-icon="space_dashboard">space_dashboard</span>
+            데모 작업공간 둘러보기 (SB-02)
+          </button>
+<button class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-surface-card hover:bg-surface-subtle border border-border-subtle text-text-primary text-label-lg font-label-lg rounded-lg transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="menu_book">menu_book</span>
+            수집 가이드라인 보기
+          </button>
+<span class="text-body-sm font-body-sm text-text-hint flex items-center gap-1.5 ml-2">
+<span class="material-symbols-outlined text-[16px] text-text-hint" data-icon="info">info</span>
+            현재 화면은 가상 모의 데이터로 구동되는 프로토타입입니다
+          </span>
+</div>
+</div>
+<!-- 우측 상단 장식용 미니 카드 -->
+<div class="hidden xl:block absolute right-12 top-12 w-80 bg-surface-subtle border border-border-subtle rounded-xl p-5 space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-text-secondary">플랫폼 실증 규준</span>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded-lg bg-success-bg text-success-text font-semibold">검증 완료</span>
+</div>
+<div class="space-y-2 text-body-sm font-body-sm text-text-secondary">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="check_circle">check_circle</span>
+<span class="">고객 초상권 자동 마스킹 파이프라인</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="check_circle">check_circle</span>
+<span class="">영업 외 시간 또는 비동선 안전 촬영 구역</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="check_circle">check_circle</span>
+<span class="">객관적 과제 검수 기반 모의 정산</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. 4대 참여 주체 및 역할 안내 카드 그리드 (Bento Style Grid) -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-headline-md font-headline-md text-text-primary">4대 참여 주체 및 책임 역할</h2>
+<p class="text-body-md font-body-md text-text-secondary">명확한 책임 분리와 투명한 데이터 공급망 설계를 통해 소상공인과 청년 인력을 보호합니다.</p>
+</div>
+<div class="inline-flex items-center gap-1 px-3 py-1 bg-neutral-status-bg text-neutral-status-text rounded-lg text-label-sm font-label-sm border border-border-subtle">
+<span class="material-symbols-outlined text-[14px]" data-icon="gavel">gavel</span>
+          역할 경계 준수 체계
+        </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- 주체 1: 데이터 요청자 -->
+<div class="bg-surface-card border border-border-subtle rounded-xl p-6 flex flex-col justify-between space-y-4 hover:border-primary transition-colors duration-150">
+<div class="space-y-3">
+<div class="w-10 h-10 rounded-lg bg-info-bg flex items-center justify-center text-info-text">
+<span class="material-symbols-outlined text-[24px]" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+<div class="space-y-1">
+<span class="text-label-sm font-label-sm text-text-hint">DEMAND SIDE</span>
+<h3 class="text-headline-sm font-headline-sm text-text-primary">데이터 요청자</h3>
+<p class="text-label-md font-label-md text-primary">로봇·AI 기업 / 연구팀</p>
+</div>
+<p class="text-body-sm font-body-sm text-text-secondary leading-relaxed">
+              수집 목적, 영상 규격 명세, 품질/검수 기준, 비용 부담 조건을 사전 정의하며 플랫폼을 통해 과제를 공식 발주합니다.
+            </p>
+</div>
+<div class="pt-3 border-t border-border-subtle">
+<div class="text-label-sm font-label-sm text-text-hint mb-1">핵심 책임</div>
+<ul class="text-body-sm font-body-sm text-text-secondary space-y-1">
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-text-hint" data-icon="arrow_right">arrow_right</span>
+                명확한 촬영 요구서 제시
+              </li>
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-text-hint" data-icon="arrow_right">arrow_right</span>
+                검수 기준 투명성 보장
+              </li>
+</ul>
+</div>
+</div>
+<!-- 주체 2: 현장 제공자 (소상공인 강조) -->
+<div class="bg-surface-card border-2 border-primary rounded-xl p-6 flex flex-col justify-between space-y-4 relative">
+<span class="absolute -top-3 right-4 px-2.5 py-0.5 bg-primary text-text-inverse text-label-sm font-label-sm rounded-lg font-semibold">
+            핵심 파트너
+          </span>
+<div class="space-y-3">
+<div class="w-10 h-10 rounded-lg bg-surface-selected flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]" data-icon="storefront">storefront</span>
+</div>
+<div class="space-y-1">
+<span class="text-label-sm font-label-sm text-text-hint">FIELD PROVIDER</span>
+<h3 class="text-headline-sm font-headline-sm text-text-primary">현장 제공자</h3>
+<p class="text-label-md font-label-md text-primary">소상공인 매장 대표</p>
+</div>
+<p class="text-body-sm font-body-sm text-text-secondary leading-relaxed">
+              영업 방해 없는 허용 공간·일정·촬영 범위 및 협의 조건을 제공합니다. <strong class="text-text-primary font-semibold">로봇 구매자나 청년 고용주가 아닙니다.</strong>
+</p>
+</div>
+<div class="pt-3 border-t border-border-subtle bg-surface-subtle -mx-6 -mb-6 p-6 rounded-b-xl">
+<div class="text-label-sm font-label-sm text-text-hint mb-1">보호 조항</div>
+<ul class="text-body-sm font-body-sm text-text-secondary space-y-1">
+<li class="flex items-center gap-1.5 text-success-text">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified">verified</span>
+                영업 손실 및 고용 책임 전무
+              </li>
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-text-hint" data-icon="arrow_right">arrow_right</span>
+                촬영 범위 사전 협의권 보장
+              </li>
+</ul>
+</div>
+</div>
+<!-- 주체 3: 전문 운영팀 -->
+<div class="bg-surface-card border border-border-subtle rounded-xl p-6 flex flex-col justify-between space-y-4 hover:border-primary transition-colors duration-150">
+<div class="space-y-3">
+<div class="w-10 h-10 rounded-lg bg-neutral-status-bg flex items-center justify-center text-text-secondary">
+<span class="material-symbols-outlined text-[24px]" data-icon="manage_accounts">manage_accounts</span>
+</div>
+<div class="space-y-1">
+<span class="text-label-sm font-label-sm text-text-hint">PLATFORM OPS</span>
+<h3 class="text-headline-sm font-headline-sm text-text-primary">전문 운영팀</h3>
+<p class="text-label-md font-label-md text-text-secondary">RoboHood 코어 본부</p>
+</div>
+<p class="text-body-sm font-body-sm text-text-secondary leading-relaxed">
+              현장 사전 직무 교육, 안전 관리 감독, 엄격한 다단계 품질 검수, 작업 배정 및 모의 보상 정산 절차를 전담합니다.
+            </p>
+</div>
+<div class="pt-3 border-t border-border-subtle">
+<div class="text-label-sm font-label-sm text-text-hint mb-1">핵심 책임</div>
+<ul class="text-body-sm font-body-sm text-text-secondary space-y-1">
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-text-hint" data-icon="arrow_right">arrow_right</span>
+                현장 안전 규준 상시 감독
+              </li>
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-text-hint" data-icon="arrow_right">arrow_right</span>
+                비식별화 데이터 가공 및 승인
+              </li>
+</ul>
+</div>
+</div>
+<!-- 주체 4: 현장 인력 -->
+<div class="bg-surface-card border border-border-subtle rounded-xl p-6 flex flex-col justify-between space-y-4 hover:border-primary transition-colors duration-150">
+<div class="space-y-3">
+<div class="w-10 h-10 rounded-lg bg-info-bg flex items-center justify-center text-info-text">
+<span class="material-symbols-outlined text-[24px]" data-icon="badge">badge</span>
+</div>
+<div class="space-y-1">
+<span class="text-label-sm font-label-sm text-text-hint">FIELD WORKFORCE</span>
+<h3 class="text-headline-sm font-headline-sm text-text-primary">현장 인력</h3>
+<p class="text-label-md font-label-md text-primary">청년 Physical AI 전문인력</p>
+</div>
+<p class="text-body-sm font-body-sm text-text-secondary leading-relaxed">
+              입문 직무인 '데이터 수집 오퍼레이터'로서 안전한 표준 절차에 따라 저위험 1인칭 POV 데이터를 정밀 수집합니다.
+            </p>
+</div>
+<div class="pt-3 border-t border-border-subtle">
+<div class="text-label-sm font-label-sm text-text-hint mb-1">업무 특성</div>
+<ul class="text-body-sm font-body-sm text-text-secondary space-y-1">
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-text-hint" data-icon="arrow_right">arrow_right</span>
+                고위험/화기 작업 완전 제외
+              </li>
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-text-hint" data-icon="arrow_right">arrow_right</span>
+                검수 합격 시 유급 보상 지급
+              </li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. 핵심 워크플로우 5단계 타임라인 (Card Based Sequential Steps) -->
+<section class="bg-surface-card border border-border-subtle rounded-xl p-8 space-y-6">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+<div>
+<h2 class="text-headline-md font-headline-md text-text-primary">표준 실증 프로세스 5단계</h2>
+<p class="text-body-md font-body-md text-text-secondary">체계적인 단계별 검증을 거쳐 소상공인 공간 침해 없이 고품질 AI 데이터셋을 구축합니다.</p>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-subtle border border-border-subtle text-label-md font-label-md text-text-secondary self-start md:self-auto">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="alt_route">alt_route</span>
+          표준 SOP 가이드라인 준수
+        </span>
+</div>
+<!-- 타임라인 스텝 그리드 -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
+<!-- Step 1 -->
+<div class="p-4 rounded-xl bg-surface-canvas border border-border-subtle space-y-3 relative">
+<div class="flex items-center justify-between">
+<span class="w-7 h-7 rounded-full bg-primary text-text-inverse flex items-center justify-center font-label-md text-label-md">1</span>
+<span class="material-symbols-outlined text-text-hint text-[20px]" data-icon="handshake">handshake</span>
+</div>
+<div class="space-y-1">
+<h4 class="text-label-lg font-label-lg text-text-primary">현장 조건 협의</h4>
+<p class="text-body-sm font-body-sm text-text-secondary">
+              촬영 가능 구역 지정, 영업 비방해 시간 조율 및 비식별화 범위 사전 확정
+            </p>
+</div>
+<div class="pt-2 text-label-sm font-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check">check</span>
+            공간 침해 배제
+          </div>
+</div>
+<!-- Step 2 -->
+<div class="p-4 rounded-xl bg-surface-canvas border border-border-subtle space-y-3 relative">
+<div class="flex items-center justify-between">
+<span class="w-7 h-7 rounded-full bg-primary text-text-inverse flex items-center justify-center font-label-md text-label-md">2</span>
+<span class="material-symbols-outlined text-text-hint text-[20px]" data-icon="school">school</span>
+</div>
+<div class="space-y-1">
+<h4 class="text-label-lg font-label-lg text-text-primary">교육 및 적격 검증</h4>
+<p class="text-body-sm font-body-sm text-text-secondary">
+              청년 인력 대상 안전 수칙 이수, POV 카메라 파지법 및 모의 과제 테스트
+            </p>
+</div>
+<div class="pt-2 text-label-sm font-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check">check</span>
+            사전 자격 심사
+          </div>
+</div>
+<!-- Step 3 -->
+<div class="p-4 rounded-xl bg-surface-canvas border border-border-subtle space-y-3 relative">
+<div class="flex items-center justify-between">
+<span class="w-7 h-7 rounded-full bg-primary text-text-inverse flex items-center justify-center font-label-md text-label-md">3</span>
+<span class="material-symbols-outlined text-text-hint text-[20px]" data-icon="videocam">videocam</span>
+</div>
+<div class="space-y-1">
+<h4 class="text-label-lg font-label-lg text-text-primary">유급 수집 세션 배정</h4>
+<p class="text-body-sm font-body-sm text-text-secondary">
+              소상공인 승인 일정에 매칭되어 현장 파견 후 1인칭 작업 POV 영상 수집
+            </p>
+</div>
+<div class="pt-2 text-label-sm font-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check">check</span>
+            저위험 규준 집행
+          </div>
+</div>
+<!-- Step 4 -->
+<div class="p-4 rounded-xl bg-surface-canvas border border-border-subtle space-y-3 relative">
+<div class="flex items-center justify-between">
+<span class="w-7 h-7 rounded-full bg-primary text-text-inverse flex items-center justify-center font-label-md text-label-md">4</span>
+<span class="material-symbols-outlined text-text-hint text-[20px]" data-icon="rule">rule</span>
+</div>
+<div class="space-y-1">
+<h4 class="text-label-lg font-label-lg text-text-primary">품질 검수 및 라벨링</h4>
+<p class="text-body-sm font-body-sm text-text-secondary">
+              초점, 흔들림, 개인정보 노출 여부 검증 및 다단계 라벨링 정밀 감수
+            </p>
+</div>
+<div class="pt-2 text-label-sm font-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check">check</span>
+            마스킹 검증 완료
+          </div>
+</div>
+<!-- Step 5 -->
+<div class="p-4 rounded-xl bg-surface-canvas border border-border-subtle space-y-3 relative">
+<div class="flex items-center justify-between">
+<span class="w-7 h-7 rounded-full bg-primary text-text-inverse flex items-center justify-center font-label-md text-label-md">5</span>
+<span class="material-symbols-outlined text-text-hint text-[20px]" data-icon="payments">payments</span>
+</div>
+<div class="space-y-1">
+<h4 class="text-label-lg font-label-lg text-text-primary">검수 승인 및 정산</h4>
+<p class="text-body-sm font-body-sm text-text-secondary">
+              최종 데이터셋 등록 완료 후 참여 인력 및 현장 제공자 대상 모의 정산 처리
+            </p>
+</div>
+<div class="pt-2 text-label-sm font-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check">check</span>
+            투명한 분배 원칙
+          </div>
+</div>
+</div>
+</section>
+<!-- 5. 안전 및 운영 원칙 박스 (Crucial Guardrails) -->
+<section class="bg-surface-card border border-border-subtle rounded-xl p-8 space-y-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error-text text-[24px]" data-icon="shield">shield</span>
+<h2 class="text-headline-md font-headline-md text-text-primary">3대 안전 및 운영 보증 원칙</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- 원칙 1 -->
+<div class="p-5 rounded-xl border border-border-subtle bg-error-bg/30 space-y-3">
+<div class="flex items-center gap-2 text-error-text">
+<span class="material-symbols-outlined text-[22px]" data-icon="block">block</span>
+<h3 class="text-label-lg font-label-lg font-bold">고위험 작업 철저 배제</h3>
+</div>
+<p class="text-body-sm font-body-sm text-text-secondary leading-relaxed">
+            칼, 조리기구 화기, 고온 스티머 등 현장 부상 위험이 있는 도구 사용은 수집 과제에서 완전히 제외됩니다. 오직 저위험 정리, 적재, 서빙 보조 동선 등만 수집합니다.
+          </p>
+<div class="inline-flex items-center px-2 py-0.5 rounded-lg text-label-sm font-label-sm bg-error-bg text-error-text border border-error-text/20">
+            위험 도구 촬영 금지
+          </div>
+</div>
+<!-- 원칙 2 -->
+<div class="p-5 rounded-xl border border-border-subtle bg-info-bg/30 space-y-3">
+<div class="flex items-center gap-2 text-info-text">
+<span class="material-symbols-outlined text-[22px]" data-icon="visibility_off">visibility_off</span>
+<h3 class="text-label-lg font-label-lg font-bold">100% 비식별화 마스킹</h3>
+</div>
+<p class="text-body-sm font-body-sm text-text-secondary leading-relaxed">
+            매장 내 방문 고객 얼굴, 차량 번호판, 카드 번호 등 민감 개인정보는 자동 및 2차 수동 검수를 통해 완전 블러 처리되어 안전한 상태로만 활용됩니다.
+          </p>
+<div class="inline-flex items-center px-2 py-0.5 rounded-lg text-label-sm font-label-sm bg-info-bg text-info-text border border-info-text/20">
+            개인정보 보호 최우선
+          </div>
+</div>
+<!-- 원칙 3 -->
+<div class="p-5 rounded-xl border border-border-subtle bg-warning-bg/40 space-y-3">
+<div class="flex items-center gap-2 text-warning-text">
+<span class="material-symbols-outlined text-[22px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+<h3 class="text-label-lg font-label-lg font-bold">검수 승인-정산 단계적 분리</h3>
+</div>
+<p class="text-body-sm font-body-sm text-text-secondary leading-relaxed">
+            모든 정산 내역은 데모 환경에서 산출되는 시뮬레이션 지표이며, 실제 전자금융 결제나 직접적인 법적 고용 관계를 형성하지 않습니다.
+          </p>
+<div class="inline-flex items-center px-2 py-0.5 rounded-lg text-label-sm font-label-sm bg-warning-bg text-warning-text border border-warning-text/20">
+            데모 프로토타입 환경
+          </div>
+</div>
+</div>
+</section>
+<!-- 하단 호출 배너 -->
+<section class="bg-surface-card border border-border-subtle rounded-xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="space-y-2">
+<h3 class="text-headline-sm font-headline-sm text-text-primary">실제 모의 과제와 검수 인터페이스를 직접 확인해보세요</h3>
+<p class="text-body-md font-body-md text-text-secondary">소상공인 데모 작업공간에서 수집된 현장 데이터 검수 및 모의 정산 흐름을 체험할 수 있습니다.</p>
+</div>
+<button class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary hover:bg-action-hover active:bg-action-pressed text-text-inverse text-label-lg font-label-lg rounded-lg transition-colors duration-150 whitespace-nowrap" type="button" onclick="location.href='#SB-02'">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+        데모 작업공간 이동 (SB-02)
+      </button>
+</section>
+</main>
+<!-- 6. 푸터 (Footer) -->
+<footer class="w-full bg-surface-card border-t border-border-subtle mt-16 py-8 px-6 text-body-sm font-body-sm text-text-secondary">
+<div class="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="space-y-1 text-center md:text-left">
+<div class="flex items-center justify-center md:justify-start gap-2">
+<span class="font-bold text-text-primary">RoboHood Platform</span>
+<span class="text-text-hint">|</span>
+<span class="">소상공인 Physical AI 실증 프로젝트</span>
+<span class="px-2 py-0.5 rounded-lg bg-surface-subtle text-text-hint text-label-sm font-label-sm border border-border-subtle">데모 모드</span>
+</div>
+<p class="text-text-hint text-body-sm">
+          본 사이트는 AI 연구용 데이터 수집 프로세스 실증을 위한 프로토타입이며, 정부 공식 인가나 실제 고용 보장 효력이 없습니다.
+        </p>
+</div>
+<div class="flex items-center gap-6 text-label-md font-label-md">
+<a class="hover:text-text-primary transition-colors duration-150" href="#terms">이용약관</a>
+<a class="hover:text-text-primary transition-colors duration-150" href="#privacy">개인정보처리방침</a>
+<a class="hover:text-text-primary transition-colors duration-150" href="#support">실증 가이드센터</a>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto mt-4 pt-4 border-t border-border-subtle text-center text-text-hint text-label-sm font-label-sm">
+      © 2025 RoboHood. All rights reserved. (소상공인 v1 · 데모 데이터)
+    </div>
+</footer>
+
+
+</body></html>

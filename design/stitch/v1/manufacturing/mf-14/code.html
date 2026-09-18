@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>[MF-14] 배포 준비 | RoboHood</title>
+<!-- Google Fonts: Noto Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with forms/container plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary": "#2c4bb9",
+            "on-surface": "#131b2e",
+            "surface": "#faf8ff",
+            "primary-fixed": "#dbe1ff",
+            "on-secondary-fixed-variant": "#3a485b",
+            "surface-bright": "#faf8ff",
+            "inverse-surface": "#283044",
+            "on-secondary-container": "#57657a",
+            "on-background": "#131b2e",
+            "on-primary-fixed-variant": "#003ea8",
+            "outline": "#737686",
+            "surface-container-high": "#e2e7ff",
+            "secondary-fixed": "#d5e3fc",
+            "secondary": "#515f74",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "primary-fixed-dim": "#b4c5ff",
+            "secondary-container": "#d5e3fc",
+            "inverse-on-surface": "#eef0ff",
+            "on-primary-fixed": "#00174b",
+            "on-error-container": "#93000a",
+            "background": "#faf8ff",
+            "on-tertiary-container": "#eff0ff",
+            "on-tertiary-fixed-variant": "#173bab",
+            "surface-container-highest": "#dae2fd",
+            "secondary-fixed-dim": "#b9c7df",
+            "surface-container-low": "#f2f3ff",
+            "on-error": "#ffffff",
+            "surface-tint": "#0053db",
+            "surface-container": "#eaedff",
+            "on-primary": "#ffffff",
+            "primary": "#004ac6",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "surface-dim": "#d2d9f4",
+            "on-primary-container": "#eeefff",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#0d1c2e",
+            "on-surface-variant": "#434655",
+            "primary-container": "#2563eb",
+            "outline-variant": "#c3c6d7",
+            "tertiary-fixed": "#dde1ff",
+            "tertiary-container": "#4865d4",
+            "on-tertiary-fixed": "#001453",
+            "inverse-primary": "#b4c5ff",
+            "surface-variant": "#dae2fd",
+            "tertiary-fixed-dim": "#b8c4ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-xl": "2rem",
+            "margin": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Noto Sans"],
+            "headline-lg-mobile": ["Noto Sans"],
+            "headline-md-mobile": ["Noto Sans"],
+            "label-sm": ["Noto Sans"],
+            "body-lg-medium": ["Noto Sans"],
+            "body-lg": ["Noto Sans"],
+            "label-md": ["Noto Sans"],
+            "headline-md": ["Noto Sans"],
+            "body-md-medium": ["Noto Sans"],
+            "body-md": ["Noto Sans"]
+          },
+          "fontSize": {
+            "headline-lg": ["32px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "headline-md-mobile": ["22px", { "lineHeight": "33px", "fontWeight": "600" }],
+            "label-sm": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "body-lg-medium": ["17px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "label-md": ["15px", { "lineHeight": "22px", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "body-md-medium": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-[#F4F7FB] text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<!-- ================= TOP NAV BAR (Shared Component) ================= -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 h-16 bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm">
+<!-- Left: Brand Logo & Context Breadcrumb -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[26px]">smart_toy</span>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight">RoboHood</span>
+</div>
+<div class="h-5 w-px bg-outline-variant"></div>
+<!-- Persistent Simulation Badge (Mandatory Exact String) -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#EFF6FF] border border-[#BFDBFE] text-[#1E40AF]">
+<span class="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse"></span>
+<span class="font-label-sm text-label-sm">제조업 v1 · 데모 데이터</span>
+</div>
+<div class="hidden lg:flex items-center gap-2 text-secondary font-body-md text-body-md">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+<span class="font-body-md-medium text-body-md-medium text-on-surface">배포·관제</span>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+<span class="text-primary font-body-md-medium text-body-md-medium">MF-14 배포 준비</span>
+</div>
+</div>
+<!-- Center: Search or Context Info -->
+<div class="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low text-secondary border border-outline-variant">
+<span class="material-symbols-outlined text-lg">search</span>
+<span class="font-body-md text-body-md text-on-surface-variant">태스크 ID, 자산 번호, 시뮬레이터 인덱스 검색...</span>
+<kbd class="ml-4 px-1.5 py-0.5 text-xs bg-surface-container-lowest rounded border border-outline-variant">⌘K</kbd>
+</div>
+<!-- Right: Actions & Profile -->
+<div class="flex items-center gap-3">
+<!-- FDE Access Security Badge -->
+<div class="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span>FDE 전용 권한 승인됨</span>
+</div>
+<button class="p-2 rounded-lg text-secondary hover:bg-surface-container transition-colors duration-150 relative" title="알림">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<button class="p-2 rounded-lg text-secondary hover:bg-surface-container transition-colors duration-150" title="워크스페이스 전환">
+<span class="material-symbols-outlined">swap_horiz</span>
+</button>
+<button class="p-2 rounded-lg text-secondary hover:bg-surface-container transition-colors duration-150" title="도움말">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="h-6 w-px bg-outline-variant mx-1"></div>
+<!-- User Profile -->
+<div class="flex items-center gap-3 pl-1">
+<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-sm shadow-sm ring-2 ring-primary-fixed">
+<span>김</span>
+</div>
+<div class="hidden md:flex flex-col text-left">
+<span class="font-label-sm text-label-sm text-on-surface leading-tight">김검수 수석</span>
+<span class="text-[11px] text-secondary">FDE Master (Lv.3)</span>
+</div>
+</div>
+</div>
+</header>
+<!-- ================= SIDE NAV BAR (Shared Component) ================= -->
+<!-- Fixed left side navigation. Tab "배포·관제" is active (Exact mapping). -->
+<aside class="fixed top-16 left-0 bottom-0 w-60 z-40 flex flex-col justify-between p-4 bg-surface-container-low dark:bg-inverse-surface border-r border-outline-variant dark:border-outline">
+<div class="space-y-6">
+<!-- Workspace Subtitle / Spec Header -->
+<div class="px-2 pt-1">
+<div class="flex items-center justify-between text-secondary">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">WORKSPACE CELL</span>
+<span class="px-1.5 py-0.5 rounded text-[11px] bg-surface-container-high font-mono text-primary font-bold">ISAAC-4</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1 font-body-md text-body-md">제조업 Physical AI 플랫폼</p>
+</div>
+<!-- Navigation Tabs (9 Items from JSON) -->
+<nav class="space-y-1">
+<!-- 1. 개요 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-dim font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>개요</span>
+</a>
+<!-- 2. 현장 탐색 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-dim font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span>현장 탐색</span>
+</a>
+<!-- 3. 현장 과제 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-dim font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span>현장 과제</span>
+</a>
+<!-- 4. 데이터 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-dim font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">dataset</span>
+<span>데이터</span>
+</a>
+<!-- 5. 모델 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-dim font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span>모델</span>
+</a>
+<!-- 6. 장비 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-dim font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">precision_manufacturing</span>
+<span>장비</span>
+</a>
+<!-- 7. 배포·관제 (ACTIVE TAB) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-secondary-container dark:bg-secondary text-primary dark:text-inverse-primary font-body-md-medium text-body-md-medium transition-colors duration-150 shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+<span class="font-bold">배포·관제</span>
+</a>
+<!-- 8. 현장 인력 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-dim font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">engineering</span>
+<span>현장 인력</span>
+</a>
+<!-- 9. 설정 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-dim font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>설정</span>
+</a>
+</nav>
+</div>
+<!-- SideNav Footer -->
+<div class="pt-4 border-t border-outline-variant space-y-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined">help_center</span>
+<span>도움말 &amp; 지원</span>
+</a>
+<div class="p-2.5 rounded-lg bg-surface-container border border-outline-variant text-xs text-secondary leading-relaxed">
+<div class="flex items-center gap-1.5 font-bold text-on-surface">
+<span class="material-symbols-outlined text-sm text-primary">security</span>
+<span>보안 게이트 활성화</span>
+</div>
+<p class="mt-1 text-[11px]">가상 샌드박스 격리 통신 프로토콜 실행 중 (TCP/IPC 8088)</p>
+</div>
+</div>
+</aside>
+<!-- ================= MAIN CONTENT CANVAS ================= -->
+<main class="ml-60 pt-20 pb-28 px-8 flex-1 max-w-[1440px]">
+<!-- TOP STAGE BREADCRUMB & PIPELINE HEADER -->
+<div class="mb-6">
+<!-- Privilege & Scope Alert Banner -->
+<div class="mb-4 flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl bg-surface-container-lowest border border-[#D5DDE7] shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center text-[#1E40AF]">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-md font-headline-md text-on-surface text-[19px]">현장 적용 엔지니어(FDE) 배포 인가 모드</span>
+<span class="px-2 py-0.5 rounded bg-[#FEF2F2] border border-[#FECACA] text-[#B91C1C] font-label-sm text-label-sm font-semibold">초급 오퍼레이터 접근 통제</span>
+<span class="px-2 py-0.5 rounded bg-[#EFF6FF] border border-[#BFDBFE] text-[#1E40AF] font-label-sm text-label-sm font-semibold">가상 시뮬레이션 샌드박스 전용</span>
+</div>
+<p class="font-body-md text-body-md text-secondary mt-0.5">
+              본 작업은 실제 현장 생산설비와 물리적으로 분리된 <span class="font-medium text-on-surface">Isaac Sim 4.0 가상 실증 셀 A-3</span>에서 수행되는 무결성 사전 검증 단계입니다.
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<div class="text-xs text-secondary">인가 보안 해시 (HMAC)</div>
+<div class="font-mono text-xs font-bold text-on-surface tracking-wider">7F8A-99B4-E2D1</div>
+</div>
+<div class="h-8 w-px bg-outline-variant"></div>
+<span class="px-3 py-1.5 rounded-lg bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534] font-label-sm text-label-sm font-bold flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#166534]"></span>
+            인가 통과 완료
+          </span>
+</div>
+</div>
+<!-- Pipeline Title Card -->
+<div class="p-6 rounded-xl bg-surface-container-lowest border border-[#D5DDE7] shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-4 border-b border-[#F1F5F9]">
+<div>
+<div class="flex items-center gap-3">
+<span class="px-2.5 py-1 rounded bg-surface-container font-mono text-xs font-bold text-primary border border-outline-variant">DEP-2025-01</span>
+<span class="text-xs font-medium text-secondary">정밀 가공 자동화 4공정 검사 라인</span>
+</div>
+<h1 class="text-headline-md font-headline-md text-on-surface mt-1.5">
+              소형 가공 부품 외관 스크래치 AI 검사기 시뮬레이터 실증 배포
+            </h1>
+</div>
+<div class="flex items-center gap-6 bg-surface-container-low px-4 py-2.5 rounded-lg border border-outline-variant">
+<div>
+<span class="text-xs text-secondary block font-label-sm">담당 FDE</span>
+<span class="font-body-md-medium text-body-md-medium text-on-surface">김검수 FDE Master</span>
+<span class="text-xs text-primary font-medium block">Level-3 자격 승인</span>
+</div>
+<div class="h-7 w-px bg-outline-variant"></div>
+<div>
+<span class="text-xs text-secondary block font-label-sm">대상 시뮬레이션 환경</span>
+<span class="font-body-md-medium text-body-md-medium text-on-surface">가상 실증 셀 A-3</span>
+<span class="text-xs text-secondary block font-mono">Isaac Sim 4.0 트윈</span>
+</div>
+<div class="h-7 w-px bg-outline-variant"></div>
+<div>
+<span class="text-xs text-secondary block font-label-sm">스테이지 게이트</span>
+<span class="font-body-md-medium text-body-md-medium text-[#2563EB] flex items-center gap-1">
+<span class="material-symbols-outlined text-base">hourglass_top</span>
+                Ready (3/3 Gate)
+              </span>
+</div>
+</div>
+</div>
+<!-- Progress Pipeline Breadcrumb Tracker -->
+<div class="pt-4 grid grid-cols-1 md:grid-cols-4 gap-3">
+<div class="flex items-center gap-2 p-2.5 rounded-lg bg-surface-container border border-outline-variant">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold">1</span>
+<div class="truncate">
+<div class="text-xs font-bold text-on-surface">자산 적합성 무결성</div>
+<div class="text-[11px] text-[#166534] font-medium">3-Way Gate 통과</div>
+</div>
+</div>
+<div class="flex items-center gap-2 p-2.5 rounded-lg bg-[#EFF6FF] border border-[#BFDBFE]">
+<span class="w-6 h-6 rounded-full bg-[#2563EB] text-white flex items-center justify-center text-xs font-bold">2</span>
+<div class="truncate">
+<div class="text-xs font-bold text-[#1E40AF]">파라미터 &amp; 안전 설정</div>
+<div class="text-[11px] text-[#2563EB] font-medium">현재 구성 완료</div>
+</div>
+</div>
+<div class="flex items-center gap-2 p-2.5 rounded-lg bg-surface-container-low border border-dashed border-outline-variant opacity-75">
+<span class="w-6 h-6 rounded-full bg-outline-variant text-on-surface flex items-center justify-center text-xs font-bold">3</span>
+<div class="truncate">
+<div class="text-xs font-medium text-secondary">가상 장치 IPC 연동</div>
+<div class="text-[11px] text-secondary">대기 상태</div>
+</div>
+</div>
+<div class="flex items-center gap-2 p-2.5 rounded-lg bg-surface-container-low border border-dashed border-outline-variant opacity-75">
+<span class="w-6 h-6 rounded-full bg-outline-variant text-on-surface flex items-center justify-center text-xs font-bold">4</span>
+<div class="truncate">
+<div class="text-xs font-medium text-secondary">시뮬레이터 런 검증</div>
+<div class="text-[11px] text-secondary">실행 전</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- MAIN GRID SECTION: 3-Way Asset Gate & Parameters Configuration -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
+<!-- LEFT 7 COLS: 3-WAY COMPATIBILITY GATE (Mandatory Checklist) -->
+<div class="xl:col-span-7 space-y-6">
+<div class="p-6 rounded-xl bg-surface-container-lowest border border-[#D5DDE7] shadow-sm">
+<div class="flex items-center justify-between pb-4 border-b border-[#F1F5F9]">
+<div>
+<h2 class="text-headline-md font-headline-md text-on-surface">3대 자산 결합 정밀 검증 (3-Way Compatibility Gate)</h2>
+<p class="font-body-md text-body-md text-secondary mt-1">데이터셋, AI 신경망 모델, 가상 하드웨어 드라이버 간의 상호 승인 및 암호화 해시 일치 상태</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534] font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              상호 승인 완료
+            </span>
+</div>
+<div class="mt-4 space-y-4">
+<!-- Asset 1: Dataset Verification -->
+<div class="p-4 rounded-xl border border-[#BBF7D0] bg-[#F0FDF4]/30 hover:border-primary transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center text-[#2563EB] shrink-0 mt-0.5">
+<span class="material-symbols-outlined">dataset</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-high font-mono text-xs font-bold text-primary">[DS-MF-001]</span>
+<span class="font-body-lg-medium text-body-lg-medium text-on-surface">정밀 금속 가공 스크래치 결함 데이터셋</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-xs font-mono font-bold">v1.0</span>
+</div>
+<p class="font-body-md text-body-md text-secondary mt-1">
+                      공식 검증 완료 42,800장 (초기 샘플 10,200 + 합성 불량 증강 32,600). 표준 어노테이션 100% 일치.
+                    </p>
+<div class="mt-2 flex flex-wrap items-center gap-3 font-mono text-xs text-secondary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary">fingerprint</span>
+                        SHA-256: <code class="text-on-surface font-semibold">9e4a8b...1f09c2 (통과)</code>
+</span>
+<span class="text-outline-variant">•</span>
+<span>생성일: 2025-02-18</span>
+</div>
+</div>
+</div>
+<!-- Badge -->
+<div class="shrink-0">
+<span class="px-2.5 py-1 rounded-md bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534] font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#166534]"></span>
+                    공식 승인 완료
+                  </span>
+</div>
+</div>
+</div>
+<!-- Asset 2: AI Model Verification -->
+<div class="p-4 rounded-xl border border-[#BBF7D0] bg-[#F0FDF4]/30 hover:border-primary transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center text-primary shrink-0 mt-0.5">
+<span class="material-symbols-outlined">smart_toy</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-high font-mono text-xs font-bold text-primary">[MOD-MF-001]</span>
+<span class="font-body-lg-medium text-body-lg-medium text-on-surface">ViT-Small Defect Segmenter</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-xs font-mono font-bold">v1.0</span>
+</div>
+<p class="font-body-md text-body-md text-secondary mt-1">
+                      TensorRT 10.1 최적화 엔진 변환 완료. 가상 추론 지연시간 8.4ms (지정 한계 15ms 이하).
+                    </p>
+<div class="mt-2 flex flex-wrap items-center gap-4 font-mono text-xs">
+<span class="px-2 py-0.5 rounded bg-[#EFF6FF] border border-[#BFDBFE] text-[#1E40AF] font-bold">
+                        가상 mAP 89.2% (기준치 ≥ 85%)
+                      </span>
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-sm text-[#166534]">verified</span>
+                        FP16 정밀도 보정 완료
+                      </span>
+</div>
+</div>
+</div>
+<!-- Badge -->
+<div class="shrink-0">
+<span class="px-2.5 py-1 rounded-md bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534] font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#166534]"></span>
+                    승인 완료
+                  </span>
+</div>
+</div>
+</div>
+<!-- Asset 3: Virtual Equipment & Interface Driver -->
+<div class="p-4 rounded-xl border border-[#BBF7D0] bg-[#F0FDF4]/30 hover:border-primary transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container border border-outline-variant flex items-center justify-center text-on-secondary-container shrink-0 mt-0.5">
+<span class="material-symbols-outlined">precision_manufacturing</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-high font-mono text-xs font-bold text-primary">[EQ-CAM-01]</span>
+<span class="font-body-lg-medium text-body-lg-medium text-on-surface">가상 비전 리그 + EdgeBox #02 드라이버</span>
+</div>
+<p class="font-body-md text-body-md text-secondary mt-1">
+                      해상도 2048x1536 @ 60fps 가상 프레임버퍼 에뮬레이션. ROS2 Jazzy 브릿지 노드 링크 정상.
+                    </p>
+<div class="mt-2 flex items-center gap-3 font-mono text-xs text-secondary">
+<span class="text-on-surface font-semibold">드라이버: EdgeOS v3.4.1</span>
+<span class="text-outline-variant">•</span>
+<span class="text-[#166534] flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">link</span> IPC 공유 메모리 슬롯 할당 (OK)
+                      </span>
+</div>
+</div>
+</div>
+<!-- Badge -->
+<div class="shrink-0">
+<span class="px-2.5 py-1 rounded-md bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534] font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#166534]"></span>
+                    호환성 확인 완료
+                  </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Digital Twin Real-Time Status Sub-card -->
+<div class="mt-6 pt-5 border-t border-[#F1F5F9] bg-[#F8FAFC] p-4 rounded-xl border border-outline-variant">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">view_in_ar</span>
+<span class="font-body-md-medium text-body-md-medium text-on-surface">시뮬레이션 가상 셀 런타임 헬스 체크</span>
+</div>
+<span class="text-xs font-mono text-secondary">Node: isaac-worker-node-03</span>
+</div>
+<div class="grid grid-cols-3 gap-4 text-center">
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-outline-variant">
+<div class="text-xs text-secondary">RTX Physics 렌더 주기</div>
+<div class="text-headline-md font-headline-md text-on-surface mt-0.5">120 Hz</div>
+<div class="text-[11px] text-[#166534] font-medium">지연 없이 안정</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-outline-variant">
+<div class="text-xs text-secondary">가상 GPU VRAM 할당</div>
+<div class="text-headline-md font-headline-md text-on-surface mt-0.5">6.8 / 24 GB</div>
+<div class="text-[11px] text-[#2563EB] font-medium">여유율 71% 확보</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-outline-variant">
+<div class="text-xs text-secondary">통신 패킷 지연(RTT)</div>
+<div class="text-headline-md font-headline-md text-on-surface mt-0.5">1.2 ms</div>
+<div class="text-[11px] text-[#166534] font-medium">실시간 동기화 가능</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT 5 COLS: SAFETY GATEWAY & SIMULATION PARAMETERS -->
+<div class="xl:col-span-5 space-y-6">
+<div class="p-6 rounded-xl bg-surface-container-lowest border border-[#D5DDE7] shadow-sm">
+<div class="pb-4 border-b border-[#F1F5F9]">
+<h2 class="text-headline-md font-headline-md text-on-surface">안전 게이트웨이 및 시뮬레이션 파라미터</h2>
+<p class="font-body-md text-body-md text-secondary mt-1">가상 환경 실증 전 인터록 및 외란 섭동 조건 제어</p>
+</div>
+<form class="mt-4 space-y-5" onsubmit="event.preventDefault()">
+<!-- Parameter 1: E-Stop Interlock Speed -->
+<div>
+<div class="flex items-center justify-between mb-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1.5" for="estop-param">
+<span class="material-symbols-outlined text-error text-lg">emergency_home</span>
+                  가상 비상 정지(E-Stop) 인터록 응답 속도
+                </label>
+<span class="text-xs font-mono font-bold text-primary">목표: &lt; 50ms</span>
+</div>
+<div class="relative">
+<select class="w-full h-11 bg-surface-container-lowest border border-outline rounded-lg px-3.5 text-on-surface font-body-md text-body-md focus:border-primary focus:ring-2 focus:ring-primary/20" id="estop-param">
+<option selected="" value="35">최대 35ms (권장 초고속 세이프티 차단 프로토콜)</option>
+<option value="45">최대 45ms (표준 인터록 허용 범위)</option>
+<option value="60">최대 60ms (저속 배치 디버그 모드)</option>
+</select>
+</div>
+<p class="text-xs text-secondary mt-1">공압 그리퍼 및 고속 회전 테이블 가상 비상 차단 신호 지연 기준</p>
+</div>
+<!-- Parameter 2: Auto Retry Count on False Detection -->
+<div>
+<div class="flex items-center justify-between mb-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1.5" for="retry-count">
+<span class="material-symbols-outlined text-secondary text-lg">replay</span>
+                  오탐지(미검출/모호 판정) 발생 시 자동 리트라이 횟수
+                </label>
+<span class="text-xs font-mono text-on-surface font-bold">2회 권장</span>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<button class="py-2.5 text-center rounded-lg border border-outline-variant font-mono font-medium hover:border-primary text-sm" type="button">0회</button>
+<button class="py-2.5 text-center rounded-lg border border-outline-variant font-mono font-medium hover:border-primary text-sm" type="button">1회</button>
+<button class="py-2.5 text-center rounded-lg border-2 border-primary bg-[#EFF6FF] text-primary font-mono font-bold text-sm" type="button">2회 (표준)</button>
+<button class="py-2.5 text-center rounded-lg border border-outline-variant font-mono font-medium hover:border-primary text-sm" type="button">3회 (신중)</button>
+</div>
+<p class="text-xs text-secondary mt-1.5">임계값 미달(신뢰도 70~85%) 판정 시 시뮬레이터 조명 펄스 재촬영 트리거 횟수</p>
+</div>
+<!-- Parameter 3: Lighting Noise Perturbation Tolerance Toggle -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">wb_iridescent</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">가상 조명 섭동 내성 테스트</span>
+</div>
+<p class="text-xs text-secondary mt-1">
+                    현장 실제 반사광 왜곡을 모사하기 위해 시뮬레이터 조도에 <span class="font-bold text-on-surface">±10% 무작위 가우시안 노이즈</span>를 실시간 주입합니다.
+                  </p>
+</div>
+<!-- Custom Checkbox/Toggle -->
+<label class="relative inline-flex items-center cursor-pointer shrink-0 ml-3">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#2563EB]"></div>
+</label>
+</div>
+<div class="mt-3 flex items-center justify-between pt-2.5 border-t border-outline-variant text-xs font-mono">
+<span class="text-secondary">추가 섭동 설정:</span>
+<span class="text-primary font-bold">노이즈 편차: 10% (활성)</span>
+</div>
+</div>
+<!-- Safety Sandbox Enclave Check -->
+<div class="p-3.5 rounded-lg bg-[#FFFBEB] border border-[#FDE68A] text-[#92400E] flex items-start gap-2.5">
+<span class="material-symbols-outlined text-lg shrink-0 mt-0.5">warning</span>
+<div class="text-xs leading-relaxed">
+<strong class="font-bold">가상 격리 안전 수칙 안내:</strong><br/>
+                시뮬레이션 실행 중에는 물리 플랜트 PLC 명령 버스(`CAN / EtherCAT`)와의 직접 브릿지가 하드웨어적으로 차단됩니다.
+              </div>
+</div>
+</form>
+</div>
+<!-- Simulation Scenario Preview Info Card -->
+<div class="p-5 rounded-xl bg-surface-container-lowest border border-[#D5DDE7] shadow-sm">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-bold uppercase tracking-wider text-secondary font-label-sm">RUN SCENARIO MATRIX</span>
+<span class="text-xs font-mono text-primary font-bold">Total: 150 Cycles</span>
+</div>
+<div class="space-y-2 text-xs">
+<div class="flex justify-between py-1.5 border-b border-[#F1F5F9]">
+<span class="text-secondary">정상 양품 부품 시뮬레이션</span>
+<span class="font-mono font-bold text-on-surface">90 사이클 (60%)</span>
+</div>
+<div class="flex justify-between py-1.5 border-b border-[#F1F5F9]">
+<span class="text-secondary">미세 스크래치(0.1mm~0.4mm)</span>
+<span class="font-mono font-bold text-[#B91C1C]">45 사이클 (30%)</span>
+</div>
+<div class="flex justify-between py-1.5">
+<span class="text-secondary">외란 결합 난반사 불량</span>
+<span class="font-mono font-bold text-[#92400E]">15 사이클 (10%)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- ================= FIXED BOTTOM ACTION BAR ================= -->
+<!-- Anchored above viewport, strictly for deployment execution & FDE signature -->
+<footer class="fixed bottom-0 left-60 right-0 z-40 bg-surface-container-lowest border-t border-[#D5DDE7] px-8 py-3.5 shadow-lg flex flex-col md:flex-row items-center justify-between gap-4">
+<!-- Left: Warning & Security Signature Status -->
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-[#EFF6FF] text-[#2563EB] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-lg">info</span>
+</div>
+<div>
+<p class="text-xs font-medium text-secondary">
+          본 작업은 시뮬레이션 환경에 가상 배포하는 단계이며, 실제 산업현장 설비에는 직접 배포되지 않습니다.
+        </p>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-[#166534]"></span>
+<span class="text-[11px] font-mono text-on-surface-variant font-medium">
+            FDE 전자 서명 무결성 확인: <code class="font-bold text-on-surface">김검수_FDE_SIG_20250220_SHA256_VERIFIED</code>
+</span>
+</div>
+</div>
+</div>
+<!-- Right: Primary and Secondary Action Buttons -->
+<div class="flex items-center gap-3 shrink-0">
+<button class="h-11 px-4 rounded-lg bg-surface-container-lowest border border-[#D5DDE7] text-on-surface font-body-lg-medium text-body-lg-medium hover:bg-[#F8FAFC] hover:border-[#64748B] transition-colors flex items-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-base">history</span>
+<span>이전 구성 로드</span>
+</button>
+<!-- Primary Action: Run Simulation Test (Mandatory #2563EB, 44px height, exact tokens) -->
+<button class="h-11 px-6 rounded-lg bg-[#2563EB] hover:bg-[#1D4ED8] active:bg-[#1E40AF] text-white font-body-lg-medium text-body-lg-medium font-medium transition-all shadow-md flex items-center gap-2" id="btn-run-sim" type="button">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span>장치 시뮬레이터 시험 실행 (Run Simulation Test)</span>
+</button>
+</div>
+</footer>
+<!-- Inline Interaction Logic (Micro-interaction for parameter toggles & run trigger) -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const runBtn = document.getElementById('btn-run-sim');
+      if (runBtn) {
+        runBtn.addEventListener('click', () => {
+          runBtn.innerHTML = `
+            <span class="material-symbols-outlined text-xl animate-spin">progress_activity</span>
+            <span>샌드박스 인스턴스 기동 중 (Isaac Sim 4.0)...</span>
+          `;
+          runBtn.disabled = true;
+          runBtn.classList.add('opacity-90');
+
+          setTimeout(() => {
+            alert('[DEP-2025-01] 가상 실증 셀 A-3에 시뮬레이터 시험 실행이 정상 초기화되었습니다.\n실시간 센서 텔레메트리 관제 화면으로 전환합니다.');
+            runBtn.innerHTML = `
+              <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              <span>시뮬레이터 구동 중 (Run Active)</span>
+            `;
+            runBtn.classList.remove('bg-[#2563EB]');
+            runBtn.classList.add('bg-[#166534]');
+          }, 1200);
+        });
+      }
+    });
+  </script>
+</body></html>

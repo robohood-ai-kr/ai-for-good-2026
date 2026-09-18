@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoboHood - 모델 목록·상세 [MF-12]</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Noto Sans KR -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary": "#2c4bb9",
+            "on-surface": "#131b2e",
+            "surface": "#faf8ff",
+            "primary-fixed": "#dbe1ff",
+            "on-secondary-fixed-variant": "#3a485b",
+            "surface-bright": "#faf8ff",
+            "inverse-surface": "#283044",
+            "on-secondary-container": "#57657a",
+            "on-background": "#131b2e",
+            "on-primary-fixed-variant": "#003ea8",
+            "outline": "#737686",
+            "surface-container-high": "#e2e7ff",
+            "secondary-fixed": "#d5e3fc",
+            "secondary": "#515f74",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "primary-fixed-dim": "#b4c5ff",
+            "secondary-container": "#d5e3fc",
+            "inverse-on-surface": "#eef0ff",
+            "on-primary-fixed": "#00174b",
+            "on-error-container": "#93000a",
+            "background": "#faf8ff",
+            "on-tertiary-container": "#eff0ff",
+            "on-tertiary-fixed-variant": "#173bab",
+            "surface-container-highest": "#dae2fd",
+            "secondary-fixed-dim": "#b9c7df",
+            "surface-container-low": "#f2f3ff",
+            "on-error": "#ffffff",
+            "surface-tint": "#0053db",
+            "surface-container": "#eaedff",
+            "on-primary": "#ffffff",
+            "primary": "#004ac6",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "surface-dim": "#d2d9f4",
+            "on-primary-container": "#eeefff",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#0d1c2e",
+            "on-surface-variant": "#434655",
+            "primary-container": "#2563eb",
+            "outline-variant": "#c3c6d7",
+            "tertiary-fixed": "#dde1ff",
+            "tertiary-container": "#4865d4",
+            "on-tertiary-fixed": "#001453",
+            "inverse-primary": "#b4c5ff",
+            "surface-variant": "#dae2fd",
+            "tertiary-fixed-dim": "#b8c4ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-xl": "2rem",
+            "margin": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Noto Sans KR", "Noto Sans", "sans-serif"],
+            "headline-lg-mobile": ["Noto Sans KR", "Noto Sans", "sans-serif"],
+            "headline-md-mobile": ["Noto Sans KR", "Noto Sans", "sans-serif"],
+            "label-sm": ["Noto Sans KR", "Noto Sans", "sans-serif"],
+            "body-lg-medium": ["Noto Sans KR", "Noto Sans", "sans-serif"],
+            "body-lg": ["Noto Sans KR", "Noto Sans", "sans-serif"],
+            "label-md": ["Noto Sans KR", "Noto Sans", "sans-serif"],
+            "headline-md": ["Noto Sans KR", "Noto Sans", "sans-serif"],
+            "body-md-medium": ["Noto Sans KR", "Noto Sans", "sans-serif"],
+            "body-md": ["Noto Sans KR", "Noto Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-lg": ["32px", {"lineHeight": "48px", "fontWeight": "700"}],
+            "headline-lg-mobile": ["24px", {"lineHeight": "36px", "fontWeight": "700"}],
+            "headline-md-mobile": ["22px", {"lineHeight": "33px", "fontWeight": "600"}],
+            "label-sm": ["13px", {"lineHeight": "18px", "fontWeight": "600"}],
+            "body-lg-medium": ["17px", {"lineHeight": "26px", "fontWeight": "500"}],
+            "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+            "label-md": ["15px", {"lineHeight": "22px", "fontWeight": "500"}],
+            "headline-md": ["24px", {"lineHeight": "36px", "fontWeight": "600"}],
+            "body-md-medium": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #F4F7FB;
+      color: #0F172A;
+      font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Industrial scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F1F5F9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
+  </style>
+</head>
+<body class="bg-[#F4F7FB] text-on-surface antialiased overflow-x-hidden min-h-screen">
+<!-- ================= TOP NAVBAR (Shared Component) ================= -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 h-16 bg-surface-container-lowest border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="text-headline-md font-headline-md font-bold text-primary tracking-tight">RoboHood</span>
+<span class="text-xs bg-surface-container-high text-primary px-1.5 py-0.5 rounded font-label-sm border border-outline-variant font-medium">Edge AI Ops</span>
+</div>
+<!-- Mandatory Simulation Badge -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#EFF6FF] border border-[#BFDBFE] rounded text-[#1E40AF] text-[13px] font-semibold leading-none shadow-xs">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span>제조업 v1 · 데모 데이터</span>
+</div>
+<!-- Facility Locator Breadcrumb -->
+<div class="hidden md:flex items-center text-label-md text-secondary gap-1 border-l border-outline-variant pl-4 ml-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">factory</span>
+<span>울산 2공장 스마트 가공셀</span>
+<span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span>
+<span class="text-on-surface font-body-md-medium">MF-12 모델 관리</span>
+</div>
+</div>
+<!-- Search and Actions -->
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block w-72">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-secondary text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-1.5 text-body-md bg-surface-container-low border border-outline-variant rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary h-9 placeholder:text-outline text-on-surface" placeholder="모델 ID, 아키텍처, 적용 공정 검색..." type="text"/>
+</div>
+<div class="flex items-center gap-1 border-l border-outline-variant pl-3">
+<button class="p-2 rounded-lg text-secondary hover:bg-surface-container hover:text-on-surface transition-colors duration-150 relative" title="notifications">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full ring-2 ring-white"></span>
+</button>
+<button class="p-2 rounded-lg text-secondary hover:bg-surface-container hover:text-on-surface transition-colors duration-150" title="swap_horiz">
+<span class="material-symbols-outlined">swap_horiz</span>
+</button>
+<button class="p-2 rounded-lg text-secondary hover:bg-surface-container hover:text-on-surface transition-colors duration-150" title="help">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+<!-- Profile Avatar -->
+<div class="flex items-center gap-3 pl-3 border-l border-outline-variant">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center text-primary font-bold text-sm">
+          FDE
+        </div>
+<div class="hidden xl:flex flex-col text-left">
+<span class="text-[13px] font-medium leading-tight text-on-surface">김검수 엔지니어</span>
+<span class="text-[11px] text-secondary">현장운영 FDE-3</span>
+</div>
+</div>
+</div>
+</header>
+<!-- ================= SIDE NAVBAR (Shared Component) ================= -->
+<aside class="fixed top-16 left-0 bottom-0 w-60 z-40 flex flex-col justify-between p-4 bg-surface-container-low border-r border-outline-variant">
+<div class="space-y-6">
+<!-- Nav Header / Meta -->
+<div class="px-2 pt-1 pb-2">
+<div class="text-body-md-medium font-body-md-medium text-on-surface">제조 Physical AI 플랫폼</div>
+<div class="text-[12px] text-secondary">가상 검증 &amp; 현장 적응 허브</div>
+</div>
+<!-- Nav Items -->
+<nav class="space-y-1">
+<!-- 1. 개요 (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>개요</span>
+</a>
+<!-- 2. 현장 탐색 (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span>현장 탐색</span>
+</a>
+<!-- 3. 현장 과제 (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span>현장 과제</span>
+</a>
+<!-- 4. 데이터 (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">dataset</span>
+<span>데이터</span>
+</a>
+<!-- 5. 모델 (ACTIVE) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-secondary-container text-primary font-body-md-medium text-body-md-medium transition-colors duration-150 shadow-xs" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="font-semibold text-primary">모델</span>
+<span class="ml-auto text-[11px] font-bold px-1.5 py-0.5 rounded bg-white text-primary border border-secondary">6</span>
+</a>
+<!-- 6. 장비 (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">precision_manufacturing</span>
+<span>장비</span>
+</a>
+<!-- 7. 배포·관제 (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span>배포·관제</span>
+</a>
+<!-- 8. 현장 인력 (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">engineering</span>
+<span>현장 인력</span>
+</a>
+<!-- 9. 설정 (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>설정</span>
+</a>
+</nav>
+</div>
+<!-- Footer Support Link -->
+<div class="border-t border-outline-variant pt-3">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">help_center</span>
+<span>도움말 &amp; 지원</span>
+</a>
+<div class="mt-2 text-[11px] text-secondary px-3">
+        RoboHood OS v1.1.2-beta
+      </div>
+</div>
+</aside>
+<!-- ================= MAIN CONTENT CANVAS ================= -->
+<main class="ml-60 pt-16 min-h-screen p-6 pb-24 bg-[#F4F7FB]">
+<div class="max-w-[1520px] mx-auto space-y-6">
+<!-- Page Header & Global Breadcrumbs -->
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 text-secondary text-label-sm mb-1">
+<span>워크스페이스</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>알고리즘 및 가중치 레지스트리</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-medium">MF-12 모델 상세</span>
+</div>
+<h1 class="text-headline-md font-headline-md text-on-surface tracking-tight flex items-center gap-3">
+<span>제조 AI 모델 목록 &amp; 평가 상세</span>
+<span class="text-xs px-2.5 py-0.5 rounded-full bg-surface-container-highest text-secondary border border-outline-variant font-medium">물리 시뮬레이터 연동 상태</span>
+</h1>
+<p class="text-body-md text-secondary mt-1">
+            가상 공정 환경(Digital Twin)에서 검증된 외관 판별 비전 모델 및 경량 추론 알고리즘의 명세와 평가 보고서를 조회합니다.
+          </p>
+</div>
+<!-- Action cluster (RFM Re-training explicitly forbidden) -->
+<div class="flex items-center gap-3">
+<button class="inline-flex items-center gap-2 h-11 px-4 bg-white border border-[#D5DDE7] hover:bg-slate-50 text-on-surface rounded-lg text-[15px] font-medium transition-colors shadow-xs">
+<span class="material-symbols-outlined text-secondary">history</span>
+<span>평가 로그 내보내기</span>
+</button>
+<div class="relative group">
+<button class="inline-flex items-center gap-2 h-11 px-4 bg-[#F1F5F9] border border-[#CBD5E1] text-secondary rounded-lg text-[15px] font-medium cursor-not-allowed opacity-75" disabled="" title="플랫폼 원칙: RFM 자동 재학습 불가">
+<span class="material-symbols-outlined text-secondary">block</span>
+<span>RFM 신규 학습 (제한됨)</span>
+</button>
+<div class="absolute bottom-full mb-2 hidden group-hover:block w-64 p-2 bg-inverse-surface text-white text-[12px] rounded shadow-lg z-30">
+              안전 규정: 무검증 RFM(Robot Foundation Model) 신규 학습은 생산 현장 안전을 위해 비활성화되어 있습니다.
+            </div>
+</div>
+</div>
+</div>
+<!-- Critical Warning Banner: Field Deployment Pre-condition -->
+<div class="bg-[#FEF2F2] border border-[#FECACA] rounded-xl p-4 flex items-start gap-3 shadow-xs">
+<span class="material-symbols-outlined text-[#B91C1C] mt-0.5" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<h4 class="text-label-md font-label-md text-[#B91C1C] font-semibold">실증 현장 배포 불가 / 공인 성능 미검증 경고</h4>
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-[#FEE2E2] text-[#991B1B] border border-[#FCA5A5]">안전 조항 준수</span>
+</div>
+<p class="text-[14px] text-[#7F1D1D] mt-1 leading-relaxed">
+            본 워크스페이스에 표시된 모든 정확도 지표(mAP, 추론주기)는 <strong>가상 시뮬레이터(Isaac Sim &amp; Gazebo 기반) 평가 한정</strong> 결과입니다. 실제 프레스 및 가공 라인에서의 실측 합격률이 검증되지 않았으므로 <strong>물리 로봇 셀 직접 가동용 배포는 엄격히 금지</strong>되며, 현장 적용 엔지니어(FDE)의 실증 서명이 완료되어야 MF-14 배포 파이프라인으로 이관됩니다.
+          </p>
+</div>
+<button class="text-xs text-[#991B1B] underline hover:text-[#7F1D1D] whitespace-nowrap self-center font-medium">운영 가이드 확인</button>
+</div>
+<!-- KPI Summary Indicator Bento Cards -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<!-- Card 1 -->
+<div class="bg-white border border-[#D5DDE7] rounded-xl p-5 shadow-xs flex flex-col justify-between">
+<div class="flex items-center justify-between text-secondary">
+<span class="text-label-md font-label-md">등록 알고리즘 모델</span>
+<span class="material-symbols-outlined text-primary text-[22px]">smart_toy</span>
+</div>
+<div class="mt-3 flex items-baseline gap-2">
+<span class="text-[32px] font-bold text-on-surface leading-none tracking-tight">6</span>
+<span class="text-label-sm text-secondary font-medium">개 아키텍처</span>
+</div>
+<div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between text-[12px] text-secondary">
+<span>비전 트랜스포머 4종</span>
+<span class="text-primary font-medium">최신: v1.0.4</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white border border-[#D5DDE7] rounded-xl p-5 shadow-xs flex flex-col justify-between">
+<div class="flex items-center justify-between text-secondary">
+<span class="text-label-md font-label-md">시뮬레이터 검증 통과</span>
+<span class="material-symbols-outlined text-[#166534] text-[22px]">verified</span>
+</div>
+<div class="mt-3 flex items-baseline gap-2">
+<span class="text-[32px] font-bold text-[#166534] leading-none tracking-tight">4</span>
+<span class="text-label-sm text-secondary font-medium">개 모델 합격</span>
+</div>
+<div class="mt-2 pt-2 border-t border-slate-100 flex items-center gap-1.5 text-[12px] text-[#166534]">
+<span class="inline-block w-2 h-2 rounded-full bg-[#166534]"></span>
+<span>mAP@0.5 &gt; 85% 기준 충족</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white border border-[#D5DDE7] rounded-xl p-5 shadow-xs flex flex-col justify-between">
+<div class="flex items-center justify-between text-secondary">
+<span class="text-label-md font-label-md">가상 환경 평가 대기</span>
+<span class="material-symbols-outlined text-[#92400E] text-[22px]">pending_actions</span>
+</div>
+<div class="mt-3 flex items-baseline gap-2">
+<span class="text-[32px] font-bold text-[#92400E] leading-none tracking-tight">2</span>
+<span class="text-label-sm text-secondary font-medium">개 큐 대기중</span>
+</div>
+<div class="mt-2 pt-2 border-t border-slate-100 flex items-center gap-1.5 text-[12px] text-[#92400E]">
+<span class="inline-block w-2 h-2 rounded-full bg-[#F59E0B]"></span>
+<span>시뮬레이션 노드 자원 할당 대기</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-white border border-[#D5DDE7] rounded-xl p-5 shadow-xs flex flex-col justify-between">
+<div class="flex items-center justify-between text-secondary">
+<span class="text-label-md font-label-md">실제 라인 배포 자격</span>
+<span class="material-symbols-outlined text-[#B91C1C] text-[22px]">gpp_bad</span>
+</div>
+<div class="mt-3 flex items-baseline gap-2">
+<span class="text-[32px] font-bold text-[#B91C1C] leading-none tracking-tight">0</span>
+<span class="text-label-sm text-secondary font-medium">개 (전체 미인가)</span>
+</div>
+<div class="mt-2 pt-2 border-t border-slate-100 flex items-center gap-1.5 text-[12px] text-[#B91C1C]">
+<span class="inline-block w-2 h-2 rounded-full bg-[#B91C1C]"></span>
+<span>오프라인 실측 캘리브레이션 선행 필수</span>
+</div>
+</div>
+</div>
+<!-- Main Layout: Split Screen Master-Detail Workspace -->
+<div class="grid grid-cols-12 gap-6 items-start">
+<!-- LEFT COLUMN: Model Master List (4 Cols) -->
+<div class="col-span-12 lg:col-span-4 space-y-4">
+<div class="bg-white border border-[#D5DDE7] rounded-xl p-4 shadow-xs">
+<div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-[17px] font-semibold text-on-surface">등록 모델 목록</span>
+<span class="text-xs bg-slate-100 text-secondary px-2 py-0.5 rounded-full font-medium">6건</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1 rounded text-secondary hover:bg-slate-100" title="필터">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+</button>
+<button class="p-1 rounded text-secondary hover:bg-slate-100" title="정렬">
+<span class="material-symbols-outlined text-[18px]">sort</span>
+</button>
+</div>
+</div>
+<!-- List Item 1 (Selected Model: MOD-MF-001) -->
+<div class="p-3.5 rounded-xl border-2 border-primary bg-blue-50/40 relative cursor-pointer mb-2.5 transition-all shadow-xs">
+<div class="flex items-start justify-between">
+<div>
+<span class="inline-block text-[11px] font-bold text-primary font-mono bg-white px-2 py-0.5 rounded border border-blue-200">MOD-MF-001</span>
+<span class="ml-1 text-[11px] px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-medium">가상 통과</span>
+</div>
+<span class="text-[12px] text-slate-400 font-mono">v1.0</span>
+</div>
+<h3 class="mt-2 text-[15px] font-bold text-on-surface leading-snug">소형 절삭 가공 부품 미세 스크래치 판별기</h3>
+<p class="text-[12px] text-secondary mt-1 truncate">Lightweight ViT-Small Defect Segmenter</p>
+<div class="mt-3 pt-2.5 border-t border-blue-100/80 flex items-center justify-between text-[12px]">
+<span class="text-slate-500">시뮬레이터 mAP: <strong class="text-on-surface font-semibold">89.2%</strong></span>
+<span class="text-primary font-medium flex items-center gap-0.5">상세 선택됨 <span class="material-symbols-outlined text-[16px]">chevron_right</span></span>
+</div>
+</div>
+<!-- List Item 2 (MOD-MF-002) -->
+<div class="p-3.5 rounded-xl border border-[#D5DDE7] bg-white hover:bg-slate-50/80 cursor-pointer mb-2.5 transition-all">
+<div class="flex items-start justify-between">
+<div>
+<span class="inline-block text-[11px] font-bold text-slate-600 font-mono bg-slate-100 px-2 py-0.5 rounded border border-slate-200">MOD-MF-002</span>
+<span class="ml-1 text-[11px] px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-medium">가상 통과</span>
+</div>
+<span class="text-[12px] text-slate-400 font-mono">v2.1</span>
+</div>
+<h3 class="mt-2 text-[15px] font-bold text-on-surface leading-snug">정밀 핀 홀 직경 결함 고속 감지기</h3>
+<p class="text-[12px] text-secondary mt-1 truncate">MobileNetV4 Edge Segmenter</p>
+<div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[12px]">
+<span class="text-slate-500">시뮬레이터 mAP: <strong class="text-on-surface font-semibold">91.4%</strong></span>
+<span class="text-secondary text-[11px]">검토 완료</span>
+</div>
+</div>
+<!-- List Item 3 (MOD-MF-003) -->
+<div class="p-3.5 rounded-xl border border-[#D5DDE7] bg-white hover:bg-slate-50/80 cursor-pointer mb-2.5 transition-all">
+<div class="flex items-start justify-between">
+<div>
+<span class="inline-block text-[11px] font-bold text-slate-600 font-mono bg-slate-100 px-2 py-0.5 rounded border border-slate-200">MOD-MF-003</span>
+<span class="ml-1 text-[11px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200 font-medium">평가 대기</span>
+</div>
+<span class="text-[12px] text-slate-400 font-mono">v0.9</span>
+</div>
+<h3 class="mt-2 text-[15px] font-bold text-on-surface leading-snug">용접 비드 불균일 형상 이상 탐지</h3>
+<p class="text-[12px] text-secondary mt-1 truncate">PointNet++ 3D Depth Analyzer</p>
+<div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[12px]">
+<span class="text-slate-500">평가 상태: <strong class="text-amber-700 font-semibold">미검증</strong></span>
+<span class="text-secondary text-[11px]">큐 대기</span>
+</div>
+</div>
+<!-- List Item 4 (MOD-MF-004) -->
+<div class="p-3.5 rounded-xl border border-[#D5DDE7] bg-white hover:bg-slate-50/80 cursor-pointer mb-2.5 transition-all">
+<div class="flex items-start justify-between">
+<div>
+<span class="inline-block text-[11px] font-bold text-slate-600 font-mono bg-slate-100 px-2 py-0.5 rounded border border-slate-200">MOD-MF-004</span>
+<span class="ml-1 text-[11px] px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-medium">가상 통과</span>
+</div>
+<span class="text-[12px] text-slate-400 font-mono">v1.2</span>
+</div>
+<h3 class="mt-2 text-[15px] font-bold text-on-surface leading-snug">조립 체결 볼트 누락 육안 검사기</h3>
+<p class="text-[12px] text-secondary mt-1 truncate">YOLOv8-Nano Industrial Object</p>
+<div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[12px]">
+<span class="text-slate-500">시뮬레이터 mAP: <strong class="text-on-surface font-semibold">87.5%</strong></span>
+<span class="text-secondary text-[11px]">검토 완료</span>
+</div>
+</div>
+<!-- List Item 5 & 6 abbreviated -->
+<div class="p-3.5 rounded-xl border border-[#D5DDE7] bg-white hover:bg-slate-50/80 cursor-pointer mb-2.5 transition-all">
+<div class="flex items-start justify-between">
+<div>
+<span class="inline-block text-[11px] font-bold text-slate-600 font-mono bg-slate-100 px-2 py-0.5 rounded border border-slate-200">MOD-MF-005</span>
+<span class="ml-1 text-[11px] px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200 font-medium">평가 대기</span>
+</div>
+<span class="text-[12px] text-slate-400 font-mono">v0.8</span>
+</div>
+<h3 class="mt-2 text-[15px] font-bold text-on-surface leading-snug">다축 로봇 관절 엔코더 열화 예측기</h3>
+<p class="text-[12px] text-secondary mt-1 truncate">Temporal Convolutional Network (TCN)</p>
+<div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[12px]">
+<span class="text-slate-500">평가 상태: <strong class="text-amber-700 font-semibold">미검증</strong></span>
+<span class="text-secondary text-[11px]">큐 대기</span>
+</div>
+</div>
+</div>
+<!-- Dataset Link Shortcut Box -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-4">
+<div class="flex items-center gap-2 text-primary font-medium text-[14px]">
+<span class="material-symbols-outlined text-[18px]">hub</span>
+<span>데이터셋 파이프라인 연계 상태</span>
+</div>
+<p class="text-[13px] text-secondary mt-1.5">
+              전체 6개 등록 모델 중 4개 모델이 승인된 표준 골든 샘플 데이터셋(DS-MF 시리즈)과 동기화되어 있습니다.
+            </p>
+<div class="mt-3 flex items-center justify-between">
+<span class="text-[12px] text-slate-500">연동 파이프라인 4건 활성</span>
+<a class="text-[13px] text-primary font-semibold hover:underline flex items-center" href="#">
+                데이터셋 매핑 보기 <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Selected Model Detailed Specifications (8 Cols) -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<!-- Main Detail Header Card -->
+<div class="bg-white border border-[#D5DDE7] rounded-xl p-6 shadow-xs">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-5 border-b border-slate-100">
+<div>
+<div class="flex flex-wrap items-center gap-2 mb-2">
+<span class="px-2.5 py-1 bg-slate-100 text-slate-800 text-[12px] font-mono font-bold rounded border border-slate-300">[MOD-MF-001]</span>
+<span class="px-2.5 py-1 bg-blue-50 text-blue-700 text-[12px] font-semibold rounded border border-blue-200">버전 1.0 (Production Candidate)</span>
+<span class="px-2.5 py-1 bg-[#FFFBEB] text-[#92400E] text-[12px] font-semibold rounded border border-[#FDE68A] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">science</span>
+                    가상 시뮬레이터 평가 한정
+                  </span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-surface">소형 절삭 가공 부품 미세 스크래치 판별기 v1.0</h2>
+<p class="text-body-md text-secondary mt-1">
+                  고속 CNC 절삭 가공 후 알루미늄 다이캐스팅 단품 표면의 결함(스크래치, 찍힘, 가공 버)을 실시간 다각도 RGB 영상으로부터 바운딩 박스 단위로 분할 판별하는 엣지 추론 모델입니다.
+                </p>
+</div>
+<!-- Primary Next Action Button -->
+<div class="flex flex-col items-end gap-2 shrink-0">
+<button class="h-11 px-5 bg-primary-container hover:bg-blue-700 active:bg-blue-800 text-white rounded-lg font-medium text-[16px] shadow-sm transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">rocket_launch</span>
+<span>배포 준비 단계(MF-14)로 모델 전달</span>
+</button>
+<span class="text-[11px] text-slate-400">※ FDE 현장 엔지니어 서명 검증 세션으로 이동</span>
+</div>
+</div>
+<!-- Model Core Metadata Matrix -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-5">
+<div class="p-3.5 bg-slate-50/70 rounded-lg border border-slate-200">
+<div class="text-[12px] text-secondary font-medium">모델 아키텍처 및 백본</div>
+<div class="text-[15px] font-bold text-on-surface mt-1">Lightweight ViT-Small</div>
+<div class="text-[12px] text-slate-500 mt-0.5">Bounding Box Defect Segmenter</div>
+</div>
+<div class="p-3.5 bg-slate-50/70 rounded-lg border border-slate-200">
+<div class="text-[12px] text-secondary font-medium">카메라 센서 입력 규격</div>
+<div class="text-[15px] font-bold text-on-surface mt-1 font-mono">4K RGB (3840×2160)</div>
+<div class="text-[12px] text-slate-500 mt-0.5">24-bit TrueColor, 단안 120fps 지원</div>
+</div>
+<div class="p-3.5 bg-slate-50/70 rounded-lg border border-slate-200">
+<div class="text-[12px] text-secondary font-medium">추론 지연 한계 조건</div>
+<div class="text-[15px] font-bold text-primary mt-1 font-mono">≤ 200 ms / Frame</div>
+<div class="text-[12px] text-slate-500 mt-0.5">엣지 GPU 텐서 가속(TensorRT) 기준</div>
+</div>
+</div>
+</div>
+<!-- Technical Specs Tabs & Deep Dive Panels -->
+<div class="bg-white border border-[#D5DDE7] rounded-xl overflow-hidden shadow-xs">
+<!-- Tabs Bar -->
+<div class="flex items-center px-6 pt-3 border-b border-slate-200 bg-slate-50/60 gap-8">
+<button class="pb-3 text-primary border-b-2 border-primary font-bold text-[15px] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span>시뮬레이터 평가 성적서</span>
+</button>
+<button class="pb-3 text-secondary hover:text-on-surface font-medium text-[15px] flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[18px]">category</span>
+<span>판별 클래스 &amp; 결함 바운딩</span>
+</button>
+<button class="pb-3 text-secondary hover:text-on-surface font-medium text-[15px] flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[18px]">link</span>
+<span>연동 데이터셋 명세</span>
+</button>
+<button class="pb-3 text-secondary hover:text-on-surface font-medium text-[15px] flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[18px]">gavel</span>
+<span>이용 권한 및 주의 규정</span>
+</button>
+</div>
+<div class="p-6 space-y-6">
+<!-- Section A: Virtual Simulation Performance Disclaimer & Visual Score -->
+<div class="border border-blue-100 rounded-xl p-5 bg-gradient-to-r from-blue-50/50 to-white">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-xs font-bold text-primary uppercase tracking-wider bg-blue-100 px-2 py-0.5 rounded">가상 디지털 트윈 벤치마크</span>
+<h3 class="text-[18px] font-bold text-on-surface mt-1">NVIDIA Isaac Sim 물리 환경 검증 결과</h3>
+<p class="text-[13px] text-secondary mt-0.5">
+                      ※ 주의: 본 수치는 가상 시뮬레이터 한정이며 실제 생산라인 공인 성능이 아닙니다.
+                    </p>
+</div>
+<div class="text-right">
+<span class="text-[36px] font-extrabold text-primary font-mono leading-none">89.2%</span>
+<span class="block text-[12px] font-bold text-slate-500">mAP @ 0.5 IoU</span>
+</div>
+</div>
+<!-- Benchmarks Matrix -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 pt-4 border-t border-blue-100">
+<div class="bg-white p-3 rounded-lg border border-slate-200">
+<span class="text-[12px] text-secondary">가상 정밀도 (Precision)</span>
+<div class="text-[17px] font-bold text-on-surface mt-1 font-mono">92.4%</div>
+<span class="text-[11px] text-emerald-700">시뮬레이션 조명 3,000lx</span>
+</div>
+<div class="bg-white p-3 rounded-lg border border-slate-200">
+<span class="text-[12px] text-secondary">가상 재현율 (Recall)</span>
+<div class="text-[17px] font-bold text-on-surface mt-1 font-mono">86.1%</div>
+<span class="text-[11px] text-slate-500">미세 스크래치 검출</span>
+</div>
+<div class="bg-white p-3 rounded-lg border border-slate-200">
+<span class="text-[12px] text-secondary">평균 추론 주기</span>
+<div class="text-[17px] font-bold text-on-surface mt-1 font-mono">148 ms</div>
+<span class="text-[11px] text-primary">목표(≤200ms) 대비 여유</span>
+</div>
+<div class="bg-white p-3 rounded-lg border border-slate-200">
+<span class="text-[12px] text-secondary">평가 환경 노이즈</span>
+<div class="text-[17px] font-bold text-on-surface mt-1 font-mono">± 4.2%</div>
+<span class="text-[11px] text-slate-500">절삭유 비산 시뮬레이션</span>
+</div>
+</div>
+</div>
+<!-- Section B: Supported Detection Classes -->
+<div>
+<h4 class="text-[16px] font-bold text-on-surface flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary text-[20px]">fact_check</span>
+<span>지원 판별 클래스 및 감지 신뢰도</span>
+</h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Class 1 -->
+<div class="border border-[#D5DDE7] rounded-xl p-4 bg-white flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex items-center justify-between">
+<span class="text-[15px] font-bold text-on-surface">정상 (Normal)</span>
+<span class="px-2 py-0.5 bg-slate-100 text-slate-700 text-[11px] font-mono rounded font-medium">Class 0</span>
+</div>
+<p class="text-[13px] text-secondary mt-2">
+                        균일 조도 및 절삭 패턴 공차(±0.02mm) 이내의 무결 표면 상태.
+                      </p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[12px]">
+<span class="text-slate-500">판별 정확도</span>
+<span class="font-bold text-emerald-700">96.8% (가상)</span>
+</div>
+</div>
+<!-- Class 2 -->
+<div class="border border-blue-200 rounded-xl p-4 bg-blue-50/20 flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex items-center justify-between">
+<span class="text-[15px] font-bold text-blue-900">미세 스크래치 (Micro-scratch)</span>
+<span class="px-2 py-0.5 bg-blue-100 text-blue-800 text-[11px] font-mono rounded font-medium">Class 1</span>
+</div>
+<p class="text-[13px] text-secondary mt-2">
+                        폭 50μm 이상, 길이 1.5mm 이상의 표면 긁힘 및 이송 스크래치.
+                      </p>
+</div>
+<div class="mt-4 pt-3 border-t border-blue-100 flex items-center justify-between text-[12px]">
+<span class="text-slate-500">판별 정확도</span>
+<span class="font-bold text-primary">87.4% (가상)</span>
+</div>
+</div>
+<!-- Class 3 -->
+<div class="border border-[#D5DDE7] rounded-xl p-4 bg-white flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex items-center justify-between">
+<span class="text-[15px] font-bold text-on-surface">버 (Burr)</span>
+<span class="px-2 py-0.5 bg-slate-100 text-slate-700 text-[11px] font-mono rounded font-medium">Class 2</span>
+</div>
+<p class="text-[13px] text-secondary mt-2">
+                        부품 모서리 절삭 가공 후 잔류하는 금속 가공 잔여 돌기 및 미세 돌출.
+                      </p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[12px]">
+<span class="text-slate-500">판별 정확도</span>
+<span class="font-bold text-amber-700">83.5% (가상)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section C: Connected Dataset & Hardware Lineage -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Connected Dataset Card -->
+<div class="border border-[#D5DDE7] rounded-xl p-4 bg-white">
+<div class="flex items-center justify-between pb-2 border-b border-slate-100">
+<span class="text-[14px] font-bold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">dataset</span>
+<span>연결 골든 데이터셋</span>
+</span>
+<span class="px-2 py-0.5 rounded bg-blue-50 text-primary text-[11px] font-mono font-medium">DS-MF-001</span>
+</div>
+<div class="mt-3 space-y-2">
+<div class="text-[15px] font-bold text-on-surface">소형 가공 부품 외관 스크래치 RGB 데이터셋 v1.0</div>
+<div class="text-[13px] text-secondary">
+                      울산 2공장 절삭 시운전에서 수집된 고해상도 이미지 중 라벨링 검증이 완료된 데이터셋입니다.
+                    </div>
+<div class="pt-2 flex items-center justify-between text-[12px] text-slate-600 font-mono">
+<span>수집 규모: <strong>1,280 프레임</strong></span>
+<span>라벨링 규격: COCO Segment JSON</span>
+</div>
+</div>
+</div>
+<!-- Verification FDE Officer Card -->
+<div class="border border-[#D5DDE7] rounded-xl p-4 bg-white">
+<div class="flex items-center justify-between pb-2 border-b border-slate-100">
+<span class="text-[14px] font-bold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">badge</span>
+<span>검증 담당 FDE (현장 적용 엔지니어)</span>
+</span>
+<span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 text-[11px] font-medium border border-emerald-200">자격 확인됨</span>
+</div>
+<div class="mt-3 flex items-start gap-3">
+<div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-300 flex items-center justify-center font-bold text-primary shrink-0">
+                      김
+                    </div>
+<div class="space-y-1">
+<div class="text-[15px] font-bold text-on-surface">김검수 현장 적용 엔지니어</div>
+<div class="text-[12px] text-secondary">현장 적응 자격 레벨: <strong class="text-on-surface font-semibold">FDE Level-3 (스마트가공 전문)</strong></div>
+<div class="text-[12px] text-slate-500">최근 시뮬레이션 승인: 2025-02-24 14:32 (KST)</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section D: Usage Rights and Mandatory Precautions Policy -->
+<div class="bg-slate-50 border border-slate-300 rounded-xl p-5">
+<h4 class="text-[15px] font-bold text-on-surface flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">policy</span>
+<span>이용 권한 및 플랫폼 주의사항 (Mandatory Protocol)</span>
+</h4>
+<ul class="text-[13px] text-slate-700 space-y-1.5 leading-relaxed list-disc list-inside">
+<li><strong>RFM 신규 학습 및 독자 가중치 상업 배포 불가:</strong> 본 플랫폼에 탑재된 Foundation Model 계열 파라미터는 승인되지 않은 임의 파인튜닝 및 제3자 라이선스 상업 양도가 엄격히 제한됩니다.</li>
+<li><strong>현장 실측 오차 반영 원칙:</strong> 가상 시뮬레이터 상의 mAP 89.2% 지표는 현장 오일 미스트, 진동, 주변 조도 변화에 따라 ±15% 이상 편차가 발생할 수 있으므로 'MF-14 배포 준비' 단계의 하드웨어 인더루프(HIL) 실측 검증을 거쳐야만 합니다.</li>
+<li><strong>자동 롤백 시스템 활성화:</strong> 실운영 시 연속 3회 이상 추론 레이턴시 200ms 초과 시 이전 승인 경량 모델로 자동 전환됩니다.</li>
+</ul>
+</div>
+</div>
+<!-- Detail Footer Bar -->
+<div class="px-6 py-4 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+<div class="flex items-center gap-2 text-[13px] text-slate-500">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span>모델 식별 해시: <code class="font-mono text-slate-700">sha256:4f89ac77b9...e21</code></span>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 bg-white border border-[#D5DDE7] text-on-surface hover:bg-slate-50 rounded-lg text-[14px] font-medium transition-colors">
+                  가상 환경 재평가 요청
+                </button>
+<button class="px-4 py-2 bg-primary-container hover:bg-blue-700 text-white rounded-lg text-[14px] font-medium transition-colors flex items-center gap-1.5 shadow-xs">
+<span>MF-14 배포 단계로 인계</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- ================= MOBILE BOTTOM NAV BAR (Shared Component: Mobile Only) ================= -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 bg-surface-container-lowest border-t border-outline-variant shadow-md">
+<!-- 작업함 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm hover:text-primary" href="#">
+<span class="material-symbols-outlined text-[20px]">inbox</span>
+<span class="text-[11px] mt-0.5">작업함</span>
+</a>
+<!-- 수집 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm hover:text-primary" href="#">
+<span class="material-symbols-outlined text-[20px]">sensors</span>
+<span class="text-[11px] mt-0.5">수집</span>
+</a>
+<!-- 경력 (모델/작업 이력 매핑) -->
+<a class="flex flex-col items-center justify-center text-primary font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+<span class="text-[11px] mt-0.5 font-bold">경력</span>
+</a>
+<!-- 내 정보 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm hover:text-primary" href="#">
+<span class="material-symbols-outlined text-[20px]">account_circle</span>
+<span class="text-[11px] mt-0.5">내 정보</span>
+</a>
+</nav>
+<!-- Interactive script for UI tab responsiveness and micro-interactions -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Model master list card selection interaction
+      const listItems = document.querySelectorAll('.col-span-12.lg\\:col-span-4 .cursor-pointer');
+      listItems.forEach(item => {
+        item.addEventListener('click', () => {
+          listItems.forEach(el => {
+            el.classList.remove('border-2', 'border-primary', 'bg-blue-50/40');
+            el.classList.add('border', 'border-[#D5DDE7]', 'bg-white');
+          });
+          item.classList.remove('border', 'border-[#D5DDE7]', 'bg-white');
+          item.classList.add('border-2', 'border-primary', 'bg-blue-50/40');
+        });
+      });
+    });
+  </script>
+</body></html>

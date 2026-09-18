@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoboHood - SB-12 모바일 작업 전 확인</title>
+<!-- Google Fonts: Public Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "text-inverse": "#FFFFFF",
+            "surface-dim": "#d7dade",
+            "info-text": "#1E40AF",
+            "border-control": "#64748B",
+            "surface-container-highest": "#e0e3e7",
+            "success-text": "#166534",
+            "on-tertiary-fixed-variant": "#7d2d00",
+            "outline": "#737686",
+            "inverse-surface": "#2d3134",
+            "on-surface": "#181c1f",
+            "surface-variant": "#e0e3e7",
+            "action-pressed": "#1E40AF",
+            "info-bg": "#EFF6FF",
+            "error-text": "#B91C1C",
+            "on-primary-fixed-variant": "#003ea8",
+            "on-background": "#181c1f",
+            "on-surface-variant": "#434655",
+            "action-hover": "#1D4ED8",
+            "text-primary": "#0F172A",
+            "surface-bright": "#f7fafe",
+            "text-secondary": "#475569",
+            "error-container": "#ffdad6",
+            "surface": "#f7fafe",
+            "on-error-container": "#93000a",
+            "primary-fixed": "#dbe1ff",
+            "on-primary-fixed": "#00174b",
+            "focus-ring": "#2563EB",
+            "on-primary-container": "#eeefff",
+            "inverse-on-surface": "#eef1f5",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#ffb596",
+            "tertiary-container": "#bc4800",
+            "surface-canvas": "#F4F7FB",
+            "inverse-primary": "#b4c5ff",
+            "success-bg": "#F0FDF4",
+            "on-tertiary": "#ffffff",
+            "surface-container": "#ebeef2",
+            "border-subtle": "#D5DDE7",
+            "neutral-status-text": "#475569",
+            "on-secondary-fixed": "#0d1c2e",
+            "on-tertiary-container": "#ffede6",
+            "primary-fixed-dim": "#b4c5ff",
+            "primary-container": "#2563eb",
+            "secondary-fixed": "#d5e3fc",
+            "tertiary-fixed": "#ffdbcd",
+            "surface-container-low": "#f1f4f8",
+            "surface-tint": "#0053db",
+            "on-tertiary-fixed": "#360f00",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "on-secondary-container": "#57657a",
+            "text-hint": "#64748B",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#d5e3fc",
+            "warning-text": "#92400E",
+            "primary": "#004ac6",
+            "error-bg": "#FEF2F2",
+            "on-secondary-fixed-variant": "#3a485b",
+            "outline-variant": "#c3c6d7",
+            "surface-selected": "#EFF6FF",
+            "tertiary": "#943700",
+            "warning-bg": "#FFFBEB",
+            "neutral-status-bg": "#F4F7FB",
+            "secondary": "#515f74",
+            "background": "#f7fafe",
+            "on-error": "#ffffff",
+            "secondary-fixed-dim": "#b9c7df",
+            "surface-subtle": "#F8FAFC",
+            "surface-card": "#FFFFFF",
+            "surface-container-high": "#e5e8ec"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter-desktop": "1.5rem",
+            "gutter": "1rem",
+            "margin-tablet": "1.5rem",
+            "space-xs": "0.25rem",
+            "margin-desktop": "2rem",
+            "space-lg": "1.5rem",
+            "margin": "1rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "label-md": ["Public Sans"],
+            "headline-lg": ["Public Sans"],
+            "body-md": ["Public Sans"],
+            "body-lg": ["Public Sans"],
+            "headline-sm": ["Public Sans"],
+            "headline-md": ["Public Sans"],
+            "body-sm": ["Public Sans"],
+            "label-lg": ["Public Sans"],
+            "label-sm": ["Public Sans"],
+            "headline-lg-mobile": ["Public Sans"]
+          },
+          "fontSize": {
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-canvas text-text-primary antialiased flex justify-center items-start min-h-screen">
+<!-- Mobile Container: 390px fixed target environment simulation -->
+<div class="w-full max-w-[390px] min-h-screen bg-surface-canvas flex flex-col relative border-x border-border-subtle shadow-sm pb-40">
+<!-- Task Header (App Bar without border-b line, subtle shadow separation per hierarchy) -->
+<header class="w-full bg-surface-card px-4 py-3 sticky top-0 z-30 shadow-sm flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<button aria-label="뒤로가기" class="p-1.5 -ml-1 text-text-secondary hover:text-text-primary hover:bg-surface-subtle rounded transition-colors" type="button">
+<span class="material-symbols-outlined text-[22px] leading-none">arrow_back</span>
+</button>
+<div>
+<div class="flex items-center space-x-1.5">
+<span class="bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm px-1.5 py-0.5 rounded font-bold">SB-12</span>
+<span class="font-label-md text-label-md text-text-secondary">작업 전 적격 확인</span>
+</div>
+<h1 class="font-headline-sm text-headline-sm text-text-primary tracking-tight mt-0.5">안전 및 수집 조건 점검</h1>
+</div>
+</div>
+<button aria-label="도움말" class="text-text-secondary hover:text-text-primary p-1.5 hover:bg-surface-subtle rounded transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px] leading-none">help_outline</span>
+</button>
+</header>
+<!-- Main Content Flow -->
+<main class="flex-1 px-4 pt-4 space-y-4">
+<!-- Operational Task Info Bento Card -->
+<section class="bg-surface-card border border-border-subtle rounded-xl p-4 space-y-3">
+<div class="flex items-start justify-between">
+<div class="space-y-1">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold">
+<span class="material-symbols-outlined text-[14px]">token</span>
+              Physical AI 현장 과제
+            </span>
+<h2 class="font-label-lg text-label-lg text-text-primary font-bold">RH-SB-001 트레이 위 컵 정리 영상 수집</h2>
+</div>
+<span class="bg-neutral-status-bg text-neutral-status-text border border-border-subtle font-label-sm text-label-sm px-2 py-0.5 rounded-full font-medium">대기중</span>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-2 border-t border-surface-subtle">
+<div class="bg-surface-subtle p-2.5 rounded-lg">
+<span class="font-label-sm text-label-sm text-text-secondary block">수집 현장</span>
+<span class="font-body-md text-body-md text-text-primary font-semibold flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-text-hint">storefront</span>
+              모의 카페 A
+            </span>
+</div>
+<div class="bg-surface-subtle p-2.5 rounded-lg">
+<span class="font-label-sm text-label-sm text-text-secondary block">배정 인력</span>
+<span class="font-body-md text-body-md text-text-primary font-semibold flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-text-hint">badge</span>
+              김민수 (오퍼레이터)
+            </span>
+</div>
+</div>
+<div class="flex items-center justify-between text-text-secondary font-body-sm text-body-sm px-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-text-hint">supervisor_account</span>
+            코디네이터: 박연구원
+          </span>
+<span class="text-success-text font-label-sm text-label-sm flex items-center gap-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-success-text inline-block"></span>
+            무전/비상 연결 가능
+          </span>
+</div>
+</section>
+<!-- Checklist Progress Summary -->
+<section class="flex items-center justify-between bg-surface-card border border-border-subtle rounded-xl p-3.5">
+<div>
+<span class="font-label-sm text-label-sm text-text-secondary uppercase tracking-wider block">진행 상황</span>
+<span class="font-headline-sm text-headline-sm text-text-primary font-bold">4 / 5 항목 확인됨</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-20 bg-surface-container-high h-2.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-4/5 rounded-full"></div>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">80%</span>
+</div>
+</section>
+<!-- 5 Essential Readiness Checklists (KRDS / Operational Bento Style) -->
+<section class="space-y-2.5">
+<div class="flex items-center justify-between px-1">
+<h3 class="font-label-lg text-label-lg text-text-primary font-bold">5대 필수 적격 체크리스트</h3>
+<span class="font-label-sm text-label-sm text-error-text font-semibold">* 전 항목 확인 필수</span>
+</div>
+<!-- Item 1: Checked -->
+<article class="bg-surface-card border border-border-subtle rounded-lg p-3.5 flex items-start space-x-3 transition-colors">
+<div class="pt-0.5 flex-shrink-0">
+<div class="w-5 h-5 rounded bg-primary text-text-inverse flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] leading-none" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="font-label-md text-label-md text-text-primary">1. 사전 직무·안전 교육 이수 확인</span>
+<span class="bg-success-bg text-success-text font-label-sm text-label-sm px-1.5 py-0.5 rounded font-semibold whitespace-nowrap">이수 완료</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mt-1">
+              2025년 1분기 로봇 데이터 수집 안전 준수사항 과정 이수 완료 기록이 검증되었습니다.
+            </p>
+</div>
+</article>
+<!-- Item 2: Checked -->
+<article class="bg-surface-card border border-border-subtle rounded-lg p-3.5 flex items-start space-x-3 transition-colors">
+<div class="pt-0.5 flex-shrink-0">
+<div class="w-5 h-5 rounded bg-primary text-text-inverse flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] leading-none" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="font-label-md text-label-md text-text-primary">2. 현장 촬영 허용 범위 숙지</span>
+<span class="bg-success-bg text-success-text font-label-sm text-label-sm px-1.5 py-0.5 rounded font-semibold whitespace-nowrap">확인 완료</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mt-1">
+              고객 및 현장 인원 얼굴 실시간 비식별화 화각 유지, 내용물이 없는 비파손 컵 3종 한정 수집 지침 숙지.
+            </p>
+</div>
+</article>
+<!-- Item 3: Checked -->
+<article class="bg-surface-card border border-border-subtle rounded-lg p-3.5 flex items-start space-x-3 transition-colors">
+<div class="pt-0.5 flex-shrink-0">
+<div class="w-5 h-5 rounded bg-primary text-text-inverse flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] leading-none" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="font-label-md text-label-md text-text-primary">3. 엄격 안전 수칙 동의</span>
+<span class="bg-success-bg text-success-text font-label-sm text-label-sm px-1.5 py-0.5 rounded font-semibold whitespace-nowrap">동의 완료</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mt-1">
+              뜨거운 음료·칼·화기 사용 구역 진입 불가, 무인 로봇 암 가동 반경 1.5m 이격 준수 서약 완료.
+            </p>
+</div>
+</article>
+<!-- Item 4: Checked -->
+<article class="bg-surface-card border border-border-subtle rounded-lg p-3.5 flex items-start space-x-3 transition-colors">
+<div class="pt-0.5 flex-shrink-0">
+<div class="w-5 h-5 rounded bg-primary text-text-inverse flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] leading-none" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="font-label-md text-label-md text-text-primary">4. 현장 비상 연락망 연결 확인</span>
+<span class="bg-success-bg text-success-text font-label-sm text-label-sm px-1.5 py-0.5 rounded font-semibold whitespace-nowrap">연결 정상</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mt-1">
+              현장 감독관 박연구원 직통 단말 및 관제 센터 비상 채널 신호 송수신 테스트 통과.
+            </p>
+</div>
+</article>
+<!-- Item 5: UNCHECKED / CRITICAL ATTENTION REQUIRED -->
+<article class="bg-surface-card border-2 border-primary rounded-lg p-3.5 flex items-start space-x-3 relative shadow-sm">
+<div class="pt-0.5 flex-shrink-0">
+<div aria-checked="false" class="w-5 h-5 rounded border-2 border-border-control bg-surface-card flex items-center justify-center cursor-pointer hover:border-primary transition-colors" id="unconfirmed-checkbox" role="checkbox">
+<!-- unchecked state -->
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="font-label-md text-label-md text-text-primary font-bold">5. 유급 수집 및 보완 조건 최종 확인</span>
+<span class="bg-warning-bg text-warning-text font-label-sm text-label-sm px-1.5 py-0.5 rounded font-semibold whitespace-nowrap flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">schedule</span>
+                미확인
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mt-1.5">
+              회당 25,000원(모의 정산) 지급 및 센서 노이즈 발생 시 재촬영 최대 1회 한정 조건에 대한 열람 및 서명이 필요합니다.
+            </p>
+<div class="mt-2.5 pt-2 border-t border-border-subtle flex items-center justify-between">
+<a class="font-label-md text-label-md text-primary hover:text-action-hover underline underline-offset-2 flex items-center gap-0.5 font-semibold" href="#condition-details">
+                조건 상세 보기
+                <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</a>
+<span class="font-label-sm text-label-sm text-text-hint">약관 식별자: AG-2025-C1</span>
+</div>
+</div>
+</article>
+</section>
+<!-- Warning Notice Box (Unfulfilled Condition) -->
+<section class="bg-warning-bg border border-warning-text/20 rounded-xl p-3.5 space-y-2">
+<div class="flex items-start space-x-2.5">
+<span class="material-symbols-outlined text-warning-text text-[20px] flex-shrink-0 mt-0.5" data-weight="fill" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div class="space-y-1">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm bg-surface-card text-warning-text border border-warning-text/30 px-1.5 py-0.2 rounded font-bold">주의</span>
+<h4 class="font-label-md text-label-md text-warning-text font-bold">보상 및 보완 조건이 아직 최종 확인되지 않았습니다.</h4>
+</div>
+<p class="font-body-sm text-body-sm text-neutral-status-text leading-relaxed">
+              모든 필수 항목(5/5)을 확인하고 동의해야 수집 시작 버튼이 활성화됩니다. 미확인 항목의 [조건 상세 보기]를 탭하여 확인해 주십시오.
+            </p>
+</div>
+</div>
+</section>
+<!-- Meta Info Indicator (Design System Mandatory) -->
+<div class="text-center py-2">
+<span class="font-label-sm text-label-sm text-text-hint">소상공인 v1 · 데모 데이터</span>
+</div>
+</main>
+<!-- Bottom Fixed CTA Dock (Disabled state strictly mapped) -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] bg-surface-card p-4 space-y-2 z-40 border-t border-border-subtle shadow-[0_-4px_12px_rgba(15,23,42,0.06)]">
+<!-- Primary Action: Start Session (Disabled) -->
+<div class="space-y-1">
+<button aria-disabled="true" class="w-full h-[50px] bg-[#CBD5E1] text-[#64748B] font-label-lg text-label-lg font-semibold rounded cursor-not-allowed flex items-center justify-center space-x-2 shadow-none select-none transition-none" disabled="" type="button">
+<span class="material-symbols-outlined text-[20px]">play_circle</span>
+<span>수집 시작 (세션 개시)</span>
+</button>
+<p class="font-label-sm text-label-sm text-center text-text-hint flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[13px]">lock</span>
+          필수 조건 5번 미완료로 작업 시작이 제한됩니다
+        </p>
+</div>
+<!-- Secondary Action: Review and Inquire -->
+<button class="w-full h-[48px] bg-surface-card border border-border-control text-text-primary hover:bg-surface-subtle active:bg-surface-container font-label-md text-label-md font-semibold rounded flex items-center justify-center space-x-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-text-secondary">contact_support</span>
+<span>조건 재검토 및 문의</span>
+</button>
+</div>
+</div>
+</body></html>

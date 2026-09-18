@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SB-06 수집 과제 목록 - RoboHood</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error-container": "#93000a",
+            "warning-bg": "#FFFBEB",
+            "surface-subtle": "#F8FAFC",
+            "surface": "#f7fafe",
+            "primary-fixed-dim": "#b4c5ff",
+            "inverse-surface": "#2d3134",
+            "on-secondary-fixed-variant": "#3a485b",
+            "on-error": "#ffffff",
+            "neutral-status-text": "#475569",
+            "surface-dim": "#d7dade",
+            "text-secondary": "#475569",
+            "surface-container-high": "#e5e8ec",
+            "on-background": "#181c1f",
+            "action-pressed": "#1E40AF",
+            "on-surface-variant": "#434655",
+            "background": "#f7fafe",
+            "text-inverse": "#FFFFFF",
+            "warning-text": "#92400E",
+            "tertiary-fixed": "#ffdbcd",
+            "surface-bright": "#f7fafe",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#dbe1ff",
+            "secondary": "#515f74",
+            "surface-container": "#ebeef2",
+            "info-bg": "#EFF6FF",
+            "on-primary-fixed-variant": "#003ea8",
+            "action-hover": "#1D4ED8",
+            "on-tertiary-fixed": "#360f00",
+            "surface-container-highest": "#e0e3e7",
+            "text-primary": "#0F172A",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "surface-tint": "#0053db",
+            "border-subtle": "#D5DDE7",
+            "surface-card": "#FFFFFF",
+            "success-bg": "#F0FDF4",
+            "outline": "#737686",
+            "on-secondary-fixed": "#0d1c2e",
+            "surface-container-low": "#f1f4f8",
+            "tertiary-fixed-dim": "#ffb596",
+            "tertiary-container": "#bc4800",
+            "on-surface": "#181c1f",
+            "error-text": "#B91C1C",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed-dim": "#b9c7df",
+            "error-bg": "#FEF2F2",
+            "inverse-on-surface": "#eef1f5",
+            "inverse-primary": "#b4c5ff",
+            "surface-variant": "#e0e3e7",
+            "text-hint": "#64748B",
+            "on-primary-container": "#eeefff",
+            "error-container": "#ffdad6",
+            "surface-canvas": "#F4F7FB",
+            "secondary-fixed": "#d5e3fc",
+            "border-control": "#64748B",
+            "on-primary-fixed": "#00174b",
+            "on-secondary-container": "#57657a",
+            "on-tertiary-container": "#ffede6",
+            "primary": "#004ac6",
+            "info-text": "#1E40AF",
+            "neutral-status-bg": "#F4F7FB",
+            "focus-ring": "#2563EB",
+            "surface-selected": "#EFF6FF",
+            "tertiary": "#943700",
+            "outline-variant": "#c3c6d7",
+            "on-tertiary-fixed-variant": "#7d2d00",
+            "secondary-container": "#d5e3fc",
+            "success-text": "#166534",
+            "on-tertiary": "#ffffff",
+            "primary-container": "#2563eb"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-tablet": "1.5rem",
+            "space-md": "1rem",
+            "gutter-desktop": "1.5rem",
+            "gutter": "1rem",
+            "space-xl": "2rem",
+            "margin-desktop": "2rem",
+            "space-sm": "0.5rem",
+            "margin": "1rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Public Sans"],
+            "label-sm": ["Public Sans"],
+            "headline-lg-mobile": ["Public Sans"],
+            "label-lg": ["Public Sans"],
+            "body-md": ["Public Sans"],
+            "headline-lg": ["Public Sans"],
+            "label-md": ["Public Sans"],
+            "headline-md": ["Public Sans"],
+            "body-sm": ["Public Sans"],
+            "headline-sm": ["Public Sans"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body class="bg-surface-canvas text-text-primary antialiased min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopNavBar (Shared Component Anchor) -->
+<header class="w-full h-16 px-6 flex items-center justify-between border-b border-border-subtle bg-surface-card dark:bg-inverse-surface fixed top-0 left-0 right-0 z-50">
+<div class="flex items-center space-x-6">
+<!-- Brand Logo -->
+<a class="text-headline-sm font-headline-sm font-bold text-primary dark:text-inverse-primary tracking-tight flex items-center space-x-2" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="smart_toy">smart_toy</span>
+<span>RoboHood</span>
+</a>
+<!-- Search Bar on Left -->
+<div class="relative w-72">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-text-hint text-[18px]" data-icon="search">search</span>
+<input class="w-full pl-9 pr-3 py-1.5 text-body-sm font-body-sm bg-surface-card border border-border-control rounded-lg focus:outline-none focus:ring-2 focus:ring-focus-ring placeholder-text-hint transition-colors" placeholder="과제 코드, 과제명, 요청 기관 검색" type="text"/>
+</div>
+<!-- Top Navigation Links -->
+<nav class="hidden md:flex items-center space-x-6 pl-2">
+<a class="text-text-secondary dark:text-text-hint font-body-md text-body-md hover:bg-surface-subtle dark:hover:bg-surface-variant hover:text-text-primary dark:hover:text-inverse-on-surface py-1 px-2 rounded transition-colors duration-150 ease-in-out" href="#">작업 공간</a>
+<a class="text-text-secondary dark:text-text-hint font-body-md text-body-md hover:bg-surface-subtle dark:hover:bg-surface-variant hover:text-text-primary dark:hover:text-inverse-on-surface py-1 px-2 rounded transition-colors duration-150 ease-in-out" href="#">현장 탐색</a>
+<!-- Active Link: 과제 관리 -->
+<a class="border-b-2 border-primary text-primary dark:text-inverse-primary font-label-lg text-label-lg pb-1 transition-colors duration-150 ease-in-out" href="#">과제 관리</a>
+<a class="text-text-secondary dark:text-text-hint font-body-md text-body-md hover:bg-surface-subtle dark:hover:bg-surface-variant hover:text-text-primary dark:hover:text-inverse-on-surface py-1 px-2 rounded transition-colors duration-150 ease-in-out" href="#">정산 내역</a>
+</nav>
+</div>
+<!-- Right Trail Actions -->
+<div class="flex items-center space-x-3">
+<button class="bg-primary-container hover:bg-action-hover active:bg-action-pressed text-text-inverse px-3.5 py-1.5 rounded-lg text-label-md font-label-md font-semibold flex items-center space-x-1.5 shadow-none transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+<span>신규 작업 등록</span>
+</button>
+<button class="p-2 text-text-secondary hover:text-text-primary hover:bg-surface-subtle rounded-lg transition-colors" title="알림" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-text-secondary hover:text-text-primary hover:bg-surface-subtle rounded-lg transition-colors" title="도움말" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="help_outline">help_outline</span>
+</button>
+<div class="h-6 w-px bg-border-subtle mx-1"></div>
+<!-- User Profile -->
+<div class="flex items-center space-x-2 pl-1 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-surface-selected border border-border-subtle flex items-center justify-center text-primary text-label-md font-label-md">
+          소
+        </div>
+<div class="hidden lg:block text-left">
+<div class="text-label-sm font-label-sm font-semibold text-text-primary">소상공인 대표</div>
+<div class="text-[10px] text-text-secondary leading-none">성수 모의상점점</div>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Persistent Drawer) -->
+<aside class="w-60 h-screen fixed left-0 top-0 flex flex-col z-40 bg-surface-card dark:bg-inverse-surface border-r border-border-subtle dark:border-outline-variant pt-16">
+<div class="w-60 h-full flex flex-col justify-between py-4 px-3">
+<div>
+<!-- Drawer Header Identity -->
+<div class="px-3 pb-4 mb-3 border-b border-border-subtle">
+<div class="flex items-center space-x-2 mb-1">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="storefront">storefront</span>
+<span class="text-headline-sm font-headline-sm font-bold text-primary dark:text-inverse-primary">RoboHood 소상공인</span>
+</div>
+<p class="text-body-sm font-body-sm text-text-secondary">소상공인 v1 · 데모 데이터</p>
+</div>
+<!-- Primary CTA Inside Drawer -->
+<div class="px-1 mb-4">
+<button class="w-full bg-surface-subtle hover:bg-surface-selected text-primary border border-border-subtle px-3 py-2 rounded-lg text-label-sm font-label-sm flex items-center justify-center space-x-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="play_circle">play_circle</span>
+<span>현장 데이터 수집 시작</span>
+</button>
+</div>
+<!-- Nav Tabs Group -->
+<nav class="space-y-1">
+<!-- Item 1 -->
+<a class="flex items-center px-3 py-2.5 text-text-secondary dark:text-text-hint font-body-md text-body-md hover:bg-surface-subtle dark:hover:bg-surface-variant hover:text-text-primary dark:hover:text-inverse-on-surface rounded-lg transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]" data-icon="dashboard">dashboard</span>
+<span>작업 공간 개요</span>
+</a>
+<!-- Item 2 -->
+<a class="flex items-center px-3 py-2.5 text-text-secondary dark:text-text-hint font-body-md text-body-md hover:bg-surface-subtle dark:hover:bg-surface-variant hover:text-text-primary dark:hover:text-inverse-on-surface rounded-lg transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]" data-icon="explore">explore</span>
+<span>현장 탐색</span>
+</a>
+<!-- Item 3 (ACTIVE: 과제 상세 및 조건 / 과제 목록) -->
+<a class="flex items-center px-3 py-2.5 bg-surface-selected dark:bg-secondary-container text-primary dark:text-on-secondary-container font-label-md text-label-md border-l-4 border-primary rounded-r-lg transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px] text-primary" data-icon="assignment">assignment</span>
+<span>과제 상세 및 조건</span>
+</a>
+<!-- Item 4 -->
+<a class="flex items-center px-3 py-2.5 text-text-secondary dark:text-text-hint font-body-md text-body-md hover:bg-surface-subtle dark:hover:bg-surface-variant hover:text-text-primary dark:hover:text-inverse-on-surface rounded-lg transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]" data-icon="video_library">video_library</span>
+<span>구간 라벨링 검수</span>
+</a>
+<!-- Item 5 -->
+<a class="flex items-center px-3 py-2.5 text-text-secondary dark:text-text-hint font-body-md text-body-md hover:bg-surface-subtle dark:hover:bg-surface-variant hover:text-text-primary dark:hover:text-inverse-on-surface rounded-lg transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]" data-icon="payments">payments</span>
+<span>수행 및 보상 관리</span>
+</a>
+</nav>
+</div>
+<!-- Drawer Footer Group -->
+<div class="pt-4 border-t border-border-subtle space-y-1">
+<a class="flex items-center px-3 py-2 text-text-secondary dark:text-text-hint font-body-sm text-body-sm hover:bg-surface-subtle dark:hover:bg-surface-variant hover:text-text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined mr-3 text-[18px]" data-icon="settings">settings</span>
+<span>시스템 환경설정</span>
+</a>
+<a class="flex items-center px-3 py-2 text-text-secondary dark:text-text-hint font-body-sm text-body-sm hover:bg-surface-subtle dark:hover:bg-surface-variant hover:text-text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined mr-3 text-[18px]" data-icon="headset_mic">headset_mic</span>
+<span>고객센터 지원</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Canvas Container (Desktop Fluid Layout) -->
+<main class="ml-60 pt-16 min-h-screen bg-surface-canvas p-6 lg:p-8 flex flex-col justify-between">
+<div class="max-w-7xl mx-auto w-full space-y-6">
+<!-- 1. Header & Primary Tools Area -->
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-1">
+<div>
+<div class="flex items-center space-x-2 text-text-secondary text-body-sm font-body-sm mb-1">
+<span>과제 관리</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-text-primary font-semibold">수집 과제 목록</span>
+</div>
+<h1 class="text-headline-md font-headline-md text-text-primary tracking-tight">수집 과제 목록</h1>
+<p class="text-body-md font-body-md text-text-secondary mt-0.5">소상공인 현장과 연계된 로봇 학습용 Physical AI 모의 과제 현황입니다.</p>
+</div>
+<div class="flex items-center space-x-3">
+<button class="bg-surface-card border border-border-subtle hover:bg-surface-subtle text-text-primary px-3.5 py-2 rounded-lg text-label-md font-label-md flex items-center space-x-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-text-secondary" data-icon="download">download</span>
+<span>목록 엑셀 다운로드</span>
+</button>
+<button class="bg-primary-container hover:bg-action-hover active:bg-action-pressed text-text-inverse px-4 py-2 rounded-lg text-label-md font-label-md flex items-center space-x-1.5 shadow-none transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_circle">add_circle</span>
+<span>신규 과제 등록 (SB-07)</span>
+</button>
+</div>
+</div>
+<!-- 2. Search & Multi-Filter Bento Panel -->
+<div class="bg-surface-card border border-border-subtle rounded-lg p-4 space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+<!-- Search input -->
+<div class="md:col-span-4 relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-text-hint text-[18px]" data-icon="search">search</span>
+<input class="w-full pl-9 pr-8 py-2 text-body-sm font-body-sm bg-surface-card border border-border-control rounded-lg focus:outline-none focus:ring-2 focus:ring-focus-ring placeholder-text-hint" placeholder="과제 코드, 과제명, 요청 기관 검색" type="text" value=""/>
+<button class="absolute right-2.5 top-2.5 text-text-hint hover:text-text-primary">
+<span class="material-symbols-outlined text-[16px]" data-icon="cancel">cancel</span>
+</button>
+</div>
+<!-- Dropdown Filter: 생활권 -->
+<div class="md:col-span-2">
+<label class="block text-[11px] font-label-sm text-text-secondary mb-1">생활권</label>
+<div class="relative">
+<select class="w-full bg-surface-card border border-border-control rounded-lg py-1.5 pl-3 pr-8 text-body-sm font-body-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-focus-ring appearance-none">
+<option selected="">생활권: 전체 (마포/성수)</option>
+<option>마포 권역 (연남·홍대)</option>
+<option>성수 권역 (성수·서울숲)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2 text-text-hint pointer-events-none text-[18px]" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+</div>
+<!-- Dropdown Filter: 현장 유형 -->
+<div class="md:col-span-2">
+<label class="block text-[11px] font-label-sm text-text-secondary mb-1">현장 유형</label>
+<div class="relative">
+<select class="w-full bg-surface-card border border-border-control rounded-lg py-1.5 pl-3 pr-8 text-body-sm font-body-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-focus-ring appearance-none">
+<option selected="">현장 유형: 전체</option>
+<option>식음료 (카페·베이커리)</option>
+<option>도서 및 일반 유통</option>
+<option>주방 및 조리 공정</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2 text-text-hint pointer-events-none text-[18px]" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+</div>
+<!-- Dropdown Filter: 진행 단계 -->
+<div class="md:col-span-2">
+<label class="block text-[11px] font-label-sm text-text-secondary mb-1">진행 단계</label>
+<div class="relative">
+<select class="w-full bg-surface-card border border-border-control rounded-lg py-1.5 pl-3 pr-8 text-body-sm font-body-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-focus-ring appearance-none">
+<option selected="">진행 단계: 전체</option>
+<option>수집 진행 중</option>
+<option>검수 대기</option>
+<option>보완 요청</option>
+<option>최종 완료</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2 text-text-hint pointer-events-none text-[18px]" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+</div>
+<!-- Dropdown Filter: 배정 상태 -->
+<div class="md:col-span-2">
+<label class="block text-[11px] font-label-sm text-text-secondary mb-1">배정 상태</label>
+<div class="relative">
+<select class="w-full bg-surface-card border border-border-control rounded-lg py-1.5 pl-3 pr-8 text-body-sm font-body-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-focus-ring appearance-none">
+<option selected="">배정 상태: 전체</option>
+<option>인력 배정 완료</option>
+<option>배정 대기 중</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2 text-text-hint pointer-events-none text-[18px]" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+</div>
+</div>
+<!-- Filter Action & Counter Bar -->
+<div class="flex items-center justify-between pt-2 border-t border-border-subtle text-body-sm font-body-sm">
+<div class="flex items-center space-x-2">
+<span class="text-text-secondary">필터 적용 결과:</span>
+<span class="text-primary font-bold">총 12건의 과제</span>
+<span class="text-text-hint">| 활성 필터 0건</span>
+</div>
+<div class="flex items-center space-x-2">
+<button class="text-text-secondary hover:text-text-primary flex items-center space-x-1 text-label-sm font-label-sm py-1 px-2 rounded hover:bg-surface-subtle transition-colors" type="button">
+<span class="material-symbols-outlined text-[15px]" data-icon="refresh">refresh</span>
+<span>필터 초기화</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 3. Task Table (Data Panel Layout) -->
+<div class="bg-surface-card border border-border-subtle rounded-lg overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-subtle border-b border-border-subtle text-text-secondary text-label-md font-label-md">
+<th class="py-3 px-4 w-28 whitespace-nowrap" scope="col">과제 코드</th>
+<th class="py-3 px-4 min-w-[220px]" scope="col">과제명</th>
+<th class="py-3 px-4 whitespace-nowrap" scope="col">데이터 요청자</th>
+<th class="py-3 px-4 whitespace-nowrap" scope="col">대상 현장</th>
+<th class="py-3 px-4 whitespace-nowrap" scope="col">수행팀 (청년인력)</th>
+<th class="py-3 px-4 whitespace-nowrap" scope="col">영상 규격</th>
+<th class="py-3 px-4 whitespace-nowrap" scope="col">수집 방식</th>
+<th class="py-3 px-4 whitespace-nowrap text-center" scope="col">진행 상태</th>
+<th class="py-3 px-4 whitespace-nowrap text-right" scope="col">조치 · 상세</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-subtle text-body-sm font-body-sm text-text-primary">
+<!-- ROW 1 -->
+<tr class="hover:bg-surface-subtle transition-colors group">
+<td class="py-3.5 px-4 font-mono font-medium text-text-secondary text-label-sm">
+                  RH-SB-001
+                </td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-text-primary hover:text-primary cursor-pointer flex items-center space-x-1.5">
+<span>트레이 위 컵 정리 영상 수집</span>
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 text-text-hint transition-opacity" data-icon="open_in_new">open_in_new</span>
+</div>
+<div class="text-[11px] text-text-hint">소상공인 픽업대 모의 객체 핸들링</div>
+</td>
+<td class="py-3.5 px-4 text-text-secondary">AI연구팀 A</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center space-x-1 text-text-secondary">
+<span class="material-symbols-outlined text-[14px] text-text-hint" data-icon="coffee">coffee</span>
+<span>모의 카페 A</span>
+</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="font-medium text-text-primary">김민수</div>
+<div class="text-[11px] text-text-hint">오퍼레이터 (청년팀)</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-surface-subtle border border-border-subtle text-[11px] font-mono text-text-secondary">FHD 60fps</span>
+</td>
+<td class="py-3.5 px-4 text-text-secondary">1인칭 POV</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-info-bg text-info-text text-label-md font-label-md">
+                    진행 중
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="bg-surface-card border border-border-subtle hover:bg-surface-selected hover:text-primary text-text-primary px-2.5 py-1.5 rounded-lg text-label-sm font-label-sm transition-colors" type="button">
+                    상세보기 (SB-08)
+                  </button>
+</td>
+</tr>
+<!-- ROW 2 -->
+<tr class="hover:bg-surface-subtle transition-colors group">
+<td class="py-3.5 px-4 font-mono font-medium text-text-secondary text-label-sm">
+                  RH-SB-002
+                </td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-text-primary hover:text-primary cursor-pointer flex items-center space-x-1.5">
+<span>테이블 배식 로봇 주행 장애물</span>
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 text-text-hint transition-opacity" data-icon="open_in_new">open_in_new</span>
+</div>
+<div class="text-[11px] text-text-hint">바닥 동선 내 의자 및 이동체 회피 훈련</div>
+</td>
+<td class="py-3.5 px-4 text-text-secondary">로보틱스랩 B</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center space-x-1 text-text-secondary">
+<span class="material-symbols-outlined text-[14px] text-text-hint" data-icon="bakery_dining">bakery_dining</span>
+<span>모의 베이커리 B</span>
+</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="text-neutral-status-text font-medium">미배정</div>
+<div class="text-[11px] text-text-hint">조건 확인 중</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-surface-subtle border border-border-subtle text-[11px] font-mono text-text-secondary">4K 30fps</span>
+</td>
+<td class="py-3.5 px-4 text-text-secondary">삼각대 고정</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-neutral-status-bg text-neutral-status-text text-label-md font-label-md">
+                    배정 대기
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="bg-surface-card border border-border-subtle hover:bg-surface-selected hover:text-primary text-text-primary px-2.5 py-1.5 rounded-lg text-label-sm font-label-sm transition-colors" type="button">
+                    상세보기
+                  </button>
+</td>
+</tr>
+<!-- ROW 3 -->
+<tr class="hover:bg-surface-subtle transition-colors group">
+<td class="py-3.5 px-4 font-mono font-medium text-text-secondary text-label-sm">
+                  RH-SB-003
+                </td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-text-primary hover:text-primary cursor-pointer flex items-center space-x-1.5">
+<span>주방 퇴식구 카메라 시야 확보</span>
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 text-text-hint transition-opacity" data-icon="open_in_new">open_in_new</span>
+</div>
+<div class="text-[11px] text-text-hint">조도 변화 및 잔반 분류 라벨 검출용</div>
+</td>
+<td class="py-3.5 px-4 text-text-secondary">모의 연구소 C</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center space-x-1 text-text-secondary">
+<span class="material-symbols-outlined text-[14px] text-text-hint" data-icon="restaurant">restaurant</span>
+<span>모의 식당 C</span>
+</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="font-medium text-text-primary">박도현</div>
+<div class="text-[11px] text-text-hint">현장 청년</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-surface-subtle border border-border-subtle text-[11px] font-mono text-text-secondary">FHD 60fps</span>
+</td>
+<td class="py-3.5 px-4 text-text-secondary">POV</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-warning-bg text-warning-text text-label-md font-label-md">
+                    보완 요청
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="bg-surface-card border border-warning-text/40 hover:bg-warning-bg text-warning-text px-2.5 py-1.5 rounded-lg text-label-sm font-label-sm transition-colors" type="button">
+                    보완 확인
+                  </button>
+</td>
+</tr>
+<!-- ROW 4 -->
+<tr class="hover:bg-surface-subtle transition-colors group">
+<td class="py-3.5 px-4 font-mono font-medium text-text-secondary text-label-sm">
+                  RH-SB-004
+                </td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-text-primary hover:text-primary cursor-pointer flex items-center space-x-1.5">
+<span>출입구 바닥 조도 데이터</span>
+<span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 text-text-hint transition-opacity" data-icon="open_in_new">open_in_new</span>
+</div>
+<div class="text-[11px] text-text-hint">유리 반사 및 직사광선 조건 매핑</div>
+</td>
+<td class="py-3.5 px-4 text-text-secondary">로보틱스솔루션</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center space-x-1 text-text-secondary">
+<span class="material-symbols-outlined text-[14px] text-text-hint" data-icon="coffee">coffee</span>
+<span>모의 카페 A</span>
+</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="font-medium text-text-primary">최서연</div>
+<div class="text-[11px] text-text-hint">현장 청년</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-surface-subtle border border-border-subtle text-[11px] font-mono text-text-secondary">RGB+LiDAR</span>
+</td>
+<td class="py-3.5 px-4 text-text-secondary">핸드헬드</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-success-bg text-success-text text-label-md font-label-md">
+                    검수 승인
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="bg-surface-card border border-border-subtle hover:bg-surface-selected hover:text-primary text-text-primary px-2.5 py-1.5 rounded-lg text-label-sm font-label-sm transition-colors" type="button">
+                    데이터셋 확인
+                  </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- 4. Table Pagination Footer -->
+<div class="flex items-center justify-between px-4 py-3 border-t border-border-subtle bg-surface-card">
+<div class="text-body-sm font-body-sm text-text-secondary">
+            1-4 / 총 12개 과제 항목 표시
+          </div>
+<!-- Pagination buttons -->
+<div class="flex items-center space-x-1">
+<button class="p-1.5 rounded-lg border border-border-subtle text-text-hint hover:text-text-primary hover:bg-surface-subtle disabled:opacity-40" disabled="" title="이전 페이지" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-text-inverse font-label-sm text-label-sm font-bold flex items-center justify-center" type="button">
+              1
+            </button>
+<button class="w-8 h-8 rounded-lg border border-border-subtle bg-surface-card text-text-secondary hover:bg-surface-subtle font-label-sm text-label-sm flex items-center justify-center" type="button">
+              2
+            </button>
+<button class="w-8 h-8 rounded-lg border border-border-subtle bg-surface-card text-text-secondary hover:bg-surface-subtle font-label-sm text-label-sm flex items-center justify-center" type="button">
+              3
+            </button>
+<button class="p-1.5 rounded-lg border border-border-subtle text-text-secondary hover:text-text-primary hover:bg-surface-subtle" title="다음 페이지" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 4. Bottom Information & Compliance Banner -->
+<div class="bg-surface-card border border-border-subtle rounded-lg p-4 flex items-start space-x-3 text-body-sm font-body-sm text-text-secondary">
+<span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0 mt-0.5" data-icon="info">info</span>
+<div>
+<span class="font-semibold text-text-primary mr-1">안내:</span>
+<span>소상공인 v1 · 데모 데이터. 모든 과제는 모의 실습 및 교육 목적이며 실제 고용이나 계약을 강제하지 않습니다.</span>
+</div>
+</div>
+</div>
+<!-- Minimal Platform Legal Footer -->
+<footer class="max-w-7xl mx-auto w-full pt-8 pb-4 text-[11px] text-text-hint flex flex-col sm:flex-row items-center justify-between border-t border-border-subtle/60 mt-8">
+<div>© 2025 RoboHood Platform. All rights reserved. Physical AI Data Operations.</div>
+<div class="flex space-x-4 mt-2 sm:mt-0">
+<a class="hover:underline" href="#">이용약관</a>
+<a class="hover:underline" href="#">개인정보 처리방침</a>
+<a class="hover:underline" href="#">모의 실습 가이드라인</a>
+</div>
+</footer>
+</main>
+</body></html>

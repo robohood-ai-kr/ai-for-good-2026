@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoboHood 소상공인 v1 - 모바일 영상 수집</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary": "#515f74",
+            "surface": "#f7fafe",
+            "surface-tint": "#0053db",
+            "surface-dim": "#d7dade",
+            "text-primary": "#0F172A",
+            "surface-container-highest": "#e0e3e7",
+            "action-hover": "#1D4ED8",
+            "outline": "#737686",
+            "secondary-fixed-dim": "#b9c7df",
+            "tertiary-fixed": "#ffdbcd",
+            "error-text": "#B91C1C",
+            "on-primary-fixed-variant": "#003ea8",
+            "on-secondary-fixed-variant": "#3a485b",
+            "tertiary-container": "#bc4800",
+            "on-error": "#ffffff",
+            "warning-bg": "#FFFBEB",
+            "surface-selected": "#EFF6FF",
+            "inverse-on-surface": "#eef1f5",
+            "outline-variant": "#c3c6d7",
+            "warning-text": "#92400E",
+            "neutral-status-bg": "#F4F7FB",
+            "on-tertiary-fixed": "#360f00",
+            "surface-variant": "#e0e3e7",
+            "on-background": "#181c1f",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#ffb596",
+            "text-secondary": "#475569",
+            "secondary-fixed": "#d5e3fc",
+            "inverse-primary": "#b4c5ff",
+            "surface-bright": "#f7fafe",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed-variant": "#7d2d00",
+            "on-surface": "#181c1f",
+            "success-bg": "#F0FDF4",
+            "info-text": "#1E40AF",
+            "on-primary-container": "#eeefff",
+            "on-surface-variant": "#434655",
+            "focus-ring": "#2563EB",
+            "on-tertiary": "#ffffff",
+            "info-bg": "#EFF6FF",
+            "primary-container": "#2563eb",
+            "primary-fixed": "#dbe1ff",
+            "background": "#f7fafe",
+            "border-control": "#64748B",
+            "on-tertiary-container": "#ffede6",
+            "error-bg": "#FEF2F2",
+            "text-inverse": "#FFFFFF",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#f1f4f8",
+            "surface-canvas": "#F4F7FB",
+            "neutral-status-text": "#475569",
+            "secondary-container": "#d5e3fc",
+            "inverse-surface": "#2d3134",
+            "primary": "#004ac6",
+            "action-pressed": "#1E40AF",
+            "tertiary": "#943700",
+            "error-container": "#ffdad6",
+            "on-primary-fixed": "#00174b",
+            "border-subtle": "#D5DDE7",
+            "on-secondary-fixed": "#0d1c2e",
+            "surface-card": "#FFFFFF",
+            "error": "#ba1a1a",
+            "surface-container": "#ebeef2",
+            "primary-fixed-dim": "#b4c5ff",
+            "surface-subtle": "#F8FAFC",
+            "success-text": "#166534",
+            "surface-container-high": "#e5e8ec",
+            "text-hint": "#64748B",
+            "on-secondary-container": "#57657a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem",
+            "margin-tablet": "1.5rem",
+            "margin": "1rem",
+            "space-md": "1rem",
+            "margin-desktop": "2rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "gutter-desktop": "1.5rem"
+          },
+          "fontFamily": {
+            "body-md": ["Public Sans"],
+            "label-sm": ["Public Sans"],
+            "headline-md": ["Public Sans"],
+            "headline-lg": ["Public Sans"],
+            "label-md": ["Public Sans"],
+            "label-lg": ["Public Sans"],
+            "body-sm": ["Public Sans"],
+            "headline-sm": ["Public Sans"],
+            "headline-lg-mobile": ["Public Sans"],
+            "body-lg": ["Public Sans"]
+          },
+          "fontSize": {
+            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+            "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+            "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+            "headline-lg-mobile": ["26px", {"lineHeight": "34px", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .recording-dot {
+      animation: pulse-subtle 1.2s infinite ease-in-out;
+    }
+    /* Safe container simulation on desktop */
+    body {
+      background-color: #0F172A;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Public Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-text-primary antialiased selection:bg-primary selection:text-white">
+<!-- Mobile Device Shell (Strict 390px layout) -->
+<main class="w-full max-w-[390px] min-h-screen bg-surface-canvas flex flex-col relative shadow-2xl overflow-x-hidden border-x border-border-subtle/30">
+<!-- Top Status Bar & Service Branding Header -->
+<header class="bg-surface-card border-b border-border-subtle sticky top-0 z-30 px-3 pt-2 pb-2.5">
+<!-- System Bar Meta -->
+<div class="flex items-center justify-between text-text-secondary text-label-sm font-label-sm pb-1 mb-1 border-b border-surface-subtle">
+<span class="inline-flex items-center gap-1 font-semibold text-primary">
+<span class="material-symbols-outlined text-[14px]">smart_toy</span>
+          RoboHood 소상공인
+        </span>
+<span class="bg-neutral-status-bg text-neutral-status-text px-1.5 py-0.5 rounded text-[10px] font-medium tracking-tight">
+          소상공인 v1 · 데모 데이터
+        </span>
+</div>
+<!-- Navigation & Task Title -->
+<div class="flex items-center justify-between gap-2">
+<button aria-label="뒤로가기" class="w-8 h-8 rounded-lg flex items-center justify-center text-text-secondary hover:bg-surface-subtle transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<div class="flex-1 min-w-0 px-1">
+<div class="flex items-center gap-1.5">
+<span class="text-label-sm font-label-sm text-primary font-bold tracking-tight">RH-SB-001</span>
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[11px] font-label-sm bg-info-bg text-info-text">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container recording-dot"></span>
+              가상 세션 기록 중
+            </span>
+</div>
+<h1 class="text-label-lg font-label-lg text-text-primary truncate">트레이 위 컵 정리</h1>
+</div>
+<!-- Recording Timer Pill -->
+<div class="flex flex-col items-end shrink-0 bg-surface-subtle border border-border-subtle px-2 py-1 rounded-lg">
+<span class="text-[10px] text-text-hint font-label-sm leading-none">녹화 시간</span>
+<div class="flex items-baseline gap-0.5 mt-0.5">
+<span class="text-label-lg font-label-lg text-error-text font-mono font-bold">02:14</span>
+<span class="text-[10px] text-text-secondary font-mono">/ 05:00</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Scrollable Content Canvas -->
+<div class="flex-1 flex flex-col p-3 gap-3">
+<!-- POV Virtual Viewfinder Box -->
+<section class="w-full bg-slate-950 rounded-xl overflow-hidden relative border border-slate-700 shadow-sm flex flex-col" style="height: 250px;">
+<!-- Camera Background Simulation Layer -->
+<div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 opacity-95">
+<!-- Subtle perspective tabletop visual grid -->
+<div class="w-full h-full opacity-20" style="background-image: radial-gradient(#64748b 1px, transparent 1px); background-size: 16px 16px;"></div>
+</div>
+<!-- Watermark Banner -->
+<div class="relative z-10 w-full bg-slate-900/90 backdrop-blur-xs py-1 px-2 text-center border-b border-slate-800">
+<p class="text-[10px] font-label-sm text-slate-300 leading-tight">
+            가상 1인칭 실습 프리뷰 화면 <span class="text-slate-400">(실제 카메라 녹화/하드웨어 제어 아님)</span>
+</p>
+</div>
+<!-- Overlay HUD: Crosshair & Detection Bounding Boxes -->
+<div class="relative z-10 flex-1 w-full flex items-center justify-center p-3 pointer-events-none">
+<!-- Center Reticle / Crosshair -->
+<div class="absolute inset-0 m-auto w-12 h-12 flex items-center justify-center pointer-events-none opacity-40">
+<div class="w-full h-[1px] bg-sky-300"></div>
+<div class="h-full w-[1px] bg-sky-300 absolute"></div>
+<div class="w-3 h-3 rounded-full border border-sky-300 absolute"></div>
+</div>
+<!-- Synthetic Object Detection: Hand (Left) -->
+<div class="absolute left-3 bottom-6 border border-dashed border-sky-400/70 bg-sky-500/10 rounded p-1 text-[10px] text-sky-200">
+<span class="font-mono">[작업자 양손 POV]</span>
+</div>
+<!-- Synthetic Object Detection: Plastic Cup / Tray (Center) -->
+<div class="relative w-36 h-28 border-2 border-emerald-400 bg-emerald-500/10 rounded flex flex-col justify-between p-1.5 shadow-[0_0_12px_rgba(16,185,129,0.25)]">
+<div class="flex items-center justify-between">
+<span class="bg-emerald-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded leading-none flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[10px]">check_circle</span>
+                안전 객체: 빈 컵
+              </span>
+<span class="text-[9px] font-mono text-emerald-300 font-semibold bg-emerald-950/80 px-1 rounded">0.98</span>
+</div>
+<!-- Simulated cup outline guide -->
+<div class="w-12 h-14 mx-auto border border-emerald-300/40 rounded-b-md flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-300/50 text-[18px]">local_cafe</span>
+</div>
+<div class="text-[9px] text-emerald-200 text-center font-mono">
+              X: 184 Y: 320 Z: 45cm
+            </div>
+</div>
+</div>
+<!-- Viewfinder Bottom Badges & Status -->
+<div class="relative z-10 w-full px-2.5 py-1.5 bg-slate-900/85 backdrop-blur-xs flex items-center justify-between border-t border-slate-800">
+<span class="inline-flex items-center gap-1 text-[11px] text-emerald-400 font-label-sm">
+<span class="material-symbols-outlined text-[14px]">blur_on</span>
+            실시간 비식별화 블러 가동 중
+          </span>
+<span class="text-[10px] font-mono text-slate-400 tracking-wider">
+            60 FPS · 1080P SIM
+          </span>
+</div>
+</section>
+<!-- Session & Environmental Metadata Panel (Bento Style) -->
+<section class="bg-surface-card border border-border-subtle rounded-xl p-3 shadow-none">
+<div class="flex items-center justify-between mb-2">
+<h2 class="text-label-md font-label-md text-text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px]">sensors</span>
+            실시간 환경 메타데이터
+          </h2>
+<span class="text-[10px] text-text-hint bg-neutral-status-bg px-1.5 py-0.5 rounded">기준 센서 연동</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<!-- Ambient Light -->
+<div class="bg-surface-subtle border border-border-subtle/80 rounded-lg p-2 flex flex-col">
+<span class="text-[10px] text-text-secondary font-label-sm">현장 조도</span>
+<span class="text-label-md font-label-md text-text-primary font-bold mt-0.5">420 lux</span>
+<span class="text-[10px] text-success-text font-semibold flex items-center gap-0.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-success-text"></span>
+              적합
+            </span>
+</div>
+<!-- Vibration -->
+<div class="bg-surface-subtle border border-border-subtle/80 rounded-lg p-2 flex flex-col">
+<span class="text-[10px] text-text-secondary font-label-sm">진동 계측</span>
+<span class="text-label-md font-label-md text-text-primary font-bold mt-0.5">0.02 g</span>
+<span class="text-[10px] text-success-text font-semibold flex items-center gap-0.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-success-text"></span>
+              안정
+            </span>
+</div>
+<!-- Active Phase -->
+<div class="bg-surface-selected border border-primary/20 rounded-lg p-2 flex flex-col">
+<span class="text-[10px] text-primary font-label-sm">현재 작업 구간</span>
+<span class="text-label-md font-label-md text-primary font-bold truncate mt-0.5">[트레이 컵 집기]</span>
+<span class="text-[10px] text-info-text font-semibold flex items-center gap-0.5 mt-0.5">
+<span class="material-symbols-outlined text-[10px]">timer</span>
+              00:42 경과
+            </span>
+</div>
+</div>
+</section>
+<!-- Phase Quick-Marking Section -->
+<section class="bg-surface-card border border-border-subtle rounded-xl p-3 flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">bookmarks</span>
+<h2 class="text-label-md font-label-md text-text-primary">작업 구간 빠른 마킹</h2>
+</div>
+<span class="text-[11px] text-text-secondary">구간별 터치 기록</span>
+</div>
+<!-- Marking Step Buttons Grid -->
+<div class="grid grid-cols-2 gap-1.5">
+<!-- Button 1: 트레이 접근 -->
+<button class="flex items-center justify-between px-2.5 py-2 rounded-lg border border-border-subtle bg-surface-subtle hover:bg-surface-selected text-text-secondary text-body-sm font-body-sm transition-all duration-150 active:scale-98" type="button">
+<span class="flex items-center gap-1.5">
+<span class="w-4 h-4 rounded-full bg-border-subtle text-text-secondary text-[10px] font-bold flex items-center justify-center">1</span>
+              트레이 접근
+            </span>
+<span class="material-symbols-outlined text-[16px] text-success-text">check</span>
+</button>
+<!-- Button 2: 컵 파지 (Active) -->
+<button class="flex items-center justify-between px-2.5 py-2 rounded-lg border-2 border-focus-ring bg-surface-selected text-primary text-body-sm font-label-md shadow-xs active:scale-98" type="button">
+<span class="flex items-center gap-1.5">
+<span class="w-4 h-4 rounded-full bg-primary text-white text-[10px] font-bold flex items-center justify-center">2</span>
+              컵 파지
+            </span>
+<span class="w-2 h-2 rounded-full bg-primary recording-dot"></span>
+</button>
+<!-- Button 3: 정리 배치 -->
+<button class="flex items-center justify-between px-2.5 py-2 rounded-lg border border-border-subtle bg-white hover:bg-surface-subtle text-text-primary text-body-sm font-body-sm transition-all duration-150 active:scale-98" type="button">
+<span class="flex items-center gap-1.5">
+<span class="w-4 h-4 rounded-full bg-neutral-status-bg text-text-secondary text-[10px] font-bold flex items-center justify-center">3</span>
+              정리 배치
+            </span>
+<span class="material-symbols-outlined text-[16px] text-text-hint">play_arrow</span>
+</button>
+<!-- Button 4: 작업 완료 -->
+<button class="flex items-center justify-between px-2.5 py-2 rounded-lg border border-border-subtle bg-white hover:bg-surface-subtle text-text-primary text-body-sm font-body-sm transition-all duration-150 active:scale-98" type="button">
+<span class="flex items-center gap-1.5">
+<span class="w-4 h-4 rounded-full bg-neutral-status-bg text-text-secondary text-[10px] font-bold flex items-center justify-center">4</span>
+              작업 완료
+            </span>
+<span class="material-symbols-outlined text-[16px] text-text-hint">flag</span>
+</button>
+</div>
+<!-- Section Pass/Fail Verdict Segmented Control -->
+<div class="pt-2 border-t border-surface-subtle">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-label-sm font-label-sm text-text-secondary">현재 구간 성패 판정</span>
+<span class="text-[10px] text-text-hint">AI 1차 피드백: 정상 동작</span>
+</div>
+<div class="grid grid-cols-3 gap-1 bg-surface-subtle p-1 rounded-lg border border-border-subtle">
+<!-- 성공 (Checked default) -->
+<label class="flex items-center justify-center gap-1 py-1.5 px-2 rounded cursor-pointer bg-success-bg border border-success-text/30 text-success-text text-label-sm font-label-sm transition-all">
+<input checked="" class="sr-only" name="verdict" type="radio" value="success"/>
+<span class="material-symbols-outlined text-[14px]">check</span>
+              성공
+            </label>
+<!-- 실패 -->
+<label class="flex items-center justify-center gap-1 py-1.5 px-2 rounded cursor-pointer hover:bg-white text-text-secondary text-label-sm font-label-sm transition-all">
+<input class="sr-only" name="verdict" type="radio" value="failure"/>
+<span class="material-symbols-outlined text-[14px]">close</span>
+              실패
+            </label>
+<!-- 판정보류 -->
+<label class="flex items-center justify-center gap-1 py-1.5 px-2 rounded cursor-pointer hover:bg-white text-text-secondary text-label-sm font-label-sm transition-all">
+<input class="sr-only" name="verdict" type="radio" value="hold"/>
+<span class="material-symbols-outlined text-[14px]">help</span>
+              판정보류
+            </label>
+</div>
+</div>
+</section>
+<!-- Legal & System Disclaimer Banner -->
+<aside class="bg-warning-bg border border-amber-200 rounded-lg p-2.5 flex items-start gap-2">
+<span class="material-symbols-outlined text-warning-text text-[18px] shrink-0 mt-0.5">info</span>
+<p class="text-label-sm font-label-sm text-warning-text leading-tight">
+          본 시스템은 모의 실습 환경이며 실제 원격 로봇 제어나 실시간 클라우드 상용 녹화가 아닙니다.
+        </p>
+</aside>
+</div>
+<!-- Bottom Fixed Actions Canvas (Strict Mobile Ergonomics) -->
+<footer class="bg-surface-card border-t border-border-subtle p-3 flex flex-col gap-2 sticky bottom-0 z-30 shadow-[0_-4px_16px_rgba(15,23,42,0.05)]">
+<!-- Primary Action: Session Complete & Submit (Min 48px height) -->
+<button class="w-full h-12 bg-primary-container hover:bg-action-hover active:bg-action-pressed text-text-inverse rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-sm transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-[20px]">cloud_upload</span>
+<span>세션 완료 및 데이터 제출 (임시 업로드)</span>
+</button>
+<!-- Secondary Action: Emergency Abort with High-Contrast Red Stroke -->
+<button class="w-full h-10 bg-surface-card hover:bg-error-bg active:bg-red-100 text-error-text border border-error-text rounded-lg font-label-md text-label-md flex items-center justify-center gap-1.5 transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-[18px]">gpp_bad</span>
+<span>긴급 작업 중단 (안전)</span>
+</button>
+</footer>
+</main>
+<!-- Interactive Demo Script for Phase Buttons & Verdict Selection -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Toggle segmented verdict styling
+      const verdictLabels = document.querySelectorAll('input[name="verdict"]');
+      verdictLabels.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+          verdictLabels.forEach(r => {
+            const parent = r.closest('label');
+            parent.className = "flex items-center justify-center gap-1 py-1.5 px-2 rounded cursor-pointer hover:bg-white text-text-secondary text-label-sm font-label-sm transition-all";
+          });
+          const targetParent = e.target.closest('label');
+          if (e.target.value === 'success') {
+            targetParent.className = "flex items-center justify-center gap-1 py-1.5 px-2 rounded cursor-pointer bg-success-bg border border-success-text/30 text-success-text text-label-sm font-label-sm transition-all";
+          } else if (e.target.value === 'failure') {
+            targetParent.className = "flex items-center justify-center gap-1 py-1.5 px-2 rounded cursor-pointer bg-error-bg border border-error-text/30 text-error-text text-label-sm font-label-sm transition-all";
+          } else {
+            targetParent.className = "flex items-center justify-center gap-1 py-1.5 px-2 rounded cursor-pointer bg-warning-bg border border-warning-text/30 text-warning-text text-label-sm font-label-sm transition-all";
+          }
+        });
+      });
+    });
+  </script>
+</body></html>

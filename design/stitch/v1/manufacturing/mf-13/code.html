@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoboHood - 장비·호환성 관리 [MF-13]</title>
+<!-- Pretendard & Noto Sans Font -->
+<link as="style" crossorigin="" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary": "#2c4bb9",
+            "on-surface": "#131b2e",
+            "surface": "#faf8ff",
+            "primary-fixed": "#dbe1ff",
+            "on-secondary-fixed-variant": "#3a485b",
+            "surface-bright": "#faf8ff",
+            "inverse-surface": "#283044",
+            "on-secondary-container": "#57657a",
+            "on-background": "#131b2e",
+            "on-primary-fixed-variant": "#003ea8",
+            "outline": "#737686",
+            "surface-container-high": "#e2e7ff",
+            "secondary-fixed": "#d5e3fc",
+            "secondary": "#515f74",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "primary-fixed-dim": "#b4c5ff",
+            "secondary-container": "#d5e3fc",
+            "inverse-on-surface": "#eef0ff",
+            "on-primary-fixed": "#00174b",
+            "on-error-container": "#93000a",
+            "background": "#faf8ff",
+            "on-tertiary-container": "#eff0ff",
+            "on-tertiary-fixed-variant": "#173bab",
+            "surface-container-highest": "#dae2fd",
+            "secondary-fixed-dim": "#b9c7df",
+            "surface-container-low": "#f2f3ff",
+            "on-error": "#ffffff",
+            "surface-tint": "#0053db",
+            "surface-container": "#eaedff",
+            "on-primary": "#ffffff",
+            "primary": "#004ac6",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "surface-dim": "#d2d9f4",
+            "on-primary-container": "#eeefff",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#0d1c2e",
+            "on-surface-variant": "#434655",
+            "primary-container": "#2563eb",
+            "outline-variant": "#c3c6d7",
+            "tertiary-fixed": "#dde1ff",
+            "tertiary-container": "#4865d4",
+            "on-tertiary-fixed": "#001453",
+            "inverse-primary": "#b4c5ff",
+            "surface-variant": "#dae2fd",
+            "tertiary-fixed-dim": "#b8c4ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-xl": "2rem",
+            "margin": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Pretendard", "Noto Sans", "sans-serif"],
+            "headline-lg-mobile": ["Pretendard", "Noto Sans", "sans-serif"],
+            "headline-md-mobile": ["Pretendard", "Noto Sans", "sans-serif"],
+            "label-sm": ["Pretendard", "Noto Sans", "sans-serif"],
+            "body-lg-medium": ["Pretendard", "Noto Sans", "sans-serif"],
+            "body-lg": ["Pretendard", "Noto Sans", "sans-serif"],
+            "label-md": ["Pretendard", "Noto Sans", "sans-serif"],
+            "headline-md": ["Pretendard", "Noto Sans", "sans-serif"],
+            "body-md-medium": ["Pretendard", "Noto Sans", "sans-serif"],
+            "body-md": ["Pretendard", "Noto Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-lg": ["32px", {"lineHeight": "48px", "fontWeight": "700"}],
+            "headline-lg-mobile": ["24px", {"lineHeight": "36px", "fontWeight": "700"}],
+            "headline-md-mobile": ["22px", {"lineHeight": "33px", "fontWeight": "600"}],
+            "label-sm": ["13px", {"lineHeight": "18px", "fontWeight": "600"}],
+            "body-lg-medium": ["17px", {"lineHeight": "26px", "fontWeight": "500"}],
+            "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+            "label-md": ["15px", {"lineHeight": "22px", "fontWeight": "500"}],
+            "headline-md": ["24px", {"lineHeight": "36px", "fontWeight": "600"}],
+            "body-md-medium": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: "Pretendard", "Noto Sans", sans-serif;
+      background-color: #F4F7FB;
+      color: #0F172A;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .badge-sim {
+      background-color: #EFF6FF;
+      color: #1E40AF;
+      border: 1px solid #BFDBFE;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #F1F5F9;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+</head>
+<body class="bg-[#F4F7FB] min-h-screen text-on-surface antialiased flex flex-col">
+<!-- TOP APP BAR -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 h-16 bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm">
+<!-- Left Cluster: Brand, Workspace Breadcrumb, Simulation Badge -->
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight">RoboHood</span>
+</div>
+<div class="h-5 w-[1px] bg-[#D5DDE7]"></div>
+<!-- Mandatory Persistent Simulation Badge -->
+<div class="flex items-center gap-2">
+<span class="badge-sim text-[13px] font-semibold px-2.5 py-1 rounded-[6px] tracking-tight">제조업 v1 · 데모 데이터</span>
+<span class="text-secondary text-body-md font-body-md">/</span>
+<span class="text-on-surface font-body-md-medium text-body-md-medium">장비·호환성 인벤토리</span>
+</div>
+</div>
+<!-- Center Search -->
+<div class="hidden md:flex items-center w-80 bg-surface-container-low rounded-lg px-3 py-1.5 border border-[#D5DDE7]">
+<span class="material-symbols-outlined text-secondary text-[20px] mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none p-0 text-body-md font-body-md focus:ring-0 w-full placeholder-secondary" placeholder="장비 ID, 프로토콜, 시뮬레이터 검색..." type="text"/>
+<span class="text-[11px] font-semibold text-secondary bg-[#E2E8F0] px-1.5 py-0.5 rounded">⌘K</span>
+</div>
+<!-- Right Global Actions & Operator Profile -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1">
+<button class="p-2 text-secondary hover:bg-surface-container rounded-lg transition-colors relative" title="알림">
+<span class="material-symbols-outlined text-[22px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-secondary hover:bg-surface-container rounded-lg transition-colors" title="시스템 전환">
+<span class="material-symbols-outlined text-[22px]" data-icon="swap_horiz">swap_horiz</span>
+</button>
+<button class="p-2 text-secondary hover:bg-surface-container rounded-lg transition-colors" title="도움말">
+<span class="material-symbols-outlined text-[22px]" data-icon="help">help</span>
+</button>
+</div>
+<div class="h-6 w-[1px] bg-[#D5DDE7]"></div>
+<!-- Profile Avatar Container -->
+<div class="flex items-center gap-3 pl-1">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-label-sm border border-primary-fixed-dim">
+<span>OP</span>
+</div>
+<div class="hidden xl:flex flex-col text-left">
+<span class="text-[13px] font-semibold text-on-surface leading-tight">현장 운영 총괄 관리자</span>
+<span class="text-[11px] text-secondary">A동 피지컬 AI 센터</span>
+</div>
+</div>
+</div>
+</header>
+<!-- APP SHELL CONTAINER -->
+<div class="flex pt-16 min-h-screen">
+<!-- SIDE NAVIGATION (Desktop 240px) -->
+<aside class="fixed top-16 left-0 bottom-0 w-60 z-40 flex flex-col justify-between p-4 bg-surface-container-low dark:bg-inverse-surface border-r border-outline-variant dark:border-outline">
+<div class="space-y-6">
+<!-- Sub Header Info -->
+<div class="px-2 pt-1">
+<span class="text-[11px] font-bold text-secondary uppercase tracking-wider block">Workspace Navigation</span>
+</div>
+<!-- Navigation Tabs (9 items) -->
+<nav class="space-y-1">
+<!-- 개요 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-dim font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span>개요</span>
+</a>
+<!-- 현장 탐색 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-dim font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="explore">explore</span>
+<span>현장 탐색</span>
+</a>
+<!-- 현장 과제 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-dim font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="assignment">assignment</span>
+<span>현장 과제</span>
+</a>
+<!-- 데이터 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-dim font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dataset">dataset</span>
+<span>데이터</span>
+</a>
+<!-- 모델 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-dim font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="smart_toy">smart_toy</span>
+<span>모델</span>
+</a>
+<!-- 장비 (ACTIVE TAB) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-secondary-container dark:bg-secondary text-primary dark:text-inverse-primary font-body-md-medium text-body-md-medium" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="precision_manufacturing">precision_manufacturing</span>
+<span>장비</span>
+<span class="ml-auto w-2 h-2 rounded-full bg-primary"></span>
+</a>
+<!-- 배포·관제 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-dim font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="monitoring">monitoring</span>
+<span>배포·관제</span>
+</a>
+<!-- 현장 인력 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-dim font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="engineering">engineering</span>
+<span>현장 인력</span>
+</a>
+<!-- 설정 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-dim font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span>설정</span>
+</a>
+</nav>
+</div>
+<!-- Footer Help Tab -->
+<div class="pt-4 border-t border-outline-variant dark:border-outline">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-dim font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="help_center">help_center</span>
+<span>도움말 &amp; 지원</span>
+</a>
+</div>
+</aside>
+<!-- MAIN CONTENT AREA -->
+<main class="ml-60 flex-1 p-8 min-w-0">
+<!-- PAGE TITLE & META HEADER -->
+<div class="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+<div>
+<div class="flex items-center gap-2.5">
+<h1 class="text-headline-lg font-headline-lg text-[#0F172A] tracking-tight">장비 및 시뮬레이터 호환성 관리</h1>
+<span class="bg-[#EFF6FF] border border-[#BFDBFE] text-[#1E40AF] text-[12px] font-semibold px-2.5 py-0.5 rounded-full">MF-13</span>
+</div>
+<p class="text-secondary font-body-md text-body-md mt-1.5">
+            데모 장치 및 Digital Twin 물리 시뮬레이터 간 RGB 데이터 수집 모달리티, 타임스탬프 동기화 및 궤적 프로토콜의 호환성을 검증합니다.
+          </p>
+</div>
+<!-- Primary Utility Actions (Strictly operational, non-transactional) -->
+<div class="flex items-center gap-3">
+<button class="h-11 px-4 rounded-lg border border-[#D5DDE7] bg-surface-container-lowest hover:bg-[#F8FAFC] text-[#0F172A] text-body-md-medium font-body-md-medium flex items-center gap-2 shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="sync">sync</span>
+<span>프로토콜 재검증</span>
+</button>
+<button class="h-11 px-5 rounded-lg bg-primary-container hover:bg-[#1D4ED8] active:bg-[#1E40AF] text-[#FFFFFF] text-body-md-medium font-body-md-medium flex items-center gap-2 shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_circle">add_circle</span>
+<span>신규 장비 모의 등록</span>
+</button>
+</div>
+</div>
+<!-- SECTION 1: TOP METRIC CARDS (Bento Grid Style) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+<!-- Metric 1: 연동 등록 센서/장비 -->
+<div class="bg-[#FFFFFF] border border-[#D5DDE7] rounded-xl p-5 shadow-[0_1px_3px_0_rgba(15,23,42,0.05)] flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-secondary">연동 등록 센서/장비</span>
+<div class="w-9 h-9 rounded-lg bg-[#EFF6FF] text-[#2563EB] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="devices">devices</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex items-baseline gap-2">
+<span class="text-[32px] font-bold text-[#0F172A] tracking-tight tabular-nums">8</span>
+<span class="text-body-md text-secondary font-medium">종</span>
+</div>
+<div class="mt-2 flex items-center gap-2 text-[12px] text-[#166534] bg-[#F0FDF4] px-2 py-0.5 rounded border border-[#BBF7D0] w-fit font-semibold">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+<span>물리 5종 · 가상 3종 등록</span>
+</div>
+</div>
+</div>
+<!-- Metric 2: 시뮬레이터 지원 프로토콜 -->
+<div class="bg-[#FFFFFF] border border-[#D5DDE7] rounded-xl p-5 shadow-[0_1px_3px_0_rgba(15,23,42,0.05)] flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-secondary">시뮬레이터 지원 프로토콜</span>
+<div class="w-9 h-9 rounded-lg bg-[#F5F3FF] text-[#7C3AED] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="hub">hub</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex items-baseline gap-1.5">
+<span class="text-[20px] font-bold text-[#0F172A] tracking-tight">Isaac Sim 4.0</span>
+</div>
+<div class="mt-2 flex items-center gap-1.5 text-[12px] text-secondary font-medium">
+<span class="w-2 h-2 rounded-full bg-[#10B981]"></span>
+<span>ROS2 Humble 브릿지 연동 중</span>
+</div>
+</div>
+</div>
+<!-- Metric 3: 호환성 시험 완료 -->
+<div class="bg-[#FFFFFF] border border-[#D5DDE7] rounded-xl p-5 shadow-[0_1px_3px_0_rgba(15,23,42,0.05)] flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-secondary">호환성 시험 완료</span>
+<div class="w-9 h-9 rounded-lg bg-[#F0FDF4] text-[#16A34A] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="verified">verified</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex items-baseline gap-2">
+<span class="text-[32px] font-bold text-[#166534] tracking-tight tabular-nums">5</span>
+<span class="text-body-md text-secondary font-medium">건</span>
+</div>
+<div class="mt-2 flex items-center gap-2 text-[12px] text-[#166534] bg-[#F0FDF4] px-2 py-0.5 rounded border border-[#BBF7D0] w-fit font-semibold">
+<span class="material-symbols-outlined text-[14px]" data-icon="task_alt">task_alt</span>
+<span>정밀 노이즈 동기화 완료</span>
+</div>
+</div>
+</div>
+<!-- Metric 4: 인터페이스 보완 필요 -->
+<div class="bg-[#FFFFFF] border border-[#D5DDE7] rounded-xl p-5 shadow-[0_1px_3px_0_rgba(15,23,42,0.05)] flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-secondary">인터페이스 보완 필요</span>
+<div class="w-9 h-9 rounded-lg bg-[#FFFBEB] text-[#D97706] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="warning">warning</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex items-baseline gap-2">
+<span class="text-[32px] font-bold text-[#92400E] tracking-tight tabular-nums">2</span>
+<span class="text-body-md text-secondary font-medium">건</span>
+</div>
+<div class="mt-2 flex items-center gap-2 text-[12px] text-[#92400E] bg-[#FFFBEB] px-2 py-0.5 rounded border border-[#FDE68A] w-fit font-semibold">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+<span>타임스탬프 편차 재교정 대기</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: CATEGORY TABS & FILTER BAR -->
+<div class="bg-[#FFFFFF] border border-[#D5DDE7] rounded-xl p-2.5 mb-6 flex flex-wrap items-center justify-between gap-4">
+<!-- Category Tab Buttons -->
+<div class="flex items-center gap-1.5 overflow-x-auto">
+<button class="px-4 py-2 rounded-lg bg-[#EFF6FF] text-[#2563EB] font-label-md text-label-md font-semibold flex items-center gap-2 border border-[#BFDBFE]">
+<span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span>
+<span>광학 비전 센서</span>
+<span class="bg-[#2563EB] text-[#FFFFFF] text-[11px] px-1.5 py-0.2 rounded-full ml-1">3</span>
+</button>
+<button class="px-4 py-2 rounded-lg text-secondary hover:bg-[#F8FAFC] font-label-md text-label-md font-medium flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="precision_manufacturing">precision_manufacturing</span>
+<span>물리 인터페이스 리그</span>
+<span class="bg-[#E2E8F0] text-secondary text-[11px] px-1.5 py-0.2 rounded-full ml-1">2</span>
+</button>
+<button class="px-4 py-2 rounded-lg text-secondary hover:bg-[#F8FAFC] font-label-md text-label-md font-medium flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="deployed_code">deployed_code</span>
+<span>시뮬레이터 환경</span>
+<span class="bg-[#E2E8F0] text-secondary text-[11px] px-1.5 py-0.2 rounded-full ml-1">2</span>
+</button>
+<button class="px-4 py-2 rounded-lg text-secondary hover:bg-[#F8FAFC] font-label-md text-label-md font-medium flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="developer_board">developer_board</span>
+<span>엣지 컴퓨팅 노드</span>
+<span class="bg-[#E2E8F0] text-secondary text-[11px] px-1.5 py-0.2 rounded-full ml-1">1</span>
+</button>
+</div>
+<!-- Filter Status Options -->
+<div class="flex items-center gap-3 px-2">
+<div class="flex items-center gap-2 text-[13px] text-secondary">
+<span class="material-symbols-outlined text-[16px]" data-icon="filter_alt">filter_alt</span>
+<span>상태 필터:</span>
+</div>
+<select class="h-9 text-[13px] border-[#D5DDE7] rounded-lg bg-[#FFFFFF] py-1 pl-2.5 pr-8 text-[#0F172A] focus:ring-primary focus:border-primary">
+<option>전체 상태 보기</option>
+<option>호환성 검증 완료</option>
+<option>조건부 승인</option>
+<option>인터페이스 보완 필요</option>
+</select>
+</div>
+</div>
+<!-- SECTION 3: DETAILED EQUIPMENT CARD GRID -->
+<section class="mb-10">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-[18px] font-bold text-[#0F172A] flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]" data-icon="tune">tune</span>
+<span>핵심 장비별 모달리티 및 시뮬레이션 호환 규격</span>
+</h2>
+<span class="text-[13px] text-secondary">기준 시간: 2025-02-28 14:30 KST 동기화</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Card 1: [EQ-CAM-01] Sony IMX477 급 정밀 가공품 비전 카메라 리그 -->
+<div class="bg-[#FFFFFF] border border-[#D5DDE7] rounded-xl p-6 shadow-[0_1px_3px_0_rgba(15,23,42,0.05)] flex flex-col justify-between hover:border-primary transition-all">
+<div>
+<!-- Header & Status Badge -->
+<div class="flex items-start justify-between pb-4 border-b border-[#F1F5F9]">
+<div>
+<div class="flex items-center gap-2">
+<span class="text-[12px] font-bold px-2 py-0.5 bg-[#EFF6FF] text-[#1E40AF] rounded border border-[#BFDBFE]">EQ-CAM-01</span>
+<span class="text-[12px] font-medium text-secondary">가상 연동 모드</span>
+</div>
+<h3 class="text-body-lg-medium font-body-lg-medium text-[#0F172A] mt-2 leading-snug">
+                    Sony IMX477 급 정밀 가공품 비전 카메라 리그
+                  </h3>
+</div>
+<!-- Status: 호환성 검증 완료 (#166534) -->
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[12px] font-semibold bg-[#F0FDF4] text-[#166534] border border-[#BBF7D0]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
+<span>호환성 검증 완료</span>
+</span>
+</div>
+<!-- Technical Specifications Specification Details -->
+<div class="mt-4 space-y-3.5">
+<div>
+<span class="text-[12px] font-semibold text-secondary block">입력 모달리티</span>
+<p class="text-[14px] text-[#0F172A] font-medium mt-0.5 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="videocam">videocam</span>
+                    4K RGB @ 60fps · 텔레센트릭 35mm 광학계
+                  </p>
+</div>
+<div>
+<span class="text-[12px] font-semibold text-secondary block">출력 규격 및 인터페이스</span>
+<p class="text-[14px] text-[#0F172A] font-medium mt-0.5 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="cable">cable</span>
+                    MIPI-CSI / USB3 Vision (RAW RGB + 타임스탬프 동기화)
+                  </p>
+</div>
+<div class="p-3 bg-[#F8FAFC] rounded-lg border border-[#E2E8F0]">
+<span class="text-[12px] font-semibold text-[#1E40AF] block flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="science">science</span>
+                    호환 시뮬레이터 (Digital Twin)
+                  </span>
+<p class="text-[13px] text-[#334155] font-medium mt-1 leading-relaxed">
+<strong>Isaac Sim 4.0</strong> — Synthetic 센서 노이즈 모델 및 렌즈 왜곡 가상 셰이더 연동 시험 통과
+                  </p>
+</div>
+</div>
+</div>
+<!-- Card Footer: Telemetry & Actions -->
+<div class="mt-6 pt-4 border-t border-[#F1F5F9] flex items-center justify-between">
+<div class="text-[12px] text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-[#16A34A]" data-icon="timer">timer</span>
+<span>지연: <strong class="text-[#0F172A]">3.2ms</strong></span>
+</div>
+<button class="text-[13px] font-semibold text-primary hover:text-[#1D4ED8] flex items-center gap-1">
+<span>프로토콜 상세</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Card 2: [EQ-ROB-02] 6축 협동 로봇 매니퓰레이터 인터페이스 -->
+<div class="bg-[#FFFFFF] border border-[#D5DDE7] rounded-xl p-6 shadow-[0_1px_3px_0_rgba(15,23,42,0.05)] flex flex-col justify-between hover:border-primary transition-all">
+<div>
+<!-- Header & Status Badge -->
+<div class="flex items-start justify-between pb-4 border-b border-[#F1F5F9]">
+<div>
+<div class="flex items-center gap-2">
+<span class="text-[12px] font-bold px-2 py-0.5 bg-[#EFF6FF] text-[#1E40AF] rounded border border-[#BFDBFE]">EQ-ROB-02</span>
+<span class="text-[12px] font-medium text-secondary">가상 모의 리그</span>
+</div>
+<h3 class="text-body-lg-medium font-body-lg-medium text-[#0F172A] mt-2 leading-snug">
+                    6축 협동 로봇 매니퓰레이터 인터페이스
+                  </h3>
+</div>
+<!-- Status: 조건부 승인 (#1E40AF) -->
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[12px] font-semibold bg-[#EFF6FF] text-[#1E40AF] border border-[#BFDBFE]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#2563EB]"></span>
+<span>조건부 승인</span>
+</span>
+</div>
+<!-- Technical Specifications Specification Details -->
+<div class="mt-4 space-y-3.5">
+<div>
+<span class="text-[12px] font-semibold text-secondary block">제어 프로토콜 규격</span>
+<p class="text-[14px] text-[#0F172A] font-medium mt-0.5 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="terminal">terminal</span>
+                    ROS2 Foxy / Humble, Modbus-TCP 토픽 스트림
+                  </p>
+</div>
+<div>
+<span class="text-[12px] font-semibold text-secondary block">안전 인터록 및 제어 정책</span>
+<p class="text-[14px] text-[#B91C1C] font-semibold mt-0.5 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-[#B91C1C]" data-icon="gpp_bad">gpp_bad</span>
+                    실제 공장 직접 구동 원천 차단 (가상 격벽 보호)
+                  </p>
+</div>
+<div class="p-3 bg-[#F8FAFC] rounded-lg border border-[#E2E8F0]">
+<span class="text-[12px] font-semibold text-[#1E40AF] block flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="science">science</span>
+                    호환 시뮬레이터 (Digital Twin)
+                  </span>
+<p class="text-[13px] text-[#334155] font-medium mt-1 leading-relaxed">
+<strong>Gazebo Sim / Isaac Sim</strong> — 역기구학 궤적 동기화 완료 (조인트 각속도 제한 인터록 검증 중)
+                  </p>
+</div>
+</div>
+</div>
+<!-- Card Footer: Telemetry & Actions -->
+<div class="mt-6 pt-4 border-t border-[#F1F5F9] flex items-center justify-between">
+<div class="text-[12px] text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-[#D97706]" data-icon="timer">timer</span>
+<span>지연: <strong class="text-[#0F172A]">8.4ms</strong> (허용치 내)</span>
+</div>
+<button class="text-[13px] font-semibold text-primary hover:text-[#1D4ED8] flex items-center gap-1">
+<span>프로토콜 상세</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Card 3: [EQ-EDGE-01] RoboHood EdgeBox #02 엣지 추론 장비 -->
+<div class="bg-[#FFFFFF] border border-[#D5DDE7] rounded-xl p-6 shadow-[0_1px_3px_0_rgba(15,23,42,0.05)] flex flex-col justify-between hover:border-primary transition-all">
+<div>
+<!-- Header & Status Badge -->
+<div class="flex items-start justify-between pb-4 border-b border-[#F1F5F9]">
+<div>
+<div class="flex items-center gap-2">
+<span class="text-[12px] font-bold px-2 py-0.5 bg-[#EFF6FF] text-[#1E40AF] rounded border border-[#BFDBFE]">EQ-EDGE-01</span>
+<span class="text-[12px] font-medium text-secondary">엣지 런타임</span>
+</div>
+<h3 class="text-body-lg-medium font-body-lg-medium text-[#0F172A] mt-2 leading-snug">
+                    RoboHood EdgeBox #02 엣지 추론 장비
+                  </h3>
+</div>
+<!-- Status: 드라이버 서명 확인 완료 (#166534) -->
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[12px] font-semibold bg-[#F0FDF4] text-[#166534] border border-[#BBF7D0]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
+<span>드라이버 서명 완료</span>
+</span>
+</div>
+<!-- Technical Specifications Specification Details -->
+<div class="mt-4 space-y-3.5">
+<div>
+<span class="text-[12px] font-semibold text-secondary block">컴퓨팅 사양 &amp; 가속기</span>
+<p class="text-[14px] text-[#0F172A] font-medium mt-0.5 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="memory">memory</span>
+                    가상 32TOPS NPU 가속기 (TensorRT 호환)
+                  </p>
+</div>
+<div>
+<span class="text-[12px] font-semibold text-secondary block">I/O 버스 &amp; 런타임</span>
+<p class="text-[14px] text-[#0F172A] font-medium mt-0.5 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="lan">lan</span>
+                    PCIe Gen4 x4, Dual 10GbE SFP+ (PTP IEEE 1588 지원)
+                  </p>
+</div>
+<div class="p-3 bg-[#F8FAFC] rounded-lg border border-[#E2E8F0]">
+<span class="text-[12px] font-semibold text-[#1E40AF] block flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="science">science</span>
+                    호환 시뮬레이터 (Digital Twin)
+                  </span>
+<p class="text-[13px] text-[#334155] font-medium mt-1 leading-relaxed">
+<strong>Isaac Sim HIL (Hardware-in-the-Loop)</strong> — 가상 비전 스트림 실시간 추론 벤치마크 (58.4 FPS)
+                  </p>
+</div>
+</div>
+</div>
+<!-- Card Footer: Telemetry & Actions -->
+<div class="mt-6 pt-4 border-t border-[#F1F5F9] flex items-center justify-between">
+<div class="text-[12px] text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-[#16A34A]" data-icon="speed">speed</span>
+<span>NPU 로드: <strong class="text-[#0F172A]">42.1%</strong></span>
+</div>
+<button class="text-[13px] font-semibold text-primary hover:text-[#1D4ED8] flex items-center gap-1">
+<span>프로토콜 상세</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: COMPATIBILITY VERIFICATION MATRIX TABLE -->
+<section class="bg-[#FFFFFF] border border-[#D5DDE7] rounded-xl shadow-[0_1px_3px_0_rgba(15,23,42,0.05)] overflow-hidden">
+<!-- Table Header Panel -->
+<div class="p-6 border-b border-[#F1F5F9] flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+<div>
+<div class="flex items-center gap-2">
+<h3 class="text-headline-md font-headline-md text-[#0F172A]">호환성 검증 매트릭스</h3>
+<span class="bg-[#F1F5F9] text-secondary text-[12px] font-semibold px-2 py-0.5 rounded">총 6개 검증 슬롯</span>
+</div>
+<p class="text-secondary text-body-md font-body-md mt-1">
+              실제 하드웨어 인터페이스와 Digital Twin 시뮬레이션 환경 간의 지연시간, 타임스탬프 정밀도, 안전 인터록 규격을 비교 검증합니다.
+            </p>
+</div>
+<!-- Table Utility Controls -->
+<div class="flex items-center gap-2.5">
+<button class="h-9 px-3 text-[13px] font-medium text-secondary bg-[#FFFFFF] border border-[#D5DDE7] hover:bg-[#F8FAFC] rounded-lg flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="file_download">file_download</span>
+<span>CSV 내보내기</span>
+</button>
+<button class="h-9 px-3 text-[13px] font-medium text-primary bg-[#EFF6FF] border border-[#BFDBFE] hover:bg-[#DBEAFE] rounded-lg flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="checklist">checklist</span>
+<span>전체 검증 보고서 발행</span>
+</button>
+</div>
+</div>
+<!-- Table Viewport -->
+<div class="overflow-x-auto custom-scroll">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#F8FAFC] border-b-2 border-[#D5DDE7] h-12 text-[15px] font-bold text-[#475569]">
+<th class="px-6 py-3">장비 식별자 / 명칭</th>
+<th class="px-6 py-3">데이터 프로토콜</th>
+<th class="px-6 py-3">시뮬레이터 연동 상태</th>
+<th class="px-6 py-3">동기화 지연시간</th>
+<th class="px-6 py-3">안전 인터록 (E-Stop)</th>
+<th class="px-6 py-3 text-right">검증 리포트</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#E2E8F0] text-[15px] text-[#0F172A]">
+<!-- Row 1 -->
+<tr class="h-14 hover:bg-[#F8FAFC] transition-colors">
+<td class="px-6 py-3 font-medium">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="photo_camera">photo_camera</span>
+<div>
+<div class="font-semibold text-[#0F172A]">[EQ-CAM-01] Sony IMX477 리그</div>
+<div class="text-[12px] text-secondary">광학 정밀 비전 · 4K RGB</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-3">
+<span class="font-mono text-[13px] bg-[#F1F5F9] px-2 py-0.5 rounded border border-[#E2E8F0]">MIPI-CSI / USB3V</span>
+</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#166534]">
+<span class="w-2 h-2 rounded-full bg-[#16A34A]"></span>
+                    Isaac Sim 4.0 연동 통과
+                  </span>
+</td>
+<td class="px-6 py-3 tabular-nums font-medium text-[#0F172A]">
+<div class="flex items-center gap-1.5">
+<span>3.2 ms</span>
+<span class="text-[11px] text-[#16A34A] bg-[#F0FDF4] px-1 rounded">정상</span>
+</div>
+</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center gap-1 text-[13px] text-[#166534] font-medium">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+                    소프트웨어 락 연동
+                  </span>
+</td>
+<td class="px-6 py-3 text-right">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 text-[13px] font-semibold text-primary hover:bg-[#EFF6FF] rounded border border-transparent hover:border-[#BFDBFE] transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="description">description</span>
+<span>리포트 다운로드</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="h-14 hover:bg-[#F8FAFC] transition-colors">
+<td class="px-6 py-3 font-medium">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="precision_manufacturing">precision_manufacturing</span>
+<div>
+<div class="font-semibold text-[#0F172A]">[EQ-ROB-02] 6축 협동로봇 매니퓰레이터</div>
+<div class="text-[12px] text-secondary">UR5e 급 모의 제어 리그</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-3">
+<span class="font-mono text-[13px] bg-[#F1F5F9] px-2 py-0.5 rounded border border-[#E2E8F0]">ROS2 Humble / Modbus</span>
+</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#1E40AF]">
+<span class="w-2 h-2 rounded-full bg-[#2563EB]"></span>
+                    Gazebo Sim 궤적 동기화
+                  </span>
+</td>
+<td class="px-6 py-3 tabular-nums font-medium text-[#0F172A]">
+<div class="flex items-center gap-1.5">
+<span>8.4 ms</span>
+<span class="text-[11px] text-[#1E40AF] bg-[#EFF6FF] px-1 rounded">양호</span>
+</div>
+</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center gap-1 text-[13px] text-[#B91C1C] font-semibold">
+<span class="material-symbols-outlined text-[16px]" data-icon="lock">lock</span>
+                    공장 직결 차단 (격벽 활성)
+                  </span>
+</td>
+<td class="px-6 py-3 text-right">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 text-[13px] font-semibold text-primary hover:bg-[#EFF6FF] rounded border border-transparent hover:border-[#BFDBFE] transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="description">description</span>
+<span>리포트 다운로드</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="h-14 hover:bg-[#F8FAFC] transition-colors">
+<td class="px-6 py-3 font-medium">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="developer_board">developer_board</span>
+<div>
+<div class="font-semibold text-[#0F172A]">[EQ-EDGE-01] RoboHood EdgeBox #02</div>
+<div class="text-[12px] text-secondary">32TOPS 산업용 엣지 추론기</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-3">
+<span class="font-mono text-[13px] bg-[#F1F5F9] px-2 py-0.5 rounded border border-[#E2E8F0]">gRPC / ZeroMQ / PTP</span>
+</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#166534]">
+<span class="w-2 h-2 rounded-full bg-[#16A34A]"></span>
+                    Isaac HIL 테스트 완료
+                  </span>
+</td>
+<td class="px-6 py-3 tabular-nums font-medium text-[#0F172A]">
+<div class="flex items-center gap-1.5">
+<span>1.1 ms</span>
+<span class="text-[11px] text-[#16A34A] bg-[#F0FDF4] px-1 rounded">초저지연</span>
+</div>
+</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center gap-1 text-[13px] text-[#166534] font-medium">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+                    하드웨어 Watchdog 적용
+                  </span>
+</td>
+<td class="px-6 py-3 text-right">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 text-[13px] font-semibold text-primary hover:bg-[#EFF6FF] rounded border border-transparent hover:border-[#BFDBFE] transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="description">description</span>
+<span>리포트 다운로드</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="h-14 hover:bg-[#F8FAFC] transition-colors">
+<td class="px-6 py-3 font-medium">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="sensors">sensors</span>
+<div>
+<div class="font-semibold text-[#0F172A]">[EQ-SNS-03] 공정 3D ToF 라이다 센서</div>
+<div class="text-[12px] text-secondary">가공 치수 단차 스캔 리그</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-3">
+<span class="font-mono text-[13px] bg-[#F1F5F9] px-2 py-0.5 rounded border border-[#E2E8F0]">Ethernet UDP / ROS2</span>
+</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#92400E]">
+<span class="w-2 h-2 rounded-full bg-[#D97706]"></span>
+                    포인트클라우드 지연 보정 필요
+                  </span>
+</td>
+<td class="px-6 py-3 tabular-nums font-medium text-[#0F172A]">
+<div class="flex items-center gap-1.5">
+<span>18.6 ms</span>
+<span class="text-[11px] text-[#92400E] bg-[#FFFBEB] px-1 rounded">주의</span>
+</div>
+</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center gap-1 text-[13px] text-[#166534] font-medium">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+                    안전 영역 감지 연동
+                  </span>
+</td>
+<td class="px-6 py-3 text-right">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 text-[13px] font-semibold text-secondary hover:bg-[#F1F5F9] rounded border border-transparent transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="build">build</span>
+<span>교정 로그 확인</span>
+</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="h-14 hover:bg-[#F8FAFC] transition-colors">
+<td class="px-6 py-3 font-medium">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="conveyor_belt">conveyor_belt</span>
+<div>
+<div class="font-semibold text-[#0F172A]">[EQ-PLC-01] 고속 이송 벨트 가상 컨트롤러</div>
+<div class="text-[12px] text-secondary">PLC 모의 인터페이스 노드</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-3">
+<span class="font-mono text-[13px] bg-[#F1F5F9] px-2 py-0.5 rounded border border-[#E2E8F0]">OPC-UA / Profinet</span>
+</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#166534]">
+<span class="w-2 h-2 rounded-full bg-[#16A34A]"></span>
+                    시뮬레이터 물리 엔진 동기화 완료
+                  </span>
+</td>
+<td class="px-6 py-3 tabular-nums font-medium text-[#0F172A]">
+<div class="flex items-center gap-1.5">
+<span>4.8 ms</span>
+<span class="text-[11px] text-[#16A34A] bg-[#F0FDF4] px-1 rounded">정상</span>
+</div>
+</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center gap-1 text-[13px] text-[#166534] font-medium">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+                    하드웨어 E-Stop 루프 연동
+                  </span>
+</td>
+<td class="px-6 py-3 text-right">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 text-[13px] font-semibold text-primary hover:bg-[#EFF6FF] rounded border border-transparent hover:border-[#BFDBFE] transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="description">description</span>
+<span>리포트 다운로드</span>
+</button>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="h-14 hover:bg-[#F8FAFC] transition-colors">
+<td class="px-6 py-3 font-medium">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="videocam">videocam</span>
+<div>
+<div class="font-semibold text-[#0F172A]">[EQ-CAM-02] 결함 판별 현미경 매크로 리그</div>
+<div class="text-[12px] text-secondary">표면 미세 크랙 검사용 광학계</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-3">
+<span class="font-mono text-[13px] bg-[#F1F5F9] px-2 py-0.5 rounded border border-[#E2E8F0]">CoaXPress / GenICam</span>
+</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#92400E]">
+<span class="w-2 h-2 rounded-full bg-[#D97706]"></span>
+                    광학 굴절 셰이더 프로파일 시험 중
+                  </span>
+</td>
+<td class="px-6 py-3 tabular-nums font-medium text-[#0F172A]">
+<div class="flex items-center gap-1.5">
+<span>12.1 ms</span>
+<span class="text-[11px] text-[#92400E] bg-[#FFFBEB] px-1 rounded">주의</span>
+</div>
+</td>
+<td class="px-6 py-3">
+<span class="inline-flex items-center gap-1 text-[13px] text-[#166534] font-medium">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+                    조명 셔터 세이프티 가동
+                  </span>
+</td>
+<td class="px-6 py-3 text-right">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 text-[13px] font-semibold text-secondary hover:bg-[#F1F5F9] rounded border border-transparent transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="build">build</span>
+<span>교정 로그 확인</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination & Footer Status -->
+<div class="p-4 bg-[#F8FAFC] border-t border-[#E2E8F0] flex flex-col sm:flex-row items-center justify-between gap-3 text-[13px] text-secondary">
+<div class="flex items-center gap-2">
+<span>표시 항목: <strong class="text-[#0F172A]">1 - 6</strong> / 전체 8개 장비</span>
+<span class="text-[#CBD5E1]">|</span>
+<span class="flex items-center gap-1 text-[#166534]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
+              타임스탬프 동기화 정밀도: ±0.2ms 이내 유지
+            </span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded border border-[#D5DDE7] bg-[#FFFFFF] text-secondary flex items-center justify-center hover:bg-[#F1F5F9] disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded border border-primary bg-primary text-[#FFFFFF] font-medium flex items-center justify-center">1</button>
+<button class="w-8 h-8 rounded border border-[#D5DDE7] bg-[#FFFFFF] text-[#0F172A] font-medium flex items-center justify-center hover:bg-[#F1F5F9]">2</button>
+<button class="w-8 h-8 rounded border border-[#D5DDE7] bg-[#FFFFFF] text-secondary flex items-center justify-center hover:bg-[#F1F5F9]">
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- SECTION 5: DOMAIN SAFETY & REGULATORY CALLOUT BANNER -->
+<div class="mt-8 p-4 bg-[#F0FDF4] border border-[#BBF7D0] rounded-xl flex items-start gap-3">
+<span class="material-symbols-outlined text-[#166534] text-[24px] mt-0.5" data-icon="verified_user">verified_user</span>
+<div class="text-[13px] text-[#166534] leading-relaxed">
+<span class="font-bold block text-[14px]">Physical AI 시뮬레이션 호환 규정 준수</span>
+          본 화면에 등록된 장비는 제조 현장 안전 규격에 따라 실제 라인 모터 제어 신호를 직접 방출하지 않으며, 
+          Isaac Sim 4.0 및 Gazebo Digital Twin 환경의 인실리코(In-Silico) 검증용 데이터셋 생성 용도로만 동작하도록 하드웨어 인터록이 체결되어 있습니다.
+        </div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MF-15 실시간 관제 | RoboHood Physical AI</title>
+<!-- Font & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary": "#2c4bb9",
+            "on-surface": "#131b2e",
+            "surface": "#faf8ff",
+            "primary-fixed": "#dbe1ff",
+            "on-secondary-fixed-variant": "#3a485b",
+            "surface-bright": "#faf8ff",
+            "inverse-surface": "#283044",
+            "on-secondary-container": "#57657a",
+            "on-background": "#131b2e",
+            "on-primary-fixed-variant": "#003ea8",
+            "outline": "#737686",
+            "surface-container-high": "#e2e7ff",
+            "secondary-fixed": "#d5e3fc",
+            "secondary": "#515f74",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "primary-fixed-dim": "#b4c5ff",
+            "secondary-container": "#d5e3fc",
+            "inverse-on-surface": "#eef0ff",
+            "on-primary-fixed": "#00174b",
+            "on-error-container": "#93000a",
+            "background": "#faf8ff",
+            "on-tertiary-container": "#eff0ff",
+            "on-tertiary-fixed-variant": "#173bab",
+            "surface-container-highest": "#dae2fd",
+            "secondary-fixed-dim": "#b9c7df",
+            "surface-container-low": "#f2f3ff",
+            "on-error": "#ffffff",
+            "surface-tint": "#0053db",
+            "surface-container": "#eaedff",
+            "on-primary": "#ffffff",
+            "primary": "#004ac6",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "surface-dim": "#d2d9f4",
+            "on-primary-container": "#eeefff",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#0d1c2e",
+            "on-surface-variant": "#434655",
+            "primary-container": "#2563eb",
+            "outline-variant": "#c3c6d7",
+            "tertiary-fixed": "#dde1ff",
+            "tertiary-container": "#4865d4",
+            "on-tertiary-fixed": "#001453",
+            "inverse-primary": "#b4c5ff",
+            "surface-variant": "#dae2fd",
+            "tertiary-fixed-dim": "#b8c4ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-xl": "2rem",
+            "margin": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Noto Sans"],
+            "headline-lg-mobile": ["Noto Sans"],
+            "headline-md-mobile": ["Noto Sans"],
+            "label-sm": ["Noto Sans"],
+            "body-lg-medium": ["Noto Sans"],
+            "body-lg": ["Noto Sans"],
+            "label-md": ["Noto Sans"],
+            "headline-md": ["Noto Sans"],
+            "body-md-medium": ["Noto Sans"],
+            "body-md": ["Noto Sans"]
+          },
+          "fontSize": {
+            "headline-lg": ["32px", {"lineHeight": "48px", "fontWeight": "700"}],
+            "headline-lg-mobile": ["24px", {"lineHeight": "36px", "fontWeight": "700"}],
+            "headline-md-mobile": ["22px", {"lineHeight": "33px", "fontWeight": "600"}],
+            "label-sm": ["13px", {"lineHeight": "18px", "fontWeight": "600"}],
+            "body-lg-medium": ["17px", {"lineHeight": "26px", "fontWeight": "500"}],
+            "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+            "label-md": ["15px", {"lineHeight": "22px", "fontWeight": "500"}],
+            "headline-md": ["24px", {"lineHeight": "36px", "fontWeight": "600"}],
+            "body-md-medium": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.15); }
+    }
+    .animate-pulse-dot {
+      animation: pulse-dot 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  </style>
+</head>
+<body class="bg-[#F4F7FB] text-on-surface font-body-md antialiased min-h-screen flex flex-col selection:bg-primary selection:text-white">
+<!-- Top Navigation Bar (Shared Component Executed Exactly) -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 h-16 bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm">
+<!-- Left: Brand + Demo Simulation Badge + Breadcrumbs -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight">RoboHood</span>
+<span class="text-secondary font-label-md text-label-md">|</span>
+</div>
+<!-- Mandatory Simulation Persistent Badge -->
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center px-2.5 py-1 rounded bg-[#EFF6FF] border border-[#BFDBFE] text-[#1E40AF] font-label-sm text-label-sm">
+          제조업 v1 · 데모 데이터
+        </span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-low border border-outline-variant text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          시뮬레이터 가상 환경 (Isaac Sim Digital Twin)
+        </span>
+</div>
+</div>
+<!-- Right Actions: Search / Actions / Operator Profile -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 bg-[#F8FAFC] border border-outline-variant px-3 py-1.5 rounded-lg text-secondary">
+<span class="material-symbols-outlined text-secondary">search</span>
+<input class="bg-transparent border-none text-body-md font-body-md text-on-surface focus:outline-none placeholder:text-secondary w-56 text-sm" placeholder="설비, 센서, 가상 태그 검색..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-9 h-9 flex items-center justify-center rounded-lg text-secondary hover:bg-surface-container hover:text-on-surface transition-colors duration-150 relative" title="알림">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span>
+</button>
+<button class="w-9 h-9 flex items-center justify-center rounded-lg text-secondary hover:bg-surface-container hover:text-on-surface transition-colors duration-150" title="화면 전환">
+<span class="material-symbols-outlined">swap_horiz</span>
+</button>
+<button class="w-9 h-9 flex items-center justify-center rounded-lg text-secondary hover:bg-surface-container hover:text-on-surface transition-colors duration-150" title="도움말">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+<div class="h-6 w-px bg-outline-variant"></div>
+<!-- User Profile -->
+<div class="flex items-center gap-2.5 pl-1 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-primary font-bold text-sm border border-outline-variant">
+          김
+        </div>
+<div class="flex flex-col text-left">
+<span class="font-body-md-medium text-body-md-medium text-on-surface leading-tight">김검수</span>
+<span class="text-[11px] text-secondary font-label-sm leading-tight">현장 운영 총괄 관리자</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Side Navigation Bar (Fixed 240px Desktop, Active: 배포·관제) -->
+<aside class="fixed top-16 left-0 bottom-0 w-60 z-40 flex flex-col justify-between p-4 bg-surface-container-low dark:bg-inverse-surface border-r border-outline-variant dark:border-outline">
+<!-- Header Block -->
+<div class="flex flex-col gap-4">
+<div class="px-2 pt-1 pb-2 border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded bg-primary-container text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">precision_manufacturing</span>
+</div>
+<div>
+<h2 class="text-sm font-bold text-on-surface leading-tight">RoboHood</h2>
+<p class="text-[11px] text-secondary leading-tight">제조업 Physical AI 플랫폼</p>
+</div>
+</div>
+</div>
+<!-- Nav Tabs -->
+<nav class="flex flex-col gap-1">
+<!-- 0: 개요 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>개요</span>
+</a>
+<!-- 1: 현장 탐색 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span>현장 탐색</span>
+</a>
+<!-- 2: 현장 과제 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span>현장 과제</span>
+</a>
+<!-- 3: 데이터 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">dataset</span>
+<span>데이터</span>
+</a>
+<!-- 4: 모델 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span>모델</span>
+</a>
+<!-- 5: 장비 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">precision_manufacturing</span>
+<span>장비</span>
+</a>
+<!-- 6: 배포·관제 (ACTIVE PER REQUIREMENTS) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-secondary-container text-primary font-body-md-medium text-body-md-medium shadow-xs" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+<span>배포·관제</span>
+</a>
+<!-- 7: 현장 인력 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">engineering</span>
+<span>현장 인력</span>
+</a>
+<!-- 8: 설정 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>설정</span>
+</a>
+</nav>
+</div>
+<!-- Footer Support Tab -->
+<div class="pt-3 border-t border-outline-variant">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">help_center</span>
+<span>도움말 & 지원</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-60 mt-16 p-6 flex-1 flex flex-col gap-6">
+<!-- 1. 관제 헤더 바 -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-4 flex-wrap">
+<div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-semibold px-2 py-0.5 rounded bg-surface-container text-secondary">화면 ID: MF-15</span>
+<h1 class="font-headline-md text-headline-md text-on-surface">실시간 관제</h1>
+</div>
+<p class="text-sm text-secondary mt-0.5">가상 실증 셀 A-3 (소형 가공 부품 외관 검사 시뮬레이터)</p>
+</div>
+<div class="h-8 w-px bg-outline-variant hidden md:block"></div>
+<!-- Telemetry Pill Badges -->
+<div class="flex items-center gap-3 flex-wrap">
+<!-- Status Badge -->
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534] font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse-dot"></span>
+<span>가상 시뮬레이션 가동 중</span>
+</div>
+<!-- FPS Badge -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low border border-outline-variant text-on-surface font-label-sm text-label-sm">
+<span class="text-secondary font-normal">FPS:</span>
+<span class="font-bold text-primary">30 fps</span>
+</div>
+<!-- Latency Badge -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low border border-outline-variant text-on-surface font-label-sm text-label-sm">
+<span class="text-secondary font-normal">지연시간:</span>
+<span class="font-bold text-[#166534]">16ms</span>
+</div>
+<!-- Responsible Engineer -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] text-[#1E40AF] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">person</span>
+<span class="text-secondary font-normal">담당 FDE:</span>
+<span class="font-semibold">김검수</span>
+</div>
+</div>
+</div>
+<!-- Quick Session Controls -->
+<div class="flex items-center gap-2">
+<button class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-outline-variant text-sm font-medium text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+          카메라 파라미터
+        </button>
+<button class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-outline-variant text-sm font-medium text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+          피드 리셋
+        </button>
+</div>
+</section>
+<!-- 2 & 3. 중앙 관제 영역 (좌: RGB 4K 시뮬레이터 피드, 우: 실시간 판별 텔레메트리 & 메트릭) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
+<!-- 2. 중앙 좌측: 가상 카메라 피드 뷰어 (Col 7) -->
+<section class="xl:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm flex flex-col">
+<div class="flex items-center justify-between pb-3 border-b border-[#F1F5F9] mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">videocam</span>
+<h2 class="text-lg font-bold text-on-surface">실시간 가상 카메라 피드 (RGB 4K Stream)</h2>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container text-xs text-secondary font-mono">CAM-01 [Top Angle]</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-[#FEF2F2] border border-[#FECACA] text-[#B91C1C] text-xs font-semibold">LIVE</span>
+</div>
+</div>
+<!-- Camera Stream Viewport with AI Overlays -->
+<div class="relative w-full aspect-[16/10] bg-[#0F172A] rounded-lg overflow-hidden border border-outline-variant flex items-center justify-center group">
+<!-- Synthetic Machinery Background Feed -->
+<img class="w-full h-full object-cover opacity-85 select-none" data-alt="High precision industrial metallic precision machined automotive cylinder block undergoing automated visual camera inspection inside a clean test cell simulator with subtle optical blue LED industrial lighting reflections and metallic textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_hla34S3aJDGL-8j82zekn6hCajSie6mXNSn2Ne7puZHJCKC-N5hKUAhK_eKlLY-hOZdnnDffnAuT_60el_5SYFajsd6qauWDVL8bz6Sx3zoOQtt_u6kEOwvtnJrX0TrDo_x8D1f4oDPgieXmLBQ6a_0lyRXFXmZ64BMJPF47OQATNjKt1QuV7NznaUCXtpxCc152_H3zgxxRoVUpCdzBdFc6r5JJ0YMajIfU-8ThT2wKPM978Ts"/>
+<!-- Viewport HUD Overlay Grid Lines -->
+<div class="absolute inset-0 pointer-events-none border border-white/10 grid grid-cols-3 grid-rows-3">
+<div class="border-r border-b border-white/5"></div>
+<div class="border-r border-b border-white/5"></div>
+<div class="border-b border-white/5"></div>
+<div class="border-r border-b border-white/5"></div>
+<div class="border-r border-b border-white/5 flex items-center justify-center">
+<span class="w-4 h-4 border-t border-l border-white/40"></span>
+<span class="w-2 h-2 rounded-full border border-white/30"></span>
+<span class="w-4 h-4 border-b border-r border-white/40"></span>
+</div>
+<div class="border-b border-white/5"></div>
+<div class="border-r border-white/5"></div>
+<div class="border-r border-white/5"></div>
+<div></div>
+</div>
+<!-- Overlaid AI Bounding Box 1: Normal Area (Green) -->
+<div class="absolute top-[28%] left-[20%] w-[26%] h-[34%] border-2 border-[#22C55E] rounded bg-[#22C55E]/10 pointer-events-none flex flex-col justify-between p-1">
+<div class="bg-[#22C55E] text-black text-[11px] font-bold px-1.5 py-0.5 rounded-xs w-max tracking-wide">
+              SURFACE_OK · 99.2%
+            </div>
+<span class="text-[10px] text-[#86EFAC] font-mono self-end">ROI_#A1</span>
+</div>
+<!-- Overlaid AI Bounding Box 2: Defect Area (Red CRACK-01) -->
+<div class="absolute top-[38%] right-[22%] w-[28%] h-[32%] border-2 border-[#EF4444] rounded bg-[#EF4444]/20 pointer-events-none flex flex-col justify-between p-1.5 shadow-[0_0_15px_rgba(239,68,68,0.45)]">
+<div class="flex items-center justify-between">
+<div class="bg-[#DC2626] text-white text-[11px] font-bold px-1.5 py-0.5 rounded-xs flex items-center gap-1 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+                CRACK-01 Conf: 87.4%
+              </div>
+<span class="text-[10px] text-white bg-black/60 px-1 rounded font-mono">SEV: HIGH</span>
+</div>
+<div class="flex items-end justify-between">
+<span class="text-[10px] text-[#FCA5A5] font-mono tracking-tighter">Loc: [X:1420, Y:984]</span>
+<span class="text-[10px] text-[#EF4444] font-bold bg-white/90 px-1 rounded">미세 균열 감지</span>
+</div>
+</div>
+<!-- Bottom Floating Telemetry Overlay on Stream -->
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between px-3 py-2 rounded bg-black/60 backdrop-blur-xs text-white text-xs border border-white/10 font-mono">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1 text-slate-300">
+<span class="material-symbols-outlined text-[15px] text-amber-400">light_mode</span>
+                가상 조명: <strong class="text-white">4,500 lx</strong>
+</span>
+<span class="text-slate-500">|</span>
+<span class="flex items-center gap-1 text-slate-300">
+<span class="material-symbols-outlined text-[15px] text-blue-400">center_focus_strong</span>
+                화각 (FOV): <strong class="text-white">82.4° (FL: 16mm)</strong>
+</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-emerald-400">SimSync: LOCKED</span>
+<span class="text-slate-400">Resolution: 3840×2160</span>
+</div>
+</div>
+</div>
+<!-- Stream Feed Controls & Meta Subtext -->
+<div class="mt-3 flex items-center justify-between text-xs text-secondary px-1">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-xs bg-[#22C55E]"></span> 초록색: 정상 표면 영역</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-xs bg-[#EF4444]"></span> 붉은색: 비정상 결함 후보 (Threshold > 0.80)</span>
+</div>
+<span class="text-secondary font-mono">Model: Edge-YOLO-Physical-v3.4.1</span>
+</div>
+</section>
+<!-- 3. 중앙 우측: 실시간 판별 텔레메트리 & 메트릭 (Col 5) -->
+<section class="xl:col-span-5 flex flex-col gap-6">
+<!-- 추론 속도 및 NPU 부하 카드 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm">
+<div class="flex items-center justify-between pb-3 border-b border-[#F1F5F9] mb-4">
+<h2 class="text-base font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">speed</span>
+              추론 속도 및 엣지 가상 컴퓨팅
+            </h2>
+<span class="text-xs text-[#166534] bg-[#F0FDF4] border border-[#BBF7D0] px-2 py-0.5 rounded font-medium">정상 범위</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-3.5 bg-surface-container-low rounded-lg border border-outline-variant/60">
+<div class="text-xs text-secondary mb-1">평균 추론 속도</div>
+<div class="flex items-baseline gap-1.5">
+<span class="text-2xl font-bold text-on-surface font-mono">18.4</span>
+<span class="text-xs text-secondary">ms</span>
+</div>
+<div class="mt-2 text-[11px] text-[#166534] flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                SLA 기준(< 25ms) 충족
+              </div>
+</div>
+<div class="p-3.5 bg-surface-container-low rounded-lg border border-outline-variant/60">
+<div class="text-xs text-secondary mb-1">EdgeBox #02 NPU 부하</div>
+<div class="flex items-baseline gap-1.5">
+<span class="text-2xl font-bold text-primary font-mono">42</span>
+<span class="text-xs text-secondary">%</span>
+</div>
+<!-- Mini Progress Bar -->
+<div class="w-full bg-outline-variant/40 rounded-full h-1.5 mt-2.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 42%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- 판별 결과 집계 요약 카드 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm">
+<div class="flex items-center justify-between pb-3 border-b border-[#F1F5F9] mb-4">
+<div>
+<h2 class="text-base font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">pie_chart</span>
+                판별 결과 집계 현황
+              </h2>
+<span class="text-xs text-secondary">총 가상 시운전 누적: <strong class="text-on-surface font-mono">2,450건</strong></span>
+</div>
+<span class="text-xs font-semibold text-[#1E40AF] bg-[#EFF6FF] px-2 py-1 rounded border border-[#BFDBFE]">수율 97.1%</span>
+</div>
+<!-- Stacked Bar Visual -->
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden flex mb-4">
+<div class="bg-[#16A34A] h-full" style="width: 97.1%;" title="양품 97.1%"></div>
+<div class="bg-[#DC2626] h-full" style="width: 2.4%;" title="미세 결함 2.4%"></div>
+<div class="bg-[#F59E0B] h-full" style="width: 0.5%;" title="보류 0.5%"></div>
+</div>
+<!-- Metrics 3 Columns -->
+<div class="grid grid-cols-3 gap-3 text-center">
+<div class="p-3 bg-[#F0FDF4] border border-[#BBF7D0] rounded-lg">
+<span class="text-xs font-medium text-[#166534] block">양품 판정</span>
+<span class="text-xl font-bold text-[#166534] font-mono mt-0.5 block">2,380</span>
+<span class="text-[11px] text-[#166534]/80 font-mono">97.1%</span>
+</div>
+<div class="p-3 bg-[#FEF2F2] border border-[#FECACA] rounded-lg">
+<span class="text-xs font-medium text-[#B91C1C] block">미세 결함</span>
+<span class="text-xl font-bold text-[#B91C1C] font-mono mt-0.5 block">58</span>
+<span class="text-[11px] text-[#B91C1C]/80 font-mono">2.4%</span>
+</div>
+<div class="p-3 bg-[#FFFBEB] border border-[#FDE68A] rounded-lg">
+<span class="text-xs font-medium text-[#92400E] block">분류 보류</span>
+<span class="text-xl font-bold text-[#92400E] font-mono mt-0.5 block">12</span>
+<span class="text-[11px] text-[#92400E]/80 font-mono">0.5%</span>
+</div>
+</div>
+</div>
+<!-- 실시간 프레임 인입/추론 그래프 (최근 60초) -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm flex-1 flex flex-col justify-between">
+<div class="flex items-center justify-between pb-2 border-b border-[#F1F5F9]">
+<h2 class="text-base font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">show_chart</span>
+              프레임 인입 / 추론 동향 (최근 60초)
+            </h2>
+<div class="flex items-center gap-3 text-xs">
+<span class="flex items-center gap-1"><span class="w-2.5 h-0.5 bg-[#2563EB]"></span> 추론 속도(ms)</span>
+<span class="flex items-center gap-1"><span class="w-2.5 h-0.5 bg-[#10B981]"></span> 인입 프레임(fps)</span>
+</div>
+</div>
+<!-- Synthetic Waveform Canvas Representation using SVG -->
+<div class="my-3 w-full h-24 bg-surface-container-low rounded-lg p-2 flex flex-col justify-end relative overflow-hidden">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 400 80">
+<!-- Grid lines -->
+<line stroke="#E2E8F0" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="400" y1="20" y2="20"></line>
+<line stroke="#E2E8F0" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="400" y1="40" y2="40"></line>
+<line stroke="#E2E8F0" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="400" y1="60" y2="60"></line>
+<!-- Frame Rate Area/Line (Green: stably near 30fps) -->
+<path d="M0,35 Q30,34 60,36 T120,35 T180,34 T240,36 T300,35 T360,34 L400,35" fill="none" stroke="#10B981" stroke-width="2"></path>
+<!-- Inference Latency Line (Blue: fluctuates around 18ms with minor blips) -->
+<path d="M0,52 Q40,54 80,50 T160,51 T220,62 T280,49 T340,51 L400,50" fill="none" stroke="#2563EB" stroke-width="2"></path>
+</svg>
+<div class="flex justify-between text-[10px] text-secondary font-mono px-1">
+<span>-60초</span>
+<span>-45초</span>
+<span>-30초</span>
+<span>-15초</span>
+<span>현재 (0s)</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs text-secondary">
+<span>패킷 유실률: <strong class="text-on-surface font-mono">0.00%</strong></span>
+<span>지터(Jitter): <strong class="text-on-surface font-mono">1.2ms</strong></span>
+</div>
+</div>
+</section>
+</div>
+<!-- 4. 하단: 실시간 이벤트 로그 & 가상 비상 제어 영역 -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm">
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 pb-4 border-b border-[#F1F5F9] mb-4">
+<div>
+<h2 class="text-base font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">list_alt</span>
+            실시간 이벤트 로그 및 시뮬레이터 제어
+          </h2>
+<p class="text-xs text-secondary mt-0.5">실시간 판별 추론 이벤트 트리거 및 가상 검증 액추에이터 신호 송수신 기록</p>
+</div>
+<!-- Primary Control Action Buttons -->
+<div class="flex items-center gap-2.5 flex-wrap">
+<!-- Action 1: MF-16 연결 -->
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-lg border border-primary text-primary hover:bg-[#EFF6FF] text-sm font-medium transition-colors">
+<span class="material-symbols-outlined text-[18px]">bookmark_add</span>
+            이상치 이벤트 수집 등록 (MF-16 연계)
+          </button>
+<!-- Action 2: 시뮬레이터 일시 정지 -->
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-lg border border-outline-variant bg-white text-on-surface hover:bg-surface-container text-sm font-medium transition-colors">
+<span class="material-symbols-outlined text-[18px]">pause</span>
+            시뮬레이터 일시 정지
+          </button>
+<!-- Action 3: 가상 E-Stop (비상 정지) Strictly Destructive Style Guidance Compliant -->
+<button class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#B91C1C] hover:bg-[#991B1B] text-white text-sm font-semibold shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[18px]">gpp_bad</span>
+            가상 E-Stop (비상 정지)
+          </button>
+</div>
+</div>
+<!-- Event Table / Log Stream -->
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm">
+<thead>
+<tr class="bg-[#F8FAFC] border-b-2 border-outline-variant text-xs font-bold text-[#475569]">
+<th class="py-2.5 px-3">발생 시각</th>
+<th class="py-2.5 px-3">이벤트 구분</th>
+<th class="py-2.5 px-3">심각도</th>
+<th class="py-2.5 px-3">이벤트 상세 내용</th>
+<th class="py-2.5 px-3">가상 제어/액추에이터 상태</th>
+<th class="py-2.5 px-3 text-right">상세 분석</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#E2E8F0] font-body-md">
+<!-- Row 1: Defect Crack-01 Detected -->
+<tr class="hover:bg-[#F8FAFC] transition-colors">
+<td class="py-3 px-3 font-mono text-xs text-on-surface font-semibold">[14:42:10]</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-[#FEF2F2] border border-[#FECACA] text-[#B91C1C] text-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-[#DC2626]"></span> 결함 검출
+                </span>
+</td>
+<td class="py-3 px-3">
+<span class="text-xs font-bold text-[#B91C1C]">High (경고)</span>
+</td>
+<td class="py-3 px-3 text-on-surface">
+<span class="font-semibold text-[#B91C1C]">CRACK-01</span> 결함 검출 (신뢰도: 87.4%, 영역: [1420, 984, 180, 210])
+              </td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 text-xs text-[#166534] font-medium">
+<span class="material-symbols-outlined text-[16px] text-[#16A34A]">send</span>
+                  가상 분류 액추에이터 신호 송신 정상 (Air Ejector-03)
+                </span>
+</td>
+<td class="py-3 px-3 text-right">
+<button class="text-primary hover:underline text-xs font-medium">프레임 스냅샷</button>
+</td>
+</tr>
+<!-- Row 2: Lighting Flicker Compensation -->
+<tr class="hover:bg-[#F8FAFC] transition-colors">
+<td class="py-3 px-3 font-mono text-xs text-on-surface">[14:41:55]</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-[#EFF6FF] border border-[#BFDBFE] text-[#1E40AF] text-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-[#2563EB]"></span> 환경 보정
+                </span>
+</td>
+<td class="py-3 px-3">
+<span class="text-xs font-medium text-secondary">Info (정보)</span>
+</td>
+<td class="py-3 px-3 text-on-surface">
+                조명 광원 일시적 플리커(시뮬레이션 노이즈) 발생 감지 및 Gain 파라미터 자동 보정 완료
+              </td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 text-xs text-secondary">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+                  가상 카메라 ISP Exposure Auto Lock (4,500 lx 유지)
+                </span>
+</td>
+<td class="py-3 px-3 text-right">
+<button class="text-primary hover:underline text-xs font-medium">로그 확인</button>
+</td>
+</tr>
+<!-- Row 3: Routine Heartbeat -->
+<tr class="hover:bg-[#F8FAFC] transition-colors">
+<td class="py-3 px-3 font-mono text-xs text-secondary">[14:40:02]</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-on-surface-variant text-xs">
+                  상태 점검
+                </span>
+</td>
+<td class="py-3 px-3">
+<span class="text-xs font-medium text-secondary">Low</span>
+</td>
+<td class="py-3 px-3 text-secondary">
+                EdgeBox #02 텔레메트리 헬스체크 정상 (NPU 온도: 48°C, 메모리: 3.2GB / 16GB)
+              </td>
+<td class="py-3 px-3">
+<span class="text-xs text-secondary">정상 수신</span>
+</td>
+<td class="py-3 px-3 text-right">
+<button class="text-secondary hover:underline text-xs">시스템</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+</body></html>

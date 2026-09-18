@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoboHood 모바일 작업함</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Public Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "text-inverse": "#FFFFFF",
+            "surface-dim": "#d7dade",
+            "info-text": "#1E40AF",
+            "border-control": "#64748B",
+            "surface-container-highest": "#e0e3e7",
+            "success-text": "#166534",
+            "on-tertiary-fixed-variant": "#7d2d00",
+            "outline": "#737686",
+            "inverse-surface": "#2d3134",
+            "on-surface": "#181c1f",
+            "surface-variant": "#e0e3e7",
+            "action-pressed": "#1E40AF",
+            "info-bg": "#EFF6FF",
+            "error-text": "#B91C1C",
+            "on-primary-fixed-variant": "#003ea8",
+            "on-background": "#181c1f",
+            "on-surface-variant": "#434655",
+            "action-hover": "#1D4ED8",
+            "text-primary": "#0F172A",
+            "surface-bright": "#f7fafe",
+            "text-secondary": "#475569",
+            "error-container": "#ffdad6",
+            "surface": "#f7fafe",
+            "on-error-container": "#93000a",
+            "primary-fixed": "#dbe1ff",
+            "on-primary-fixed": "#00174b",
+            "focus-ring": "#2563EB",
+            "on-primary-container": "#eeefff",
+            "inverse-on-surface": "#eef1f5",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#ffb596",
+            "tertiary-container": "#bc4800",
+            "surface-canvas": "#F4F7FB",
+            "inverse-primary": "#b4c5ff",
+            "success-bg": "#F0FDF4",
+            "on-tertiary": "#ffffff",
+            "surface-container": "#ebeef2",
+            "border-subtle": "#D5DDE7",
+            "neutral-status-text": "#475569",
+            "on-secondary-fixed": "#0d1c2e",
+            "on-tertiary-container": "#ffede6",
+            "primary-fixed-dim": "#b4c5ff",
+            "primary-container": "#2563eb",
+            "secondary-fixed": "#d5e3fc",
+            "tertiary-fixed": "#ffdbcd",
+            "surface-container-low": "#f1f4f8",
+            "surface-tint": "#0053db",
+            "on-tertiary-fixed": "#360f00",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "on-secondary-container": "#57657a",
+            "text-hint": "#64748B",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#d5e3fc",
+            "warning-text": "#92400E",
+            "primary": "#004ac6",
+            "error-bg": "#FEF2F2",
+            "on-secondary-fixed-variant": "#3a485b",
+            "outline-variant": "#c3c6d7",
+            "surface-selected": "#EFF6FF",
+            "tertiary": "#943700",
+            "warning-bg": "#FFFBEB",
+            "neutral-status-bg": "#F4F7FB",
+            "secondary": "#515f74",
+            "background": "#f7fafe",
+            "on-error": "#ffffff",
+            "secondary-fixed-dim": "#b9c7df",
+            "surface-subtle": "#F8FAFC",
+            "surface-card": "#FFFFFF",
+            "surface-container-high": "#e5e8ec"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter-desktop": "1.5rem",
+            "gutter": "1rem",
+            "margin-tablet": "1.5rem",
+            "space-xs": "0.25rem",
+            "margin-desktop": "2rem",
+            "space-lg": "1.5rem",
+            "margin": "1rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "label-md": ["Public Sans"],
+            "headline-lg": ["Public Sans"],
+            "body-md": ["Public Sans"],
+            "body-lg": ["Public Sans"],
+            "headline-sm": ["Public Sans"],
+            "headline-md": ["Public Sans"],
+            "body-sm": ["Public Sans"],
+            "label-lg": ["Public Sans"],
+            "label-sm": ["Public Sans"],
+            "headline-lg-mobile": ["Public Sans"]
+          },
+          "fontSize": {
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-canvas min-h-screen text-text-primary flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Device Screen Container (390px viewport simulation) -->
+<div class="w-full max-w-[390px] min-h-screen bg-surface-canvas flex flex-col relative pb-24 shadow-sm border-x border-border-subtle">
+<!-- Top Bar -->
+<header class="sticky top-0 z-30 w-full h-16 px-4 bg-surface-card flex items-center justify-between shadow-[0_1px_3px_rgba(15,23,42,0.06)]">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-text-inverse">
+<span class="material-symbols-outlined text-[18px]">precision_manufacturing</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-text-primary leading-tight tracking-tight">RoboHood 모바일</span>
+<span class="font-body-sm text-body-sm text-text-secondary">김민수 오퍼레이터 (데모)</span>
+</div>
+</div>
+<div class="flex items-center space-x-1">
+<button aria-label="알림" class="w-10 h-10 rounded-lg flex items-center justify-center text-text-secondary hover:bg-surface-subtle transition-colors relative">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error-text ring-2 ring-surface-card"></span>
+</button>
+</div>
+</header>
+<!-- Sub-Header / Operator Status Bar -->
+<div class="px-4 py-3 bg-surface-subtle flex items-center justify-between border-b border-border-subtle">
+<div class="flex items-center space-x-2">
+<span class="inline-block w-2 h-2 rounded-full bg-success-text"></span>
+<span class="font-label-sm text-label-sm text-text-secondary font-medium">현장 수집 모드 활성</span>
+</div>
+<div class="font-label-sm text-label-sm text-text-hint bg-surface-card px-2 py-0.5 rounded border border-border-subtle">
+        오퍼레이터 ID: OP-9042
+      </div>
+</div>
+<!-- Segmented Tab Bar -->
+<div class="px-4 pt-3 pb-2 bg-surface-canvas">
+<div class="grid grid-cols-3 gap-1 p-1 bg-surface-subtle rounded-lg border border-border-subtle">
+<button class="py-2 text-center rounded-lg bg-surface-card text-primary font-label-md text-label-md shadow-sm transition-all flex items-center justify-center space-x-1">
+<span>배정 요청</span>
+<span class="px-1.5 py-0.2 bg-info-bg text-info-text text-label-sm font-label-sm rounded-full">1</span>
+</button>
+<button class="py-2 text-center rounded-lg text-text-secondary hover:text-text-primary font-label-md text-label-md transition-colors flex items-center justify-center space-x-1">
+<span>진행 중</span>
+<span class="px-1.5 py-0.2 bg-surface-container text-neutral-status-text text-label-sm font-label-sm rounded-full">1</span>
+</button>
+<button class="py-2 text-center rounded-lg text-text-secondary hover:text-text-primary font-label-md text-label-md transition-colors flex items-center justify-center space-x-1">
+<span>완료 및 보상</span>
+<span class="px-1.5 py-0.2 bg-surface-container text-neutral-status-text text-label-sm font-label-sm rounded-full">2</span>
+</button>
+</div>
+</div>
+<!-- Main Content Canvas -->
+<main class="px-4 py-2 space-y-4 flex-1">
+<!-- Section 1: 신규 배정 요청 (조건 확인 필요) -->
+<section class="space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">assignment_turned_in</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary">신규 배정 요청 (조건 확인 필요)</h2>
+</div>
+<span class="font-label-sm text-label-sm text-text-hint">실시간 제안</span>
+</div>
+<!-- Task Card: RH-SB-001 -->
+<article class="bg-surface-card rounded-xl border border-border-subtle p-4 shadow-sm space-y-3 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-warning-text"></div>
+<!-- Card Header & Badge -->
+<div class="flex items-start justify-between pl-1">
+<div class="space-y-0.5">
+<span class="font-label-sm text-label-sm text-text-hint">과제 코드 RH-SB-001</span>
+<h3 class="font-label-lg text-label-lg font-bold text-text-primary">트레이 위 컵 정리 영상 수집</h3>
+</div>
+<!-- Status Badge: Warning/Pending Condition -->
+<span class="inline-flex items-center px-2 py-1 rounded text-label-sm font-label-sm bg-warning-bg text-warning-text">
+              조건 확인 대기
+            </span>
+</div>
+<!-- Metadata Spec Grid -->
+<div class="pl-1 bg-surface-subtle p-2.5 rounded-lg border border-border-subtle space-y-1.5 text-body-sm font-body-sm">
+<div class="flex items-center justify-between">
+<span class="text-text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-text-hint">storefront</span>
+                현장
+              </span>
+<span class="font-label-sm text-label-sm text-text-primary">모의 카페 A (마포 서교 구역)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-text-hint">schedule</span>
+                일정
+              </span>
+<span class="font-label-sm text-label-sm text-text-primary">2026-09-20 14:00 (약 45분 예상)</span>
+</div>
+<div class="flex items-center justify-between border-t border-border-subtle pt-1.5">
+<span class="text-text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-text-hint">payments</span>
+                합의 제안 보상
+              </span>
+<div class="text-right">
+<span class="font-label-lg text-label-lg text-primary font-bold">25,000원</span>
+<span class="block font-label-sm text-label-sm text-text-hint">(세전 모의 기준, 모의 지급 대기 예정)</span>
+</div>
+</div>
+</div>
+<!-- Mandatory Notice Box -->
+<div class="pl-1 bg-info-bg border border-border-subtle rounded-lg p-2.5 flex items-start space-x-2">
+<span class="material-symbols-outlined text-info-text text-[18px] shrink-0 mt-0.5">verified_user</span>
+<p class="font-body-sm text-body-sm text-info-text leading-tight">
+              현장 수집 조건 및 안전 수칙을 먼저 검토해야 수락이 가능합니다.
+            </p>
+</div>
+<!-- Primary Action Button (48px height, #2563EB primary-container) -->
+<button class="w-full h-12 bg-primary-container hover:bg-action-hover active:bg-action-pressed text-text-inverse font-label-lg text-label-lg rounded flex items-center justify-center space-x-2 transition-colors focus:ring-2 focus:ring-focus-ring focus:outline-none">
+<span class="material-symbols-outlined text-[20px]">rule</span>
+<span>조건 검토 및 수락</span>
+</button>
+</article>
+</section>
+<!-- Section 2: 내 진행 과제 현황 -->
+<section class="space-y-2 pt-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">pending_actions</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary">내 진행 과제 현황</h2>
+</div>
+<span class="font-label-sm text-label-sm text-text-secondary">최근 1건</span>
+</div>
+<!-- Task Card: RH-SB-004 -->
+<article class="bg-surface-card rounded-xl border border-border-subtle p-4 shadow-sm space-y-2.5 relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="space-y-0.5">
+<span class="font-label-sm text-label-sm text-text-hint">과제 코드 RH-SB-004</span>
+<h3 class="font-label-lg text-label-lg font-bold text-text-primary">출입구 조도 변화 데이터</h3>
+</div>
+<!-- Success Status Badge -->
+<span class="inline-flex items-center px-2 py-1 rounded text-label-sm font-label-sm bg-success-bg text-success-text font-semibold">
+              검수 완료 · 모의 정산 대기
+            </span>
+</div>
+<!-- Quick Metrics Bar -->
+<div class="flex items-center justify-between py-2 border-y border-border-subtle text-body-sm font-body-sm">
+<span class="text-text-secondary">확정 예정 보상</span>
+<span class="font-label-md text-label-md text-text-primary font-bold">20,000원 <span class="font-normal text-text-hint text-label-sm">(모의)</span></span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-text-secondary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-text-hint">check_circle</span>
+              라벨링 품질 검수 통과 (100%)
+            </span>
+<button class="font-label-sm text-label-sm text-primary hover:underline">상세 보기</button>
+</div>
+</article>
+</section>
+<!-- Bottom Disclaimer / Protocol Policy Notice -->
+<div class="p-3 bg-neutral-status-bg rounded-lg border border-border-subtle mt-4">
+<div class="flex items-start space-x-2">
+<span class="material-symbols-outlined text-text-hint text-[18px] shrink-0 mt-0.5">info</span>
+<p class="font-body-sm text-body-sm text-text-secondary leading-snug">
+            소상공인 v1 · 데모 데이터. 수락 전 조건 합의가 필수이며 강제 배정이나 자동 지급은 지원하지 않습니다.
+          </p>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile 4-tab anchor) -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] h-16 bg-surface-card flex items-center justify-around z-40 shadow-[0_-2px_8px_rgba(15,23,42,0.06)]">
+<!-- Home Tab -->
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-text-secondary hover:text-text-primary transition-colors">
+<span class="material-symbols-outlined text-[22px]">home</span>
+<span class="font-label-sm text-label-sm mt-0.5">홈</span>
+</button>
+<!-- Active Tab: 작업함 (Work Inbox) -->
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-primary relative">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">inbox</span>
+<span class="font-label-sm text-label-sm font-bold mt-0.5">작업함</span>
+<span class="w-1 h-1 rounded-full bg-primary absolute top-1.5 right-6"></span>
+</button>
+<!-- Training Tab -->
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-text-secondary hover:text-text-primary transition-colors">
+<span class="material-symbols-outlined text-[22px]">school</span>
+<span class="font-label-sm text-label-sm mt-0.5">교육</span>
+</button>
+<!-- History Tab -->
+<button class="flex flex-col items-center justify-center flex-1 py-1 text-text-secondary hover:text-text-primary transition-colors">
+<span class="material-symbols-outlined text-[22px]">history</span>
+<span class="font-label-sm text-label-sm mt-0.5">내 이력</span>
+</button>
+</nav>
+</div>
+</body></html>

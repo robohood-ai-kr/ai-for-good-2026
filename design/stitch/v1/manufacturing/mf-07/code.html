@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MF-07 수집팀·현장 인력 매칭 - RoboHood</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Noto Sans Korean Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed-dim": "#b9c7df",
+            "tertiary": "#2c4bb9",
+            "secondary-fixed": "#d5e3fc",
+            "tertiary-fixed-dim": "#b8c4ff",
+            "on-primary-fixed": "#00174b",
+            "on-secondary": "#ffffff",
+            "inverse-on-surface": "#eef0ff",
+            "on-primary-container": "#eeefff",
+            "on-error": "#ffffff",
+            "primary": "#004ac6",
+            "primary-fixed": "#dbe1ff",
+            "surface-container": "#eaedff",
+            "outline": "#737686",
+            "secondary-container": "#d5e3fc",
+            "on-tertiary-fixed-variant": "#173bab",
+            "inverse-surface": "#283044",
+            "surface-container-high": "#e2e7ff",
+            "on-secondary-fixed-variant": "#3a485b",
+            "on-secondary-container": "#57657a",
+            "surface-tint": "#0053db",
+            "on-surface-variant": "#434655",
+            "tertiary-fixed": "#dde1ff",
+            "inverse-primary": "#b4c5ff",
+            "primary-fixed-dim": "#b4c5ff",
+            "surface-bright": "#faf8ff",
+            "surface": "#faf8ff",
+            "surface-container-low": "#f2f3ff",
+            "on-background": "#131b2e",
+            "error-container": "#ffdad6",
+            "surface-dim": "#d2d9f4",
+            "primary-container": "#2563eb",
+            "on-tertiary-container": "#eff0ff",
+            "on-secondary-fixed": "#0d1c2e",
+            "background": "#faf8ff",
+            "on-tertiary-fixed": "#001453",
+            "tertiary-container": "#4865d4",
+            "surface-container-lowest": "#ffffff",
+            "on-primary": "#ffffff",
+            "secondary": "#515f74",
+            "error": "#ba1a1a",
+            "surface-container-highest": "#dae2fd",
+            "outline-variant": "#c3c6d7",
+            "on-surface": "#131b2e",
+            "surface-variant": "#dae2fd",
+            "on-error-container": "#93000a",
+            "on-primary-fixed-variant": "#003ea8",
+            "on-tertiary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "margin": "1.5rem",
+            "margin-mobile": "1rem"
+          },
+          "fontFamily": {
+            "headline-md-mobile": ["Noto Sans KR", "Noto Sans", "sans-serif"],
+            "body-md-medium": ["Noto Sans KR", "Noto Sans", "sans-serif"],
+            "headline-lg": ["Noto Sans KR", "Noto Sans", "sans-serif"],
+            "label-md": ["Noto Sans KR", "Noto Sans", "sans-serif"],
+            "label-sm": ["Noto Sans KR", "Noto Sans", "sans-serif"],
+            "body-lg-medium": ["Noto Sans KR", "Noto Sans", "sans-serif"],
+            "body-lg": ["Noto Sans KR", "Noto Sans", "sans-serif"],
+            "headline-md": ["Noto Sans KR", "Noto Sans", "sans-serif"],
+            "body-md": ["Noto Sans KR", "Noto Sans", "sans-serif"],
+            "headline-lg-mobile": ["Noto Sans KR", "Noto Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-md-mobile": ["22px", { "lineHeight": "33px", "fontWeight": "600" }],
+            "body-md-medium": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "label-md": ["15px", { "lineHeight": "22px", "fontWeight": "500" }],
+            "label-sm": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "body-lg-medium": ["17px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "36px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
+      background-color: #F4F7FB;
+      color: #131B2E;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#F4F7FB] text-on-surface antialiased overflow-x-hidden">
+<!-- ================= TOP NAV BAR (Shared Component JSON) ================= -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 h-16 bg-surface-container-lowest border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-6">
+<!-- Brand Logo -->
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl font-bold" data-icon="smart_toy">smart_toy</span>
+<span class="text-headline-md font-headline-md font-bold text-primary tracking-tight">RoboHood</span>
+</div>
+<!-- Simulation Badge (Mandatory: 제조업 v1 · 데모 데이터) -->
+<div class="flex items-center gap-2 px-2.5 py-1 rounded bg-[#EFF6FF] border border-[#BFDBFE] text-[#1E40AF] text-label-sm font-label-sm">
+<span class="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse"></span>
+<span>제조업 v1 · 데모 데이터</span>
+</div>
+</div>
+<!-- Center Search Bar Placeholder / Operational Mode -->
+<div class="hidden md:flex items-center gap-3 bg-[#F8FAFC] border border-[#D5DDE7] rounded-lg px-3 py-1.5 w-80">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="search">search</span>
+<input class="bg-transparent border-none p-0 text-label-md font-label-md text-on-surface focus:outline-none w-full" placeholder="과제 코드, 현장 인력, 라이선스 번호 검색" readonly="" type="text" value="[RH-MF-001] 소형 부품 외관 검사"/>
+</div>
+<!-- Trailing Icon Actions & Operator Profile -->
+<div class="flex items-center gap-4">
+<button aria-label="Notifications" class="p-2 text-secondary hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors duration-150 relative" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button aria-label="Swap Context" class="p-2 text-secondary hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="swap_horiz">swap_horiz</span>
+</button>
+<button aria-label="Help" class="p-2 text-secondary hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="help">help</span>
+</button>
+<div class="h-6 w-px bg-outline-variant mx-1"></div>
+<!-- Operator Profile -->
+<div class="flex items-center gap-3 pl-2">
+<div class="w-9 h-9 rounded-full bg-secondary-container flex items-center justify-center text-primary font-bold text-sm border border-[#BFDBFE]">
+          현관
+        </div>
+<div class="hidden lg:flex flex-col text-left">
+<span class="text-label-md font-label-md font-semibold text-on-surface leading-tight">현장 총괄 책임관</span>
+<span class="text-[11px] text-secondary font-medium">한빛정밀 실증관제</span>
+</div>
+</div>
+</div>
+</header>
+<!-- ================= SIDE NAV BAR (Shared Component JSON) ================= -->
+<aside class="fixed top-16 left-0 bottom-0 w-60 z-40 flex flex-col justify-between p-4 bg-surface-container-low border-r border-outline-variant">
+<div class="space-y-4">
+<!-- Sub-header branding -->
+<div class="px-2 py-1">
+<div class="text-headline-md font-headline-md font-bold text-primary">RoboHood</div>
+<div class="text-label-sm font-label-sm text-secondary">제조업 Physical AI 플랫폼</div>
+</div>
+<!-- Navigation Tabs (Tab 8: '현장 인력' ACTIVE) -->
+<nav class="space-y-1">
+<!-- 1. 개요 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>개요</span>
+</a>
+<!-- 2. 현장 탐색 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span>현장 탐색</span>
+</a>
+<!-- 3. 현장 과제 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span>현장 과제</span>
+</a>
+<!-- 4. 데이터 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dataset">dataset</span>
+<span>데이터</span>
+</a>
+<!-- 5. 모델 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span>모델</span>
+</a>
+<!-- 6. 장비 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="precision_manufacturing">precision_manufacturing</span>
+<span>장비</span>
+</a>
+<!-- 7. 배포·관제 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span>배포·관제</span>
+</a>
+<!-- 8. 현장 인력 (ACTIVE MANDATE) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-secondary-container text-primary font-body-md-medium text-body-md-medium" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="engineering">engineering</span>
+<span class="font-bold">현장 인력</span>
+</a>
+<!-- 9. 설정 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>설정</span>
+</a>
+</nav>
+</div>
+<!-- Side Footer -->
+<div class="border-t border-outline-variant pt-3">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container text-label-md font-label-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="help_center">help_center</span>
+<span>도움말 &amp; 지원</span>
+</a>
+</div>
+</aside>
+<!-- ================= MAIN CONTENT WORKSPACE (Canvas) ================= -->
+<main class="ml-60 pt-16 min-h-screen pb-16">
+<div class="p-6 max-w-7xl mx-auto space-y-6">
+<!-- 1. Header & Breadcrumbs Section -->
+<section class="space-y-1">
+<nav class="flex items-center gap-2 text-label-sm font-label-sm text-secondary">
+<span class="hover:text-primary cursor-pointer">현장 과제 관리</span>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<span class="hover:text-primary cursor-pointer font-medium">[RH-MF-001]</span>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-semibold">수집팀·현장 인력 매칭</span>
+</nav>
+<div class="flex items-end justify-between pt-1">
+<div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface tracking-tight">수집팀 및 현장 인력 매칭 (Workforce Assignment)</h1>
+<p class="text-body-md font-body-md text-secondary mt-1">
+              과제 수행을 위한 청년 Physical AI 현장 수집팀을 적격 매칭하고 안전 교육 및 유급 실무 계약 조건을 확인합니다.
+            </p>
+</div>
+<div class="flex items-center gap-2 text-label-sm font-label-sm bg-[#FFFFFF] border border-[#D5DDE7] px-3 py-2 rounded-lg text-secondary">
+<span class="material-symbols-outlined text-primary text-base" data-icon="verified_user">verified_user</span>
+<span>산업안전보건법 제31조 안전보증 게이트 가동 중</span>
+</div>
+</div>
+</section>
+<!-- 2. Task Summary Card (상단 매칭 대상 과제 요약 바) -->
+<section class="bg-surface-container-lowest border border-[#D5DDE7] rounded-xl p-5 shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="space-y-1 border-b lg:border-b-0 lg:border-r border-[#E2E8F0] pb-3 lg:pb-0 lg:pr-6">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded text-xs font-semibold bg-primary-fixed text-on-primary-fixed">[RH-MF-001]</span>
+<span class="text-label-sm font-label-sm text-secondary font-medium">단위 공정 실증</span>
+</div>
+<h2 class="text-body-lg-medium font-body-lg-medium text-on-surface">소형 부품 외관 검사 RGB 데이터 수집</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 flex-1">
+<!-- Col 1: 실증 현장 -->
+<div>
+<div class="text-[12px] text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="factory">factory</span> 실증 현장
+              </div>
+<div class="text-body-md-medium font-body-md-medium text-on-surface mt-0.5">한빛 정밀</div>
+<div class="text-label-sm font-label-sm text-secondary">모의 현장 A-3셀</div>
+</div>
+<!-- Col 2: 필요 인력 / 감독자 -->
+<div>
+<div class="text-[12px] text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="groups">groups</span> 필요 인력 / 감독관
+              </div>
+<div class="text-body-md-medium font-body-md-medium text-on-surface mt-0.5">수집 오퍼레이터 3명</div>
+<div class="text-label-sm font-label-sm text-[#166534] font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#166534]"></span> 윤성민 부장 (상주 확인)
+              </div>
+</div>
+<!-- Col 3: 유급 보상 조건 -->
+<div>
+<div class="text-[12px] text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="payments">payments</span> 보상 조건 (시간당)
+              </div>
+<div class="text-body-md-medium font-body-md-medium text-primary font-bold mt-0.5">28,500원 / 시간</div>
+<div class="text-label-sm font-label-sm text-secondary">총 15시간 수집 공수</div>
+</div>
+<!-- Col 4: 법정 안전 요건 -->
+<div>
+<div class="text-[12px] text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="health_and_safety">health_and_safety</span> 안전 요건
+              </div>
+<div class="text-body-md-medium font-body-md-medium text-on-surface mt-0.5">기초안전교육 2시간</div>
+<div class="text-label-sm font-label-sm text-secondary">+ 모의 현장 실사 1시간</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Strict Role Separation Alert Box [직무 분리 엄격 규칙] -->
+<section class="bg-[#FFFBEB] border border-[#FDE68A] rounded-xl p-4 flex items-start gap-3.5">
+<span class="material-symbols-outlined text-[#92400E] text-2xl shrink-0 mt-0.5" data-icon="warning">warning</span>
+<div class="space-y-1">
+<div class="text-label-md font-label-md font-bold text-[#92400E] flex items-center gap-2">
+<span>[직무 분리 원칙] 수집 오퍼레이터 vs 현장 적용 엔지니어(FDE) 자동 승급 불가 안내</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-[#FEF3C7] text-[#78350F] border border-[#FCD34D]">산안 안전 지침 준수</span>
+</div>
+<p class="text-body-md font-body-md text-[#78350F] leading-relaxed">
+            초급 <strong>‘데이터 수집 오퍼레이터’</strong>는 비가동 센서 리그 촬영, 라벨 초안 및 로그 기록 업무에만 전념하며, 가동 모션 제어 및 공정 설비에 직접 개입하지 않습니다. 고급 <strong>‘FDE(현장 적용 엔지니어)’</strong> 직무는 별도의 하드웨어 시뮬레이터 라이선스 및 자격 인증 엔지니어만 배정 가능하며, 수집 오퍼레이터와 엄격히 분리 운영됩니다.
+          </p>
+</div>
+</section>
+<!-- 4. Two-Column Workspace (7:5 Ratio) -->
+<div class="grid grid-cols-12 gap-6 items-start">
+<!-- ================= LEFT COLUMN: Workforce Pool Discovery (7 Columns) ================= -->
+<div class="col-span-12 lg:col-span-7 space-y-4">
+<!-- Filter Tabs & Meta -->
+<div class="bg-surface-container-lowest border border-[#D5DDE7] rounded-xl p-4 shadow-sm space-y-4">
+<div class="flex items-center justify-between border-b border-[#F1F5F9] pb-3">
+<div class="flex items-center gap-3">
+<button class="px-3.5 py-2 rounded-lg bg-primary-container text-white font-label-md text-label-md shadow-sm flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-base" data-icon="groups">groups</span>
+<span>팀 단위 배정 (로컬 수집 전문팀)</span>
+</button>
+<button class="px-3.5 py-2 rounded-lg text-secondary hover:bg-surface-container font-label-md text-label-md transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-base" data-icon="person">person</span>
+<span>개별 오퍼레이터 매칭</span>
+</button>
+</div>
+<span class="text-label-sm font-label-sm text-secondary">추천 순위 정렬 기준: 안전 이수율 100%</span>
+</div>
+<!-- Team Option 1 (추천 1순위 - SELECTED) -->
+<div class="relative bg-[#FFFFFF] border-2 border-primary rounded-xl p-5 shadow-sm transition-all">
+<!-- Selected Badge Rib -->
+<div class="absolute -top-3 right-5 bg-primary text-white text-xs font-bold px-3 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs" data-icon="check_circle">check_circle</span>
+<span>매칭 1순위 추천 (선택됨)</span>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2.5">
+<h3 class="text-headline-md font-headline-md font-bold text-on-surface">로컬 청년 수집 1팀</h3>
+<!-- Status Badge: 조건 충족 -->
+<span class="px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-semibold bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#166534]"></span>
+                      매칭 적격 (조건 충족)
+                    </span>
+</div>
+<p class="text-body-md font-body-md text-secondary mt-1">
+                    인천·시흥 로컬 청년 인력 양성 4기 이수팀 · 비가동 제조 데이터 전담
+                  </p>
+</div>
+<div class="text-right">
+<span class="text-xs text-secondary font-medium">안전 교육 이수율</span>
+<div class="text-headline-md font-bold text-[#166534]">100%</div>
+</div>
+</div>
+<!-- Team Members Detail Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-4">
+<!-- Member 1 -->
+<div class="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg">
+<div class="flex items-center justify-between">
+<span class="text-body-md-medium font-body-md-medium font-semibold text-on-surface">김민준</span>
+<span class="text-[11px] font-bold px-1.5 py-0.5 rounded bg-primary-fixed text-on-primary-fixed">팀장</span>
+</div>
+<div class="text-label-sm font-label-sm text-secondary mt-0.5">수집 오퍼레이터 (초급)</div>
+<div class="mt-2 text-[11px] text-[#166534] flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-xs" data-icon="verified">verified</span> 산안법 이수 [제31호]
+                  </div>
+</div>
+<!-- Member 2 -->
+<div class="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg">
+<div class="flex items-center justify-between">
+<span class="text-body-md-medium font-body-md-medium font-semibold text-on-surface">이서연</span>
+<span class="text-[11px] font-medium px-1.5 py-0.5 rounded bg-[#E2E8F0] text-secondary">팀원</span>
+</div>
+<div class="text-label-sm font-label-sm text-secondary mt-0.5">수집 오퍼레이터 (초급)</div>
+<div class="mt-2 text-[11px] text-[#166534] flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-xs" data-icon="verified">verified</span> 산안법 이수 [제32호]
+                  </div>
+</div>
+<!-- Member 3 -->
+<div class="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg">
+<div class="flex items-center justify-between">
+<span class="text-body-md-medium font-body-md-medium font-semibold text-on-surface">박지훈</span>
+<span class="text-[11px] font-medium px-1.5 py-0.5 rounded bg-[#E2E8F0] text-secondary">팀원</span>
+</div>
+<div class="text-label-sm font-label-sm text-secondary mt-0.5">수집 오퍼레이터 (초급)</div>
+<div class="mt-2 text-[11px] text-[#166534] flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-xs" data-icon="verified">verified</span> 산안법 이수 [제33호]
+                  </div>
+</div>
+</div>
+<!-- Qualifications Meta Info -->
+<div class="mt-4 pt-3 border-t border-[#F1F5F9] flex flex-wrap items-center justify-between gap-2 text-label-sm font-label-sm text-secondary">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary" data-icon="task_alt">task_alt</span>
+                    유사 이력: 정밀 금속 부품 외관 촬영 2회
+                  </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary" data-icon="emergency">emergency</span>
+                    E-Stop 모의 훈련 이수
+                  </span>
+</div>
+<span class="text-primary font-bold">배정 선택 유지 중</span>
+</div>
+</div>
+<!-- Team Option 2 (추천 2순위 - RESTRICTED) -->
+<div class="bg-[#FFFFFF] border border-[#D5DDE7] rounded-xl p-5 shadow-sm opacity-85 hover:opacity-100 transition-opacity">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2.5">
+<h3 class="text-headline-md font-headline-md font-bold text-on-surface">시흥 청년 제조 AI 서포터즈 B팀</h3>
+<!-- Status Badge: 주의/제한 -->
+<span class="px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-semibold bg-[#FFFBEB] border border-[#FDE68A] text-[#92400E] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#92400E]"></span>
+                      교육 미완료 1명
+                    </span>
+</div>
+<p class="text-body-md font-body-md text-secondary mt-1">
+                    신규 구성팀 · 자동차 샤시 프레스 데이터 수집 실습 1회
+                  </p>
+</div>
+<div class="text-right">
+<span class="text-xs text-secondary font-medium">안전 교육 이수율</span>
+<div class="text-headline-md font-bold text-[#92400E]">66.7%</div>
+</div>
+</div>
+<!-- Team Member preview -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-4">
+<div class="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg">
+<div class="flex items-center justify-between">
+<span class="text-body-md-medium font-body-md-medium text-on-surface">강도윤</span>
+<span class="text-[11px] px-1.5 py-0.5 rounded bg-[#E2E8F0] text-secondary">팀장</span>
+</div>
+<div class="text-[11px] text-[#166534] mt-2 font-medium">안전교육 완료</div>
+</div>
+<div class="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg">
+<div class="flex items-center justify-between">
+<span class="text-body-md-medium font-body-md-medium text-on-surface">송하은</span>
+<span class="text-[11px] px-1.5 py-0.5 rounded bg-[#E2E8F0] text-secondary">팀원</span>
+</div>
+<div class="text-[11px] text-[#166534] mt-2 font-medium">안전교육 완료</div>
+</div>
+<div class="p-3 bg-[#FEF2F2] border border-[#FECACA] rounded-lg">
+<div class="flex items-center justify-between">
+<span class="text-body-md-medium font-body-md-medium text-[#B91C1C] font-semibold">최현우</span>
+<span class="text-[11px] px-1.5 py-0.5 rounded bg-[#FECACA] text-[#B91C1C]">미이수</span>
+</div>
+<div class="text-[11px] text-[#B91C1C] mt-2 font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="error">error</span>
+                    기초안전 2시간 미완료
+                  </div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#F1F5F9] flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-[#B91C1C] flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="block">block</span>
+                  배정 제한: 안전교육 전원 수료 후 활성화됩니다.
+                </span>
+<button class="px-3 py-1.5 text-label-sm font-label-sm text-secondary bg-[#FFFFFF] border border-[#D5DDE7] rounded-lg hover:bg-[#F8FAFC]" type="button">
+                  보수 교육 일정 안내
+                </button>
+</div>
+</div>
+<!-- FDE Assigned Preview Information -->
+<div class="bg-[#EFF6FF] border border-[#BFDBFE] rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-[#2563EB] text-white flex items-center justify-center font-bold">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+</div>
+<div>
+<div class="text-body-md-medium font-body-md-medium text-[#1E40AF] font-bold">
+                    독립 배정 엔지니어: FDE (현장 적용 엔지니어) 김검수
+                  </div>
+<div class="text-label-sm font-label-sm text-secondary">
+                    자격인증: RoboHood Level-3 시뮬레이터 시험 검수관 (오퍼레이터 승급/겸직 불가)
+                  </div>
+</div>
+</div>
+<span class="px-2 py-1 rounded bg-white text-[12px] font-semibold text-[#1E40AF] border border-[#BFDBFE]">
+                검수 전담 확정
+              </span>
+</div>
+</div>
+</div>
+<!-- ================= RIGHT COLUMN: Pre-Approval Checklist & CTA (5 Columns) ================= -->
+<div class="col-span-12 lg:col-span-5 space-y-4">
+<div class="bg-surface-container-lowest border border-[#D5DDE7] rounded-xl p-6 shadow-sm space-y-5">
+<div class="border-b border-[#F1F5F9] pb-4">
+<div class="text-label-sm font-label-sm text-secondary">적격성 심사 및 배정 승인</div>
+<h3 class="text-headline-md font-headline-md font-bold text-on-surface mt-0.5">배정 대상: 로컬 청년 수집 1팀 (3명)</h3>
+<p class="text-label-md font-label-md text-secondary mt-1">
+                작업 투입 전 4대 필수 사전 승인 요건이 전원 검증되었습니다.
+              </p>
+</div>
+<!-- 4대 필수 사전 승인 체크리스트 -->
+<div class="space-y-3">
+<div class="text-label-sm font-label-sm font-bold text-on-surface flex items-center justify-between">
+<span>4대 필수 사전 승인 체크리스트</span>
+<span class="text-[#166534] font-semibold">4 / 4 충족 (승인 가능)</span>
+</div>
+<!-- Checklist Item 1 -->
+<div class="p-3.5 rounded-lg bg-[#F0FDF4] border border-[#BBF7D0] flex items-start gap-3">
+<span class="material-symbols-outlined text-[#166534] text-xl shrink-0 mt-0.5" data-icon="check_box">check_box</span>
+<div class="flex-1">
+<div class="text-body-md-medium font-body-md-medium text-[#166534] font-semibold">1. 현장 출입 및 안전보호구 확인</div>
+<div class="text-label-sm font-label-sm text-secondary mt-0.5">
+                    방진복, 정전기 방지화 규격 검증 완료 · 3명 전원 보호구 착용 점검 통과
+                  </div>
+</div>
+</div>
+<!-- Checklist Item 2 -->
+<div class="p-3.5 rounded-lg bg-[#F0FDF4] border border-[#BBF7D0] flex items-start gap-3">
+<span class="material-symbols-outlined text-[#166534] text-xl shrink-0 mt-0.5" data-icon="check_box">check_box</span>
+<div class="flex-1">
+<div class="text-body-md-medium font-body-md-medium text-[#166534] font-semibold">2. 모의 가공셀 비상정지(E-Stop) 위치 숙지</div>
+<div class="text-label-sm font-label-sm text-secondary mt-0.5">
+                    A-3셀 인터록 체계 및 비상 전원 차단기 3개소 위치 실습 완료
+                  </div>
+</div>
+</div>
+<!-- Checklist Item 3 -->
+<div class="p-3.5 rounded-lg bg-[#F0FDF4] border border-[#BBF7D0] flex items-start gap-3">
+<span class="material-symbols-outlined text-[#166534] text-xl shrink-0 mt-0.5" data-icon="check_box">check_box</span>
+<div class="flex-1">
+<div class="text-body-md-medium font-body-md-medium text-[#166534] font-semibold">3. 유급 실무 수당 및 데이터 귀속 동의</div>
+<div class="text-label-sm font-label-sm text-secondary mt-0.5">
+                    시간당 28,500원 산정 합의서 전자서명 및 비가동 모의 데이터 귀속 동의
+                  </div>
+</div>
+</div>
+<!-- Checklist Item 4 -->
+<div class="p-3.5 rounded-lg bg-[#F0FDF4] border border-[#BBF7D0] flex items-start gap-3">
+<span class="material-symbols-outlined text-[#166534] text-xl shrink-0 mt-0.5" data-icon="check_box">check_box</span>
+<div class="flex-1">
+<div class="text-body-md-medium font-body-md-medium text-[#166534] font-semibold">4. 현장 공정 안전 감독관 입회 동의</div>
+<div class="text-label-sm font-label-sm text-secondary mt-0.5">
+                    상주 감독자(윤성민 부장) 작업 감시 계획서 및 비상 연락 체계 수립 완료
+                  </div>
+</div>
+</div>
+</div>
+<!-- Designated Reviewer FDE Card -->
+<div class="bg-[#F8FAFC] border border-[#D5DDE7] rounded-lg p-3.5">
+<div class="text-[12px] text-secondary font-medium">책임 검수 및 시뮬레이터 품질 승인관</div>
+<div class="flex items-center justify-between mt-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="verified_user">verified_user</span>
+<span class="text-body-md-medium font-body-md-medium font-bold text-on-surface">김검수 FDE (현장 적용 엔지니어)</span>
+</div>
+<span class="text-label-sm font-label-sm text-secondary bg-white px-2 py-0.5 rounded border border-[#D5DDE7]">
+                  검수 대기 지정
+                </span>
+</div>
+</div>
+<!-- Action Buttons Area -->
+<div class="space-y-2 pt-2">
+<!-- Primary Action Button (#2563EB, 44px min height) -->
+<button class="w-full h-11 bg-primary-container hover:bg-[#1D4ED8] active:bg-[#1E40AF] text-white rounded-lg font-body-lg-medium text-body-lg-medium font-semibold shadow-sm flex items-center justify-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span>인력 배정 확정 및 과제 활성화</span>
+</button>
+<!-- Secondary Action Button -->
+<button class="w-full h-11 bg-[#FFFFFF] hover:bg-[#F8FAFC] text-on-surface border border-[#D5DDE7] rounded-lg font-body-lg-medium text-body-lg-medium transition-colors" type="button">
+                조건 보완 요청서 발송
+              </button>
+</div>
+<!-- Disclaimer Notice -->
+<div class="text-[12px] text-secondary leading-relaxed bg-[#F8FAFC] p-3 rounded border border-[#E2E8F0]">
+              ※ 본 매칭은 가상 시뮬레이션 환경의 실증 실무용이며 실제 고용 보장이나 관리자 승급을 의미하지 않습니다. 모든 오퍼레이터 활동은 플랫폼 데이터 로그로 암호화 저장됩니다.
+            </div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual Tooltip / State Simulation Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Light feedback script for interactions
+      const assignBtn = document.querySelector('button.bg-primary-container');
+      if (assignBtn) {
+        assignBtn.addEventListener('click', () => {
+          alert('[배정 완료] 로컬 청년 수집 1팀이 [RH-MF-001] 과제에 성공적으로 매칭되었습니다.\n\n- 현장 출입증 및 수집 리그 암호화 키가 팀장(김민준)에게 전송되었습니다.\n- 윤성민 부장(감독관)에게 입회 일정이 동기화되었습니다.');
+        });
+      }
+    });
+  </script>
+</body></html>

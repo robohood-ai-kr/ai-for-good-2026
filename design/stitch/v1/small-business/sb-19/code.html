@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SB-19 데이터 접근·이용 승인 | RoboHood</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed-variant": "#7d2d00",
+            "error": "#ba1a1a",
+            "surface-bright": "#f7fafe",
+            "surface-canvas": "#F4F7FB",
+            "error-text": "#B91C1C",
+            "inverse-primary": "#b4c5ff",
+            "primary-fixed-dim": "#b4c5ff",
+            "primary-fixed": "#dbe1ff",
+            "surface-card": "#FFFFFF",
+            "secondary": "#515f74",
+            "surface-container": "#ebeef2",
+            "text-inverse": "#FFFFFF",
+            "action-hover": "#1D4ED8",
+            "tertiary-fixed": "#ffdbcd",
+            "action-pressed": "#1E40AF",
+            "success-text": "#166534",
+            "text-primary": "#0F172A",
+            "text-secondary": "#475569",
+            "border-control": "#64748B",
+            "error-bg": "#FEF2F2",
+            "error-container": "#ffdad6",
+            "inverse-on-surface": "#eef1f5",
+            "warning-text": "#92400E",
+            "warning-bg": "#FFFBEB",
+            "surface-container-high": "#e5e8ec",
+            "secondary-container": "#d5e3fc",
+            "on-error-container": "#93000a",
+            "info-bg": "#EFF6FF",
+            "on-secondary-fixed": "#0d1c2e",
+            "surface-tint": "#0053db",
+            "neutral-status-bg": "#F4F7FB",
+            "primary": "#004ac6",
+            "on-primary-fixed": "#00174b",
+            "on-tertiary": "#ffffff",
+            "on-primary-container": "#eeefff",
+            "inverse-surface": "#2d3134",
+            "tertiary-container": "#bc4800",
+            "on-tertiary-fixed": "#360f00",
+            "background": "#f7fafe",
+            "on-surface-variant": "#434655",
+            "on-primary-fixed-variant": "#003ea8",
+            "info-text": "#1E40AF",
+            "surface-container-low": "#f1f4f8",
+            "surface-variant": "#e0e3e7",
+            "secondary-fixed-dim": "#b9c7df",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-container": "#ffede6",
+            "on-secondary-container": "#57657a",
+            "surface": "#f7fafe",
+            "tertiary-fixed-dim": "#ffb596",
+            "on-error": "#ffffff",
+            "on-secondary-fixed-variant": "#3a485b",
+            "border-subtle": "#D5DDE7",
+            "outline-variant": "#c3c6d7",
+            "tertiary": "#943700",
+            "surface-dim": "#d7dade",
+            "on-surface": "#181c1f",
+            "surface-subtle": "#F8FAFC",
+            "on-primary": "#ffffff",
+            "surface-selected": "#EFF6FF",
+            "secondary-fixed": "#d5e3fc",
+            "surface-container-highest": "#e0e3e7",
+            "primary-container": "#2563eb",
+            "success-bg": "#F0FDF4",
+            "focus-ring": "#2563EB",
+            "neutral-status-text": "#475569",
+            "on-secondary": "#ffffff",
+            "on-background": "#181c1f",
+            "outline": "#737686",
+            "text-hint": "#64748B"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin-desktop": "2rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "gutter": "1rem",
+            "space-lg": "1.5rem",
+            "gutter-desktop": "1.5rem",
+            "margin-tablet": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin": "1rem",
+            "space-xl": "2rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Public Sans"],
+            "label-md": ["Public Sans"],
+            "headline-lg-mobile": ["Public Sans"],
+            "label-sm": ["Public Sans"],
+            "headline-md": ["Public Sans"],
+            "body-md": ["Public Sans"],
+            "body-sm": ["Public Sans"],
+            "body-lg": ["Public Sans"],
+            "label-lg": ["Public Sans"],
+            "headline-sm": ["Public Sans"]
+          },
+          "fontSize": {
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface-canvas text-text-primary min-h-screen flex flex-col font-body-md text-body-md antialiased selection:bg-secondary-container">
+<!-- ================= TOP NAV BAR ================= -->
+<!-- Shared Component JSON: TopNavBar -->
+<header class="w-full h-16 px-6 flex items-center justify-between border-b border-border-subtle bg-surface-card fixed top-0 left-0 right-0 z-50">
+<div class="flex items-center gap-8">
+<!-- Brand Logo Anchor -->
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="smart_toy">smart_toy</span>
+<span class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">RoboHood</span>
+</div>
+<!-- Left Search Bar -->
+<div class="relative w-64 hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-text-hint text-lg" data-icon="search">search</span>
+<input class="w-full pl-9 pr-3 py-1.5 text-body-sm font-body-sm bg-surface-subtle border border-border-subtle rounded-lg focus:outline-none focus:ring-2 focus:ring-focus-ring text-text-primary placeholder:text-text-hint" placeholder="데이터셋명, 신청코드, 기관 검색..." type="text"/>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-6 h-16 pt-1">
+<a class="text-text-secondary font-body-md text-body-md hover:text-text-primary hover:bg-surface-subtle px-2 py-1 transition-colors duration-150 ease-in-out" href="#">작업 공간</a>
+<a class="text-text-secondary font-body-md text-body-md hover:text-text-primary hover:bg-surface-subtle px-2 py-1 transition-colors duration-150 ease-in-out" href="#">현장 탐색</a>
+<a class="border-b-2 border-primary text-primary font-label-lg text-label-lg pb-4 transition-colors duration-150 ease-in-out flex items-center gap-1" href="#">
+          과제 관리
+          <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block mb-0.5"></span>
+</a>
+<a class="text-text-secondary font-body-md text-body-md hover:text-text-primary hover:bg-surface-subtle px-2 py-1 transition-colors duration-150 ease-in-out" href="#">정산 내역</a>
+</nav>
+</div>
+<!-- Trailing Actions & Profile -->
+<div class="flex items-center gap-3">
+<button class="bg-primary-container hover:bg-action-hover active:bg-action-pressed text-text-inverse font-label-md text-label-md px-3.5 py-2 rounded-lg flex items-center gap-1.5 transition-colors duration-150">
+<span class="material-symbols-outlined text-base" data-icon="add">add</span>
+<span>신규 작업 등록</span>
+</button>
+<div class="h-4 w-px bg-border-subtle mx-1"></div>
+<button class="p-2 text-text-secondary hover:text-text-primary hover:bg-surface-subtle rounded-lg transition-colors" title="알림">
+<span class="material-symbols-outlined text-xl" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-text-secondary hover:text-text-primary hover:bg-surface-subtle rounded-lg transition-colors" title="도움말">
+<span class="material-symbols-outlined text-xl" data-icon="help_outline">help_outline</span>
+</button>
+<div class="flex items-center gap-2 pl-2 border-l border-border-subtle">
+<img alt="소상공인 대표 프로필" class="w-8 h-8 rounded-full border border-border-subtle object-cover" data-alt="A clean corporate style avatar portrait of a professional Korean business proprietor and tech platform operator, captured with balanced studio lighting against a clean neutral background, showing a friendly yet focused professional expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqgGS4u4exObnBBaO2qwN4T7nUHeJpoAHLlFZgZVjiUK8D5PRZ0r92iAKQU2Wn3c_puqL3gEcty05sr5EjcBdkmErXI8CJ3ULLS0bw1Q4LMlRGwTcYK9E7MBllC9BH0GKl_Y2dlCPgMbkDSPjK8gM6fGcvN8jFdvvDqm5CXsbfld1DDLKvAa5LlUneDxurlXW1E9Ay60d67bRpl4MbLQDnaTJzfg_yzow3U5LpazIs-neNw3hhlqs"/>
+<div class="hidden xl:flex flex-col text-left">
+<span class="text-label-md font-label-md text-text-primary leading-tight">카페 성수 1호점</span>
+<span class="text-label-sm font-label-sm text-text-secondary">박대표 (운영관리자)</span>
+</div>
+</div>
+</div>
+</header>
+<!-- ================= BODY WRAPPER ================= -->
+<div class="flex pt-16 min-h-screen">
+<!-- ================= PERSISTENT SIDE DRAWER ================= -->
+<!-- Shared Component JSON: SideNavBar -->
+<aside class="w-60 h-screen fixed left-0 top-0 pt-16 flex flex-col z-40 bg-surface-card border-r border-border-subtle select-none">
+<div class="w-60 h-full flex flex-col justify-between py-4 px-3 bg-surface-card">
+<!-- Top Drawer Header & Tabs -->
+<div class="flex flex-col gap-3">
+<div class="px-3 py-2 bg-surface-subtle rounded-lg border border-border-subtle flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-md bg-secondary-container flex items-center justify-center text-primary font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="store">store</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<div class="text-label-md font-label-md text-text-primary font-semibold truncate">RoboHood 소상공인</div>
+<div class="text-label-sm font-label-sm text-text-hint truncate">소상공인 v1 · 데모 데이터</div>
+</div>
+</div>
+<!-- Main Nav Links -->
+<nav class="flex flex-col gap-1 mt-2">
+<a class="flex items-center gap-3 px-3 py-2 text-text-secondary font-body-md text-body-md hover:bg-surface-subtle rounded-lg transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="dashboard">dashboard</span>
+<span>작업 공간 개요</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-secondary font-body-md text-body-md hover:bg-surface-subtle rounded-lg transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="explore">explore</span>
+<span>현장 탐색</span>
+</a>
+<!-- Active: 과제 상세 및 조건 (Semantic match to Governance & Requirement Approvals) -->
+<a class="flex items-center gap-3 px-3 py-2 bg-surface-selected text-primary font-label-md text-label-md border-l-4 border-primary rounded-r-lg transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-xl text-primary" data-icon="assignment" data-weight="fill" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span>과제 상세 및 조건</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-secondary font-body-md text-body-md hover:bg-surface-subtle rounded-lg transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="video_library">video_library</span>
+<span>구간 라벨링 검수</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-secondary font-body-md text-body-md hover:bg-surface-subtle rounded-lg transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="payments">payments</span>
+<span>수행 및 보상 관리</span>
+</a>
+</nav>
+</div>
+<!-- Middle CTA & Bottom Tabs -->
+<div class="flex flex-col gap-3">
+<!-- CTA Button -->
+<button class="w-full bg-surface-subtle hover:bg-surface-container text-text-primary border border-border-subtle font-label-md text-label-md py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-base text-primary" data-icon="photo_camera">photo_camera</span>
+<span>현장 데이터 수집 시작</span>
+</button>
+<div class="h-px bg-border-subtle my-1"></div>
+<!-- Footer Tabs -->
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-1.5 text-text-secondary font-body-sm text-body-sm hover:bg-surface-subtle rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="settings">settings</span>
+<span>시스템 환경설정</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-1.5 text-text-secondary font-body-sm text-body-sm hover:bg-surface-subtle rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="headset_mic">headset_mic</span>
+<span>고객센터 지원</span>
+</a>
+</div>
+<div class="pt-2 text-center text-label-sm font-label-sm text-text-hint">
+            © 2026 RoboHood Platform
+          </div>
+</div>
+</div>
+</aside>
+<!-- ================= MAIN CONTENT CANVAS ================= -->
+<main class="flex-1 ml-60 p-8 max-w-[1200px]">
+<!-- 1. Breadcrumb & Header Section -->
+<section class="flex flex-col gap-2 mb-6">
+<!-- Breadcrumb (KRDS Compliant) -->
+<nav class="flex items-center gap-2 text-label-sm font-label-sm text-text-secondary">
+<span class="hover:text-text-primary cursor-pointer">데이터 관리</span>
+<span class="material-symbols-outlined text-xs text-text-hint" data-icon="chevron_right">chevron_right</span>
+<span class="hover:text-text-primary cursor-pointer">데이터 이용 거버넌스</span>
+<span class="material-symbols-outlined text-xs text-text-hint" data-icon="chevron_right">chevron_right</span>
+<span class="text-text-primary font-semibold">접근·이용 승인 관리 (SB-19)</span>
+</nav>
+<!-- Title & Subtitle + Action Button -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pt-1">
+<div>
+<div class="flex items-center gap-2.5">
+<h1 class="text-headline-md font-headline-md text-text-primary tracking-tight">
+                데이터 접근 및 연구 이용 승인 관리
+              </h1>
+<span class="bg-secondary-container text-primary text-label-sm font-label-sm px-2 py-0.5 rounded-lg border border-border-subtle">
+                소상공인 v1 · 데모 데이터
+              </span>
+</div>
+<p class="text-body-md font-body-md text-text-secondary mt-1">
+              수집된 소상공인 현장 데이터의 무단 반출을 방지하고, 연구 목적 적합성 및 비식별화 규정 준수 여부를 다단계로 심사합니다.
+            </p>
+</div>
+<!-- Action Button: Strict Non-commercial -->
+<div class="flex items-center gap-2">
+<button class="bg-surface-card hover:bg-surface-subtle text-text-primary border border-border-subtle px-3.5 py-2 rounded-lg font-label-md text-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-base text-text-secondary" data-icon="file_download">file_download</span>
+<span>거버넌스 규정서 다운로드</span>
+</button>
+<button class="bg-primary hover:bg-action-hover active:bg-action-pressed text-text-inverse px-4 py-2 rounded-lg font-label-md text-label-md flex items-center gap-1.5 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-base" data-icon="edit_document">edit_document</span>
+<span>신규 이용 승인 신청서 작성</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 2. Governance Strict Separation Alert Banner -->
+<div class="bg-info-bg border border-border-subtle rounded-lg p-4 mb-6 flex items-start gap-3.5">
+<span class="material-symbols-outlined text-info-text text-xl mt-0.5" data-icon="verified_user">verified_user</span>
+<div class="flex-1">
+<div class="text-label-md font-label-md text-info-text font-bold mb-0.5">
+            현장 '수집 허용'과 최종 '데이터 이용 승인' 분리 운영 원칙
+          </div>
+<p class="text-body-sm font-body-sm text-text-secondary">
+            현장에서 촬영 및 센서 수집 동의가 완료된 원천 로우(Raw) 데이터는 외부 망으로 즉시 반출되지 않습니다. 
+            소상공인의 얼굴·개인정보 마스킹, 비식별화 가공 검수 및 <strong>RoboHood 운영위원회의 3단계 이용 승인</strong>을 거친 공인 데이터셋에 한해서만 토큰 기반의 제한적 연구 접근이 부여됩니다.
+          </p>
+</div>
+</div>
+<!-- 3. Upper 3-Step Approval Process Flow (Bento / Cards) -->
+<section class="mb-8">
+<div class="flex items-center justify-between mb-3">
+<h2 class="text-headline-sm font-headline-sm text-text-primary">
+            3단계 이용 심사 승인 프로세스
+          </h2>
+<span class="text-label-sm font-label-sm text-text-hint">실시간 처리 표준: 신청 접수 후 영업일 기준 48시간 이내 심의 완료</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Step 1 -->
+<div class="bg-surface-card border border-border-subtle rounded-lg p-5 flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-subtle border border-border-subtle flex items-center justify-center font-bold text-label-md text-text-primary">
+                  1
+                </div>
+<span class="text-label-md font-label-md text-text-secondary font-semibold">신청 및 서약</span>
+</div>
+<span class="material-symbols-outlined text-text-hint text-xl" data-icon="description">description</span>
+</div>
+<div>
+<h3 class="text-label-lg font-label-lg text-text-primary mb-1">연구 목적 및 신청서 제출</h3>
+<p class="text-body-sm font-body-sm text-text-secondary mb-3">
+                데이터 활용 연구 과제명, 세부 알고리즘 개발 계획 및 파기 기한 명시, 서약서 전자 서명 제출.
+              </p>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-text-hint">
+<span class="material-symbols-outlined text-sm text-success-text" data-icon="check_circle">check_circle</span>
+<span>비영리/인가 연구진 한정</span>
+</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-card border border-border-subtle rounded-lg p-5 flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-subtle border border-border-subtle flex items-center justify-center font-bold text-label-md text-text-primary">
+                  2
+                </div>
+<span class="text-label-md font-label-md text-text-secondary font-semibold">권리자 협의</span>
+</div>
+<span class="material-symbols-outlined text-text-hint text-xl" data-icon="handshake">handshake</span>
+</div>
+<div>
+<h3 class="text-label-lg font-label-lg text-text-primary mb-1">소상공인 현장 조건 검토</h3>
+<p class="text-body-sm font-body-sm text-text-secondary mb-3">
+                매장 공간 제공 조건(동의 범위) 준수 여부 및 제공된 원천 현장과의 계약 범위 적합성 검증.
+              </p>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-text-hint">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="hourglass_top">hourglass_top</span>
+<span>상생 협약 제4조 일치성 검토</span>
+</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-card border border-border-subtle rounded-lg p-5 flex flex-col justify-between relative overflow-hidden bg-gradient-to-b from-white to-surface-subtle">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-primary border border-border-subtle flex items-center justify-center font-bold text-label-md">
+                  3
+                </div>
+<span class="text-label-md font-label-md text-primary font-semibold">최종 승인 &amp; 키 발급</span>
+</div>
+<span class="material-symbols-outlined text-primary text-xl" data-icon="key">key</span>
+</div>
+<div>
+<h3 class="text-label-lg font-label-lg text-text-primary mb-1">비식별화 판정 &amp; 접근 토큰 발급</h3>
+<p class="text-body-sm font-body-sm text-text-secondary mb-3">
+                얼굴/상호 마스킹 자동 검수 통과 확인 후 만료 기한이 포함된 암호화 JWT 샌드박스 키 발행.
+              </p>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-info-text font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="lock_clock">lock_clock</span>
+<span>기간 만료 시 자동 세션 회수</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Data Application & Approval Status Table Section -->
+<section class="bg-surface-card border border-border-subtle rounded-lg overflow-hidden shadow-sm mb-8">
+<!-- Table Control Header & Tabs -->
+<div class="border-b border-border-subtle px-6 pt-4 pb-0 bg-white">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-3">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-text-primary">
+                데이터 이용 신청 및 승인 심사 현황
+              </h2>
+<p class="text-body-sm font-body-sm text-text-secondary">
+                등록된 데이터셋의 신청 기관별 접근 목적, 승인 유효기간 및 거부 사유 관리
+              </p>
+</div>
+<!-- Filter Controls -->
+<div class="flex items-center gap-2">
+<div class="flex items-center bg-surface-subtle border border-border-subtle rounded-lg px-2.5 py-1 text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-base text-text-hint mr-1" data-icon="filter_list">filter_list</span>
+<span class="text-text-secondary mr-2">필터:</span>
+<select class="bg-transparent border-0 text-text-primary font-medium focus:ring-0 p-0 pr-4 text-label-sm cursor-pointer">
+<option>전체 데이터셋</option>
+<option>RH-SB-001 (퇴식구 정리)</option>
+<option>RH-SB-002 (통로 보행)</option>
+</select>
+</div>
+<button class="p-1.5 border border-border-subtle rounded-lg hover:bg-surface-subtle text-text-secondary transition-colors" title="새로고침">
+<span class="material-symbols-outlined text-base" data-icon="refresh">refresh</span>
+</button>
+</div>
+</div>
+<!-- Status Segmented Tabs -->
+<div class="flex items-center gap-6 text-label-md font-label-md border-b border-transparent">
+<button class="py-2.5 border-b-2 border-primary text-primary font-bold flex items-center gap-1.5">
+<span>전체 신청 내역</span>
+<span class="bg-info-bg text-info-text text-label-sm px-1.5 py-0.2 rounded-full">3</span>
+</button>
+<button class="py-2.5 border-b-2 border-transparent text-text-secondary hover:text-text-primary flex items-center gap-1.5 transition-colors">
+<span>심사 대기 및 보완</span>
+<span class="bg-warning-bg text-warning-text text-label-sm px-1.5 py-0.2 rounded-full">1</span>
+</button>
+<button class="py-2.5 border-b-2 border-transparent text-text-secondary hover:text-text-primary flex items-center gap-1.5 transition-colors">
+<span>승인 완료</span>
+<span class="bg-success-bg text-success-text text-label-sm px-1.5 py-0.2 rounded-full">1</span>
+</button>
+<button class="py-2.5 border-b-2 border-transparent text-text-secondary hover:text-text-primary flex items-center gap-1.5 transition-colors">
+<span>반려 및 만료</span>
+<span class="bg-error-bg text-error-text text-label-sm px-1.5 py-0.2 rounded-full">1</span>
+</button>
+</div>
+</div>
+<!-- Table View -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-subtle border-b border-border-subtle text-text-secondary text-label-sm font-label-sm tracking-wider uppercase">
+<th class="py-3 px-4 font-semibold">신청코드 / 기관</th>
+<th class="py-3 px-4 font-semibold">대상 데이터셋</th>
+<th class="py-3 px-4 font-semibold">이용 목적 및 접근 범위</th>
+<th class="py-3 px-4 font-semibold">보관 및 이용 기한</th>
+<th class="py-3 px-4 font-semibold text-center">심사 상태</th>
+<th class="py-3 px-4 font-semibold text-right">조치 및 거버넌스 관리</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-subtle text-body-sm font-body-sm">
+<!-- Row 1: REQ-2026-081 (Approved) -->
+<tr class="hover:bg-surface-subtle transition-colors group">
+<td class="py-4 px-4 align-top">
+<div class="flex items-center gap-1.5">
+<span class="font-mono font-semibold text-text-primary text-label-md font-label-md">REQ-2026-081</span>
+<span class="material-symbols-outlined text-xs text-text-hint cursor-pointer" data-icon="content_copy" title="코드 복사">content_copy</span>
+</div>
+<div class="text-text-primary font-medium mt-0.5">로보틱스 연구소 A</div>
+<div class="text-label-sm font-label-sm text-text-hint">학술연구기관 · 비영리</div>
+</td>
+<td class="py-4 px-4 align-top">
+<div class="inline-flex items-center gap-1 font-mono font-semibold text-label-sm font-label-sm text-primary bg-secondary-container/40 px-1.5 py-0.5 rounded border border-border-subtle">
+<span class="material-symbols-outlined text-xs" data-icon="dataset">dataset</span>
+                    RH-SB-001 v1.2
+                  </div>
+<div class="text-body-sm text-text-secondary mt-1">트레이 위 컵 정리</div>
+<div class="text-label-sm text-text-hint">성수동 카페 1호점 수집분</div>
+</td>
+<td class="py-4 px-4 align-top max-w-xs">
+<div class="text-text-primary font-medium">소상공인 매장 퇴식구 그리퍼 조작 알고리즘 모의 훈련</div>
+<div class="text-body-sm text-text-secondary mt-1 flex items-start gap-1">
+<span class="material-symbols-outlined text-xs text-info-text mt-1" data-icon="check">check</span>
+<span><strong>허용 범위:</strong> 비식별화 처리된 POV 영상 20세션 + IMU 센서 데이터</span>
+</div>
+</td>
+<td class="py-4 px-4 align-top">
+<div class="font-mono text-text-primary text-label-md font-label-md">2026-09-20 ~ 2026-12-31</div>
+<div class="text-label-sm font-label-sm text-text-hint mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-success-text" data-icon="delete_forever">delete_forever</span>
+<span>약 3개월 · 연구 종료 즉시 파기 확약</span>
+</div>
+</td>
+<td class="py-4 px-4 align-top text-center">
+<!-- Approved Badge: #F0FDF4 bg / #166534 text -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-label-sm font-label-sm font-semibold bg-success-bg text-success-text border border-[#bbf7d0]">
+<span class="w-1.5 h-1.5 rounded-full bg-success-text"></span>
+                    승인 완료
+                  </span>
+<div class="text-label-sm text-text-hint mt-1.5">위원 3/3 합의</div>
+</td>
+<td class="py-4 px-4 align-top text-right">
+<div class="flex flex-col items-end gap-1.5">
+<button class="inline-flex items-center gap-1 text-label-sm font-label-sm font-semibold text-text-inverse bg-primary hover:bg-action-hover px-2.5 py-1.5 rounded-lg transition-colors shadow-sm">
+<span class="material-symbols-outlined text-xs" data-icon="vpn_key">vpn_key</span>
+<span>보안 접근 토큰 확인</span>
+</button>
+<button class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-text-secondary hover:text-text-primary bg-surface-subtle border border-border-subtle px-2.5 py-1 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xs" data-icon="picture_as_pdf">picture_as_pdf</span>
+<span>승인서 PDF 다운로드</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: REQ-2026-085 (Under Review / Conditional) -->
+<tr class="hover:bg-surface-subtle transition-colors group bg-surface-canvas/30">
+<td class="py-4 px-4 align-top">
+<div class="flex items-center gap-1.5">
+<span class="font-mono font-semibold text-text-primary text-label-md font-label-md">REQ-2026-085</span>
+<span class="material-symbols-outlined text-xs text-text-hint cursor-pointer" data-icon="content_copy" title="코드 복사">content_copy</span>
+</div>
+<div class="text-text-primary font-medium mt-0.5">AI 솔루션팀 B</div>
+<div class="text-label-sm font-label-sm text-text-hint">자율주행 스타트업 산학팀</div>
+</td>
+<td class="py-4 px-4 align-top">
+<div class="inline-flex items-center gap-1 font-mono font-semibold text-label-sm font-label-sm text-text-secondary bg-surface-subtle px-1.5 py-0.5 rounded border border-border-subtle">
+<span class="material-symbols-outlined text-xs" data-icon="dataset">dataset</span>
+                    RH-SB-002 v1.0
+                  </div>
+<div class="text-body-sm text-text-secondary mt-1">베이커리 통로 장애물</div>
+<div class="text-label-sm text-text-hint">을지로 제과점 수집분</div>
+</td>
+<td class="py-4 px-4 align-top max-w-xs">
+<div class="text-text-primary font-medium">상업용 로봇 배차 솔루션 테스트</div>
+<div class="text-body-sm text-text-secondary mt-1">
+<span class="text-warning-text font-semibold">[보완요청]</span> 센서 메타데이터 외 원천 영상 요구에 대한 비식별화 수준 재검토 필요
+                  </div>
+</td>
+<td class="py-4 px-4 align-top">
+<div class="font-mono text-text-secondary text-label-md font-label-md">2026-10-01 ~ 2026-11-30</div>
+<div class="text-label-sm font-label-sm text-text-hint mt-0.5">
+                    신청 기간: 2개월 (보완 심의 진행중)
+                  </div>
+</td>
+<td class="py-4 px-4 align-top text-center">
+<!-- In Progress Badge: #FFFBEB bg / #92400E text -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-label-sm font-label-sm font-semibold bg-warning-bg text-warning-text border border-[#fef3c7]">
+<span class="w-1.5 h-1.5 rounded-full bg-warning-text animate-pulse"></span>
+                    조건부 보완 심사 중
+                  </span>
+<div class="text-label-sm text-text-hint mt-1.5">소상공인 위원회 회의 예정</div>
+</td>
+<td class="py-4 px-4 align-top text-right">
+<div class="flex flex-col items-end gap-1.5">
+<button class="inline-flex items-center gap-1 text-label-sm font-label-sm font-semibold text-text-primary bg-white border border-border-control hover:bg-surface-subtle px-3 py-1.5 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xs text-text-secondary" data-icon="search">search</span>
+<span>신청서 검토</span>
+</button>
+<span class="text-label-sm text-text-hint">보완 서류 접수 대기</span>
+</div>
+</td>
+</tr>
+<!-- Row 3: REQ-2026-079 (Rejected) -->
+<tr class="hover:bg-surface-subtle transition-colors group bg-error-bg/10">
+<td class="py-4 px-4 align-top">
+<div class="flex items-center gap-1.5">
+<span class="font-mono font-semibold text-text-primary text-label-md font-label-md">REQ-2026-079</span>
+<span class="material-symbols-outlined text-xs text-text-hint cursor-pointer" data-icon="content_copy" title="코드 복사">content_copy</span>
+</div>
+<div class="text-text-primary font-medium mt-0.5">비인가 상업 유통사 C</div>
+<div class="text-label-sm font-label-sm text-error-text">인가 미승인 법인</div>
+</td>
+<td class="py-4 px-4 align-top">
+<div class="inline-flex items-center gap-1 font-mono font-semibold text-label-sm font-label-sm text-text-secondary bg-surface-subtle px-1.5 py-0.5 rounded border border-border-subtle">
+<span class="material-symbols-outlined text-xs" data-icon="dataset">dataset</span>
+                    RH-SB-001 v1.1
+                  </div>
+<div class="text-body-sm text-text-secondary mt-1">트레이 위 컵 정리</div>
+<div class="text-label-sm text-text-hint">성수동 카페 1호점</div>
+</td>
+<td class="py-4 px-4 align-top max-w-xs">
+<div class="text-text-primary font-medium">제3자 데이터셋 재가공 및 외부 유료 재배포</div>
+<!-- Specific Rejection Reason Callout -->
+<div class="mt-2 p-2.5 bg-error-bg border border-error-container rounded text-body-sm font-body-sm text-error-text">
+<div class="font-semibold text-label-sm flex items-center gap-1 mb-0.5">
+<span class="material-symbols-outlined text-xs" data-icon="gavel">gavel</span>
+                      구체적 거부 사유
+                    </div>
+                    소상공인 상생 협약 제4조 및 이용 규정 위반: 제3자 무단 상업적 재판매 목적은 엄격히 금지됩니다.
+                  </div>
+</td>
+<td class="py-4 px-4 align-top">
+<div class="font-mono text-text-secondary text-label-md font-label-md line-through">2026-08-01 ~ 2027-08-01</div>
+<div class="text-label-sm font-label-sm text-error-text mt-0.5 font-medium">
+                    승인 거부 확정 (접근 불허)
+                  </div>
+</td>
+<td class="py-4 px-4 align-top text-center">
+<!-- Danger / Error Badge: #FEF2F2 bg / #B91C1C text -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-label-sm font-label-sm font-semibold bg-error-bg text-error-text border border-[#fecaca]">
+<span class="material-symbols-outlined text-xs" data-icon="cancel">cancel</span>
+                    승인 거부
+                  </span>
+<div class="text-label-sm text-error-text mt-1.5">위험 경고 처리</div>
+</td>
+<td class="py-4 px-4 align-top text-right">
+<div class="flex flex-col items-end gap-1.5">
+<button class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium text-text-secondary bg-surface-subtle hover:bg-surface-card border border-border-subtle px-2.5 py-1 rounded-lg transition-colors cursor-not-allowed opacity-75">
+<span class="material-symbols-outlined text-xs" data-icon="block">block</span>
+<span>사유 통보문 완료</span>
+</button>
+<span class="text-label-sm text-error-text">영구 차단 검토 대상</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination & Counter -->
+<div class="p-4 bg-surface-subtle border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-3 text-label-sm font-label-sm text-text-secondary">
+<div>
+            총 <strong class="text-text-primary">3건</strong>의 신청 내역 중 1-3 표시 중
+          </div>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1 border border-border-subtle rounded bg-white text-text-hint cursor-not-allowed" disabled="">
+              이전
+            </button>
+<button class="px-2.5 py-1 border border-primary bg-surface-selected text-primary font-bold rounded">
+              1
+            </button>
+<button class="px-2.5 py-1 border border-border-subtle rounded bg-white text-text-secondary hover:bg-surface-subtle">
+              다음
+            </button>
+</div>
+</div>
+</section>
+<!-- 5. Security & Governance Compliance Pledge Notice Box -->
+<section class="bg-surface-card border border-border-subtle rounded-lg p-6 shadow-sm">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-selected text-primary border border-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="security">security</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<h3 class="text-headline-sm font-headline-sm text-text-primary">
+                RoboHood 데이터 거버넌스 및 보안 준수 서약 안내
+              </h3>
+<span class="text-label-sm font-label-sm text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="policy">policy</span>
+                정보보호 표준 제2026-11호
+              </span>
+</div>
+<p class="text-body-md font-body-md text-text-secondary mt-1.5 leading-relaxed">
+              본 플랫폼에서 승인된 데이터는 소상공인 현장의 영업 비밀과 개인정보를 보호하기 위해 엄격한 사후 모니터링 체계 하에서 관리됩니다.
+            </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+<!-- Notice 1: Watermark Injection -->
+<div class="p-3.5 bg-surface-subtle border border-border-subtle rounded-lg flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5" data-icon="branding_watermark">branding_watermark</span>
+<div>
+<div class="text-label-md font-label-md text-text-primary font-semibold">디지털 워터마크 동적 삽입</div>
+<div class="text-body-sm font-body-sm text-text-secondary mt-0.5">
+                    모든 반출 데이터 파일 및 POV 비디오 프레임에는 신청 기관 고유의 보이지 않는 포렌식 워터마크가 암호화 삽입됩니다. 외부 유출 시 경로가 즉시 추적됩니다.
+                  </div>
+</div>
+</div>
+<!-- Notice 2: Legal Enforcement & Termination -->
+<div class="p-3.5 bg-error-bg/40 border border-error-container/60 rounded-lg flex items-start gap-3">
+<span class="material-symbols-outlined text-error-text text-xl mt-0.5" data-icon="report">report</span>
+<div>
+<div class="text-label-md font-label-md text-error-text font-semibold">재식별화 금지 및 법적 제재 조치</div>
+<div class="text-body-sm font-body-sm text-text-secondary mt-0.5">
+                    소상공인 매장 방문 고객 또는 대표자 개인정보에 대한 재식별화(De-anonymization) 시도 발견 시, 즉시 법적 형사 고발 조치되며 연구 계정이 영구 정지 처리됩니다.
+                  </div>
+</div>
+</div>
+</div>
+<!-- Footer Details inside Box -->
+<div class="mt-4 pt-4 border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between text-label-sm font-label-sm text-text-hint">
+<div class="flex items-center gap-4">
+<span>데이터 보호책임관(CPO): RoboHood 거버넌스위원회</span>
+<span>문의 및 이의신청: privacy@robowood.kr</span>
+</div>
+<div class="mt-2 sm:mt-0">
+<span>최종 개정일: 2026.09.15</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Micro-interaction script for accessible UX -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Copy code feedback micro-interaction
+      const copyButtons = document.querySelectorAll('[data-icon="content_copy"]');
+      copyButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const parent = e.target.closest('td');
+          const codeEl = parent.querySelector('.font-mono');
+          if (codeEl) {
+            navigator.clipboard.writeText(codeEl.innerText).then(() => {
+              const original = btn.innerText;
+              btn.innerText = 'check';
+              btn.classList.add('text-success-text');
+              setTimeout(() => {
+                btn.innerText = original;
+                btn.classList.remove('text-success-text');
+              }, 1500);
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body></html>

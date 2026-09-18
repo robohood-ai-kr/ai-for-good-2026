@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>MF-08 현장 데이터 수집 | RoboHood</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Noto Sans KR / Global Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-highest": "#dae2fd",
+            "inverse-on-surface": "#eef0ff",
+            "surface-container": "#eaedff",
+            "on-tertiary-fixed-variant": "#173bab",
+            "surface-dim": "#d2d9f4",
+            "tertiary-container": "#4865d4",
+            "primary-fixed-dim": "#b4c5ff",
+            "outline": "#737686",
+            "on-tertiary-container": "#eff0ff",
+            "surface": "#faf8ff",
+            "on-secondary-fixed-variant": "#3a485b",
+            "on-surface-variant": "#434655",
+            "on-primary-fixed-variant": "#003ea8",
+            "on-error": "#ffffff",
+            "primary-fixed": "#dbe1ff",
+            "error-container": "#ffdad6",
+            "primary": "#004ac6",
+            "on-tertiary": "#ffffff",
+            "on-primary-container": "#eeefff",
+            "secondary": "#515f74",
+            "secondary-container": "#d5e3fc",
+            "surface-container-lowest": "#ffffff",
+            "inverse-primary": "#b4c5ff",
+            "surface-container-high": "#e2e7ff",
+            "surface-variant": "#dae2fd",
+            "surface-tint": "#0053db",
+            "on-background": "#131b2e",
+            "on-surface": "#131b2e",
+            "surface-bright": "#faf8ff",
+            "on-primary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "background": "#faf8ff",
+            "tertiary-fixed": "#dde1ff",
+            "secondary-fixed-dim": "#b9c7df",
+            "primary-container": "#2563eb",
+            "on-tertiary-fixed": "#001453",
+            "tertiary-fixed-dim": "#b8c4ff",
+            "secondary-fixed": "#d5e3fc",
+            "error": "#ba1a1a",
+            "outline-variant": "#c3c6d7",
+            "tertiary": "#2c4bb9",
+            "on-secondary-container": "#57657a",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed": "#0d1c2e",
+            "on-primary-fixed": "#00174b",
+            "inverse-surface": "#283044",
+            "surface-container-low": "#f2f3ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "gutter-mobile": "1rem",
+            "margin-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "margin": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Noto Sans"],
+            "label-md": ["Noto Sans"],
+            "body-md": ["Noto Sans"],
+            "body-lg-medium": ["Noto Sans"],
+            "body-md-medium": ["Noto Sans"],
+            "headline-lg-mobile": ["Noto Sans"],
+            "headline-lg": ["Noto Sans"],
+            "label-sm": ["Noto Sans"],
+            "headline-md-mobile": ["Noto Sans"],
+            "headline-md": ["Noto Sans"]
+          },
+          "fontSize": {
+            "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "label-md": ["15px", { "lineHeight": "22px", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-lg-medium": ["17px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "body-md-medium": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "label-sm": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "headline-md-mobile": ["22px", { "lineHeight": "33px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "36px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      background-color: #f4f7fb;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .reticle-grid {
+      background-size: 33.333% 33.333%;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.22) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.22) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="text-on-surface bg-[#F4F7FB] flex justify-center min-h-screen selection:bg-secondary-container">
+<!-- Mobile Screen Shell Container (390px Mobile Viewport) -->
+<div class="w-full max-w-[390px] min-h-screen bg-[#F4F7FB] flex flex-col relative pb-24 shadow-xl border-x border-outline-variant">
+<!-- Top Navigation Header (Shared Component Spec Adapted for Mobile) -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest border-b border-outline-variant px-4 h-16 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-2">
+<span class="text-headline-md-mobile font-headline-md-mobile font-bold text-primary tracking-tight">RoboHood</span>
+<!-- Simulation Demo Badge (Strict Rule Mandatory Content) -->
+<span class="inline-flex items-center bg-[#EFF6FF] text-[#1E40AF] border border-[#BFDBFE] text-label-sm font-label-sm px-2 py-0.5 rounded">제조업 v1 · 데모 데이터</span>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="네트워크 및 동기화" class="p-1.5 text-secondary hover:bg-surface-container rounded-full transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">swap_horiz</span>
+</button>
+<button aria-label="알림" class="p-1.5 text-secondary hover:bg-surface-container rounded-full relative transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<div class="w-8 h-8 rounded-full bg-secondary-container text-primary flex items-center justify-center font-label-sm text-label-sm border border-outline-variant" title="현장 운영 총괄 관리자 프로필">
+          OP
+        </div>
+</div>
+</header>
+<!-- Main Content Canvas Scroll Area -->
+<main class="flex-1 px-4 pt-3 flex flex-col gap-3">
+<!-- Context Breadcrumb & Session Bar -->
+<section class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">sensors</span>
+            세션 #12 · 한빛 정밀 모의 실증셀
+          </span>
+<span class="inline-flex items-center gap-1 bg-[#F0FDF4] text-[#166534] border border-[#BBF7D0] text-label-sm font-label-sm px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-[#166534] animate-pulse"></span>
+            수신 중
+          </span>
+</div>
+<div class="flex items-baseline justify-between border-t border-surface-container pt-2">
+<div>
+<span class="text-label-sm font-label-sm text-primary font-bold">[RH-MF-001]</span>
+<h1 class="text-body-lg-medium font-body-lg-medium text-on-surface leading-tight">소형 가공 부품 외관 스크래치 RGB 수집</h1>
+</div>
+</div>
+<!-- Telemetry & Hardware status pill row -->
+<div class="flex items-center gap-3 text-label-sm font-label-sm text-secondary bg-[#F8FAFC] p-2 rounded-lg border border-outline-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">wifi</span>
+<span>Edge Wi-Fi -48dBm</span>
+</div>
+<span class="text-outline-variant">|</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-[#166534]">battery_charging_full</span>
+<span>92%</span>
+</div>
+<span class="text-outline-variant">|</span>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">thermostat</span>
+<span>34.2°C</span>
+</div>
+</div>
+</section>
+<!-- Safety & Authorization Gate Banner (KRDS Compliant Duo-Tone) -->
+<section class="bg-[#EFF6FF] border border-[#BFDBFE] rounded-xl p-3 flex items-start gap-2.5 shadow-sm">
+<span class="material-symbols-outlined text-[#1E40AF] text-[20px] shrink-0 mt-0.5">verified_user</span>
+<div class="flex-1">
+<div class="flex items-center gap-1.5">
+<span class="text-label-sm font-label-sm text-[#1E40AF] font-bold">현장 안전 수칙 및 촬영 구역 승인 완료</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-0.5 leading-snug">
+            방진 장갑 착용 상태 확인 · 라인 E-Stop 비상정지 스위치 2번 거점 동기화 완료
+          </p>
+</div>
+</section>
+<!-- Collection Progress Gauge Card -->
+<section class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant shadow-sm flex flex-col gap-2">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-on-surface font-body-md-medium">오늘 프레임 수집 진척도</span>
+<span class="text-primary font-bold">284 / 400 프레임 (71%)</span>
+</div>
+<!-- Multi-segment Progress Bar -->
+<div class="w-full h-2.5 bg-surface-container rounded-full overflow-hidden flex">
+<div class="h-full bg-primary-container transition-all duration-300" style="width: 71%;"></div>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-secondary text-[12px] pt-0.5">
+<span>남은 프레임: 116건</span>
+<span>예상 소요 시간: 약 14분</span>
+</div>
+</section>
+<!-- Viewfinder Module (Main Camera Viewfinder & Interactive Overlay) -->
+<section class="bg-[#0B111E] rounded-xl overflow-hidden border border-outline-variant shadow-md flex flex-col relative">
+<!-- Live Optics Meta Ribbon -->
+<div class="bg-[#131B2E] px-3 py-1.5 flex items-center justify-between text-label-sm font-label-sm text-[#B9C7DF] border-b border-[#283044]">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-error animate-ping"></span>
+<span class="text-white font-medium">CAM 01 · LIVE</span>
+</div>
+<span class="text-[12px]">RGB 4K (3840×2160)</span>
+</div>
+<!-- Camera Canvas View Area -->
+<div class="relative w-full aspect-[4/3] bg-black overflow-hidden flex items-center justify-center">
+<!-- Realistic Background Placeholder Image -->
+<img class="w-full h-full object-cover select-none" data-alt="A precision machined aluminum cylindrical part resting on a high-contrast industrial measurement fixture under clean 4500 lux diffused white studio lighting. An optical telecentric camera angle captures sharp metallic edges, subtle surface lathe grooves, and a faint linear micro-scratch along the side bevel. The background is a clean, modern slate-gray factory inspection jig with subtle alignment markings and metric scales." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaFhf95WF6EDF4yKG3gmLi8tg1ZiIVLf_oCZtRgwqHSJp_jMxewM8iwHpMgPWCwZv6a-fK6KJp84-jLQKu8C91atFoXNqehpcq9Wf5es2aCEBxj1HUNW8JjMR8aVFgvihlNXPpA3AFUH4lSbZAezEhZgOxZz1QG2xWK_s5uDvE3y__Nz4SGcvocObbg7_43jBT-eoQtQYQZj0GEUX7bE8_-TfSvfGeAanOX71LBrp67vPHU2n28mQ"/>
+<!-- Optical Grid Reticle Overlay -->
+<div class="absolute inset-0 reticle-grid pointer-events-none opacity-40"></div>
+<!-- Active Crosshair Focus Ring Indicator -->
+<div class="absolute w-28 h-28 border-2 border-primary/90 rounded-md pointer-events-none flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<!-- Corner brackets -->
+<div class="absolute -top-1.5 -left-1.5 w-3 h-3 border-t-2 border-l-2 border-white"></div>
+<div class="absolute -top-1.5 -right-1.5 w-3 h-3 border-t-2 border-r-2 border-white"></div>
+<div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-b-2 border-l-2 border-white"></div>
+<div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-b-2 border-r-2 border-white"></div>
+<span class="absolute -bottom-6 bg-black/75 text-white text-[10px] px-1.5 py-0.5 rounded font-mono">
+              AF LOCK · 35mm
+            </span>
+</div>
+<!-- Bottom Camera Overlay Bar (Optics parameters) -->
+<div class="absolute bottom-2 left-2 right-2 bg-black/70 backdrop-blur-sm rounded-lg px-2.5 py-1.5 flex items-center justify-between text-[11px] text-white font-mono">
+<span>조명 4,500 lx 고정</span>
+<span class="text-secondary-fixed-dim">|</span>
+<span>텔레센트릭 35mm F/4.0</span>
+<span class="text-secondary-fixed-dim">|</span>
+<span class="text-[#86EFAC]">ROI 100% 탐지</span>
+</div>
+</div>
+<!-- Burst & Exposure Utility Bar -->
+<div class="bg-surface-container-lowest px-3 py-2 border-t border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-outline-variant text-label-sm font-label-sm text-secondary hover:bg-surface-container transition-colors" id="burst-toggle-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">burst_mode</span>
+<span id="burst-status-text">단일 촬영</span>
+</button>
+<button class="p-1 text-secondary hover:bg-surface-container rounded border border-outline-variant" title="조명 보정" type="button">
+<span class="material-symbols-outlined text-[18px]">wb_incandescent</span>
+</button>
+</div>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-[16px] text-primary">auto_fix_high</span>
+<span>자동 결함 보조 ON</span>
+</div>
+</div>
+</section>
+<!-- Draft Label Quick Select Buttons (라벨 초안 태깅 퀵 선택) -->
+<section class="bg-surface-container-lowest rounded-xl p-3.5 border border-outline-variant shadow-sm flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<label class="text-label-md font-label-md text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">label</span>
+            현장 초안(Draft) 라벨 선택
+          </label>
+<span class="text-[12px] text-secondary">필수 태그 1건</span>
+</div>
+<div class="grid grid-cols-2 gap-2" id="label-selector-container">
+<!-- Button 1: 정상 표면 -->
+<button class="label-choice-btn flex items-center justify-between p-2.5 rounded-lg border border-outline-variant bg-white hover:bg-surface-container text-left transition-all" data-label="normal" type="button">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#166534]"></span>
+<div>
+<div class="text-body-md-medium font-body-md-medium text-on-surface text-[14px]">정상 표면</div>
+<div class="text-[11px] text-secondary">Normal</div>
+</div>
+</div>
+<span class="material-symbols-outlined check-icon text-primary hidden text-[18px]">check_circle</span>
+</button>
+<!-- Button 2: 미세 스크래치 (Active Example) -->
+<button class="label-choice-btn flex items-center justify-between p-2.5 rounded-lg border-2 border-primary bg-secondary-container/40 text-left transition-all" data-label="scratch" type="button">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error"></span>
+<div>
+<div class="text-body-md-medium font-body-md-medium text-primary text-[14px] font-bold">미세 스크래치</div>
+<div class="text-[11px] text-secondary">Micro Scratch</div>
+</div>
+</div>
+<span class="material-symbols-outlined check-icon text-primary block text-[18px]">check_circle</span>
+</button>
+<!-- Button 3: 버/이물 -->
+<button class="label-choice-btn flex items-center justify-between p-2.5 rounded-lg border border-outline-variant bg-white hover:bg-surface-container text-left transition-all" data-label="burr" type="button">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#92400E]"></span>
+<div>
+<div class="text-body-md-medium font-body-md-medium text-on-surface text-[14px]">버/이물</div>
+<div class="text-[11px] text-secondary">Burr</div>
+</div>
+</div>
+<span class="material-symbols-outlined check-icon text-primary hidden text-[18px]">check_circle</span>
+</button>
+<!-- Button 4: 판정 보류 -->
+<button class="label-choice-btn flex items-center justify-between p-2.5 rounded-lg border border-outline-variant bg-white hover:bg-surface-container text-left transition-all" data-label="ambiguous" type="button">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<div>
+<div class="text-body-md-medium font-body-md-medium text-on-surface text-[14px]">판정 보류</div>
+<div class="text-[11px] text-secondary">재촬영 / 검토필요</div>
+</div>
+</div>
+<span class="material-symbols-outlined check-icon text-primary hidden text-[18px]">check_circle</span>
+</button>
+</div>
+</section>
+<!-- Main Action Controls: Shutter Trigger & Commit -->
+<section class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant shadow-sm flex flex-col items-center gap-3">
+<!-- Large Shutter Button Control Area -->
+<div class="flex items-center justify-around w-full px-2">
+<!-- Left: History Mini Thumb -->
+<button class="w-11 h-11 rounded-lg border border-outline-variant bg-[#F8FAFC] flex flex-col items-center justify-center text-secondary hover:bg-surface-container active:scale-95 transition-all" title="최근 수집 검토" type="button">
+<span class="material-symbols-outlined text-[20px]">photo_library</span>
+<span class="text-[9px] font-medium">직전 284</span>
+</button>
+<!-- Center: Circular Primary Shutter -->
+<button aria-label="데이터 프레임 촬영" class="w-18 h-18 p-1 rounded-full border-4 border-primary bg-white shadow-md active:scale-90 transition-transform duration-100 flex items-center justify-center" id="shutter-btn" type="button">
+<div class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center text-white shadow-inner">
+<span class="material-symbols-outlined text-[30px]">photo_camera</span>
+</div>
+</button>
+<!-- Right: Retake / Reset Focus -->
+<button class="w-11 h-11 rounded-lg border border-outline-variant bg-[#F8FAFC] flex flex-col items-center justify-center text-secondary hover:bg-surface-container active:scale-95 transition-all" title="초점 재조정" type="button">
+<span class="material-symbols-outlined text-[20px]">filter_center_focus</span>
+<span class="text-[9px] font-medium">재조정</span>
+</button>
+</div>
+<!-- Primary CTA: '초안 라벨 저장 및 다음 부품' -->
+<button class="w-full h-11 bg-primary-container text-white rounded-lg font-body-lg-medium text-body-lg-medium flex items-center justify-center gap-2 hover:bg-[#1D4ED8] active:bg-[#1E40AF] active:scale-98 transition-all shadow-sm" id="submit-next-btn" type="button">
+<span>초안 라벨 저장 및 다음 부품</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</section>
+<!-- Emergency Interlock & Session Management Section -->
+<section class="pt-1 pb-4 flex flex-col gap-2">
+<div class="grid grid-cols-2 gap-2">
+<!-- 수집 일시 중지 -->
+<button class="h-11 bg-white border border-outline-variant text-on-surface rounded-lg font-label-md text-label-md flex items-center justify-center gap-1.5 hover:bg-[#F8FAFC] active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-secondary text-[18px]">pause_circle</span>
+<span>수집 일시 중지</span>
+</button>
+<!-- 세션 종료 및 업로드 -->
+<button class="h-11 bg-white border border-outline text-on-surface rounded-lg font-label-md text-label-md flex items-center justify-center gap-1.5 hover:bg-[#F8FAFC] active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-primary text-[18px]">cloud_upload</span>
+<span>세션 종료 및 업로드</span>
+</button>
+</div>
+<!-- Small E-Stop Safety Interlock Note -->
+<p class="text-[11px] text-center text-secondary flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-error">info</span>
+          긴급 시 하드웨어 E-Stop을 누르면 엣지 로깅이 즉시 동결됩니다.
+        </p>
+</section>
+</main>
+<!-- BottomNavBar Component (Predictive Exact Match: '수집' is Active) -->
+<!-- Applying Shared Component styling rules verbatim -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 bg-surface-container-lowest border-t border-outline-variant shadow-md max-w-[390px] mx-auto right-0">
+<!-- Tab 1: 작업함 (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors duration-150 active:scale-90 duration-100 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[22px]">inbox</span>
+<span class="mt-0.5">작업함</span>
+</a>
+<!-- Tab 2: 수집 (Active Destination Locked) -->
+<a class="flex flex-col items-center justify-center text-primary font-label-sm text-label-sm active:scale-90 duration-100 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">sensors</span>
+<span class="mt-0.5 font-bold">수집</span>
+</a>
+<!-- Tab 3: 경력 (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors duration-150 active:scale-90 duration-100 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[22px]">history_edu</span>
+<span class="mt-0.5">경력</span>
+</a>
+<!-- Tab 4: 내 정보 (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors duration-150 active:scale-90 duration-100 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[22px]">account_circle</span>
+<span class="mt-0.5">내 정보</span>
+</a>
+</nav>
+</div>
+<!-- Micro-interactions Script for Touch Feedback & State Toggle -->
+<script>
+    // Label Selection Micro-interaction
+    const labelBtns = document.querySelectorAll('.label-choice-btn');
+    labelBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        labelBtns.forEach(b => {
+          b.classList.remove('border-2', 'border-primary', 'bg-secondary-container/40');
+          b.classList.add('border', 'border-outline-variant', 'bg-white');
+          const checkIcon = b.querySelector('.check-icon');
+          if (checkIcon) {
+            checkIcon.classList.add('hidden');
+            checkIcon.classList.remove('block');
+          }
+          const labelTitle = b.querySelector('.text-primary');
+          if (labelTitle) {
+            labelTitle.classList.remove('text-primary', 'font-bold');
+            labelTitle.classList.add('text-on-surface');
+          }
+        });
+
+        // Activate clicked button
+        btn.classList.remove('border', 'border-outline-variant', 'bg-white');
+        btn.classList.add('border-2', 'border-primary', 'bg-secondary-container/40');
+        const icon = btn.querySelector('.check-icon');
+        if (icon) {
+          icon.classList.remove('hidden');
+          icon.classList.add('block');
+        }
+        const textElement = btn.querySelector('.text-body-md-medium');
+        if (textElement) {
+          textElement.classList.add('text-primary', 'font-bold');
+          textElement.classList.remove('text-on-surface');
+        }
+      });
+    });
+
+    // Shutter Trigger Effect
+    const shutter = document.getElementById('shutter-btn');
+    shutter.addEventListener('click', () => {
+      shutter.classList.add('ring-4', 'ring-primary-container/30');
+      setTimeout(() => {
+        shutter.classList.remove('ring-4', 'ring-primary-container/30');
+      }, 200);
+    });
+
+    // Burst Mode Toggle
+    const burstBtn = document.getElementById('burst-toggle-btn');
+    const burstText = document.getElementById('burst-status-text');
+    let burstActive = false;
+    burstBtn.addEventListener('click', () => {
+      burstActive = !burstActive;
+      if (burstActive) {
+        burstBtn.classList.add('bg-primary-container', 'text-white', 'border-primary-container');
+        burstBtn.classList.remove('text-secondary', 'border-outline-variant');
+        burstText.innerText = '연속 버스트 3X';
+      } else {
+        burstBtn.classList.remove('bg-primary-container', 'text-white', 'border-primary-container');
+        burstBtn.classList.add('text-secondary', 'border-outline-variant');
+        burstText.innerText = '단일 촬영';
+      }
+    });
+  </script>
+</body></html>

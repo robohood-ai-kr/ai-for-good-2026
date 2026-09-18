@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoboHood - 현장 탐색 (MF-21)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#b8c4ff",
+            "surface-dim": "#d2d9f4",
+            "inverse-surface": "#283044",
+            "surface-container-lowest": "#ffffff",
+            "surface-container": "#eaedff",
+            "on-background": "#131b2e",
+            "error-container": "#ffdad6",
+            "error": "#ba1a1a",
+            "primary": "#004ac6",
+            "surface-variant": "#dae2fd",
+            "surface": "#faf8ff",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed": "#0d1c2e",
+            "tertiary": "#2c4bb9",
+            "on-secondary-fixed-variant": "#3a485b",
+            "on-surface-variant": "#434655",
+            "on-surface": "#131b2e",
+            "on-primary-fixed-variant": "#003ea8",
+            "inverse-on-surface": "#eef0ff",
+            "secondary-container": "#d5e3fc",
+            "on-secondary-container": "#57657a",
+            "inverse-primary": "#b4c5ff",
+            "surface-tint": "#0053db",
+            "outline-variant": "#c3c6d7",
+            "surface-container-highest": "#dae2fd",
+            "surface-container-high": "#e2e7ff",
+            "on-primary-fixed": "#00174b",
+            "secondary-fixed-dim": "#b9c7df",
+            "on-tertiary-fixed-variant": "#173bab",
+            "outline": "#737686",
+            "surface-container-low": "#f2f3ff",
+            "background": "#faf8ff",
+            "primary-fixed-dim": "#b4c5ff",
+            "secondary": "#515f74",
+            "tertiary-fixed": "#dde1ff",
+            "on-tertiary": "#ffffff",
+            "primary-fixed": "#dbe1ff",
+            "on-tertiary-fixed": "#001453",
+            "on-error-container": "#93000a",
+            "primary-container": "#2563eb",
+            "on-tertiary-container": "#eff0ff",
+            "on-primary-container": "#eeefff",
+            "on-secondary": "#ffffff",
+            "surface-bright": "#faf8ff",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#d5e3fc",
+            "tertiary-container": "#4865d4"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "1rem",
+            "space-md": "1rem",
+            "gutter-mobile": "1rem",
+            "margin": "1.5rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Noto Sans"],
+            "body-md-medium": ["Noto Sans"],
+            "body-lg-medium": ["Noto Sans"],
+            "label-sm": ["Noto Sans"],
+            "label-md": ["Noto Sans"],
+            "body-lg": ["Noto Sans"],
+            "body-md": ["Noto Sans"],
+            "headline-lg-mobile": ["Noto Sans"],
+            "headline-md-mobile": ["Noto Sans"],
+            "headline-md": ["Noto Sans"]
+          },
+          "fontSize": {
+            "headline-lg": ["32px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "body-md-medium": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "body-lg-medium": ["17px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "label-sm": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "label-md": ["15px", { "lineHeight": "22px", "fontWeight": "500" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "headline-md-mobile": ["22px", { "lineHeight": "33px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "36px", "fontWeight": "600" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased overflow-x-hidden font-body-md text-body-md selection:bg-secondary-container selection:text-primary">
+<!-- TopNavBar (Shared Component JSON) -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 h-16 bg-surface-container-lowest border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center text-white font-bold text-lg shadow-sm">
+<span class="material-symbols-outlined text-white" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+<span class="text-headline-md font-headline-md font-bold text-primary tracking-tight">RoboHood</span>
+</div>
+<!-- Simulation Badge (Strictly Mandatory) -->
+<div class="hidden sm:flex items-center gap-2 bg-[#EFF6FF] border border-[#BFDBFE] px-2.5 py-1 rounded-md">
+<span class="w-2 h-2 rounded-full bg-[#1E40AF] animate-pulse"></span>
+<span class="text-[13px] font-semibold text-[#1E40AF]">제조업 v1 · 데모 데이터</span>
+</div>
+<!-- Quick Search Bar (search_bar: on_left) -->
+<div class="relative hidden lg:block w-72">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-secondary" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg text-body-md text-on-surface placeholder:text-secondary focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="현장명, 공정 코드, 공단 검색..." type="text"/>
+</div>
+</div>
+<!-- Actions & Profile -->
+<div class="flex items-center gap-3">
+<div class="hidden md:flex items-center gap-1">
+<button class="p-2 rounded-lg text-secondary hover:bg-surface-container hover:text-on-surface transition-colors duration-150 relative" title="알림">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span>
+</button>
+<button class="p-2 rounded-lg text-secondary hover:bg-surface-container hover:text-on-surface transition-colors duration-150" title="워크스페이스 전환">
+<span class="material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span>
+</button>
+<button class="p-2 rounded-lg text-secondary hover:bg-surface-container hover:text-on-surface transition-colors duration-150" title="도움말">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+</div>
+<div class="h-6 w-px bg-outline-variant mx-1 hidden md:block"></div>
+<div class="flex items-center gap-3 pl-2">
+<div class="text-right hidden sm:block">
+<p class="text-label-md font-label-md text-on-surface leading-tight">김진성 실장</p>
+<p class="text-[12px] text-secondary">현장 운영 총괄 관리자</p>
+</div>
+<div class="w-10 h-10 rounded-full border border-outline-variant bg-surface-container flex items-center justify-center text-primary font-bold overflow-hidden shadow-inner" title="현장 운영 총괄 관리자 프로필">
+<span class="material-symbols-outlined text-2xl" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Shared Component JSON - Active Tab: '현장 탐색') -->
+<aside class="fixed top-16 left-0 bottom-0 w-60 z-40 flex flex-col justify-between p-4 bg-surface-container-low border-r border-outline-variant">
+<div class="space-y-6">
+<!-- Sub-brand header -->
+<div class="px-2 pt-1">
+<p class="text-xs font-semibold text-secondary uppercase tracking-wider">Physical AI Core</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">제조업 Physical AI 플랫폼</p>
+</div>
+<!-- Primary Navigation Tabs -->
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-secondary" data-icon="dashboard">dashboard</span>
+<span>개요</span>
+</a>
+<!-- ACTIVE TAB: 현장 탐색 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-secondary-container text-primary font-body-md-medium text-body-md-medium transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="explore" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span>현장 탐색</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-secondary" data-icon="assignment">assignment</span>
+<span>현장 과제</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-secondary" data-icon="dataset">dataset</span>
+<span>데이터</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-secondary" data-icon="smart_toy">smart_toy</span>
+<span>모델</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-secondary" data-icon="precision_manufacturing">precision_manufacturing</span>
+<span>장비</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-secondary" data-icon="monitoring">monitoring</span>
+<span>배포·관제</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-secondary" data-icon="engineering">engineering</span>
+<span>현장 인력</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-secondary" data-icon="settings">settings</span>
+<span>설정</span>
+</a>
+</nav>
+</div>
+<!-- Side Footer -->
+<div class="pt-4 border-t border-outline-variant">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-secondary" data-icon="help_center">help_center</span>
+<span>도움말 &amp; 지원</span>
+</a>
+<div class="mt-3 p-3 bg-surface-container rounded-lg">
+<div class="flex items-center justify-between text-[11px] text-secondary">
+<span>시뮬레이션 환경</span>
+<span class="text-primary font-semibold">ONLINE</span>
+</div>
+<p class="text-[12px] text-on-surface-variant mt-1">MF-21 Core Engine v2.4</p>
+</div>
+</div>
+</aside>
+<!-- Main Canvas Frame: 240px Sidebar + 64px Topbar offset -->
+<main class="ml-60 pt-16 min-h-screen flex flex-col bg-[#F4F7FB]">
+<!-- Top Filter Header -->
+<section class="bg-surface-container-lowest border-b border-outline-variant px-8 py-4 sticky top-16 z-30 shadow-sm">
+<div class="flex flex-col gap-4">
+<!-- Title & Status row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<h1 class="text-headline-md font-headline-md text-on-surface tracking-tight">현장 탐색</h1>
+<span class="text-secondary text-sm">|</span>
+<span class="text-body-md text-secondary">시뮬레이션 기반 가상 제조 현장 검색 및 물리 AI 데이터 수집 파이프라인</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-sm font-label-sm bg-[#EFF6FF] border border-[#BFDBFE] text-[#1E40AF]">
+<span class="w-2 h-2 rounded-full bg-[#1E40AF]"></span>
+              운영 가용 현장 14개소
+            </span>
+<button class="px-3 py-1.5 rounded-lg border border-outline-variant bg-surface-container-lowest hover:bg-surface-container text-body-md-medium text-on-surface flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="refresh">refresh</span>
+              초기화
+            </button>
+</div>
+</div>
+<!-- Filter Clusters Bar -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+<!-- Region Filter -->
+<div class="bg-[#F8FAFC] border border-outline-variant rounded-lg p-2 flex flex-col gap-1">
+<span class="text-[12px] font-semibold text-secondary px-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="location_on">location_on</span>
+              권역별 산단
+            </span>
+<div class="flex flex-wrap gap-1">
+<button class="px-2.5 py-1 text-xs rounded font-medium bg-primary text-white shadow-xs">전체</button>
+<button class="px-2.5 py-1 text-xs rounded font-medium bg-surface-container-lowest border border-outline-variant text-on-surface hover:bg-surface-container transition-colors">경기·인천</button>
+<button class="px-2.5 py-1 text-xs rounded font-medium bg-surface-container-lowest border border-outline-variant text-on-surface hover:bg-surface-container transition-colors">경남·창원</button>
+<button class="px-2.5 py-1 text-xs rounded font-medium bg-surface-container-lowest border border-outline-variant text-on-surface hover:bg-surface-container transition-colors">충청·천안</button>
+</div>
+</div>
+<!-- Manufacturing Process Filter -->
+<div class="bg-[#F8FAFC] border border-outline-variant rounded-lg p-2 flex flex-col gap-1">
+<span class="text-[12px] font-semibold text-secondary px-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="precision_manufacturing">precision_manufacturing</span>
+              제조 공정
+            </span>
+<div class="flex flex-wrap gap-1">
+<button class="px-2.5 py-1 text-xs rounded font-medium bg-secondary-container text-primary font-bold">정밀 가공</button>
+<button class="px-2.5 py-1 text-xs rounded font-medium bg-surface-container-lowest border border-outline-variant text-on-surface hover:bg-surface-container transition-colors">플라스틱 사출</button>
+<button class="px-2.5 py-1 text-xs rounded font-medium bg-surface-container-lowest border border-outline-variant text-on-surface hover:bg-surface-container transition-colors">금속 프레스</button>
+<button class="px-2.5 py-1 text-xs rounded font-medium bg-surface-container-lowest border border-outline-variant text-on-surface hover:bg-surface-container transition-colors">PCB 조립</button>
+</div>
+</div>
+<!-- Data Modality Filter -->
+<div class="bg-[#F8FAFC] border border-outline-variant rounded-lg p-2 flex flex-col gap-1">
+<span class="text-[12px] font-semibold text-secondary px-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="dataset">dataset</span>
+              데이터 종류
+            </span>
+<div class="flex flex-wrap gap-1">
+<button class="px-2.5 py-1 text-xs rounded font-medium bg-secondary-container text-primary font-bold">RGB 고해상도</button>
+<button class="px-2.5 py-1 text-xs rounded font-medium bg-surface-container-lowest border border-outline-variant text-on-surface hover:bg-surface-container transition-colors">다각도 검사</button>
+<button class="px-2.5 py-1 text-xs rounded font-medium bg-surface-container-lowest border border-outline-variant text-on-surface hover:bg-surface-container transition-colors">초안 라벨 포함</button>
+</div>
+</div>
+<!-- Negotiation Status Filter -->
+<div class="bg-[#F8FAFC] border border-outline-variant rounded-lg p-2 flex flex-col gap-1">
+<span class="text-[12px] font-semibold text-secondary px-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="handshake">handshake</span>
+              협의 상태
+            </span>
+<div class="flex flex-wrap gap-1">
+<button class="px-2.5 py-1 text-xs rounded font-medium bg-surface-container-lowest border border-[#BBF7D0] text-[#166534] bg-[#F0FDF4] font-semibold">수집 협의 완료</button>
+<button class="px-2.5 py-1 text-xs rounded font-medium bg-surface-container-lowest border border-outline-variant text-on-surface hover:bg-surface-container transition-colors">사전 점검 중</button>
+<button class="px-2.5 py-1 text-xs rounded font-medium bg-surface-container-lowest border border-outline-variant text-on-surface hover:bg-surface-container transition-colors">안전 심사</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Split Screen Work Area [Map 5 : List 7] -->
+<div class="flex-1 p-8 grid grid-cols-12 gap-6 items-start">
+<!-- LEFT: Virtual Vector Map Canvas (5 cols) -->
+<section class="col-span-12 xl:col-span-5 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden flex flex-col sticky top-48">
+<!-- Map Tool Header -->
+<div class="px-5 py-3.5 border-b border-outline-variant flex items-center justify-between bg-[#F8FAFC]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="map">map</span>
+<span class="text-body-md-medium font-body-md-medium text-on-surface">시뮬레이션 산단 인터랙티브 맵</span>
+</div>
+<div class="flex items-center gap-1 text-xs text-secondary bg-surface-container-lowest px-2 py-1 border border-outline-variant rounded">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="satellite_alt">satellite_alt</span>
+<span>축적: 1:25,000 (모의 구역)</span>
+</div>
+</div>
+<!-- Vector Stylized Map Area -->
+<div class="relative w-full h-[620px] bg-[#EBF2F7] overflow-hidden select-none border-b border-outline-variant">
+<!-- Industrial Grid Lines & Road Overlay -->
+<svg class="absolute inset-0 w-full h-full opacity-60" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="industrial-grid" patternunits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="#D3E0EA" stroke-width="1"></path>
+</pattern>
+</defs>
+<rect fill="url(#industrial-grid)" height="100%" width="100%"></rect>
+<!-- Major Simulated Arterial Roads -->
+<path d="M -20 180 Q 220 220 540 140" fill="none" stroke="#CBDCE8" stroke-width="16"></path>
+<path d="M -20 180 Q 220 220 540 140" fill="none" stroke="#FFFFFF" stroke-width="12"></path>
+<path d="M 180 -20 Q 240 280 340 650" fill="none" stroke="#CBDCE8" stroke-width="14"></path>
+<path d="M 180 -20 Q 240 280 340 650" fill="none" stroke="#FFFFFF" stroke-width="10"></path>
+<path d="M 120 480 L 480 320" fill="none" stroke="#D8E5EF" stroke-width="8"></path>
+<path d="M 120 480 L 480 320" fill="none" stroke="#FFFFFF" stroke-width="5"></path>
+<!-- Simulated Industrial Sector Polygons -->
+<polygon fill="#E2EDF5" opacity="0.7" points="60,60 190,40 230,160 80,180" stroke="#BED3E3" stroke-width="1"></polygon>
+<text fill="#627D98" font-size="11" font-weight="600" x="75" y="90">스마트부품 제1산단</text>
+<polygon fill="#E2EDF5" opacity="0.7" points="260,190 440,160 480,310 290,340" stroke="#BED3E3" stroke-width="1"></polygon>
+<text fill="#627D98" font-size="11" font-weight="600" x="320" y="240">정밀가공 시뮬레이션 벨트</text>
+<polygon fill="#E2EDF5" opacity="0.7" points="70,350 220,330 200,520 50,490" stroke="#BED3E3" stroke-width="1"></polygon>
+<text fill="#627D98" font-size="11" font-weight="600" x="80" y="420">중부 로봇 시험 클러스터</text>
+</svg>
+<!-- Pin 1: 한빛 정밀 (SELECTED) -->
+<div class="absolute top-[210px] left-[310px] z-20 cursor-pointer -translate-x-1/2 -translate-y-1/2 group">
+<div class="relative flex items-center justify-center">
+<span class="absolute w-12 h-12 rounded-full bg-primary/20 animate-ping"></span>
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-lg border-2 border-white ring-4 ring-primary/20">
+<span class="material-symbols-outlined text-xl" data-icon="factory">factory</span>
+</div>
+</div>
+<!-- Active Popover: 한빛 정밀 -->
+<div class="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-72 bg-white rounded-xl border border-outline-variant shadow-xl p-3.5 z-30 pointer-events-auto">
+<div class="flex items-start justify-between gap-2 mb-2 pb-2 border-b border-[#F1F5F9]">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-body-md-medium font-body-md-medium text-on-surface">한빛 정밀</span>
+<span class="px-1.5 py-0.5 rounded text-[11px] font-bold bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534]">선택됨</span>
+</div>
+<p class="text-[12px] text-secondary">소형 정밀부품 모의 현장</p>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-bold text-xs">안전 B+</span>
+</div>
+<div class="space-y-1.5 text-xs text-on-surface-variant">
+<div class="flex items-center justify-between">
+<span class="text-secondary">설비 가동:</span>
+<span class="font-medium text-on-surface">RGB 검사대 2기 가동 중</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-secondary">협의 단계:</span>
+<span class="text-[#166534] font-semibold">데이터 수집 협의 완료</span>
+</div>
+</div>
+<div class="mt-2.5 pt-2 border-t border-[#F1F5F9] flex justify-end">
+<span class="text-[11px] text-primary font-semibold flex items-center gap-0.5">
+                  상세 내역 동기화 됨 <span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</span>
+</div>
+<!-- Tooltip Arrow -->
+<div class="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-x-8 border-x-transparent border-t-8 border-t-white"></div>
+</div>
+</div>
+<!-- Pin 2: 삼우 테크 -->
+<div class="absolute top-[380px] left-[130px] z-10 cursor-pointer -translate-x-1/2 -translate-y-1/2 group">
+<div class="w-8 h-8 rounded-full bg-white text-secondary hover:text-primary hover:border-primary flex items-center justify-center shadow-md border border-outline-variant transition-all hover:scale-110">
+<span class="material-symbols-outlined text-base" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 top-full mt-1.5 px-2 py-1 bg-surface-container-lowest border border-outline-variant rounded shadow text-xs font-semibold whitespace-nowrap text-on-surface opacity-90 group-hover:opacity-100">
+              삼우 테크 (사출)
+            </div>
+</div>
+<!-- Pin 3: 성진 메카 -->
+<div class="absolute top-[130px] left-[140px] z-10 cursor-pointer -translate-x-1/2 -translate-y-1/2 group">
+<div class="w-8 h-8 rounded-full bg-white text-secondary hover:text-primary hover:border-primary flex items-center justify-center shadow-md border border-outline-variant transition-all hover:scale-110">
+<span class="material-symbols-outlined text-base" data-icon="build">build</span>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 top-full mt-1.5 px-2 py-1 bg-surface-container-lowest border border-outline-variant rounded shadow text-xs font-semibold whitespace-nowrap text-on-surface opacity-90 group-hover:opacity-100">
+              성진 메카 (프레스)
+            </div>
+</div>
+<!-- Pin 4: 태양 프레스 -->
+<div class="absolute top-[460px] left-[380px] z-10 cursor-pointer -translate-x-1/2 -translate-y-1/2 group">
+<div class="w-8 h-8 rounded-full bg-white text-secondary hover:text-primary hover:border-primary flex items-center justify-center shadow-md border border-outline-variant transition-all hover:scale-110">
+<span class="material-symbols-outlined text-base" data-icon="hardware">hardware</span>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 top-full mt-1.5 px-2 py-1 bg-surface-container-lowest border border-outline-variant rounded shadow text-xs font-semibold whitespace-nowrap text-on-surface opacity-90 group-hover:opacity-100">
+              태양 프레스 (절삭)
+            </div>
+</div>
+<!-- Map Controls UI Floating -->
+<div class="absolute bottom-4 right-4 flex flex-col gap-1 bg-white rounded-lg border border-outline-variant shadow p-1">
+<button class="w-8 h-8 rounded hover:bg-surface-container flex items-center justify-center text-on-surface" title="확대">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+</button>
+<div class="w-full h-px bg-outline-variant"></div>
+<button class="w-8 h-8 rounded hover:bg-surface-container flex items-center justify-center text-on-surface" title="축소">
+<span class="material-symbols-outlined text-lg" data-icon="remove">remove</span>
+</button>
+<div class="w-full h-px bg-outline-variant"></div>
+<button class="w-8 h-8 rounded hover:bg-surface-container flex items-center justify-center text-on-surface" title="초기 시점">
+<span class="material-symbols-outlined text-lg" data-icon="my_location">my_location</span>
+</button>
+</div>
+<!-- Map Layer Legend -->
+<div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-2 rounded-lg border border-outline-variant shadow-sm text-xs space-y-1">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="font-medium text-on-surface">선택된 현장</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#166534]"></span>
+<span class="text-secondary">협의 완료 (가용)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#92400E]"></span>
+<span class="text-secondary">조건 조율 중</span>
+</div>
+</div>
+</div>
+<!-- Map Footer Quick Metrics -->
+<div class="p-4 bg-surface-container-low flex items-center justify-between text-xs text-secondary">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="info">info</span>
+<span>가상 GPS 기준 정밀도: ±0.05m 오차 범위 내 동기화</span>
+</div>
+<span class="font-mono text-primary">SIM-GRID-KOR-21</span>
+</div>
+</section>
+<!-- RIGHT: Facility Card List & Details (7 cols) -->
+<section class="col-span-12 xl:col-span-7 flex flex-col gap-5">
+<!-- CARD 1: 한빛 정밀 [SELECTED] -->
+<article class="bg-surface-container-lowest rounded-xl border-2 border-primary shadow-md p-6 relative transition-all">
+<!-- Selection Ribbon -->
+<div class="absolute -top-3 left-6 bg-primary text-white text-xs font-bold px-3 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs" data-icon="check_circle">check_circle</span>
+            현재 지도 선택 현장
+          </div>
+<!-- Facility Header -->
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#F1F5F9] mt-2">
+<div>
+<div class="flex items-center gap-3">
+<h2 class="text-headline-md font-headline-md text-on-surface">한빛 정밀</h2>
+<!-- Status Badge: SUCCESS -->
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-label-sm font-label-sm bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534]">
+<span class="w-2 h-2 rounded-full bg-[#166534]"></span>
+                  수집 협의 완료
+                </span>
+</div>
+<p class="text-body-md text-secondary mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-secondary" data-icon="location_on">location_on</span>
+                경기 시흥 가상 스마트산단 4호 라인 (모의 시뮬레이션 지번: 104-B)
+              </p>
+</div>
+<div class="text-right flex sm:flex-col items-center sm:items-end justify-between">
+<span class="text-xs text-secondary">안전 규격 인증</span>
+<span class="text-label-md font-label-md text-primary font-bold">B+ Level (적합)</span>
+</div>
+</div>
+<!-- Grid Meta Specs -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-5 bg-[#F8FAFC] p-4 rounded-xl border border-outline-variant">
+<div>
+<span class="text-xs font-semibold text-secondary uppercase block mb-1">적용 제조 공정</span>
+<p class="text-body-md-medium font-body-md-medium text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="tune">tune</span>
+                정밀 절삭 및 소형 부품 외관 다각도 검사
+              </p>
+</div>
+<div>
+<span class="text-xs font-semibold text-secondary uppercase block mb-1">가용 센서 모달리티</span>
+<p class="text-body-md-medium font-body-md-medium text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="photo_camera">photo_camera</span>
+                RGB 4K 정밀 카메라 (2대), 광학 링 조명
+              </p>
+</div>
+<!-- Permission Bounds -->
+<div class="md:col-span-2 pt-2 border-t border-outline-variant">
+<span class="text-xs font-semibold text-secondary uppercase block mb-1.5">데이터 취득 허용 범위</span>
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-outline-variant flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary mt-0.5" data-icon="verified_user">verified_user</span>
+<div class="text-body-md text-on-surface-variant">
+<strong class="text-on-surface">공정 내 가공 부품 RGB 고해상도 촬영 허용.</strong>
+<p class="text-xs text-secondary mt-0.5">※ 단, 작업자 안면 비식별화 필수, 기밀 설비 구역 제외, 데이터의 플랫폼 외부 무단 공개 및 반출 엄격 제한.</p>
+</div>
+</div>
+</div>
+<!-- Safety Protocol Condition -->
+<div class="md:col-span-2">
+<span class="text-xs font-semibold text-secondary uppercase block mb-1.5">현장 출입 및 안전 필수 조건</span>
+<div class="flex flex-wrap gap-2 text-xs">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[#FEF2F2] border border-[#FECACA] text-[#B91C1C] font-medium">
+<span class="material-symbols-outlined text-xs" data-icon="warning">warning</span>
+                  현장 안전화 및 규격 보호구 착용 필수
+                </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container border border-outline-variant text-on-surface font-medium">
+<span class="material-symbols-outlined text-xs" data-icon="person_check">person_check</span>
+                  공장 안전감독관 1인 입회 필수
+                </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container border border-outline-variant text-on-surface font-medium">
+<span class="material-symbols-outlined text-xs" data-icon="schedule">schedule</span>
+                  촬영 가능 시간대: 09:00 - 17:30
+                </span>
+</div>
+</div>
+</div>
+<!-- Card Actions -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+<div class="text-xs text-secondary">
+              최종 데이터셋 동기화: <span class="font-mono text-on-surface font-medium">2025.02.26 10:45 KST</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<!-- Secondary Outline Button -->
+<button class="flex-1 sm:flex-initial px-5 h-11 rounded-lg border border-outline-variant bg-surface-container-lowest hover:bg-[#F8FAFC] hover:border-secondary text-on-surface font-body-lg-medium text-body-lg-medium transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+                데이터셋 보기
+              </button>
+<!-- Primary Solid Blue CTA -->
+<button class="flex-1 sm:flex-initial px-6 h-11 rounded-lg bg-primary-container hover:bg-[#1D4ED8] active:bg-[#1E40AF] text-white font-body-lg-medium text-body-lg-medium shadow-sm transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="send">send</span>
+                이 현장에 수집 요청
+              </button>
+</div>
+</div>
+</article>
+<!-- CARD 2: 삼우 테크 -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm p-6 hover:border-primary/50 transition-all">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#F1F5F9]">
+<div>
+<div class="flex items-center gap-3">
+<h2 class="text-headline-md font-headline-md text-on-surface">삼우 테크</h2>
+<!-- Status Badge: WARNING -->
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-label-sm font-label-sm bg-[#FFFBEB] border border-[#FDE68A] text-[#92400E]">
+<span class="w-2 h-2 rounded-full bg-[#92400E]"></span>
+                  조건 협의 중
+                </span>
+</div>
+<p class="text-body-md text-secondary mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-secondary" data-icon="location_on">location_on</span>
+                창원 모의 공단 제2블록 (사출 성형 특화 모의 라인)
+              </p>
+</div>
+<div class="text-right flex sm:flex-col items-center sm:items-end justify-between">
+<span class="text-xs text-secondary">안전 규격 인증</span>
+<span class="text-label-md font-label-md text-on-surface font-semibold">A- Level</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+<div>
+<span class="text-xs font-semibold text-secondary uppercase block mb-1">공정 개요</span>
+<p class="text-body-md text-on-surface">고속 플라스틱 사출 불량 데이터 (버, 미성형, 웰드라인)</p>
+</div>
+<div>
+<span class="text-xs font-semibold text-secondary uppercase block mb-1">예상 샘플 규모</span>
+<p class="text-body-md text-on-surface font-mono">12,000 Shot / 라벨 태깅율 88%</p>
+</div>
+</div>
+<div class="bg-[#F8FAFC] p-3 rounded-lg border border-outline-variant text-xs text-secondary flex items-center justify-between">
+<span>협의 이슈: 사출 금형 보안 특허로 인한 특정 센서 앵글 차단 프로토콜 검토 중</span>
+<button class="text-primary font-semibold hover:underline flex items-center gap-0.5">
+              조율 내역 확인 <span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<div class="flex items-center justify-between pt-4 mt-2">
+<span class="text-xs text-secondary">사전 점검 일정: 2025.03.04 예정</span>
+<div class="flex items-center gap-2">
+<button class="px-4 h-10 rounded-lg border border-outline-variant bg-surface-container-lowest hover:bg-[#F8FAFC] text-on-surface text-label-md font-label-md transition-colors">
+                현장 정보 요약서
+              </button>
+<button class="px-4 h-10 rounded-lg bg-surface-container hover:bg-secondary-container text-primary font-label-md font-label-md transition-colors">
+                협의 이력 관리
+              </button>
+</div>
+</div>
+</article>
+<!-- CARD 3: 성진 메카 -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm p-6 hover:border-primary/50 transition-all">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-[#F1F5F9]">
+<div>
+<div class="flex items-center gap-3">
+<h2 class="text-headline-md font-headline-md text-on-surface">성진 메카</h2>
+<!-- Status Badge: INFO -->
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-label-sm font-label-sm bg-[#EFF6FF] border border-[#BFDBFE] text-[#1E40AF]">
+<span class="w-2 h-2 rounded-full bg-[#1E40AF]"></span>
+                  사전 점검 진행
+                </span>
+</div>
+<p class="text-body-md text-secondary mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-secondary" data-icon="location_on">location_on</span>
+                천안 가상 공구단지 12-C (프레스 및 금속 판금 가공 시뮬레이터)
+              </p>
+</div>
+<div class="text-right flex sm:flex-col items-center sm:items-end justify-between">
+<span class="text-xs text-secondary">안전 규격 인증</span>
+<span class="text-label-md font-label-md text-on-surface font-semibold">B Level (심사 중)</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+<div>
+<span class="text-xs font-semibold text-secondary uppercase block mb-1">공정 개요</span>
+<p class="text-body-md text-on-surface">300톤 프레스 단차 검사 및 프레스 성형 결함 데이터</p>
+</div>
+<div>
+<span class="text-xs font-semibold text-secondary uppercase block mb-1">지원 센서 인터페이스</span>
+<p class="text-body-md text-on-surface">GigE Vision, 실시간 토크 센서 동기화</p>
+</div>
+</div>
+<div class="bg-[#F8FAFC] p-3 rounded-lg border border-outline-variant text-xs text-secondary flex items-center justify-between">
+<span>현장 점검원(모의 요원)이 물리적 진동 및 조도 환경 실측 리포트를 작성 중입니다.</span>
+<span class="text-xs font-mono text-[#1E40AF] font-bold">진행률 64%</span>
+</div>
+<div class="flex items-center justify-between pt-4 mt-2">
+<span class="text-xs text-secondary">검측 완료 예정: 금일 18:00</span>
+<div class="flex items-center gap-2">
+<button class="px-4 h-10 rounded-lg border border-outline-variant bg-surface-container-lowest hover:bg-[#F8FAFC] text-on-surface text-label-md font-label-md transition-colors">
+                실측 리포트 초안
+              </button>
+<button class="px-4 h-10 rounded-lg bg-surface-container hover:bg-secondary-container text-primary font-label-md font-label-md transition-colors">
+                사전 점검표 보기
+              </button>
+</div>
+</div>
+</article>
+</section>
+</div>
+<!-- Mandatory Footer Disclaimer (KRDS / Platform Constraint) -->
+<footer class="mt-auto bg-surface-container-lowest border-t border-outline-variant px-8 py-4">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-secondary">
+<p class="text-center md:text-left">
+          ※ 지도 및 제조사 정보는 가상 시뮬레이션 데이터입니다. 정부 로고 및 공공인증 표기는 포함되지 않습니다.
+        </p>
+<div class="flex items-center gap-4">
+<span>RoboHood Physical AI Manufacturing Suite</span>
+<span>·</span>
+<span>KRDS 접근성 지침 2.1 준수</span>
+<span>·</span>
+<span>보안 프로토콜: K-SEC-Level 3</span>
+</div>
+</div>
+</footer>
+</main>
+<!-- Mobile Screen Bottom Navigation fallback (Shared Components JSON standard) -->
+<div class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 bg-surface-container-lowest border-t border-outline-variant shadow-md">
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="inbox">inbox</span>
+<span>작업함</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="sensors" style="font-variation-settings: 'FILL' 1;">sensors</span>
+<span>수집</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span>경력</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span>내 정보</span>
+</a>
+</div>
+</body></html>

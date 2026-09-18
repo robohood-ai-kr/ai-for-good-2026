@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MF-09 검수·라벨링 | RoboHood</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#b8c4ff",
+            "surface-dim": "#d2d9f4",
+            "inverse-surface": "#283044",
+            "surface-container-lowest": "#ffffff",
+            "surface-container": "#eaedff",
+            "on-background": "#131b2e",
+            "error-container": "#ffdad6",
+            "error": "#ba1a1a",
+            "primary": "#004ac6",
+            "surface-variant": "#dae2fd",
+            "surface": "#faf8ff",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed": "#0d1c2e",
+            "tertiary": "#2c4bb9",
+            "on-secondary-fixed-variant": "#3a485b",
+            "on-surface-variant": "#434655",
+            "on-surface": "#131b2e",
+            "on-primary-fixed-variant": "#003ea8",
+            "inverse-on-surface": "#eef0ff",
+            "secondary-container": "#d5e3fc",
+            "on-secondary-container": "#57657a",
+            "inverse-primary": "#b4c5ff",
+            "surface-tint": "#0053db",
+            "outline-variant": "#c3c6d7",
+            "surface-container-highest": "#dae2fd",
+            "surface-container-high": "#e2e7ff",
+            "on-primary-fixed": "#00174b",
+            "secondary-fixed-dim": "#b9c7df",
+            "on-tertiary-fixed-variant": "#173bab",
+            "outline": "#737686",
+            "surface-container-low": "#f2f3ff",
+            "background": "#faf8ff",
+            "primary-fixed-dim": "#b4c5ff",
+            "secondary": "#515f74",
+            "tertiary-fixed": "#dde1ff",
+            "on-tertiary": "#ffffff",
+            "primary-fixed": "#dbe1ff",
+            "on-tertiary-fixed": "#001453",
+            "on-error-container": "#93000a",
+            "primary-container": "#2563eb",
+            "on-tertiary-container": "#eff0ff",
+            "on-primary-container": "#eeefff",
+            "on-secondary": "#ffffff",
+            "surface-bright": "#faf8ff",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#d5e3fc",
+            "tertiary-container": "#4865d4"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "1rem",
+            "space-md": "1rem",
+            "gutter-mobile": "1rem",
+            "margin": "1.5rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Noto Sans"],
+            "body-md-medium": ["Noto Sans"],
+            "body-lg-medium": ["Noto Sans"],
+            "label-sm": ["Noto Sans"],
+            "label-md": ["Noto Sans"],
+            "body-lg": ["Noto Sans"],
+            "body-md": ["Noto Sans"],
+            "headline-lg-mobile": ["Noto Sans"],
+            "headline-md-mobile": ["Noto Sans"],
+            "headline-md": ["Noto Sans"]
+          },
+          "fontSize": {
+            "headline-lg": ["32px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "body-md-medium": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "body-lg-medium": ["17px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "label-sm": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "label-md": ["15px", { "lineHeight": "22px", "fontWeight": "500" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "36px", "fontWeight": "700" }],
+            "headline-md-mobile": ["22px", { "lineHeight": "33px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "36px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface h-full overflow-hidden flex flex-col font-body-md select-none">
+<!-- TopNavBar (Shared Component JSON Blueprint) -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 h-16 bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm">
+<div class="flex items-center gap-4">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight">RoboHood</span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-label-sm font-label-sm bg-blue-50 text-primary border border-blue-200">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+        제조업 v1 · 데모 데이터
+      </span>
+<span class="h-4 w-px bg-outline-variant"></span>
+<div class="flex items-center gap-2 text-label-md font-label-md text-secondary">
+<span>스마트 팩토리 C공정</span>
+<span class="material-symbols-outlined text-outline" style="font-size: 16px;">chevron_right</span>
+<span>정밀 체결 세션 #12</span>
+<span class="material-symbols-outlined text-outline" style="font-size: 16px;">chevron_right</span>
+<span class="text-primary font-body-md-medium">품질 검수 및 라벨링</span>
+</div>
+</div>
+<!-- Center Quality Rule Banner -->
+<div class="hidden xl:flex items-center gap-2 px-3 py-1 bg-surface-container-low rounded-lg border border-outline-variant text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary" style="font-size: 18px;">verified_user</span>
+<span>전문 검수원 전용 화면 · 가상 AI 연구팀 품질기준서 v1.2 적용 중</span>
+</div>
+<!-- Trailing Icon Actions and Operator Profile -->
+<div class="flex items-center gap-3">
+<button aria-label="notifications" class="p-2 rounded-lg text-secondary hover:bg-surface-container hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button aria-label="swap_horiz" class="p-2 rounded-lg text-secondary hover:bg-surface-container hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined">swap_horiz</span>
+</button>
+<button aria-label="help" class="p-2 rounded-lg text-secondary hover:bg-surface-container hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="h-6 w-px bg-outline-variant mx-1"></div>
+<div class="flex items-center gap-2.5 pl-2 cursor-pointer hover:opacity-90">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-primary flex items-center justify-center font-bold text-label-sm border border-outline-variant">
+          JD
+        </div>
+<div class="text-left hidden sm:block">
+<p class="text-label-sm font-label-sm text-on-surface leading-tight">정동수 시니어</p>
+<p class="text-[11px] text-secondary">현장 운영 총괄 관리자</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Shell Wrapper -->
+<div class="flex h-full pt-16">
+<!-- SideNavBar (Shared Component JSON Blueprint) -->
+<aside class="fixed top-16 left-0 bottom-0 w-60 z-40 flex flex-col justify-between p-4 bg-surface-container-low dark:bg-inverse-surface border-r border-outline-variant dark:border-outline">
+<div class="space-y-4">
+<!-- Sub-header branding within sidebar -->
+<div class="px-2 py-1">
+<div class="text-label-md font-label-md font-bold text-on-surface">RoboHood Vision Core</div>
+<div class="text-[12px] text-secondary">제조업 Physical AI 플랫폼</div>
+</div>
+<nav class="space-y-1">
+<!-- 개요 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>개요</span>
+</a>
+<!-- 현장 탐색 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span>현장 탐색</span>
+</a>
+<!-- 현장 과제 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span>현장 과제</span>
+</a>
+<!-- 데이터 (ACTIVE: style_active_navigation applied verbatim) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-secondary-container dark:bg-secondary text-primary dark:text-inverse-primary font-body-md-medium text-body-md-medium" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dataset</span>
+<span class="flex-1">데이터</span>
+<span class="px-1.5 py-0.5 text-[11px] rounded bg-primary text-on-primary font-bold">진행 14</span>
+</a>
+<!-- 모델 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span>모델</span>
+</a>
+<!-- 장비 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined">precision_manufacturing</span>
+<span>장비</span>
+</a>
+<!-- 배포·관제 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span>배포·관제</span>
+</a>
+<!-- 현장 인력 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined">engineering</span>
+<span>현장 인력</span>
+</a>
+<!-- 설정 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>설정</span>
+</a>
+</nav>
+</div>
+<!-- Footer Action -->
+<div class="pt-4 border-t border-outline-variant">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined">help_center</span>
+<span>도움말 &amp; 지원</span>
+</a>
+</div>
+</aside>
+<!-- Main Workspace (Desktop 3-Column Inspection Layout) -->
+<main class="ml-60 flex-1 flex overflow-hidden bg-[#F4F7FB]">
+<!-- Column 1: 좌측 썸네일 리스트 (너비 260px) -->
+<section class="w-[260px] flex-shrink-0 bg-surface-container-lowest border-r border-outline-variant flex flex-col h-full">
+<!-- List Header -->
+<div class="p-3 border-b border-outline-variant flex items-center justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-label-md font-label-md font-bold text-on-surface">세션 #12 수집 목록</span>
+</div>
+<p class="text-[12px] text-secondary">총 80장 중 14번째 선택됨</p>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1 rounded hover:bg-surface-container text-secondary" title="필터링">
+<span class="material-symbols-outlined" style="font-size: 18px;">filter_alt</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-secondary" title="새로고침">
+<span class="material-symbols-outlined" style="font-size: 18px;">sync</span>
+</button>
+</div>
+</div>
+<!-- Progress Bar Indicator -->
+<div class="w-full bg-surface-container h-1.5">
+<div class="bg-primary h-1.5" style="width: 17.5%;"></div>
+</div>
+<!-- Thumbnail Scroll Stream -->
+<div class="flex-1 overflow-y-auto p-2 space-y-2">
+<!-- Item 12: 양품 -->
+<div class="flex gap-2.5 p-2 rounded-lg border border-outline-variant/60 hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-16 h-16 rounded bg-slate-200 overflow-hidden flex-shrink-0 border border-slate-300">
+<img class="w-full h-full object-cover" data-alt="Close-up macro industrial photograph of precision metallic gear component illuminated under soft neutral white studio light with sharp clean bevel edges, micro inspection photography with high depth of field and no visible defects." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVHGgLCgR87DbbEGXyAf9zVjVAu2Ez5cUUThA2bf8xLSI-tZcK4zzfa2Vn9cdNMZMqVEZLxsyShbZXvvzVSj35GTILPEEpoDkWxedetwebNxxBHSehrAC5HM0ofnD0pIhK1wKY_Pos8RjhFaUXO6Q4v4APcwLvCLtPuRV5E2ESFK2Kcxnc6Mo9anXJj9Wt5bNnxk3xZXt-St6CHRKbABa_pnYRNZVPQJk8T6mkWTjcq4EKJ26_ZGg"/>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm font-mono text-on-surface font-semibold">IMG-0012</span>
+<span class="text-[11px] px-1.5 py-0.5 rounded bg-[#F0FDF4] text-[#166534] border border-[#BBF7D0] font-medium">양품</span>
+</div>
+<p class="text-[12px] text-secondary">09:42:15</p>
+<div class="flex items-center gap-1 text-[11px] text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>검수 완료</span>
+</div>
+</div>
+</div>
+<!-- Item 13: 보류 -->
+<div class="flex gap-2.5 p-2 rounded-lg border border-outline-variant/60 hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-16 h-16 rounded bg-slate-200 overflow-hidden flex-shrink-0 border border-slate-300">
+<img class="w-full h-full object-cover" data-alt="Industrial micro sensor macro photograph showing high precision aluminum bracket with slight lighting shadow distortion over the mounting hole under industrial white testing illuminator." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH-e3OcDeVGRYkrSVjVWsF5Wfak_vtNeufx7KhSfS-RiMruoDnkIGtGoVA5z89fm0zbInGtgqHGjcLnOyKobRswxNsVzIU-vs4f7862fU7vzj5IRjem-qhPGuWMRJzf8JeKgRAuiVYtBNFT54mOWs6Tg0wH1awIso5Bt0cPOlm6mRlMbUnqOD88iTMm1cmnGHe0_kn-1JIVDHKxnLB9fbsBAXSm2v6ux0MZP_mI-eumALyfxH2cNY"/>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm font-mono text-on-surface font-semibold">IMG-0013</span>
+<span class="text-[11px] px-1.5 py-0.5 rounded bg-[#FFFBEB] text-[#92400E] border border-[#FDE68A] font-medium">보류</span>
+</div>
+<p class="text-[12px] text-secondary">09:43:02</p>
+<div class="flex items-center gap-1 text-[11px] text-[#92400E]">
+<span class="material-symbols-outlined" style="font-size: 13px;">schedule</span>
+<span>재촬영 대기</span>
+</div>
+</div>
+</div>
+<!-- Item 14: ACTIVE ITEM (스크래치 결함 의심) -->
+<div class="flex gap-2.5 p-2 rounded-lg bg-blue-50/80 border-2 border-primary shadow-sm cursor-pointer relative">
+<div class="absolute -left-1.5 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r"></div>
+<div class="w-16 h-16 rounded bg-slate-300 overflow-hidden flex-shrink-0 border border-primary/40 relative">
+<img class="w-full h-full object-cover" data-alt="Ultra sharp industrial top-down RGB macro view of a precision micro connector pin assembly on clean industrial metallic surface with slight hairline scratch near pin joint, neutral balanced factory illumination." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA__47CFm4rR3BTbA8sikrZ75XyZTVD8MHzke1hGatWIVXlNU-WvBLeNhQ47S5LGLQa-ZGaJLZ92qx3FMeSJqy9E5qyxHVJ493pwOQSZ15hwXVURe8ijzowX7R9kvEGf4U_0Ox1QsWw4Bht_KvY4rz_44oCoqJ6UMrMcg4Rw68yGHCrFiUwf6jEaLyDc-SseCvwkFe-IbwnLiJKk2WVuk4FnhxGazgeo_UndceS_EdGQ2KULZzhT4"/>
+<div class="absolute top-1 right-1 w-2.5 h-2.5 rounded-full bg-red-500 border border-white"></div>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm font-mono text-primary font-bold">IMG-0014</span>
+<span class="text-[11px] px-1.5 py-0.5 rounded bg-[#FEF2F2] text-[#B91C1C] border border-[#FECACA] font-semibold">스크래치</span>
+</div>
+<p class="text-[12px] text-on-surface font-medium">09:44:18</p>
+<div class="flex items-center gap-1 text-[11px] text-primary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+<span>현재 검수 중</span>
+</div>
+</div>
+</div>
+<!-- Item 15: 양품 -->
+<div class="flex gap-2.5 p-2 rounded-lg border border-outline-variant/60 hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-16 h-16 rounded bg-slate-200 overflow-hidden flex-shrink-0 border border-slate-300">
+<img class="w-full h-full object-cover" data-alt="High precision machined stainless steel terminal pin module inspected top-down under crisp LED daylight ring light, perfectly deburred edges without scratches or anomalies." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOGgHXV1MC0G541M3r9KXFASCPo0Aum28tyP61vQ3-aKjUDxRdcGLAH8EBmXpmBLy_a1TlRyxPJqCPpTp3CUv8agUF765wg63IBjYDZ6mOpQrKcdcKQfTAtc7p8LJYXYG3ax7g8gzPvq5mcAyACEc4qZ4OjBgY2om2hp_BaqhVxs6M7n2Axf82f0s9iaaRyxPqb8gEfTf5-yKX0sO4jmx2k9OqpoRJVZGpVVExrlhWNeypDRRp628"/>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm font-mono text-on-surface font-semibold">IMG-0015</span>
+<span class="text-[11px] px-1.5 py-0.5 rounded bg-[#F0FDF4] text-[#166534] border border-[#BBF7D0] font-medium">양품</span>
+</div>
+<p class="text-[12px] text-secondary">09:44:50</p>
+<div class="text-[11px] text-secondary">미검수</div>
+</div>
+</div>
+<!-- Item 16: 스크래치 -->
+<div class="flex gap-2.5 p-2 rounded-lg border border-outline-variant/60 hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-16 h-16 rounded bg-slate-200 overflow-hidden flex-shrink-0 border border-slate-300">
+<img class="w-full h-full object-cover" data-alt="Industrial overhead inspection photo of robotic assembly fixture with connector pins resting on anti-static surface in modern automated manufacturing floor, sharp focus and neutral 5000K lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEK1-qZfyiK5-tBAHIFbokVWenQYJ-y07xkQEcxkqYyDRL3MFyaBl7RTlC0-xcBa2YuVbZtCkBWTitdqNsiTyWpWCnwDIUM5tYETWUw7O9syMjqMvPyDV5vfYk4Zk7xNNS5eRvwzwPd0tyEx_OgdMntxVCE_OvrFkwqJCF6lz30h39Mwq9SR-SSsYBOPoT4b-B-n1-YVfUMskxORMWMwh0X7nlJh4T0p7UR1GG50I5g9bPOuBIHw4"/>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm font-mono text-on-surface font-semibold">IMG-0016</span>
+<span class="text-[11px] px-1.5 py-0.5 rounded bg-[#FEF2F2] text-[#B91C1C] border border-[#FECACA] font-medium">스크래치</span>
+</div>
+<p class="text-[12px] text-secondary">09:45:22</p>
+<div class="text-[11px] text-secondary">미검수</div>
+</div>
+</div>
+<!-- Item 17: 미검수 -->
+<div class="flex gap-2.5 p-2 rounded-lg border border-outline-variant/60 hover:bg-surface-container transition-all cursor-pointer">
+<div class="w-16 h-16 rounded bg-slate-200 overflow-hidden flex-shrink-0 border border-slate-300">
+<img class="w-full h-full object-cover" data-alt="Top down overhead technical view of micro fabricated connector pin matrix placed under industrial lab inspection camera, clean background with calibrated scale marks." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8-T6ePb9dEVvuLOEtYxwI5JsGA73d5UnmuU1lb26qn8esIeK7IC4qGvgDqRVEyqedyCNji7qHQJV7ZNVCWqmGL9lllevVeUkdhO805xf38VprovHU6j_yHJZNl3WkCTHuSd5gjgxZ-xCTOljbBy4zTqnl2YYvxrvD75KGmunB1z5n8_OaBA6i8Owtrc6tdb5NdscsPaXDPsTiX8vcZaWA5YkbsXjk6x2QYnjcuDAenIDhuqSVSX0"/>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm font-mono text-on-surface font-semibold">IMG-0017</span>
+<span class="text-[11px] px-1.5 py-0.5 rounded bg-surface-container-high text-secondary font-medium">대기</span>
+</div>
+<p class="text-[12px] text-secondary">09:46:01</p>
+<div class="text-[11px] text-secondary">미검수</div>
+</div>
+</div>
+</div>
+<!-- Quick Keyboard Helper -->
+<div class="p-2.5 bg-surface-container-low border-t border-outline-variant text-[11px] text-secondary flex items-center justify-between">
+<span>단축키 탐색</span>
+<div class="flex gap-1">
+<kbd class="px-1.5 py-0.5 bg-white border border-outline-variant rounded font-mono text-[10px]">▲</kbd>
+<kbd class="px-1.5 py-0.5 bg-white border border-outline-variant rounded font-mono text-[10px]">▼</kbd>
+</div>
+</div>
+</section>
+<!-- Column 2: 중앙 고해상도 RGB 뷰어 (유연한 메인 영역) -->
+<section class="flex-1 flex flex-col h-full bg-[#EBF0F7] relative border-r border-outline-variant">
+<!-- Viewer Top Control Toolbar -->
+<div class="h-12 bg-surface-container-lowest border-b border-outline-variant px-4 flex items-center justify-between z-10 shadow-xs">
+<div class="flex items-center gap-2">
+<span class="font-mono font-bold text-label-md text-on-surface">IMG-0014.PNG</span>
+<span class="text-xs px-2 py-0.5 rounded bg-surface-container text-secondary font-mono">3840 × 2160 · 48-bit RGB</span>
+</div>
+<!-- Tool Controls -->
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg border border-outline-variant">
+<button class="p-1.5 rounded hover:bg-white text-secondary hover:text-on-surface transition-colors" title="선택 도구 (V)">
+<span class="material-symbols-outlined" style="font-size: 18px;">near_me</span>
+</button>
+<button class="p-1.5 rounded bg-white text-primary shadow-xs font-semibold" title="바운딩 박스 도구 (B)">
+<span class="material-symbols-outlined" style="font-size: 18px;">crop_free</span>
+</button>
+<button class="p-1.5 rounded hover:bg-white text-secondary hover:text-on-surface transition-colors" title="측정 자 (M)">
+<span class="material-symbols-outlined" style="font-size: 18px;">straighten</span>
+</button>
+<span class="w-px h-4 bg-outline-variant mx-1"></span>
+<button class="p-1.5 rounded hover:bg-white text-secondary hover:text-on-surface transition-colors" title="축소 (-)">
+<span class="material-symbols-outlined" style="font-size: 18px;">zoom_out</span>
+</button>
+<span class="text-xs font-mono text-on-surface px-1">185%</span>
+<button class="p-1.5 rounded hover:bg-white text-secondary hover:text-on-surface transition-colors" title="확대 (+)">
+<span class="material-symbols-outlined" style="font-size: 18px;">zoom_in</span>
+</button>
+<button class="p-1.5 rounded hover:bg-white text-secondary hover:text-on-surface transition-colors" title="화면에 맞추기">
+<span class="material-symbols-outlined" style="font-size: 18px;">fit_screen</span>
+</button>
+<span class="w-px h-4 bg-outline-variant mx-1"></span>
+<button class="p-1.5 rounded hover:bg-white text-secondary hover:text-on-surface transition-colors" title="밝기 / 대비 조절">
+<span class="material-symbols-outlined" style="font-size: 18px;">tune</span>
+</button>
+<button class="p-1.5 rounded hover:bg-white text-secondary hover:text-on-surface transition-colors" title="RGB 채널 분리">
+<span class="material-symbols-outlined" style="font-size: 18px;">palette</span>
+</button>
+</div>
+<!-- Fullscreen & Layer Toggles -->
+<div class="flex items-center gap-2">
+<label class="flex items-center gap-1.5 text-xs text-secondary cursor-pointer">
+<input checked="" class="rounded text-primary focus:ring-primary h-3.5 w-3.5 border-outline" type="checkbox"/>
+<span>라벨 박스 오버레이</span>
+</label>
+<button class="p-1.5 rounded hover:bg-surface-container text-secondary" title="전체화면">
+<span class="material-symbols-outlined" style="font-size: 18px;">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- High-Res Inspection Canvas Area -->
+<div class="flex-1 relative overflow-hidden flex items-center justify-center p-6 bg-[#E2E8F0] pattern-dots">
+<!-- Industrial Grid Backdrop Pattern -->
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(#64748B 1px, transparent 1px); background-size: 20px 20px;"></div>
+<!-- Component Image Stage with Bounding Box Overlay -->
+<div class="relative bg-white shadow-2xl rounded-lg border border-outline-variant overflow-hidden max-w-[880px] max-h-[580px]">
+<img class="w-full h-full object-contain block select-none" data-alt="High resolution macro telecentric lens capture of micro copper pin assembly on automotive transmission PCB with high contrast industrial white surface, perfectly rendered metal traces and detailed micro crack highlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYJ9dH-n9gxVJgeXPLM6EbJJJqb8kHGDhVGTt5gT0VL9FfHYCB9yEuoP2YCIgSQqYcvnctVjV3IaCt-eKO-Mx1ssE8btmb8A0dHOZ9Ge_tlZyYJtJWZMQ8TDBPButSizgDkoisxA0yPdxmjnocijbaKGUaxN-EqzSx5WqiwQ08SJRijL7By-49DxxsTtyqc_KdSjXtkR8RrYjYI8tYuHYTiPkiLqSVFm-PWDfjg8dq9QgpUuHTJDk"/>
+<!-- Crosshair Center Overlay -->
+<div class="absolute inset-0 pointer-events-none flex items-center justify-center">
+<div class="w-8 h-8 border-l border-t border-red-400/50 absolute"></div>
+<div class="w-8 h-8 border-r border-b border-red-400/50 absolute"></div>
+</div>
+<!-- Bounding Box: 소형 핀 결합부 미세 크랙 영역 강조 -->
+<div class="absolute top-[32%] left-[44%] w-[28%] h-[34%] border-2 border-red-500 bg-red-500/15 rounded-xs transition-all ring-2 ring-red-400/40">
+<!-- Label Tag Pill -->
+<div class="absolute -top-7 left-0 bg-[#B91C1C] text-white text-[11px] font-mono font-bold px-2 py-0.5 rounded shadow flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 13px;">error</span>
+<span>CRACK-01 (소형 핀 단차 균열)</span>
+<span class="bg-red-900/60 px-1 rounded text-[10px]">Conf: 82%</span>
+</div>
+<!-- Corner Anchor Handles for Precision Annotation Editing -->
+<div class="w-2.5 h-2.5 bg-white border border-red-600 absolute -top-1.5 -left-1.5 cursor-nwse-resize"></div>
+<div class="w-2.5 h-2.5 bg-white border border-red-600 absolute -top-1.5 -right-1.5 cursor-nesw-resize"></div>
+<div class="w-2.5 h-2.5 bg-white border border-red-600 absolute -bottom-1.5 -left-1.5 cursor-nesw-resize"></div>
+<div class="w-2.5 h-2.5 bg-white border border-red-600 absolute -bottom-1.5 -right-1.5 cursor-nwse-resize"></div>
+<!-- Micro Measurement Annotation Line -->
+<div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-black/75 text-white px-1.5 py-0.5 rounded text-[10px] font-mono whitespace-nowrap">
+                길이: 0.42mm · 폭: 0.08mm
+              </div>
+</div>
+<!-- Secondary Reference Box (Good Pin) -->
+<div class="absolute top-[35%] left-[16%] w-[20%] h-[28%] border border-emerald-500/80 bg-emerald-500/10 rounded-xs">
+<div class="absolute -top-5 left-0 bg-[#166534] text-white text-[10px] font-mono px-1.5 py-0.2 rounded shadow">
+                PIN-NORMAL
+              </div>
+</div>
+</div>
+<!-- Mini Inspection Status Floating HUD -->
+<div class="absolute top-4 left-4 bg-surface-container-lowest/95 backdrop-blur-sm border border-outline-variant rounded-lg p-2.5 shadow-md flex items-center gap-3">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
+<span class="text-label-sm font-label-sm font-semibold text-on-surface">광학 센서 채널 01 활성</span>
+</div>
+<span class="h-3 w-px bg-outline-variant"></span>
+<span class="text-xs text-secondary">텔레센트릭 렌즈 FOV 35mm</span>
+</div>
+</div>
+<!-- Bottom Image Metadata Drawer Strip -->
+<div class="h-14 bg-surface-container-lowest border-t border-outline-variant px-6 flex items-center justify-between text-xs text-on-surface">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-size: 16px;">wb_sunny</span>
+<span class="text-secondary">색온도:</span>
+<span class="font-mono font-semibold">5,000K (고연색 LED)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-size: 16px;">height</span>
+<span class="text-secondary">촬영 거리:</span>
+<span class="font-mono font-semibold">25.0 cm</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-size: 16px;">shutter_speed</span>
+<span class="text-secondary">셔터스피드:</span>
+<span class="font-mono font-semibold">1/250s (ISO 100)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-size: 16px;">verified</span>
+<span class="text-secondary">작업대 환경:</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] bg-[#F0FDF4] text-[#166534] font-medium border border-[#BBF7D0]">
+                안전 가이드 준수 (클린룸 Class 1000)
+              </span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-secondary">
+<span>수집 로봇: <strong class="text-on-surface">Arm-Robot #04</strong></span>
+</div>
+</div>
+</section>
+<!-- Column 3: 우측 검수 판정 패널 (너비 360px 화이트 카드) -->
+<section class="w-[360px] flex-shrink-0 bg-surface-container-lowest flex flex-col h-full overflow-y-auto">
+<!-- Panel Header -->
+<div class="p-4 border-b border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">fact_check</span>
+<h2 class="text-label-md font-label-md font-bold text-on-surface">전문 검수 판정</h2>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] bg-secondary-container text-primary font-bold">
+            검수자: Level 3
+          </span>
+</div>
+<div class="p-4 space-y-5 flex-1">
+<!-- 1. 초안 라벨 정보 (오퍼레이터 1차 수집 제안) -->
+<div class="p-3.5 rounded-lg bg-surface-container-low border border-outline-variant/80 space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-secondary">현장 오퍼레이터 1차 제안</span>
+<span class="text-[11px] px-1.5 py-0.5 rounded bg-blue-100 text-primary font-mono font-semibold">신뢰도 0.82</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#B91C1C]"></span>
+<span class="font-body-md-medium text-body-md-medium text-on-surface font-bold">외관 스크래치 불량</span>
+</div>
+<p class="text-[12px] text-on-surface-variant leading-relaxed">
+              조립 3공정 핀 삽입 후 2번 고정축 우측 상단 미세 스크래치 패턴 감지됨.
+            </p>
+</div>
+<!-- 2. 전문가 기준 체크리스트 (KRDS 인터랙티브) -->
+<div class="space-y-2.5">
+<div class="flex items-center justify-between">
+<label class="text-label-sm font-label-sm font-bold text-on-surface">품질 적합성 체크리스트</label>
+<span class="text-[11px] text-primary font-medium">3/3 충족</span>
+</div>
+<div class="space-y-2">
+<!-- Item 1 -->
+<label class="flex items-start gap-2.5 p-2.5 rounded-lg border border-outline-variant/60 hover:bg-surface-container-low cursor-pointer transition-colors bg-white">
+<input checked="" class="mt-0.5 rounded text-primary focus:ring-primary border-outline h-4 w-4" type="checkbox"/>
+<div class="text-xs">
+<span class="font-semibold text-on-surface block">초점 및 조명 품질 적합</span>
+<span class="text-secondary text-[11px]">반사광 과다 및 블러 현상 없는 유효 프레임</span>
+</div>
+</label>
+<!-- Item 2 -->
+<label class="flex items-start gap-2.5 p-2.5 rounded-lg border border-outline-variant/60 hover:bg-surface-container-low cursor-pointer transition-colors bg-white">
+<input checked="" class="mt-0.5 rounded text-primary focus:ring-primary border-outline h-4 w-4" type="checkbox"/>
+<div class="text-xs">
+<span class="font-semibold text-on-surface block">개인정보 및 현장 기밀 비포함 확인</span>
+<span class="text-secondary text-[11px]">작업자 얼굴, 사원증, 특허 도면 미노출 검증</span>
+</div>
+</label>
+<!-- Item 3 -->
+<label class="flex items-start gap-2.5 p-2.5 rounded-lg border border-outline-variant/60 hover:bg-surface-container-low cursor-pointer transition-colors bg-white">
+<input checked="" class="mt-0.5 rounded text-primary focus:ring-primary border-outline h-4 w-4" type="checkbox"/>
+<div class="text-xs">
+<span class="font-semibold text-on-surface block">결함 위치 바운딩박스 정밀도 확인</span>
+<span class="text-secondary text-[11px]">결함 좌표 IoU 0.85 이상 일치도 확인 완료</span>
+</div>
+</label>
+</div>
+</div>
+<!-- 3. 최종 판정 라디오 버튼 그룹 -->
+<div class="space-y-2">
+<label class="text-label-sm font-label-sm font-bold text-on-surface block">최종 품질 판정 (필수)</label>
+<div class="space-y-2">
+<!-- Radio: 정상(양품) -->
+<label class="flex items-center justify-between p-3 rounded-lg border border-outline-variant cursor-pointer hover:bg-[#F0FDF4]/50 transition-colors">
+<div class="flex items-center gap-2.5">
+<input class="text-[#166534] focus:ring-[#166534] h-4 w-4 border-outline" name="final_judgment" type="radio" value="normal"/>
+<span class="font-semibold text-xs text-[#166534]">정상 (양품 판정)</span>
+</div>
+<span class="text-[11px] text-secondary">A-Grade</span>
+</label>
+<!-- Radio: 불량(결함 확정) - SELECTED -->
+<label class="flex items-center justify-between p-3 rounded-lg border-2 border-[#B91C1C] bg-[#FEF2F2]/40 cursor-pointer">
+<div class="flex items-center gap-2.5">
+<input checked="" class="text-[#B91C1C] focus:ring-[#B91C1C] h-4 w-4 border-outline" name="final_judgment" type="radio" value="defect"/>
+<span class="font-bold text-xs text-[#B91C1C]">불량 (결함 확정)</span>
+</div>
+<span class="text-[11px] font-mono font-bold text-[#B91C1C] bg-white px-1.5 py-0.5 rounded border border-[#FECACA]">DEFECT</span>
+</label>
+<!-- Radio: 판정 보류 / 추가 촬영 필요 -->
+<label class="flex items-center justify-between p-3 rounded-lg border border-outline-variant cursor-pointer hover:bg-[#FFFBEB]/50 transition-colors">
+<div class="flex items-center gap-2.5">
+<input class="text-[#92400E] focus:ring-[#92400E] h-4 w-4 border-outline" name="final_judgment" type="radio" value="hold"/>
+<span class="font-semibold text-xs text-[#92400E]">판정 보류 / 추가 촬영 필요</span>
+</div>
+<span class="text-[11px] text-secondary">HOLD</span>
+</label>
+</div>
+</div>
+<!-- 4. 보완 요청 및 검수 사유 입력창 -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="text-label-sm font-label-sm font-medium text-on-surface" for="review_note">보완 요청 사유 / 검수 의견</label>
+<span class="text-[11px] text-secondary">최대 200자</span>
+</div>
+<textarea class="w-full text-xs rounded-lg border border-slate-400 focus:border-primary focus:ring-2 focus:ring-blue-100 p-2.5 text-on-surface resize-none leading-relaxed" id="review_note" placeholder="보완 또는 재촬영이 필요한 경우 사유를 작성하세요." rows="3">조명 반사로 인해 우측 단차 경계가 흐릿함. 재촬영 권고.</textarea>
+</div>
+<!-- Model Retraining Target Tagging -->
+<div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/60 flex items-center justify-between text-xs">
+<span class="text-secondary font-medium">Physical AI 재학습 데이터셋 포함</span>
+<input checked="" class="rounded text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+</div>
+</div>
+<!-- 5. 하단 액션 버튼 그룹 (Mandatory Strict KRDS Styling) -->
+<div class="p-4 border-t border-outline-variant bg-surface-container-lowest space-y-2">
+<!-- Primary Approve Button -->
+<button class="w-full h-11 rounded-lg bg-[#2563EB] hover:bg-[#1D4ED8] active:bg-[#1E40AF] text-white font-medium text-body-md flex items-center justify-center gap-2 shadow-sm transition-colors cursor-pointer" type="button">
+<span class="material-symbols-outlined" style="font-size: 20px;">task_alt</span>
+<span>검수 승인 및 다음 (Enter)</span>
+</button>
+<!-- Split Row: 보완 요청 / 이전 버튼 -->
+<div class="grid grid-cols-2 gap-2">
+<button class="h-10 rounded-lg bg-white border border-[#FECACA] hover:bg-[#FEF2F2] text-[#B91C1C] text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer" type="button">
+<span class="material-symbols-outlined" style="font-size: 16px;">replay</span>
+<span>사유 작성 후 보완 요청</span>
+</button>
+<button class="h-10 rounded-lg bg-white border border-[#D5DDE7] hover:bg-[#F8FAFC] text-on-surface text-xs font-medium flex items-center justify-center gap-1 transition-colors cursor-pointer" type="button">
+<span class="material-symbols-outlined" style="font-size: 16px;">arrow_back</span>
+<span>이전 이미지</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>
