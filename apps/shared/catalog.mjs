@@ -73,7 +73,7 @@ export const sectors = {
     caseId: "RH-SB-001",
     description:
       "생활권 현장에서 청년의 교육·유급 수집·검수·수행 이력을 연결하는 흐름",
-    mobile: [10, 11, 12, 13, 14, 18],
+    mobile: [10, 11, 18],
     names: [
       "서비스 소개",
       "역할 선택·작업 공간",

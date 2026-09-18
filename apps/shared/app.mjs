@@ -162,7 +162,7 @@ function initPresenter() {
   if (!presenterMode && config.number === 4) {
     const launch = document.createElement("div");
     launch.className = "rh-presenter-launch";
-    launch.innerHTML = `<button class="rh-primary" data-action="presenter-start">대표 흐름 시작</button><small>현장 앱 → 운영 콘솔 → 현장 앱을 34초 안에 확인합니다.</small>`;
+    launch.innerHTML = `<button class="rh-primary" data-action="presenter-start">대표 흐름 시작</button><small>현장 작업 화면 → 운영 콘솔 → 현장 앱을 34초 안에 확인합니다.</small>`;
     $(".rh-page-heading")?.append(launch);
     return;
   }

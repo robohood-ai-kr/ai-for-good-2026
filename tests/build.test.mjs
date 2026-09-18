@@ -44,11 +44,19 @@ for (const [sector, product] of Object.entries(sectors)) {
       assert.equal($("[id=tailwind-config],iframe,object,embed").length, 0);
       assert.equal($('a[href="#"]').length, 0);
       assert.equal($("#rh-main").length, 1);
+      const fieldWorkspace = sector === "small-business" && [12, 13, 14].includes(number);
       assert.equal(
         $("body").attr("data-surface"),
-        product.mobile.includes(number) ? "field-app" : "operations-console",
+        product.mobile.includes(number)
+          ? "field-app"
+          : fieldWorkspace
+            ? "field-workspace"
+            : "operations-console",
       );
-      assert.equal($(".rh-header > .rh-badge").text(), product.mobile.includes(number) ? "현장 앱" : "운영 콘솔");
+      assert.equal(
+        $(".rh-header > .rh-badge").text(),
+        product.mobile.includes(number) ? "현장 앱" : fieldWorkspace ? "현장 작업" : "운영 콘솔",
+      );
       assert.ok(
         !$("meta[name=viewport]").attr("content").includes("user-scalable=no"),
       );

@@ -112,7 +112,7 @@ test('small-business scenario-aware pages expose replaceable text, image and for
   assert.equal(capture('[data-scenario-field=segment]').length,1);
 });
 
-test('mobile segment collection has accessible native inputs and no screenshot-only controls', async () => {
+test('web segment collection has accessible native inputs and no screenshot-only controls', async () => {
   const $=await page('small-business',13);
   assert.equal($('.rh-segment-fields input').length,3);
   assert.equal($('input[name=verdict]').length,3);

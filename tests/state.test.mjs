@@ -16,7 +16,7 @@ test("presenter plan fits the 34-second youth-centered slot", () => {
     [22, 34],
   ]);
   assert.deepEqual(presenterPlan.map(({ actor }) => actor), [
-    "청년 · 현장 앱",
+    "청년 · 현장 작업 화면",
     "검수 담당 · 운영 콘솔",
     "운영팀 → 청년 앱",
   ]);

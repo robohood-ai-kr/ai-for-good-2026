@@ -9,12 +9,12 @@ export const gateNames = [
 export const presenterPlan = Object.freeze([
   Object.freeze({
     action: "presenter-collect",
-    label: "모바일 수집·제출",
+    label: "현장 수집·제출",
     actionLabel: "1. 수집 완료·제출",
-    actor: "청년 · 현장 앱",
+    actor: "청년 · 현장 작업 화면",
     startSecond: 0,
     endSecond: 12,
-    description: "청년 현장 전문인력이 현장 앱에서 조건을 확인하고 수집 기록을 제출합니다.",
+    description: "청년 현장 전문인력이 현장 작업 화면에서 조건을 확인하고 수집 기록을 제출합니다.",
   }),
   Object.freeze({
     action: "presenter-approve",

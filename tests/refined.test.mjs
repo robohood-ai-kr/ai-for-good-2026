@@ -38,10 +38,20 @@ test('41 generated references map to 41 real HTML screens and manifest hashes',a
     assert.equal(asset.sha256,createHash('sha256').update(image).digest('hex'));
   }
 });
-test('presenter flow crosses the correct mobile and web surfaces',async()=>{
-  for (const [id,surface] of [['sb-13','field-app'],['sb-15','operations-console'],['sb-19','operations-console'],['sb-18','field-app']]) {
+test('presenter flow crosses the correct field and operations surfaces',async()=>{
+  for (const [id,surface] of [['sb-13','field-workspace'],['sb-15','operations-console'],['sb-19','operations-console'],['sb-18','field-app']]) {
     const $=load(await readFile(new URL(`../dist/small-business/${id}.html`,import.meta.url),'utf8'));
     assert.equal($('body').attr('data-surface'),surface,id);
+  }
+});
+test('small-business screens 12 through 14 use desktop field workspaces',async()=>{
+  for (const id of ['sb-12','sb-13','sb-14']) {
+    const $=load(await readFile(new URL(`../dist/small-business/${id}.html`,import.meta.url),'utf8'));
+    assert.ok($('body').hasClass('rh-desktop'),id);
+    assert.equal($('body').attr('data-surface'),'field-workspace',id);
+    assert.equal($('.rh-header > .rh-badge').text(),'현장 작업',id);
+    assert.equal($('.rh-sidebar').length,1,id);
+    assert.equal($('.rh-bottom-nav').length,0,id);
   }
 });
 test('small-business scopes do not add manufacturing deployment menus',async()=>{
