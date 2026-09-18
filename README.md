@@ -10,6 +10,7 @@ RoboHood는 데이터 요청부터 현장 조건 확인, 청년 현장 전문인
 |---|---|---|
 | 앱 선택 | [RoboHood](https://robohood-v1.vercel.app/) | 두 서비스 진입 |
 | 소상공인 중심 | [운영 화면](https://robohood-v1.vercel.app/small-business/sb-03.html) | 과제 등록 → 청년 수집 → 검수 → 데이터셋·수행 이력 |
+| 소상공인 34초 발표 흐름 | [시연 시작](https://robohood-v1.vercel.app/small-business/sb-13.html?scenario=restaurant&presenter=1) | 청년 제출 → 독립 검수 → 승인·지급 반영 |
 | 제조업 중심 | [운영 화면](https://robohood-v1.vercel.app/manufacturing/mf-03.html) | RGB 수집 → 검수 → 데이터셋 → FDE 적용·재수집 |
 
 공개 화면은 데스크톱 웹을 기본으로 하며, 작은 화면에서는 반응형으로 동작합니다.
