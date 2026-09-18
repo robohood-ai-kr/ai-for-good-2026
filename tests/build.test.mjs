@@ -121,6 +121,12 @@ test("primary request buttons save a task instead of just navigating", async () 
     assert.ok($("[data-action=create-task]").length >= 1);
   }
 });
+test("small-business review approval advertises the direct dataset handoff", async () => {
+  const $ = load(
+    await readFile(path.join(root, "dist/small-business/sb-15.html"), "utf8"),
+  );
+  assert.equal($('[data-action="approve"]').text(), "승인하고 데이터셋 보기 →");
+});
 test("manufacturing deployment action footer is preserved", async () => {
   const $ = load(
     await readFile(path.join(root, "dist/manufacturing/mf-14.html"), "utf8"),

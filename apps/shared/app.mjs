@@ -96,6 +96,13 @@ function advance(action, payload = {}) {
   persist();
 }
 
+function applyDemoHandoff(stage) {
+  const handoff = config.demoHandoff?.[stage];
+  if (!handoff) return null;
+  if (handoff.role && config.roles[handoff.role]) state.role = handoff.role;
+  return Number.isInteger(handoff.page) ? handoff.page : null;
+}
+
 function applyScenarioContent() {
   if (!scenario) return;
   document.body.dataset.scenario = scenarioId;
@@ -382,8 +389,10 @@ function createTask() {
   }
   if (!input.reportValidity() || (count && !count.reportValidity())) return;
   saveFields();
-  advance("create-task", { title: input.value });
-  location.href = route(config.taskPage);
+  state = transition(state, "create-task", { title: input.value });
+  const destination = applyDemoHandoff("taskCreated") ?? config.taskPage;
+  persist();
+  location.href = route(destination);
 }
 
 function showDownloadInfo(label) {
@@ -646,15 +655,25 @@ async function act(name, el) {
           duration: $('#rh-video-preview')?.duration,
         }));
       }
-      advance("submit");
-      location.href = route(config.reviewPage);
+      state = transition(state, "submit");
+      const destination = applyDemoHandoff("submitted") ?? config.reviewPage;
+      persist();
+      location.href = route(destination);
       break;
     case "approve":
-      if (config.refined && $$('[data-field^=reviewCheck]').some(c=>!c.checked))
-        throw new Error('네 가지 검수 기준을 확인해 주세요.');
+      if (config.demoHandoff?.submitted?.role)
+        state.role = config.demoHandoff.submitted.role;
+      if (config.refined && $$('[data-field^=reviewCheck]').some(c=>!c.checked)) {
+        if (!config.demoHandoff?.approved)
+          throw new Error('네 가지 검수 기준을 확인해 주세요.');
+        $$('[data-field^=reviewCheck]').forEach(check => { check.checked = true; });
+      }
       saveFields();
-      advance("approve");
-      toast("데모 검수 승인 · 이용 승인과 지급 상태는 변경되지 않았습니다.");
+      state = transition(state, "approve");
+      const approvedDestination = applyDemoHandoff("approved");
+      persist();
+      if (approvedDestination) location.href = route(approvedDestination);
+      else toast("데모 검수 승인 · 이용 승인과 지급 상태는 변경되지 않았습니다.");
       break;
     case "rework": {
       const reason =

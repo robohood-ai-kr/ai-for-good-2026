@@ -7,6 +7,15 @@ import {
   transition,
   presenterPlan,
 } from "../apps/shared/state.mjs";
+import { sectors } from "../apps/shared/catalog.mjs";
+
+test("small-business demo handoffs connect request, youth work and review", () => {
+  assert.deepEqual(sectors["small-business"].demoHandoff, {
+    taskCreated: { role: "operator", page: 11 },
+    submitted: { role: "reviewer", page: 15 },
+    approved: { page: 17 },
+  });
+});
 
 test("presenter plan fits the 34-second youth-centered slot", () => {
   assert.equal(presenterPlan.length, 3);

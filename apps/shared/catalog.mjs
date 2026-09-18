@@ -126,6 +126,11 @@ export const sectors = {
       operator: 11,
       reviewer: 15,
     },
+    demoHandoff: {
+      taskCreated: { role: "operator", page: 11 },
+      submitted: { role: "reviewer", page: 15 },
+      approved: { page: 17 },
+    },
     taskPage: 8,
     newPage: 7,
     reviewPage: 15,

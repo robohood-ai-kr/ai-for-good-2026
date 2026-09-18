@@ -130,7 +130,7 @@ test('collection submit saves the current segment and opens review', async () =>
   assert.match(source,/pageParams\.get\("demo"\) === "1"/);
   assert.match(source,/demoMode && state\.session !== "수집 중"/);
   assert.match(source,/case "submit":[\s\S]*state\.marks\.push\(segmentRecord/);
-  assert.match(source,/case "submit":[\s\S]*location\.href = route\(config\.reviewPage\)/);
+  assert.match(source,/case "submit":[\s\S]*applyDemoHandoff\("submitted"\) \?\? config\.reviewPage[\s\S]*location\.href = route\(destination\)/);
 });
 
 test('explorer filters stay bound to the three existing mock sites', async () => {
