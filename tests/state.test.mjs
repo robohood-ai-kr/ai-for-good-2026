@@ -44,6 +44,18 @@ for (const sector of ["manufacturing", "small-business"]) {
     state = transition(state, "grant-access");
     assert.equal(state.access, "데모 평가용 승인");
     assert.equal(state.payment, "모의 지급 대기");
+    state = transition(state, "confirm-payment");
+    assert.equal(state.payment, "모의 지급 확인");
+  });
+  test(`${sector}: payment confirmation needs approved work and an operations role`, () => {
+    let state = initialState(sector);
+    state.role = sector === "manufacturing" ? "manager" : "coordinator";
+    assert.throws(() => transition(state, "confirm-payment"), /검수 승인/);
+    state.review = "승인";
+    assert.throws(() => transition(state, "confirm-payment"), /수집 기록/);
+    state.marks.push({ simulated: true });
+    state.role = "reviewer";
+    assert.throws(() => transition(state, "confirm-payment"), /운영팀 역할/);
   });
   test(`${sector}: self review is rejected and rework needs a reason`, () => {
     let state = initialState(sector);

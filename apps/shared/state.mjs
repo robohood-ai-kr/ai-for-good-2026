@@ -60,6 +60,7 @@ export function transition(state, action, payload = {}) {
       next.session = "대기";
       next.review = "미검수";
       next.access = "미승인";
+      next.payment = "모의 지급 대기";
       next.marks = [];
       break;
     case "start":
@@ -69,6 +70,7 @@ export function transition(state, action, payload = {}) {
       next.session = "수집 중";
       next.review = "미검수";
       next.access = "미승인";
+      next.payment = "모의 지급 대기";
       next.marks = [];
       break;
     case "submit":
@@ -112,6 +114,14 @@ export function transition(state, action, payload = {}) {
       ), "이용 승인은 운영팀 역할에서 별도로 확인합니다.");
       require(state.access === "신청 대기", "이용 신청이 먼저 필요합니다.");
       next.access = "데모 평가용 승인";
+      break;
+    case "confirm-payment":
+      require(["manager", "coordinator"].includes(
+        state.role,
+      ), "모의 지급 확인은 운영팀 역할에서 기록합니다.");
+      require(state.review === "승인", "검수 승인 후 모의 지급 확인을 기록할 수 있습니다.");
+      require(state.marks.length > 0, "수집 기록이 있어야 모의 지급 확인을 기록할 수 있습니다.");
+      next.payment = "모의 지급 확인";
       break;
     case "simulate":
       require(state.sector === "manufacturing" &&

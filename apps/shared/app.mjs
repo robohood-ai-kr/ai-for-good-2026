@@ -21,6 +21,7 @@ const esc = (value) =>
   );
 const pageParams = new URL(location.href).searchParams;
 const qa = pageParams.get("qa") === "1";
+const presenterMode = pageParams.get("presenter") === "1";
 const requestedScenario = pageParams.get("scenario");
 const scenarioId = config.scenarios?.[requestedScenario]
   ? requestedScenario
@@ -30,6 +31,7 @@ const route = (number, targetScenario = scenarioId) => {
   const params = new URLSearchParams();
   if (config.scenarios?.[targetScenario]) params.set("scenario", targetScenario);
   if (qa) params.set("qa", "1");
+  if (presenterMode) params.set("presenter", "1");
   const query = params.toString();
   return `./${config.prefix}-${String(number).padStart(2, "0")}.html${query ? `?${query}` : ""}`;
 };
@@ -38,6 +40,7 @@ const screenLink = (number) =>
 const key =
   storageKey(config.sector) +
   (scenarioId ? `:${scenarioId}` : "") +
+  (presenterMode ? ":presenter" : "") +
   (qa ? ":qa" : "");
 let state = initialState(config.sector),
   storageAvailable = true,
@@ -119,6 +122,7 @@ function carryPageContext() {
     const targetScenario = anchor.dataset.scenarioLink ?? scenarioId;
     if (config.scenarios?.[targetScenario]) url.searchParams.set('scenario', targetScenario);
     if (qa) url.searchParams.set('qa', '1');
+    if (presenterMode) url.searchParams.set('presenter', '1');
     anchor.href = `./${url.pathname.split('/').pop()}${url.search}`;
   });
   $$('#rh-screen-select option').forEach((option) => {
@@ -126,8 +130,48 @@ function carryPageContext() {
     const url = new URL(option.value, location.href);
     if (scenario) url.searchParams.set('scenario', scenarioId);
     if (qa) url.searchParams.set('qa', '1');
+    if (presenterMode) url.searchParams.set('presenter', '1');
     option.value = `./${url.pathname.split('/').pop()}${url.search}`;
   });
+}
+
+function presenterStage() {
+  if (state.payment === "모의 지급 확인" && state.access === "데모 평가용 승인") return 3;
+  if (state.review === "승인") return 2;
+  if (state.review === "검수 대기") return 1;
+  return 0;
+}
+
+function refreshPresenter() {
+  const bar = $("#rh-presenter");
+  if (!bar || !scenario) return;
+  const stage = presenterStage();
+  const steps = ["청년 수집", "독립 검수", "데이터·보상 확인"];
+  const next = [
+    ["presenter-collect", "1. 수집 완료 만들기"],
+    ["presenter-approve", "2. 검수 승인"],
+    ["presenter-finish", "3. 데이터·보상 확인"],
+  ][stage];
+  bar.innerHTML = `<div class="rh-presenter-copy"><span class="rh-presenter-kicker">40초 발표 모드 · ${stage}/3</span><strong>${esc(scenario.title)}</strong><small>브라우저 모의 상태만 변경하며 실제 수집·승인·지급은 발생하지 않습니다.</small></div><ol class="rh-presenter-steps">${steps.map((label,index)=>`<li class="${index<stage?'done':index===stage?'current':''}"><span>${index+1}</span>${label}</li>`).join("")}</ol><div class="rh-presenter-actions">${next?`<button class="rh-primary" data-action="${next[0]}">${next[1]}</button>`:`<a class="rh-button rh-primary" href="${route(config.datasetPage)}">완성된 데이터셋 보기</a>`}<a class="rh-button" href="${route(4)}">시나리오 선택</a><button data-action="presenter-reset">처음부터</button><button class="rh-quiet" data-action="presenter-exit">발표 모드 종료</button></div>`;
+}
+
+function initPresenter() {
+  if (config.sector !== "small-business") return;
+  if (!presenterMode && config.number === 4) {
+    const launch = document.createElement("div");
+    launch.className = "rh-presenter-launch";
+    launch.innerHTML = `<button class="rh-primary" data-action="presenter-start">40초 발표 모드</button><small>선택한 시나리오를 3번 클릭해 데이터셋까지 시연합니다.</small>`;
+    $(".rh-page-heading")?.append(launch);
+    return;
+  }
+  if (!presenterMode) return;
+  document.body.dataset.presenter = "true";
+  const bar = document.createElement("section");
+  bar.id = "rh-presenter";
+  bar.className = "rh-presenter-bar";
+  bar.setAttribute("aria-label", "40초 발표 데모 진행");
+  $(".rh-page-content")?.before(bar);
+  refreshPresenter();
 }
 
 function render() {
@@ -168,7 +212,7 @@ function render() {
   $$('[data-marks]').forEach(el => {
     el.innerHTML = state.marks.length ? state.marks.map((m,i) => `<article><strong>${i+1}. ${esc(m.name ?? ({normal:'정상',defect:'불량',hold:'판정 보류'}[m.label] ?? 'RGB 샘플'))}</strong><small>${m.kind === 'segment' ? `${esc(m.start ?? '—')}–${esc(m.end ?? '—')}초 · ${esc({success:'성공',failure:'실패',hold:'판정 보류'}[m.verdict] ?? '판정 보류')}` : '생성 이미지 기반 모의 기록'}${m.notes ? ` · ${esc(m.notes)}` : ''}</small></article>`).join('') : '<p class="rh-empty">아직 수집 기록이 없습니다.<br>조건 확인 후 샘플 또는 구간을 추가해 주세요.</p>';
   });
-  const names = {'create-task':'과제 등록',start:'수집 시작',submit:'검수 제출',approve:'검수 승인',rework:'보완 요청','request-access':'이용 신청','grant-access':'이용 승인',simulate:'UI 모의 실행',stop:'모의 중단','recollection-request':'재수집 초안'};
+  const names = {'create-task':'과제 등록',start:'수집 시작',submit:'검수 제출',approve:'검수 승인',rework:'보완 요청','request-access':'이용 신청','grant-access':'이용 승인','confirm-payment':'모의 지급 확인',simulate:'UI 모의 실행',stop:'모의 중단','recollection-request':'재수집 초안'};
   $$('[data-events]').forEach(el => {
     el.innerHTML = state.events.length ? `<ul class="rh-event-list">${state.events.slice(0,8).map(v=>`<li><span>${esc(names[v.action] ?? v.action)}</span><time>${esc(new Date(v.at).toLocaleTimeString('ko-KR'))}</time></li>`).join('')}</ul>` : '<p class="rh-empty">아직 모의 실행 기록이 없습니다.</p>';
   });
@@ -235,6 +279,7 @@ function render() {
   $$("input[type=radio]").forEach((el) =>
     el.closest("label")?.classList.toggle("rh-selected", el.checked),
   );
+  refreshPresenter();
 }
 
 function showScreens() {
@@ -407,6 +452,55 @@ function filterContent(query) {
 async function act(name, el) {
   const label = el.dataset.label ?? el.textContent.trim();
   switch (name) {
+    case "presenter-start": {
+      const url = new URL(location.href);
+      url.searchParams.set("presenter", "1");
+      location.href = `${url.pathname}${url.search}`;
+      break;
+    }
+    case "presenter-exit": {
+      const url = new URL(location.href);
+      url.searchParams.delete("presenter");
+      location.href = `${url.pathname}${url.search}`;
+      break;
+    }
+    case "presenter-reset":
+      state = initialState(config.sector);
+      persist();
+      location.href = route(4);
+      break;
+    case "presenter-collect":
+      state = initialState(config.sector);
+      state.role = "operator";
+      state.gates.fill(true);
+      state = transition(state, "start");
+      state.marks.push(segmentRecord({
+        start: 0,
+        end: 6,
+        name: scenario?.segment ?? "대표 작업 구간",
+        verdict: "success",
+        notes: "40초 발표 모드의 모의 수집 기록",
+      }));
+      state = transition(state, "submit");
+      state.role = "reviewer";
+      persist();
+      location.href = route(config.reviewPage);
+      break;
+    case "presenter-approve":
+      state.role = "reviewer";
+      state = transition(state, "approve");
+      state.role = "coordinator";
+      persist();
+      location.href = route(config.accessPage);
+      break;
+    case "presenter-finish":
+      state.role = "coordinator";
+      if (state.access === "미승인") state = transition(state, "request-access");
+      if (state.access === "신청 대기") state = transition(state, "grant-access");
+      state = transition(state, "confirm-payment");
+      persist();
+      location.href = route(config.datasetPage);
+      break;
     case "screens":
       showScreens();
       break;
@@ -549,6 +643,10 @@ async function act(name, el) {
     case "grant-access":
       advance("grant-access");
       toast("평가 목적만 모의 승인했습니다. 학습·외부 공유 승인이 아닙니다.");
+      break;
+    case "confirm-payment":
+      advance("confirm-payment");
+      toast("모의 지급 확인을 기록했습니다. 실제 송금이나 지급은 발생하지 않았습니다.");
       break;
     case "export-demo":
       exportDemo();
@@ -715,6 +813,7 @@ window.addEventListener('pagehide',()=>{ if(videoURL) URL.revokeObjectURL(videoU
 applyScenarioContent();
 carryPageContext();
 restoreFields();
+initPresenter();
 for (const id of ['segmentStart', 'segmentEnd']) {
   const input = $('#'+id);
   if (input) { input.min = '0'; input.step = '0.1'; input.max = '86400'; }
