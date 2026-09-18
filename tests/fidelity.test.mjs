@@ -177,4 +177,17 @@ test('explorer filters stay bound to the three existing mock sites', async () =>
     assert.match($('.rh-map').attr('aria-label'),/가상|예시|운영 지도/);
     assert.doesNotMatch($.text(),/텔레오퍼레이션/);
   }
+  const sb=await page('small-business',4);
+  assert.equal(sb('.rh-selected-site section.rh-site-conditions').length,1);
+  assert.equal(sb('details.rh-site-conditions-collapsible').length,1);
+  assert.equal(sb('details.rh-site-conditions-collapsible').attr('open'),undefined);
+});
+
+test('desktop image-led screens cap dominant media without changing the mobile layout', async () => {
+  const css=await readFile(new URL('../dist/manufacturing/assets/app.css',import.meta.url),'utf8');
+  assert.match(css,/@media \(min-width:721px\)/);
+  assert.match(css,/\.rh-local-map-panel \.rh-map\s*\{[\s\S]*?height:clamp\(360px,48vh,460px\)/);
+  assert.match(css,/\.rh-inbox-card>\.rh-photo :is\(img,svg\.rh-scene\)\s*\{[\s\S]*?max-height:300px/);
+  assert.match(css,/\.rh-capture-preview \.rh-photo :is\(img,svg\.rh-scene\)\s*\{[\s\S]*?max-height:320px/);
+  assert.match(css,/@media \(min-width:1021px\) and \(max-height:900px\)/);
 });
