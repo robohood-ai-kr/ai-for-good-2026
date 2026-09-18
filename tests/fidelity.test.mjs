@@ -73,6 +73,44 @@ test('dataset layouts preserve source, version and live records without copying 
   assert.ok(sb('[data-value=payment]').length);
 });
 
+test('small-business exposes exactly two clickable demos and five image-only examples', async () => {
+  const c=sectors['small-business'];
+  assert.deepEqual(Object.keys(c.scenarios),['restaurant','mart']);
+  assert.equal(c.datasetExamples.length,5);
+
+  const explorer=await page('small-business',4);
+  assert.equal(explorer('[data-scenario-card]').length,2);
+  assert.equal(explorer('[data-scenario-link=restaurant]').length,2);
+  assert.equal(explorer('[data-scenario-link=mart]').length,2);
+  assert.equal(explorer('.rh-site-placeholder').length,1);
+  assert.match(explorer('.rh-site-placeholder').text(),/데모 미구현/);
+
+  const library=await page('small-business',16);
+  assert.equal(library('.rh-dataset-scenario').length,2);
+  assert.equal(library('.rh-dataset-example').length,5);
+  assert.equal(library('.rh-dataset-example [data-scenario-link]').length,0);
+  library('.rh-dataset-example').each((_,el)=>assert.match(library(el).text(),/이미지 예시[\s\S]*구현하지 않았습니다/));
+  assert.match(library.text(),/소규모 숙박업소 침구 정리/);
+
+  for(const item of [...Object.values(c.scenarios),...c.datasetExamples]) {
+    const source=await readFile(new URL(`../assets/ui-concepts/refined-v1/small-business/scenarios/${item.image}`,import.meta.url));
+    const built=await readFile(new URL(`../dist/small-business/assets/scenarios/${item.image}`,import.meta.url));
+    assert.equal(source.subarray(1,4).toString(),'PNG');
+    assert.deepEqual(built,source);
+  }
+});
+
+test('small-business scenario-aware pages expose replaceable text, image and form fields', async () => {
+  for(const number of [3,5,7,8,9,10,11,12,13,14,15,17,18,19,20]) {
+    const $=await page('small-business',number);
+    assert.ok($('[data-scenario-text]').length+$('[data-scenario-image]').length+$('[data-scenario-field]').length>0,`sb-${number}: scenario marker`);
+  }
+  const request=await page('small-business',7);
+  assert.deepEqual(request('[data-scenario-field]').map((_,el)=>request(el).attr('data-scenario-field')).get().sort(),['conditions','defaultTask','purpose','site']);
+  const capture=await page('small-business',13);
+  assert.equal(capture('[data-scenario-field=segment]').length,1);
+});
+
 test('mobile segment collection has accessible native inputs and no screenshot-only controls', async () => {
   const $=await page('small-business',13);
   assert.equal($('.rh-segment-fields input').length,3);

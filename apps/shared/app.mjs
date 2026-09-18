@@ -5,6 +5,7 @@ import {
   transition,
   segmentRecord,
 } from "./state.mjs";
+import { initNaverMap } from "./naver-map.mjs";
 
 const config = JSON.parse(document.querySelector("#rh-config").textContent);
 const $ = (selector, root = document) => root.querySelector(selector);
@@ -719,5 +720,6 @@ for (const id of ['segmentStart', 'segmentEnd']) {
   if (input) { input.min = '0'; input.step = '0.1'; input.max = '86400'; }
 }
 render();
+initNaverMap(config);
 if (!storageAvailable)
   toast("저장된 기록을 읽지 못해 새 데모 상태로 시작합니다.");

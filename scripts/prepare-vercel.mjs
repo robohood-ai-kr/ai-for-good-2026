@@ -10,7 +10,7 @@ export function publicPaths() {
   const paths = ['index.html'];
   for (const [sector, spec] of Object.entries(sectors)) {
     paths.push(`${sector}/index.html`, `${sector}/image-gallery.html`, `${sector}/screens.json`);
-    for (const asset of ['app.css', 'app.mjs', 'state.mjs', sector === 'manufacturing' ? 'rgb-part.png' : 'tray-task.png']) paths.push(`${sector}/assets/${asset}`);
+    for (const asset of ['app.css', 'pretendard.css', 'woff2/PretendardVariable.woff2', 'woff2/Pretendard-LICENSE.txt', 'app.mjs', 'state.mjs', 'naver-map.mjs', sector === 'manufacturing' ? 'rgb-part.png' : 'tray-task.png']) paths.push(`${sector}/assets/${asset}`);
     if (sector === 'small-business') {
       const scenarioImages = [
         ...Object.values(spec.scenarios).map(item => item.image),

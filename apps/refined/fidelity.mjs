@@ -1,6 +1,6 @@
 // Image-to-code composition layer. References remain immutable; live demo state
 // is never replaced with the successful/example values printed in the images.
-import { escapeHtml as e } from '../shared/catalog.mjs';
+import { escapeHtml as e, route } from '../shared/catalog.mjs';
 import { extendedContent } from './fidelity-pages.mjs';
 import { referenceArt, scenePhoto } from './reference-art.mjs';
 
