@@ -21,7 +21,7 @@ export function extendedContent(sector, number, h) {
     coordinator:['운영팀','교육·배정·이용 승인을 조율합니다.','dashboard',['교육 확인','현장 조율','이용 승인']],
     merchant:['현장 제공자','허용된 현장과 촬영 조건을 제공합니다.','explore',['촬영 범위','현장 허용','조건 합의']],
     researcher:['요청 기업','필요한 데이터와 활용 목적을 정의합니다.','assignment',['수집 요청','진행 확인','이용 신청']],
-    operator:['수집 담당','교육 후 허용된 데이터를 수집합니다.','groups',['교육 확인','데이터 수집','수집 기록']],
+    operator:[mf?'수집 담당':'청년 현장 전문인력','교육 후 허용된 데이터를 수집합니다.','groups',['교육 확인','데이터 수집','수집 기록']],
     reviewer:['검수 담당','수집한 기록을 독립적으로 검수합니다.','fact_check',['품질 확인','보완 요청','검수 결정']],
     fde:['현장 적용 FDE','별도 전문 역량으로 현장 적용을 준비합니다.','precision_manufacturing',['모델 평가','장비 연동','적용 확인']],
   };
@@ -45,7 +45,7 @@ export function extendedContent(sector, number, h) {
     case 'site': return `<div class="rh-grid two rh-detail-media">${photo(false)}${card('현장 정보',rows([['현장명',site],['수집 과제',shortTitle],['공간 유형','모의 실습 공간'],['촬영 환경','고객 없는 비영업 환경'],['감독자','운영팀 · 사전 협의']]))}</div>${restrictions()}${card('수집 진행 절차',miniSteps())}`;
     case 'assignment': {
       const person = (t,d,i) => `<div class="rh-assigned-person"><span class="rh-assigned-art">${referenceArt(sector,number,['groups','fact_check','precision_manufacturing'].indexOf(i),'illustration')||icon(i)}</span><div><h3>${t}</h3><p>${d}</p><small>역할 예시 · 실제 배정 아님</small></div></div>`;
-      return `${!mf?card('',summary(),'rh-assignment-summary'):''}<div class="rh-grid rh-assignment-grid"><div class="rh-form-stack">${card(mf?'현장 수집팀 (로컬 팀)':'배정할 인력',`<p>교육·허용 조건 확인 후 역할별로 배정합니다.</p>${person('수집 담당자 · 청년','지정된 절차에 따른 '+dataType+' 수집','groups')}${person('독립 검수 담당자','수집 기록의 품질과 허용 범위를 확인','fact_check')}`)}${mf?card('현장 적용 FDE · 별도 배정',person('현장 적용 FDE · 전문 직무','모델 평가, 장치 연동, 현장 적용을 담당','precision_manufacturing')):card('현장 예시',`${photo(false,'compact')}<p class="rh-hint">생성 이미지 · ${scenarioText('objects')} 작업 장면</p>`)}</div>${card('배정 전 필수 확인 5가지',`<p>모든 조건을 확인해야 데모 수집을 시작할 수 있습니다.</p>${gates()}${button('조건 확인 후 수집 시작','start',true)}${button('배정 안내 확인','assignment')}${notice('체크는 UI 시연입니다. 실제 교육·동의·안전 확인을 대신하지 않습니다.')}`,'rh-assignment-gates')}</div>${notice(mf?'청년 수집 담당과 현장 적용 FDE는 별도 역할입니다. 자동 승급이나 채용 보장이 아닙니다.':'현장 제공자는 촬영 범위를, 운영팀은 교육·감독·유급 조건을 확인합니다.')}`;
+      return `${!mf?card('',summary(),'rh-assignment-summary'):''}<div class="rh-grid rh-assignment-grid"><div class="rh-form-stack">${card(mf?'현장 수집팀 (로컬 팀)':'배정할 인력',`<p>교육·허용 조건 확인 후 역할별로 배정합니다.</p>${person(mf?'수집 담당자 · 청년':'청년 현장 전문인력','지정된 절차에 따른 '+dataType+' 수집','groups')}${person('독립 검수 담당자','수집 기록의 품질과 허용 범위를 확인','fact_check')}`)}${mf?card('현장 적용 FDE · 별도 배정',person('현장 적용 FDE · 전문 직무','모델 평가, 장치 연동, 현장 적용을 담당','precision_manufacturing')):card('현장 예시',`${photo(false,'compact')}<p class="rh-hint">생성 이미지 · ${scenarioText('objects')} 작업 장면</p>`)}</div>${card('배정 전 필수 확인 5가지',`<p>모든 조건을 확인해야 데모 수집을 시작할 수 있습니다.</p>${gates()}${button('조건 확인 후 수집 시작','start',true)}${button('배정 안내 확인','assignment')}${notice('체크는 UI 시연입니다. 실제 교육·동의·안전 확인을 대신하지 않습니다.')}`,'rh-assignment-gates')}</div>${notice(mf?'청년 수집 담당과 현장 적용 FDE는 별도 역할입니다. 자동 승급이나 채용 보장이 아닙니다.':'현장 제공자는 촬영 범위를, 운영팀은 교육·감독·유급 조건을 확인합니다.')}`;
     }
     case 'library': {
       if (!mf) {

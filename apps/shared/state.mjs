@@ -6,6 +6,35 @@ export const gateNames = [
   "수행 범위·예상 시간",
   "보상·보완 조건",
 ];
+export const presenterPlan = Object.freeze([
+  Object.freeze({
+    action: "presenter-collect",
+    label: "과제 수행·제출",
+    actionLabel: "1. 과제 수행·제출",
+    actor: "청년",
+    startSecond: 0,
+    endSecond: 12,
+    description: "청년 현장 전문인력이 과제를 선택해 조건 확인·수집·제출까지 진행합니다.",
+  }),
+  Object.freeze({
+    action: "presenter-approve",
+    label: "독립 검수",
+    actionLabel: "2. 독립 검수 완료",
+    actor: "검수 담당",
+    startSecond: 12,
+    endSecond: 22,
+    description: "수집자와 분리된 검수 담당자가 기록의 품질과 허용 범위를 확인합니다.",
+  }),
+  Object.freeze({
+    action: "presenter-finish",
+    label: "데이터·이력 확인",
+    actionLabel: "3. 내 이력·데이터 확인",
+    actor: "청년",
+    startSecond: 22,
+    endSecond: 34,
+    description: "운영팀의 이용·보상 기록 후 청년이 데이터셋과 수행 이력을 확인합니다.",
+  }),
+]);
 export const storageKey = (sector) => `robohood:${sector}:v1`;
 export function segmentRecord({ start, end, name, verdict = 'hold', notes = '', duration } = {}) {
   const from = Number(start), to = Number(end);

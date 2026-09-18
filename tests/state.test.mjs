@@ -5,7 +5,19 @@ import {
   storageKey,
   collectionAllowed,
   transition,
+  presenterPlan,
 } from "../apps/shared/state.mjs";
+
+test("presenter plan fits the 34-second youth-centered slot", () => {
+  assert.equal(presenterPlan.length, 3);
+  assert.deepEqual(presenterPlan.map(({ startSecond, endSecond }) => [startSecond, endSecond]), [
+    [0, 12],
+    [12, 22],
+    [22, 34],
+  ]);
+  assert.deepEqual(presenterPlan.map(({ actor }) => actor), ["청년", "검수 담당", "청년"]);
+  assert.equal(new Set(presenterPlan.map(({ action }) => action)).size, 3);
+});
 
 test("two apps have separate storage and independent state", () => {
   assert.notEqual(storageKey("manufacturing"), storageKey("small-business"));

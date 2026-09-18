@@ -4,6 +4,7 @@ import {
   collectionAllowed,
   transition,
   segmentRecord,
+  presenterPlan,
 } from "./state.mjs";
 import { initNaverMap } from "./naver-map.mjs";
 
@@ -40,7 +41,7 @@ const screenLink = (number) =>
 const key =
   storageKey(config.sector) +
   (scenarioId ? `:${scenarioId}` : "") +
-  (presenterMode ? ":presenter" : "") +
+  (presenterMode ? ":presenter34" : "") +
   (qa ? ":qa" : "");
 let state = initialState(config.sector),
   storageAvailable = true,
@@ -146,13 +147,11 @@ function refreshPresenter() {
   const bar = $("#rh-presenter");
   if (!bar || !scenario) return;
   const stage = presenterStage();
-  const steps = ["청년 수집", "독립 검수", "데이터·보상 확인"];
-  const next = [
-    ["presenter-collect", "1. 수집 완료 만들기"],
-    ["presenter-approve", "2. 검수 승인"],
-    ["presenter-finish", "3. 데이터·보상 확인"],
-  ][stage];
-  bar.innerHTML = `<div class="rh-presenter-copy"><span class="rh-presenter-kicker">40초 발표 모드 · ${stage}/3</span><strong>${esc(scenario.title)}</strong><small>브라우저 모의 상태만 변경하며 실제 수집·승인·지급은 발생하지 않습니다.</small></div><ol class="rh-presenter-steps">${steps.map((label,index)=>`<li class="${index<stage?'done':index===stage?'current':''}"><span>${index+1}</span>${label}</li>`).join("")}</ol><div class="rh-presenter-actions">${next?`<button class="rh-primary" data-action="${next[0]}">${next[1]}</button>`:`<a class="rh-button rh-primary" href="${route(config.datasetPage)}">완성된 데이터셋 보기</a>`}<a class="rh-button" href="${route(4)}">시나리오 선택</a><button data-action="presenter-reset">처음부터</button><button class="rh-quiet" data-action="presenter-exit">발표 모드 종료</button></div>`;
+  const next = presenterPlan[stage];
+  const duration = presenterPlan.at(-1).endSecond;
+  const description = next?.description ?? "청년의 수집 기록이 데이터셋·수행 이력과 연결되었습니다.";
+  bar.dataset.presenterStage = String(stage);
+  bar.innerHTML = `<div class="rh-presenter-copy"><span class="rh-presenter-kicker">${duration}초 청년 시연 · ${stage}/3</span><strong>${esc(scenario.title)}</strong><small>${esc(description)} 실제 수집·승인·지급은 발생하지 않습니다.</small></div><ol class="rh-presenter-steps">${presenterPlan.map((step,index)=>`<li class="${index<stage?'done':index===stage?'current':''}"><span>${index+1}</span><div><strong>${esc(step.label)}</strong><small>${step.startSecond}–${step.endSecond}초 · ${esc(step.actor)}</small></div></li>`).join("")}</ol><div class="rh-presenter-actions">${next?`<button class="rh-primary" data-action="${next.action}">${esc(next.actionLabel)}</button>`:`<button class="rh-primary" data-action="presenter-reset">다시 시연</button>`}<button class="rh-quiet" data-action="presenter-exit">시연 종료</button></div>`;
 }
 
 function initPresenter() {
@@ -160,16 +159,17 @@ function initPresenter() {
   if (!presenterMode && config.number === 4) {
     const launch = document.createElement("div");
     launch.className = "rh-presenter-launch";
-    launch.innerHTML = `<button class="rh-primary" data-action="presenter-start">40초 발표 모드</button><small>선택한 시나리오를 3번 클릭해 데이터셋까지 시연합니다.</small>`;
+    launch.innerHTML = `<button class="rh-primary" data-action="presenter-start">34초 청년 시연</button><small>24초 영상 뒤, 3번 클릭해 총 58초 안에 마칩니다.</small>`;
     $(".rh-page-heading")?.append(launch);
     return;
   }
   if (!presenterMode) return;
+  if (presenterStage() === 0) state.role = "operator";
   document.body.dataset.presenter = "true";
   const bar = document.createElement("section");
   bar.id = "rh-presenter";
   bar.className = "rh-presenter-bar";
-  bar.setAttribute("aria-label", "40초 발표 데모 진행");
+  bar.setAttribute("aria-label", "34초 청년 중심 UI 시연 진행");
   $(".rh-page-content")?.before(bar);
   refreshPresenter();
 }
@@ -479,7 +479,7 @@ async function act(name, el) {
         end: 6,
         name: scenario?.segment ?? "대표 작업 구간",
         verdict: "success",
-        notes: "40초 발표 모드의 모의 수집 기록",
+        notes: "34초 청년 시연의 모의 수집 기록",
       }));
       state = transition(state, "submit");
       state.role = "reviewer";
@@ -498,6 +498,7 @@ async function act(name, el) {
       if (state.access === "미승인") state = transition(state, "request-access");
       if (state.access === "신청 대기") state = transition(state, "grant-access");
       state = transition(state, "confirm-payment");
+      state.role = "operator";
       persist();
       location.href = route(config.datasetPage);
       break;

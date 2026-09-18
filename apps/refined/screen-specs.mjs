@@ -26,7 +26,7 @@ export const specifications = {
   ],
   'small-business': [
     ['우리 동네의 일, AI의 배움으로', '청년의 유급 데이터 수집과 소상공인 현장을 연결합니다.', 'home', 'Public hero with first-person hands arranging empty nonbreakable cups onto tray. Roles 요청 기업 / 소상공인 / 청년 현장 전문인력 / 운영팀. Flow 교육→유급 수집→검수→수행 이력. Buttons 데모 시작 and 현장 둘러보기. No POS, robot shopping, voice control or employment guarantees.'],
-    ['어떤 역할로 둘러볼까요?', '요청·현장 제공·수집·검수 역할을 구분합니다.', 'entry', 'Five role cards 운영팀 / 현장 제공자 / 요청 기업 / 수집 담당 / 검수 담당. Selected role start button. This is a UI demo, no credentials or actual login.'],
+    ['어떤 역할로 둘러볼까요?', '요청·현장 제공·수집·검수 역할을 구분합니다.', 'entry', 'Five role cards 운영팀 / 현장 제공자 / 요청 기업 / 청년 현장 전문인력 / 검수 담당. Selected role start button. This is a UI demo, no credentials or actual login.'],
     ['오늘의 데이터 수집 운영', '교육부터 유급 수집·검수·보상 기록까지', 'overview', 'Selected scenario dashboard for either RH-SB-001 restaurant tableware sorting or RH-SB-002 neighborhood mart FIFO stocking. Six-step 요청 / 조건 합의 / 교육·배정 / 수집 / 검수 / 데이터 제공, generated scene image, next actions and three stakeholder cards. Payment separate.'],
     ['우리 동네 수집 현장', '허용된 공간과 업무를 확인하고 수집을 요청하세요.', 'explorer', 'Map:left 5, list:right7. Two clickable demo cards: restaurant table cleanup and mart refrigerated product FIFO stocking. Each has a generated image, collection conditions and explicit demo action. A third expansion card links to image-only dataset examples and says 데모 미구현.'],
     ['현장 상세·수집 조건', '촬영 구역과 허용 업무를 먼저 확인하세요.', 'site', 'Scenario-aware site detail for restaurant or mart. Generated active-scenario image, permitted work, mock environment, non-business-hours capture and operations-team supervision. Allowed/prohibited columns and collection request action. No real address.'],

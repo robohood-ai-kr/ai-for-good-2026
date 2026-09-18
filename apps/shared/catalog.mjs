@@ -109,14 +109,14 @@ export const sectors = {
     ],
     flows: [
       ["요청 기업", [4, 5, 7, 8, 16, 17, 19]],
-      ["청년 수집 담당", [10, 11, 12, 13, 14, 18]],
+      ["청년 현장 전문인력", [10, 11, 12, 13, 14, 18]],
       ["운영·검수", [6, 9, 15, 16, 18]],
     ],
     roles: {
       coordinator: "운영팀",
       merchant: "현장 제공자",
       researcher: "요청 기업",
-      operator: "수집 담당",
+      operator: "청년 현장 전문인력",
       reviewer: "검수 담당",
     },
     roleEntry: {
