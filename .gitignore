@@ -17,7 +17,9 @@ dist/
 # Local tools and generated output
 .idea/
 .vscode/
+.playwright-cli/
 coverage/
+output/
 tmp/
 
 # Downloaded reference media and local Supabase state (never publish credentials/raw data)
