@@ -1,0 +1,30 @@
+{
+  "name": "robohood-v1-prototypes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Separate manufacturing and small-business v1 apps refined from generated image designs",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build-refined.mjs",
+    "build:manufacturing": "node scripts/build-refined.mjs manufacturing",
+    "build:small-business": "node scripts/build-refined.mjs small-business",
+    "dev": "npm run build && node scripts/serve.mjs",
+    "preview": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm run build && npm test",
+    "package": "npm run check && node scripts/package-build.mjs",
+    "deploy:prepare": "npm run check && node scripts/prepare-vercel.mjs",
+    "audit:exports": "node scripts/audit-stitch.mjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/container-queries": "0.1.1",
+    "@tailwindcss/forms": "0.5.11",
+    "cheerio": "1.2.0",
+    "json5": "2.2.3",
+    "postcss": "8.5.28",
+    "tailwindcss": "3.4.19"
+  }
+}

@@ -19,3 +19,9 @@ dist/
 .vscode/
 coverage/
 tmp/
+
+# Downloaded reference media and local Supabase state (never publish credentials/raw data)
+/data/local/
+/supabase/.temp/
+/supabase/.branches/
+/.vercel/
