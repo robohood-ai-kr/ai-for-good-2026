@@ -530,7 +530,7 @@
 .rh-request-steps li:first-child>span { background:var(--primary); color:white; }
 .rh-request-steps strong { display:block; }
 .rh-request-steps p { font-size:14px; }
-.rh-request-columns { align-items:stretch; gap:15px; }
+.rh-request-columns { align-items:stretch; gap:15px; margin-top:8px; }
 .rh-request-columns>.rh-card { display:flex; flex-direction:column; padding:20px; }
 .rh-request-columns .rh-number-heading { gap:14px; min-height:65px; margin:0 0 14px; }
 .rh-request-columns .rh-number-heading h2 { font-size:21px; }

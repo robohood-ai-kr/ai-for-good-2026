@@ -55,7 +55,8 @@ test('manufacturing and small-business request screens retain distinct reference
   assert.equal(mf('.rh-request-grid .rh-form-stack>.rh-card').length,3);
   assert.equal(mf('.rh-request-summary').length,1);
   assert.equal(sb('form.rh-request-columns>.rh-card').length,3);
-  assert.equal(sb('.rh-request-steps li').length,3);
+  assert.equal(sb('.rh-request-steps').length,0);
+  assert.equal(sb('.rh-number-heading').length,3);
   for(const $ of [mf,sb]) {
     for(const id of ['taskName','purpose','siteName','captureConditions','trainingPlan','supervisionPlan','compensationTerms']) assert.equal($('#'+id).length,1);
     assert.equal($('[data-action=create-task]').length,1);
