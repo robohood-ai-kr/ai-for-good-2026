@@ -73,7 +73,7 @@ export const sectors = {
     caseId: "RH-SB-001",
     description:
       "생활권 현장에서 청년의 교육·유급 수집·검수·수행 이력을 연결하는 흐름",
-    mobile: [10, 11, 12, 13, 14],
+    mobile: [10, 11, 12, 13, 14, 18],
     names: [
       "서비스 소개",
       "역할 선택·작업 공간",
@@ -137,8 +137,8 @@ export const sectors = {
         caseId: "RH-SB-001",
         datasetId: "RH-DS-SB-001",
         title: "식당 테이블 정리·식기 분류",
-        defaultTask: "모의 식당 A · 테이블 정리와 식기 분류 1인칭 영상",
-        site: "모의 식당 A",
+        defaultTask: "성수 식당 A · 테이블 정리와 식기 분류 1인칭 영상",
+        site: "성수 식당 A",
         siteCategory: "음식점",
         dataType: "1인칭 영상·작업 구간",
         scope: "고객이 없는 마감 시간에 빈 식기·컵·트레이를 종류별로 정리",
@@ -158,8 +158,8 @@ export const sectors = {
         caseId: "RH-SB-002",
         datasetId: "RH-DS-SB-002",
         title: "동네마트 냉장상품 선입선출 진열",
-        defaultTask: "모의 동네마트 A · 냉장상품 선입선출 진열 1인칭 영상",
-        site: "모의 동네마트 A",
+        defaultTask: "망원 동네마트 A · 냉장상품 선입선출 진열 1인칭 영상",
+        site: "망원 동네마트 A",
         siteCategory: "동네마트",
         dataType: "1인칭 영상·텔레오퍼레이션 구간",
         scope: "비영업 시간에 모형 우유팩을 기존 상품 앞으로 이동하고 새 상품을 뒤에 진열",
@@ -213,7 +213,7 @@ export const sectors = {
         alt: "소규모 숙박업소 객실에서 흰 침구를 정돈하는 성인 작업자의 손",
       },
     ],
-    defaultTask: "모의 식당 A · 테이블 정리와 식기 분류 1인칭 영상",
+    defaultTask: "성수 식당 A · 테이블 정리와 식기 분류 1인칭 영상",
   },
 };
 

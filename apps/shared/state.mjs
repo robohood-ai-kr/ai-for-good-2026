@@ -9,30 +9,30 @@ export const gateNames = [
 export const presenterPlan = Object.freeze([
   Object.freeze({
     action: "presenter-collect",
-    label: "과제 수행·제출",
-    actionLabel: "1. 과제 수행·제출",
-    actor: "청년",
+    label: "모바일 수집·제출",
+    actionLabel: "1. 수집 완료·제출",
+    actor: "청년 · 현장 앱",
     startSecond: 0,
     endSecond: 12,
-    description: "청년 현장 전문인력이 과제를 선택해 조건 확인·수집·제출까지 진행합니다.",
+    description: "청년 현장 전문인력이 현장 앱에서 조건을 확인하고 수집 기록을 제출합니다.",
   }),
   Object.freeze({
     action: "presenter-approve",
-    label: "독립 검수",
+    label: "웹 독립 검수",
     actionLabel: "2. 독립 검수 완료",
-    actor: "검수 담당",
+    actor: "검수 담당 · 운영 콘솔",
     startSecond: 12,
     endSecond: 22,
-    description: "수집자와 분리된 검수 담당자가 기록의 품질과 허용 범위를 확인합니다.",
+    description: "수집자와 분리된 검수 담당자가 운영 콘솔에서 품질과 허용 범위를 확인합니다.",
   }),
   Object.freeze({
     action: "presenter-finish",
-    label: "데이터·이력 확인",
-    actionLabel: "3. 내 이력·데이터 확인",
-    actor: "청년",
+    label: "모바일 이력 확인",
+    actionLabel: "3. 승인·지급 반영",
+    actor: "운영팀 → 청년 앱",
     startSecond: 22,
     endSecond: 34,
-    description: "운영팀의 이용·보상 기록 후 청년이 데이터셋과 수행 이력을 확인합니다.",
+    description: "운영팀이 이용·지급 기록을 확정하면 청년 현장 앱에 수행 이력이 반영됩니다.",
   }),
 ]);
 export const storageKey = (sector) => `robohood:${sector}:v1`;
@@ -58,7 +58,7 @@ export function initialState(sector) {
     session: "대기",
     review: "미검수",
     access: "미승인",
-    payment: "모의 지급 대기",
+    payment: "지급 대기",
     label: "hold",
     marks: [],
     events: [],
@@ -89,7 +89,7 @@ export function transition(state, action, payload = {}) {
       next.session = "대기";
       next.review = "미검수";
       next.access = "미승인";
-      next.payment = "모의 지급 대기";
+      next.payment = "지급 대기";
       next.marks = [];
       break;
     case "start":
@@ -99,7 +99,7 @@ export function transition(state, action, payload = {}) {
       next.session = "수집 중";
       next.review = "미검수";
       next.access = "미승인";
-      next.payment = "모의 지급 대기";
+      next.payment = "지급 대기";
       next.marks = [];
       break;
     case "submit":
@@ -114,7 +114,7 @@ export function transition(state, action, payload = {}) {
     case "approve":
       require(["reviewer", "manager", "coordinator"].includes(
         state.role,
-      ), "데모 역할을 검수 담당 또는 운영팀으로 전환해 주세요.");
+      ), "역할을 검수 담당 또는 운영팀으로 전환해 주세요.");
       require(state.collector !==
         state.role, "동일 역할로 제출한 세션은 직접 승인할 수 없습니다. 검수 담당 역할로 전환해 주세요.");
       require(state.review === "검수 대기", "먼저 수집 세션을 제출해 주세요.");
@@ -134,7 +134,7 @@ export function transition(state, action, payload = {}) {
       break;
     case "request-access":
       require(state.review ===
-        "승인", "승인된 데모 세션이 있어야 이용 신청을 기록할 수 있습니다.");
+        "승인", "승인된 수집 세션이 있어야 이용 신청을 기록할 수 있습니다.");
       next.access = "신청 대기";
       break;
     case "grant-access":
@@ -142,15 +142,15 @@ export function transition(state, action, payload = {}) {
         state.role,
       ), "이용 승인은 운영팀 역할에서 별도로 확인합니다.");
       require(state.access === "신청 대기", "이용 신청이 먼저 필요합니다.");
-      next.access = "데모 평가용 승인";
+      next.access = "조회·평가 승인";
       break;
     case "confirm-payment":
       require(["manager", "coordinator"].includes(
         state.role,
-      ), "모의 지급 확인은 운영팀 역할에서 기록합니다.");
-      require(state.review === "승인", "검수 승인 후 모의 지급 확인을 기록할 수 있습니다.");
-      require(state.marks.length > 0, "수집 기록이 있어야 모의 지급 확인을 기록할 수 있습니다.");
-      next.payment = "모의 지급 확인";
+      ), "지급 확인은 운영팀 역할에서 기록합니다.");
+      require(state.review === "승인", "검수 승인 후 지급 확인을 기록할 수 있습니다.");
+      require(state.marks.length > 0, "수집 기록이 있어야 지급 확인을 기록할 수 있습니다.");
+      next.payment = "지급 확인";
       break;
     case "simulate":
       require(state.sector === "manufacturing" &&

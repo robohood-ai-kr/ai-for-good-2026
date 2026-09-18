@@ -21,14 +21,14 @@ function loadNaverMaps(clientId) {
   return sdkPromise;
 }
 
-const mockSites = {
+const exampleSites = {
   restaurant: {
-    title: '모의 식당 A',
+    title: '성수 식당 A',
     latitude: 37.5665,
     longitude: 126.9780,
   },
   mart: {
-    title: '모의 동네마트 A',
+    title: '망원 동네마트 A',
     latitude: 37.5702,
     longitude: 126.9849,
   },
@@ -50,14 +50,14 @@ export async function initNaverMap(config) {
     await loadNaverMaps(clientId);
     const maps = globalThis.naver.maps;
     const requested = new URL(location.href).searchParams.get('scenario');
-    const activeId = Object.hasOwn(mockSites, requested) ? requested : 'restaurant';
-    const active = mockSites[activeId];
+    const activeId = Object.hasOwn(exampleSites, requested) ? requested : 'restaurant';
+    const active = exampleSites[activeId];
     const canvas = document.createElement('div');
     canvas.className = 'rh-naver-map';
-    canvas.setAttribute('aria-label', '네이버 지도에 표시한 서울 생활권 모의 수집 현장');
+    canvas.setAttribute('aria-label', '네이버 지도에 표시한 서울 생활권 수집 현장 예시');
     const badge = document.createElement('span');
     badge.className = 'rh-map-api-badge';
-    badge.textContent = '네이버 지도 · 모의 위치';
+    badge.textContent = '네이버 지도 · 생활권 보기';
     mapElement.replaceChildren(canvas, badge);
 
     const map = new maps.Map(canvas, {
@@ -67,11 +67,11 @@ export async function initNaverMap(config) {
       zoomControlOptions: { position: maps.Position.TOP_RIGHT },
     });
 
-    for (const [id, site] of Object.entries(mockSites)) {
+    for (const [id, site] of Object.entries(exampleSites)) {
       const marker = new maps.Marker({
         map,
         position: new maps.LatLng(site.latitude, site.longitude),
-        title: `${site.title} · 모의 위치`,
+        title: `${site.title} · 위치 예시`,
       });
       maps.Event.addListener(marker, 'click', () => {
         const params = new URLSearchParams(location.search);
@@ -82,7 +82,7 @@ export async function initNaverMap(config) {
 
     mapElement.dataset.mapProvider = 'naver';
     mapElement.setAttribute('role', 'region');
-    mapElement.setAttribute('aria-label', '서울 생활권의 두 모의 수집 현장을 표시한 네이버 지도. 실제 사업장 위치가 아닙니다.');
+    mapElement.setAttribute('aria-label', '서울 생활권의 두 수집 현장 예시를 표시한 네이버 지도. 실제 사업장 위치가 아닙니다.');
   } catch (error) {
     mapElement.innerHTML = fallback;
     mapElement.dataset.mapProvider = 'fallback';

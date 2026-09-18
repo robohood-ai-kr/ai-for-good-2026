@@ -572,6 +572,26 @@
 .rh-presenter-steps li.done small { color:#4d7d5d; }
 .rh-presenter-actions { display:flex; justify-content:flex-end; gap:7px; flex-wrap:wrap; }
 .rh-presenter-actions :is(button,.rh-button) { min-height:38px; padding:8px 11px; font-size:12px; }
+.rh-mobile .rh-presenter-bar { position:static; grid-template-columns:1fr; gap:10px; margin-bottom:12px; padding:12px; }
+.rh-mobile .rh-presenter-copy small { font-size:12px; line-height:1.45; }
+.rh-mobile .rh-presenter-steps { grid-template-columns:repeat(3,minmax(0,1fr)); gap:5px; }
+.rh-mobile .rh-presenter-steps li { align-items:flex-start; flex-direction:column; gap:4px; }
+.rh-mobile .rh-presenter-steps li strong,.rh-mobile .rh-presenter-steps li small { overflow:visible; white-space:normal; }
+.rh-mobile .rh-presenter-steps li small { line-height:1.3; }
+.rh-mobile .rh-presenter-actions { display:grid; grid-template-columns:minmax(0,1fr) auto; }
+.rh-mobile .rh-presenter-actions :is(button,.rh-button) { min-height:42px; }
+.rh-mobile-completion { border-color:#9ec5ff; background:#f8fbff; }
+.rh-mobile .rh-compensation-metrics { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.rh-mobile .rh-compensation-metrics .rh-card { min-width:0; }
+.rh-completion-head { display:flex; align-items:center; gap:13px; }
+.rh-completion-head .rh-round-icon { width:46px; height:46px; }
+.rh-completion-head p { color:var(--primary); font-size:13px; font-weight:700; }
+.rh-completion-head h2 { margin:2px 0; font-size:18px; }
+.rh-completion-head small { color:var(--muted); }
+.rh-completion-status { margin-top:14px; gap:7px; }
+.rh-completion-status>div { padding:10px 8px; border:1px solid #d7e6fb; border-radius:8px; background:white; text-align:center; }
+.rh-completion-status span { display:block; color:var(--muted); font-size:11px; }
+.rh-completion-status strong { display:block; margin-top:3px; color:#174ea6; font-size:14px; }
 .rh-sector-sb .rh-site-item { min-height:137px; }
 .rh-sector-sb .rh-selected-site { border-color:#1762ff; outline:1px solid #1762ff; min-height:355px; }
 .rh-sector-sb .rh-selected-site>.rh-photo { width:36%; height:250px; }

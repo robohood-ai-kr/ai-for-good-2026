@@ -15,7 +15,11 @@ test("presenter plan fits the 34-second youth-centered slot", () => {
     [12, 22],
     [22, 34],
   ]);
-  assert.deepEqual(presenterPlan.map(({ actor }) => actor), ["청년", "검수 담당", "청년"]);
+  assert.deepEqual(presenterPlan.map(({ actor }) => actor), [
+    "청년 · 현장 앱",
+    "검수 담당 · 운영 콘솔",
+    "운영팀 → 청년 앱",
+  ]);
   assert.equal(new Set(presenterPlan.map(({ action }) => action)).size, 3);
 });
 
@@ -49,15 +53,15 @@ for (const sector of ["manufacturing", "small-business"]) {
     state.role = "reviewer";
     state = transition(state, "approve");
     assert.equal(state.access, "미승인");
-    assert.equal(state.payment, "모의 지급 대기");
+    assert.equal(state.payment, "지급 대기");
     state = transition(state, "request-access");
     assert.throws(() => transition(state, "grant-access"));
     state.role = sector === "manufacturing" ? "manager" : "coordinator";
     state = transition(state, "grant-access");
-    assert.equal(state.access, "데모 평가용 승인");
-    assert.equal(state.payment, "모의 지급 대기");
+    assert.equal(state.access, "조회·평가 승인");
+    assert.equal(state.payment, "지급 대기");
     state = transition(state, "confirm-payment");
-    assert.equal(state.payment, "모의 지급 확인");
+    assert.equal(state.payment, "지급 확인");
   });
   test(`${sector}: payment confirmation needs approved work and an operations role`, () => {
     let state = initialState(sector);

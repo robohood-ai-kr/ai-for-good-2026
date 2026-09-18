@@ -24,7 +24,8 @@ test('41 generated references map to 41 real HTML screens and manifest hashes',a
       assert.equal($('h1').length,1);
       assert.equal($('.rh-workbench,.rh-context,.rh-toolbar').length,0);
       assert.equal($('[src^="https://"],[href^="https://"]').length,0);
-      assert.ok($('a[href="./references/'+id+'.png"]').length);
+      assert.equal($('a[href="./references/'+id+'.png"]').length,0);
+      assert.doesNotMatch($('.rh-header,.rh-sidebar,.rh-page-footer').text(),/v1 · 모의 데모|브라우저 모의 기록|시안 갤러리/);
       assert.ok(!/8\.4\s*ms|mAP|TensorRT|HMAC|ISO\s*27001|80시간/.test($('#rh-main').text()));
       assert.ok($('button,a,input,select,textarea').length>5,'UI must be HTML controls, not a screenshot');
       const ids=$('[id]').toArray().map(el=>el.attribs.id);
@@ -35,6 +36,12 @@ test('41 generated references map to 41 real HTML screens and manifest hashes',a
   for(const asset of manifest.assets) {
     const image=await readFile(new URL(`../assets/ui-concepts/refined-v1/${asset.file}`,import.meta.url));
     assert.equal(asset.sha256,createHash('sha256').update(image).digest('hex'));
+  }
+});
+test('presenter flow crosses the correct mobile and web surfaces',async()=>{
+  for (const [id,surface] of [['sb-13','field-app'],['sb-15','operations-console'],['sb-19','operations-console'],['sb-18','field-app']]) {
+    const $=load(await readFile(new URL(`../dist/small-business/${id}.html`,import.meta.url),'utf8'));
+    assert.equal($('body').attr('data-surface'),surface,id);
   }
 });
 test('small-business scopes do not add manufacturing deployment menus',async()=>{

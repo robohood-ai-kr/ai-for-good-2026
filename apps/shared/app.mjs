@@ -11,7 +11,7 @@ import { initNaverMap } from "./naver-map.mjs";
 const config = JSON.parse(document.querySelector("#rh-config").textContent);
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
-document.querySelectorAll('.rh-header [data-action=role]').forEach(b=>b.setAttribute('aria-label','데모 역할 선택'));
+document.querySelectorAll('.rh-header [data-action=role]').forEach(b=>b.setAttribute('aria-label','역할 선택'));
 const esc = (value) =>
   String(value ?? "").replace(
     /[&<>"']/g,
@@ -57,6 +57,9 @@ try {
     config.roles[saved.role]
   )
     state = { ...state, ...saved };
+  if (state.payment === "모의 지급 대기") state.payment = "지급 대기";
+  if (state.payment === "모의 지급 확인") state.payment = "지급 확인";
+  if (state.access === "데모 평가용 승인") state.access = "조회·평가 승인";
 } catch {
   storageAvailable = false;
 }
@@ -137,7 +140,7 @@ function carryPageContext() {
 }
 
 function presenterStage() {
-  if (state.payment === "모의 지급 확인" && state.access === "데모 평가용 승인") return 3;
+  if (state.payment === "지급 확인" && state.access === "조회·평가 승인") return 3;
   if (state.review === "승인") return 2;
   if (state.review === "검수 대기") return 1;
   return 0;
@@ -149,9 +152,9 @@ function refreshPresenter() {
   const stage = presenterStage();
   const next = presenterPlan[stage];
   const duration = presenterPlan.at(-1).endSecond;
-  const description = next?.description ?? "청년의 수집 기록이 데이터셋·수행 이력과 연결되었습니다.";
+  const description = next?.description ?? "검수·이용·지급 상태가 청년 현장 앱의 수행 이력에 반영되었습니다.";
   bar.dataset.presenterStage = String(stage);
-  bar.innerHTML = `<div class="rh-presenter-copy"><span class="rh-presenter-kicker">${duration}초 청년 시연 · ${stage}/3</span><strong>${esc(scenario.title)}</strong><small>${esc(description)} 실제 수집·승인·지급은 발생하지 않습니다.</small></div><ol class="rh-presenter-steps">${presenterPlan.map((step,index)=>`<li class="${index<stage?'done':index===stage?'current':''}"><span>${index+1}</span><div><strong>${esc(step.label)}</strong><small>${step.startSecond}–${step.endSecond}초 · ${esc(step.actor)}</small></div></li>`).join("")}</ol><div class="rh-presenter-actions">${next?`<button class="rh-primary" data-action="${next.action}">${esc(next.actionLabel)}</button>`:`<button class="rh-primary" data-action="presenter-reset">다시 시연</button>`}<button class="rh-quiet" data-action="presenter-exit">시연 종료</button></div>`;
+  bar.innerHTML = `<div class="rh-presenter-copy"><span class="rh-presenter-kicker">현장 데이터 흐름 · ${stage}/3</span><strong>${esc(scenario.title)}</strong><small>${esc(description)}</small></div><ol class="rh-presenter-steps">${presenterPlan.map((step,index)=>`<li class="${index<stage?'done':index===stage?'current':''}"><span>${index+1}</span><div><strong>${esc(step.label)}</strong><small>${step.startSecond}–${step.endSecond}초 · ${esc(step.actor)}</small></div></li>`).join("")}</ol><div class="rh-presenter-actions">${next?`<button class="rh-primary" data-action="${next.action}">${esc(next.actionLabel)}</button>`:`<button class="rh-primary" data-action="presenter-reset">처음부터</button>`}<button class="rh-quiet" data-action="presenter-exit">흐름 종료</button></div>`;
 }
 
 function initPresenter() {
@@ -159,7 +162,7 @@ function initPresenter() {
   if (!presenterMode && config.number === 4) {
     const launch = document.createElement("div");
     launch.className = "rh-presenter-launch";
-    launch.innerHTML = `<button class="rh-primary" data-action="presenter-start">34초 청년 시연</button><small>24초 영상 뒤, 3번 클릭해 총 58초 안에 마칩니다.</small>`;
+    launch.innerHTML = `<button class="rh-primary" data-action="presenter-start">대표 흐름 시작</button><small>현장 앱 → 운영 콘솔 → 현장 앱을 34초 안에 확인합니다.</small>`;
     $(".rh-page-heading")?.append(launch);
     return;
   }
@@ -169,7 +172,7 @@ function initPresenter() {
   const bar = document.createElement("section");
   bar.id = "rh-presenter";
   bar.className = "rh-presenter-bar";
-  bar.setAttribute("aria-label", "34초 청년 중심 UI 시연 진행");
+  bar.setAttribute("aria-label", "청년 현장 데이터 처리 흐름");
   $(".rh-page-content")?.before(bar);
   refreshPresenter();
 }
@@ -180,12 +183,12 @@ function render() {
     simulation: state.simulation, markCount: state.marks.length,
     pendingReview: state.review === '검수 대기' ? 1 : 0,
     pendingAccess: state.access === '신청 대기' ? 1 : 0,
-    pendingPayment: state.marks.length > 0 && state.payment === '모의 지급 대기' ? 1 : 0,
+    pendingPayment: state.marks.length > 0 && state.payment === '지급 대기' ? 1 : 0,
     collector: config.roles[state.collector] ?? '제출 전', reason: state.reason ?? '아직 보완 요청이 없습니다.',
   };
   $$('[data-value]').forEach(el => { el.textContent = values[el.dataset.value] ?? '—'; });
   const mf = config.sector === 'manufacturing';
-  const step = state.access === '데모 평가용 승인' ? (mf ? 4 : 5)
+  const step = state.access === '조회·평가 승인' ? (mf ? 4 : 5)
     : state.review === '승인' || state.review === '검수 대기' ? (mf ? 3 : 4)
     : state.session === '수집 중' ? (mf ? 2 : 3)
     : collectionAllowed(state) ? (mf ? 1 : 2) : state.gates.some(Boolean) ? 1 : 0;
@@ -200,7 +203,7 @@ function render() {
     if (state.session === '수집 중') next = [mf ? 8 : 13, '수집 이어가기'];
     if (state.review === '검수 대기') next = [config.reviewPage, '검수 열기'];
     if (state.review === '승인') next = [config.accessPage, '이용 승인 확인'];
-    if (state.access === '데모 평가용 승인') next = [config.datasetPage, '데이터셋 확인'];
+    if (state.access === '조회·평가 승인') next = [config.datasetPage, '데이터셋 확인'];
     nextAction.href = route(next[0]); nextAction.textContent = next[1] + ' →';
     const firstItem = $('.rh-next-actions li');
     if (firstItem) {
@@ -212,9 +215,9 @@ function render() {
   $$('[data-marks]').forEach(el => {
     el.innerHTML = state.marks.length ? state.marks.map((m,i) => `<article><strong>${i+1}. ${esc(m.name ?? ({normal:'정상',defect:'불량',hold:'판정 보류'}[m.label] ?? 'RGB 샘플'))}</strong><small>${m.kind === 'segment' ? `${esc(m.start ?? '—')}–${esc(m.end ?? '—')}초 · ${esc({success:'성공',failure:'실패',hold:'판정 보류'}[m.verdict] ?? '판정 보류')}` : '생성 이미지 기반 모의 기록'}${m.notes ? ` · ${esc(m.notes)}` : ''}</small></article>`).join('') : '<p class="rh-empty">아직 수집 기록이 없습니다.<br>조건 확인 후 샘플 또는 구간을 추가해 주세요.</p>';
   });
-  const names = {'create-task':'과제 등록',start:'수집 시작',submit:'검수 제출',approve:'검수 승인',rework:'보완 요청','request-access':'이용 신청','grant-access':'이용 승인','confirm-payment':'모의 지급 확인',simulate:'UI 모의 실행',stop:'모의 중단','recollection-request':'재수집 초안'};
+  const names = {'create-task':'과제 등록',start:'수집 시작',submit:'검수 제출',approve:'검수 승인',rework:'보완 요청','request-access':'이용 신청','grant-access':'이용 승인','confirm-payment':'지급 확인',simulate:'UI 시험 실행',stop:'시험 중단','recollection-request':'재수집 초안'};
   $$('[data-events]').forEach(el => {
-    el.innerHTML = state.events.length ? `<ul class="rh-event-list">${state.events.slice(0,8).map(v=>`<li><span>${esc(names[v.action] ?? v.action)}</span><time>${esc(new Date(v.at).toLocaleTimeString('ko-KR'))}</time></li>`).join('')}</ul>` : '<p class="rh-empty">아직 모의 실행 기록이 없습니다.</p>';
+    el.innerHTML = state.events.length ? `<ul class="rh-event-list">${state.events.slice(0,8).map(v=>`<li><span>${esc(names[v.action] ?? v.action)}</span><time>${esc(new Date(v.at).toLocaleTimeString('ko-KR'))}</time></li>`).join('')}</ul>` : '<p class="rh-empty">아직 실행 기록이 없습니다.</p>';
   });
   $$('[data-action=label]').forEach(b=>b.classList.toggle('rh-selected', ({normal:'정상',defect:'불량',hold:'판정 보류'}[state.label]) === b.textContent.trim()));
   $$('[data-action=label]').forEach(b=>b.setAttribute('aria-pressed',String(b.classList.contains('rh-selected'))));
@@ -223,7 +226,7 @@ function render() {
     filterTabs.forEach((b, i) => b.setAttribute('aria-pressed', String(i === 0)));
   }
   $$("[data-role-label]").forEach(
-    (el) => (el.textContent = config.roles[state.role] ?? "데모 역할"),
+    (el) => (el.textContent = config.roles[state.role] ?? "역할"),
   );
   $$("[data-task-title]").forEach(
     (el) =>
@@ -244,11 +247,11 @@ function render() {
   $$('[data-gate-progress]').forEach(el => { el.value = state.gates.filter(Boolean).length; });
   $$("[data-gate-status]").forEach(
     (el) =>
-      (el.textContent = `${state.gates.filter(Boolean).length}/5 확인 · ${collectionAllowed(state) ? "데모 수집을 시작할 수 있습니다." : "미확인 조건을 확인해 주세요."}`),
+      (el.textContent = `${state.gates.filter(Boolean).length}/5 확인 · ${collectionAllowed(state) ? "수집을 시작할 수 있습니다." : "미확인 조건을 확인해 주세요."}`),
   );
   $$("[data-gate-badge]").forEach((el) => {
     el.textContent = state.gates[Number(el.dataset.gateBadge)]
-      ? "데모 확인"
+      ? "확인"
       : "미확인";
     el.style.color = state.gates[Number(el.dataset.gateBadge)]
       ? "#166534"
@@ -284,14 +287,14 @@ function render() {
 
 function showScreens() {
   dialog(
-    "v1 화면과 사용 안내",
-    `<p><strong>${esc(config.name)} · ${config.names.length}개 화면</strong><br>새 생성 이미지를 기준으로 구현한 v1 프런트엔드입니다. 실제 계정·서버 업로드·AI·로봇·지급은 연결되지 않았습니다.</p><input type="search" data-screen-search placeholder="화면 이름이나 번호 검색" aria-label="화면 검색"><div class="rh-screen-list">${config.names.map((name, i) => `<a data-screen-item href="${route(i + 1)}"><span>${config.prefix.toUpperCase()}-${String(i + 1).padStart(2, "0")}</span>${esc(name)}${config.mobile.includes(i + 1) ? " · 모바일" : ""}</a>`).join("")}</div>${config.flows.map(([name, numbers]) => `<h3>${esc(name)}</h3><div class="rh-flow">${numbers.map(screenLink).join("")}</div>`).join("")}<h3>테스트 경계</h3><p>과제 상태는 이 브라우저의 기록을 사용합니다. 지도·사진은 예시이며, 역할 전환은 서버 권한 검증이 아닙니다. 검수 승인·이용 승인·지급 확인은 구분합니다.</p><div class="rh-actions"><button data-action="role">데모 역할 변경</button><button data-action="workflow">진행 기록</button><button data-action="reset-confirm">이 앱의 데모 기록 초기화</button></div>`,
+    "화면과 업무 흐름",
+    `<p><strong>${esc(config.name)} · ${config.names.length}개 화면</strong><br>역할별 화면과 연결된 업무 단계를 확인할 수 있습니다.</p><input type="search" data-screen-search placeholder="화면 이름이나 번호 검색" aria-label="화면 검색"><div class="rh-screen-list">${config.names.map((name, i) => `<a data-screen-item href="${route(i + 1)}"><span>${config.prefix.toUpperCase()}-${String(i + 1).padStart(2, "0")}</span>${esc(name)}${config.mobile.includes(i + 1) ? " · 현장 앱" : " · 운영 콘솔"}</a>`).join("")}</div>${config.flows.map(([name, numbers]) => `<h3>${esc(name)}</h3><div class="rh-flow">${numbers.map(screenLink).join("")}</div>`).join("")}<h3>권한 안내</h3><p>검수 승인, 이용 승인과 지급 확인은 각각 다른 역할과 단계에서 처리합니다.</p><div class="rh-actions"><button data-action="role">역할 변경</button><button data-action="workflow">진행 기록</button><button data-action="reset-confirm">진행 기록 초기화</button></div>`,
   );
 }
 function showRole() {
   dialog(
-    "데모 역할 선택",
-    `<p>화면 흐름을 시험하기 위한 역할 전환입니다. 로그인·권한 부여가 아니며 실제 계정 정보는 입력하지 마세요.</p><label for="rh-role-select">현재 역할</label><select id="rh-role-select">${Object.entries(
+    "역할 선택",
+    `<p>업무에 맞는 역할을 선택하면 해당 시작 화면으로 이동합니다.</p><label for="rh-role-select">현재 역할</label><select id="rh-role-select">${Object.entries(
       config.roles,
     )
       .map(
@@ -306,7 +309,7 @@ function showRole() {
 function showWorkflow() {
   const rows = [
     ["과제", state.task?.title ?? scenario?.defaultTask ?? config.defaultTask],
-    ["데모 역할", config.roles[state.role]],
+    ["현재 역할", config.roles[state.role]],
     ["조건 확인", `${state.gates.filter(Boolean).length}/5`],
     ["수집", state.session],
     ["기록", `${state.marks.length}건`],
@@ -317,8 +320,8 @@ function showWorkflow() {
   if (config.sector === "manufacturing")
     rows.push(["장치 UI 시뮬레이션", state.simulation]);
   dialog(
-    "내 데모 진행 기록",
-    `<p>현재 브라우저의 <strong>${esc(config.name)}</strong> 기록입니다. 다른 앱과 섞이지 않습니다.</p><table>${rows.map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`).join("")}</table><div class="rh-actions"><a class="rh-primary" href="${route(config.reviewPage)}">검수로 이동</a><a href="${route(config.accessPage)}">이용 승인</a><button data-action="role">역할 변경</button></div><h3>최근 동작</h3>${
+    "내 진행 기록",
+    `<p><strong>${esc(config.name)}</strong>의 현재 진행 상태입니다.</p><table>${rows.map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`).join("")}</table><div class="rh-actions"><a class="rh-primary" href="${route(config.reviewPage)}">검수로 이동</a><a href="${route(config.accessPage)}">이용 승인</a><button data-action="role">역할 변경</button></div><h3>최근 동작</h3>${
       state.events.length
         ? `<ul>${state.events
             .slice(0, 10)
@@ -328,7 +331,7 @@ function showWorkflow() {
             )
             .join("")}</ul>`
         : "<p>아직 기록이 없습니다. 과제를 입력하거나 현장 수집 흐름을 시작해 보세요.</p>"
-    }<p><small>검수 승인과 모의 지급은 별개입니다. 모든 상태는 테스트용입니다.</small></p>`,
+    }<p><small>검수 승인, 이용 승인과 지급 확인은 서로 다른 단계입니다.</small></p>`,
   );
 }
 
@@ -382,11 +385,11 @@ function createTask() {
 function showDownloadInfo(label) {
   dialog(
     "다운로드 범위 안내",
-    `<p>‘${esc(label)}’는 원본 디자인에 포함된 항목입니다. 실제 영상·증명서·엑셀·PDF는 생성하지 않습니다.</p><p>승인된 데모 세션에 한해 이 브라우저의 입력·상태 기록을 JSON으로 내려받을 수 있습니다. 원본 파일이나 개인정보는 포함하지 않습니다.</p><div class="rh-actions"><button class="rh-primary" data-action="export-demo">데모 기록 JSON 다운로드</button><a href="${route(config.accessPage)}">이용 승인 화면</a></div>`,
+    `<p>‘${esc(label)}’ 내보내기 범위를 확인해 주세요.</p><p>승인된 수집 세션의 상태 기록을 JSON으로 내려받을 수 있습니다. 원본 영상과 개인정보는 포함하지 않습니다.</p><div class="rh-actions"><button class="rh-primary" data-action="export-demo">승인 기록 JSON 다운로드</button><a href="${route(config.accessPage)}">이용 승인 화면</a></div>`,
   );
 }
 function exportDemo() {
-  if (state.review !== "승인" || state.access !== "데모 평가용 승인")
+  if (state.review !== "승인" || state.access !== "조회·평가 승인")
     throw new Error(
       "검수 승인과 별도의 평가 목적 이용 승인을 먼저 완료해 주세요.",
     );
@@ -453,9 +456,12 @@ async function act(name, el) {
   const label = el.dataset.label ?? el.textContent.trim();
   switch (name) {
     case "presenter-start": {
-      const url = new URL(location.href);
+      state = initialState(config.sector);
+      state.role = "operator";
+      persist();
+      const url = new URL(route(13), location.href);
       url.searchParams.set("presenter", "1");
-      location.href = `${url.pathname}${url.search}`;
+      location.href = `${url.pathname.split('/').pop()}${url.search}`;
       break;
     }
     case "presenter-exit": {
@@ -466,8 +472,9 @@ async function act(name, el) {
     }
     case "presenter-reset":
       state = initialState(config.sector);
+      state.role = "operator";
       persist();
-      location.href = route(4);
+      location.href = route(13);
       break;
     case "presenter-collect":
       state = initialState(config.sector);
@@ -479,7 +486,7 @@ async function act(name, el) {
         end: 6,
         name: scenario?.segment ?? "대표 작업 구간",
         verdict: "success",
-        notes: "34초 청년 시연의 모의 수집 기록",
+        notes: "식당 테이블 정리 작업의 현장 수집 기록",
       }));
       state = transition(state, "submit");
       state.role = "reviewer";
@@ -500,7 +507,7 @@ async function act(name, el) {
       state = transition(state, "confirm-payment");
       state.role = "operator";
       persist();
-      location.href = route(config.datasetPage);
+      location.href = route(18);
       break;
     case "screens":
       showScreens();
@@ -518,14 +525,14 @@ async function act(name, el) {
       if (config.roles[el.dataset.role]) {
         state.role = el.dataset.role;
         persist();
-        toast(`데모 역할: ${config.roles[state.role]}`);
+        toast(`현재 역할: ${config.roles[state.role]}`);
       }
       break;
     case "apply-role":
       state.role = $("#rh-role-select").value;
       persist();
       closeDialog();
-      toast("데모 역할을 적용했습니다.");
+      toast("역할을 적용했습니다.");
       break;
     case "enter":
       if ($("#rh-role-select")) state.role = $("#rh-role-select").value;
@@ -563,8 +570,8 @@ async function act(name, el) {
       break;
     case "reset-confirm":
       dialog(
-        "이 앱의 데모 기록 초기화",
-        `<p>${esc(config.name)} 앱에서 이 브라우저에 저장한 입력·역할·진행 기록만 삭제합니다. 원본 ZIP과 다른 앱의 기록은 유지됩니다.</p><div class="rh-actions"><button data-action="close-dialog">취소</button><button class="rh-primary" data-action="reset">데모 기록 초기화</button></div>`,
+        "이 앱의 진행 기록 초기화",
+        `<p>${esc(config.name)} 앱에서 이 기기에 저장한 입력·역할·진행 기록만 삭제합니다. 다른 작업 공간의 기록은 유지됩니다.</p><div class="rh-actions"><button data-action="close-dialog">취소</button><button class="rh-primary" data-action="reset">진행 기록 초기화</button></div>`,
       );
       break;
     case "reset":
@@ -639,15 +646,15 @@ async function act(name, el) {
     }
     case "request-access":
       advance("request-access");
-      toast("데모 평가 목적 이용 신청을 기록했습니다.");
+      toast("조회·평가 목적 이용 신청을 기록했습니다.");
       break;
     case "grant-access":
       advance("grant-access");
-      toast("평가 목적만 모의 승인했습니다. 학습·외부 공유 승인이 아닙니다.");
+      toast("조회·평가 목적 이용을 승인했습니다. 학습·외부 공유 승인은 별도입니다.");
       break;
     case "confirm-payment":
       advance("confirm-payment");
-      toast("모의 지급 확인을 기록했습니다. 실제 송금이나 지급은 발생하지 않았습니다.");
+      toast("지급 확인 상태를 기록했습니다.");
       break;
     case "export-demo":
       exportDemo();

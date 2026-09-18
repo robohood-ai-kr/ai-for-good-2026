@@ -84,13 +84,13 @@ test('small-business exposes exactly two clickable demos and five image-only exa
   assert.equal(explorer('[data-scenario-link=restaurant]').length,2);
   assert.equal(explorer('[data-scenario-link=mart]').length,2);
   assert.equal(explorer('.rh-site-placeholder').length,1);
-  assert.match(explorer('.rh-site-placeholder').text(),/데모 미구현/);
+  assert.match(explorer('.rh-site-placeholder').text(),/준비 중/);
 
   const library=await page('small-business',16);
   assert.equal(library('.rh-dataset-scenario').length,2);
   assert.equal(library('.rh-dataset-example').length,5);
   assert.equal(library('.rh-dataset-example [data-scenario-link]').length,0);
-  library('.rh-dataset-example').each((_,el)=>assert.match(library(el).text(),/이미지 예시[\s\S]*구현하지 않았습니다/));
+  library('.rh-dataset-example').each((_,el)=>assert.match(library(el).text(),/업종 확장 이미지[\s\S]*준비 중[\s\S]*순차적으로 연결됩니다/));
   assert.match(library.text(),/소규모 숙박업소 침구 정리/);
 
   for(const item of [...Object.values(c.scenarios),...c.datasetExamples]) {
@@ -131,6 +131,6 @@ test('explorer filters stay bound to the three existing mock sites', async () =>
     assert.equal($('[data-search-item][data-site-category][data-site-state]').length,3);
     assert.equal($('.rh-selected-site').length,1);
     assert.equal($('[data-hide-map]').length,1);
-    assert.match($('.rh-map').attr('aria-label'),/가상|예시/);
+    assert.match($('.rh-map').attr('aria-label'),/가상|예시|운영 지도/);
   }
 });

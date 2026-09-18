@@ -38,12 +38,17 @@ for (const [sector, product] of Object.entries(sectors)) {
       const config = JSON.parse($("#rh-config").text());
       assert.equal(config.sector, sector);
       assert.equal(config.id, id);
-      assert.equal($("#rh-screen-select option").length, product.names.length);
+      assert.equal($("#rh-screen-select").length, 0);
       assert.equal($("script").length, 2);
       assert.equal($("script[type=module]").attr("src"), "./assets/app.mjs");
       assert.equal($("[id=tailwind-config],iframe,object,embed").length, 0);
       assert.equal($('a[href="#"]').length, 0);
       assert.equal($("#rh-main").length, 1);
+      assert.equal(
+        $("body").attr("data-surface"),
+        product.mobile.includes(number) ? "field-app" : "operations-console",
+      );
+      assert.equal($(".rh-header > .rh-badge").text(), product.mobile.includes(number) ? "현장 앱" : "운영 콘솔");
       assert.ok(
         !$("meta[name=viewport]").attr("content").includes("user-scalable=no"),
       );

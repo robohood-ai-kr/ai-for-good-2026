@@ -30,8 +30,8 @@ test('small-business explorer preserves its schematic fallback without a Client 
   assert.equal(config.naverMapClientId, undefined);
   assert.equal($('.rh-map svg').length, 1);
   assert.match($('meta[http-equiv="Content-Security-Policy"]').attr('content'), /connect-src 'none'/);
-  assert.match(source, /모의 식당 A/);
-  assert.match(source, /모의 동네마트 A/);
+  assert.match(source, /성수 식당 A/);
+  assert.match(source, /망원 동네마트 A/);
   assert.match(source, /mapProvider = 'fallback'/);
   assert.doesNotMatch(source, /Client Secret|X-NCP-APIGW-API-KEY/);
 });

@@ -48,12 +48,12 @@ export function referenceArt(sector, number, index=0, type='photo') {
   const mobile = id.startsWith('mf') ? [8,17,18].includes(number) : [10,11,12,13,14].includes(number);
   const width = mobile?941:1536, height = mobile?(id==='sb-14'?1671:1672):1024;
   const source = id==='sb-08' && type==='photo' ? 'sb-05' : id;
-  return `<svg class="rh-scene" viewBox="${x} ${y} ${w} ${h}" preserveAspectRatio="xMidYMid slice" role="img" aria-label="${type==='illustration'?'생성된 가상 역할 일러스트':'생성 시안의 모의 작업 사진'}"><image href="./references/${source}.png" x="0" y="0" width="${width}" height="${height}"/></svg>`;
+  return `<svg class="rh-scene" viewBox="${x} ${y} ${w} ${h}" preserveAspectRatio="xMidYMid slice" role="img" aria-label="${type==='illustration'?'역할 안내 일러스트':'업무 현장 예시 이미지'}"><image href="./references/${source}.png" x="0" y="0" width="${width}" height="${height}"/></svg>`;
 }
 
 export function scenePhoto(sector,number,cls='',index=0) {
   const art = referenceArt(sector,number,index);
-  return art ? `<figure class="rh-photo ${cls}">${art}<figcaption>생성 이미지 · ${sector==='manufacturing'?'RGB 수집 예시':'모의 작업 장면'}</figcaption></figure>` : '';
+  return art ? `<figure class="rh-photo ${cls}">${art}<figcaption>${sector==='manufacturing'?'RGB 수집 이미지':'현장 작업 이미지'}</figcaption></figure>` : '';
 }
 
 export const referenceCrops = crops;

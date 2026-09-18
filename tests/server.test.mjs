@@ -15,7 +15,7 @@ test("HTTP server serves both apps and every screen without exposing source file
   assert.ok(base);
   const response = await fetch(base);
   assert.equal(response.status, 200);
-  assert.match(await response.text(), /두 가지 v1/);
+  assert.match(await response.text(), /현장의 데이터를/);
   for (const [sector, product] of Object.entries(sectors))
     for (let n = 1; n <= product.names.length; n++) {
       const page = await fetch(`${base}/${sector}/${screenId(sector, n)}.html`);
