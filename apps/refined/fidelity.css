@@ -37,6 +37,10 @@
 .rh-icon-metrics p { color:var(--ink); font-weight:600; font-size:16px; }
 .rh-icon-metrics .rh-metric { font-size:32px; min-height:0; line-height:1.15; margin-top:5px; }
 .rh-icon-metrics small { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+.rh-plain-metrics .rh-card { padding:18px 22px; min-height:0; }
+.rh-plain-metrics p { color:var(--ink); font-weight:600; font-size:15px; margin:0; }
+.rh-plain-metrics .rh-metric { font-size:30px; min-height:0; line-height:1.2; margin:8px 0 4px; letter-spacing:-.03em; }
+.rh-plain-metrics small { display:block; font-size:13px; color:var(--muted); }
 .rh-overview-grid { align-items:stretch; }
 .rh-case-heading { display:flex; justify-content:space-between; align-items:center; gap:12px; }
 .rh-case-heading h2 { font-size:27px; line-height:1.35; }
@@ -392,12 +396,18 @@
 .rh-access-status .rh-round-icon { width:52px; height:52px; }
 .rh-access-status .rh-badge { margin:8px 0 12px; }
 .rh-access-status p { font-size:15px; }
+.rh-access-status-plain .rh-card { display:block; min-height:0; }
+.rh-access-status-plain h3 { font-size:16px; margin:0; }
 .rh-workspace-banner { display:flex; align-items:center; justify-content:space-between; gap:28px; background:#edf5ff; border-color:#cbe0ff; min-height:185px; }
 .rh-workspace-banner h2 { color:#145ce0; font-size:33px; margin:4px 0 12px; }
 .rh-workspace-banner>svg { width:125px; height:125px; color:#186bfb; flex:none; }
+.rh-workspace-plain { min-height:0; background:#fff; border-color:var(--line); }
+.rh-workspace-plain h2 { color:var(--ink); font-size:28px; }
 .rh-policy-cards .rh-card { display:flex; gap:16px; min-height:145px; }
 .rh-policy-cards .rh-round-icon { width:42px; height:42px; background:none; }
 .rh-policy-cards p { font-size:14px; margin-top:10px; }
+.rh-policy-plain .rh-card { display:block; min-height:0; }
+.rh-policy-plain h3 { margin:0; font-size:16px; }
 .rh-kind-settings .rh-case-summary { grid-template-columns:.75fr 1.6fr; margin-bottom:20px; }
 .rh-kind-settings .rh-case-summary .rh-photo :is(img,svg.rh-scene) { max-height:200px; aspect-ratio:1.5; }
 .rh-compensation-metrics .rh-card { display:flex; gap:20px; align-items:center; min-height:145px; }
@@ -405,6 +415,8 @@
 .rh-compensation-metrics strong { display:block; font-size:30px; color:var(--ink); }
 .rh-compensation-metrics small { display:block; font-size:12px; }
 .rh-compensation-metrics p { font-size:14px; }
+.rh-compensation-plain .rh-card { display:block; min-height:0; padding:18px 20px; }
+.rh-compensation-plain strong { margin:6px 0; letter-spacing:-.03em; }
 .rh-kind-compensation td:first-child { min-width:110px; }
 .rh-kind-compensation table { font-size:14px; }
 .rh-kind-compensation th,.rh-kind-compensation td { padding:17px 12px; }
@@ -412,6 +424,9 @@
 .rh-skill-list>section { display:flex; gap:15px; align-items:flex-start; }
 .rh-skill-list .rh-round-icon { width:42px; height:42px; }
 .rh-skill-list p { font-size:14px; }
+.rh-skill-plain>section { display:block; padding:14px 0; border-top:1px solid #e2e8f0; }
+.rh-skill-plain>section:first-child { border-top:0; padding-top:0; }
+.rh-skill-plain h3 { font-size:16px; margin:0 0 4px; }
 .rh-mobile .rh-app { max-width:520px; }
 .rh-mobile .rh-header strong { color:#135ce1; font-size:21px; }
 .rh-mobile .rh-page-heading { margin-bottom:18px; }
