@@ -1,6 +1,6 @@
 # RoboHood 운영 데모 Vercel 배포
 
-최종 재배포일: 2026-09-18. 제조업·소상공인 프런트엔드를 하나의 정적 배포에서 경로로 분리하였다. 반응형 웹, 좁은 화면용 메뉴 서랍, 표 카드 전환, 파비콘, 현장 탐색 지도와 34초 발표 흐름을 포함한다.
+최종 재배포일: 2026-09-19. 제조업·소상공인 프런트엔드를 하나의 정적 배포에서 경로로 분리하였다. 반응형 웹, 좁은 화면용 메뉴 서랍, 표 카드 전환, 파비콘, 현장 탐색 지도와 34초 발표 흐름을 포함한다.
 
 ## 접속 주소
 
@@ -13,14 +13,14 @@
 | 제조업 이미지 갤러리 | https://robohood-v1.vercel.app/manufacturing/image-gallery.html |
 | 소상공인 이미지 갤러리 | https://robohood-v1.vercel.app/small-business/image-gallery.html |
 | Vercel 프로젝트 | https://vercel.com/geond/robohood-v1 |
-| 현재 배포 | https://vercel.com/geond/robohood-v1/H4Wjgko9vCHKChSt8M8YB6A8oEuF |
+| 현재 배포 | https://vercel.com/geond/robohood-v1/BruzyVuX2z5J3LPuQgFXVzwY5648 |
 
-계정 범위는 `GEOND (geond)`, 프로젝트는 `robohood-v1`, 확인한 플랜은 Hobby다. 유료 업그레이드·커스텀 도메인 구매·별도 유료 서비스 추가는 하지 않았다. 현재 고정 배포 주소는 `https://robohood-v1-59ort9wy8-geond.vercel.app`이며, 공유에는 production alias인 `https://robohood-v1.vercel.app`을 사용한다.
+계정 범위는 `GEOND (geond)`, 프로젝트는 `robohood-v1`, 확인한 플랜은 Hobby다. 유료 업그레이드·커스텀 도메인 구매·별도 유료 서비스 추가는 하지 않았다. 현재 고정 배포 주소는 `https://robohood-v1-qb15pk1t8-geond.vercel.app`이며, 공유에는 production alias인 `https://robohood-v1.vercel.app`을 사용한다.
 
 ## 배포한 범위
 
 - 제조업 21개·소상공인 20개 화면, 생성 시안 41개, 시나리오 이미지, 공통 스타일과 브라우저 동작 코드.
-- 공개 정적 파일 116개, 81,093,333 bytes. 라우팅 설정을 포함한 CLI 전송 대상은 117개다.
+- 공개 정적 파일 116개, 81,098,141 bytes. 라우팅 설정을 포함한 CLI 전송 대상은 117개다.
 - `dist/` 전체나 저장소 전체를 올리지 않았다. `scripts/prepare-vercel.mjs`가 허용 목록만 새 임시 폴더의 `.vercel/output/static/`에 복사한다.
 - 다운로드 데이터·원본 ZIP·SQL·기획 문서·환경변수 파일·프로젝트 연결 정보는 배포 대상에서 제외하였다. CLI dry-run에서도 일치 여부를 검사했다.
 - [Build Output API v3](https://vercel.com/docs/build-output-api/configuration)와 [CLI prebuilt 배포](https://vercel.com/docs/cli/deploy)를 사용한다. HTML 확장자와 두 앱의 상대경로를 유지하고, 없는 주소는 HTTP 404로 응답한다.
@@ -29,10 +29,11 @@
 
 ## 검증 결과
 
-- `npm run check` 자동 테스트 **92개 통과**.
+- `npm run check` 자동 테스트 **93개 통과**.
 - 배포 허용 목록 생성과 dry-run을 거쳐 production 상태가 `READY`임을 확인하였다.
-- 제조업 21개·소상공인 20개 화면을 데스크톱 `1440×900`과 모바일 `390×844`에서 각각 확인하여 **총 82개 브라우저 화면 검사**를 통과하였다.
-- 82개 검사에서 HTTP 오류, 런타임 오류, 전체 페이지 가로 넘침, 좁은 화면의 표 넘침, 노출된 `v1` 표기를 발견하지 않았다.
+- 로컬 빌드의 제조업 21개·소상공인 20개 화면을 `1366×768`, `1440×900`, 모바일 `390×844`에서 각각 확인하여 **총 123개 브라우저 화면 검사**를 통과하였다.
+- 123개 검사에서 전체 페이지 가로 넘침을 발견하지 않았다. production에서는 작업함·RGB 수집·두 현장 탐색을 데스크톱과 모바일에서 다시 확인했으며 런타임 오류·콘솔 오류가 없었다.
+- 1366×768 기준 소상공인 작업함의 대표 사진은 792px에서 261px, 제조 RGB 수집 사진은 503px에서 292px, 제조 현장 탐색 지도는 532px에서 369px로 축소하였다. 소상공인 지도도 369px로 제한하였다.
 - 좁은 화면에서는 메뉴가 서랍으로 열리고 닫히며, 닫힌 메뉴는 키보드와 보조 기술의 탐색 대상에서 제외된다. 데스크톱에서는 웹 사이드바가 유지된다.
 - 제조업·소상공인 현장 탐색 모두 네이버 지도 제공자 상태를 데스크톱과 모바일에서 확인하였다. 제조업은 전국 권역의 모의 위치 3곳, 소상공인은 서울 생활권의 예시 위치를 표시하며 실제 사업장·모집으로 주장하지 않는다. Client ID가 없거나 지도를 불러오지 못하면 각 화면의 도식 지도로 대체한다.
 - 발표자 모드의 실제 클릭 흐름을 production에서 끝까지 확인하였다.
@@ -54,13 +55,14 @@
 | `dpl_9GbEHZtVnrrb2JBA5VzhsbAyafCp` | 시각 보완 반영. 공개 브라우저 점검에서 전체 화면 메뉴의 설정 타입 충돌 발견 |
 | `dpl_5m1SQSGXda7FJLmFEr6szh38zNvr` | 모바일 목록과 현재 화면 상태 분리, 자동 검사 75개 및 공개 메뉴 점검 통과 |
 | `dpl_5ZjYmnuLWJDdMwy6ZUcTjGRqAagj` | 반응형 메뉴·표, 파비콘, 문구 정리와 34초 발표 흐름 반영. 자동 검사 91개와 82개 화면 점검 통과 |
-| `dpl_H4Wjgko9vCHKChSt8M8YB6A8oEuF` | 현재 production. 제조업 현장 탐색에 네이버 지도·모의 마커 3개·안전 조건을 적용하고 사이드바 금속 부품 장식을 제거. 자동 검사 92개와 제조업·소상공인 지도 데스크톱·모바일 점검 통과 |
+| `dpl_H4Wjgko9vCHKChSt8M8YB6A8oEuF` | 제조업 현장 탐색에 네이버 지도·모의 마커 3개·안전 조건을 적용하고 사이드바 금속 부품 장식을 제거. 자동 검사 92개와 제조업·소상공인 지도 데스크톱·모바일 점검 통과 |
+| `dpl_BruzyVuX2z5J3LPuQgFXVzwY5648` | 현재 production. 데스크톱의 사진·지도 높이와 카드 여백을 줄이고 비선택 현장 조건을 펼침 영역으로 정리. 자동 검사 93개, 로컬 123개 화면 및 production 대표 화면 점검 통과 |
 
 이전 배포는 삭제하지 않았다. 기존 production alias와 브라우저 저장소 키는 유지하였다.
 
 ## 재배포
 
-현재 배포는 Git의 제조업 지도 정렬 커밋 `aa406eb`에서 생성하였다. GitHub와 Vercel의 자동 배포 연결이 아니라 로컬에서 검증한 허용 목록을 CLI로 배포하는 방식이다.
+현재 배포는 Git의 데스크톱 화면 밀도 보완 커밋 `16ffaa6`에서 생성하였다. GitHub와 Vercel의 자동 배포 연결이 아니라 로컬에서 검증한 허용 목록을 CLI로 배포하는 방식이다.
 
 ```sh
 npm run deploy:prepare
