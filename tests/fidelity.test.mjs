@@ -12,6 +12,7 @@ test('screen menu keeps the mobile page list separate from the current page flag
     const $=await page(sector,n);
     const config=JSON.parse($('#rh-config').text());
     assert.deepEqual(config.mobile,c.mobile);
+    assert.deepEqual(config.fieldWorkspace,c.fieldWorkspace);
     assert.equal(config.isMobile,c.mobile.includes(n));
     // This is the lookup used when the browser opens the complete screen menu.
     assert.equal(config.names.filter((_,i)=>config.mobile.includes(i+1)).length,c.mobile.length);

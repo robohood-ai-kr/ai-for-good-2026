@@ -9,7 +9,12 @@ import {
 } from "../apps/shared/state.mjs";
 import { sectors } from "../apps/shared/catalog.mjs";
 
-test("small-business demo handoffs connect request, youth work and review", () => {
+test("demo handoffs connect request, youth work, review and dataset in both products", () => {
+  assert.deepEqual(sectors.manufacturing.demoHandoff, {
+    taskCreated: { role: "operator", page: 17 },
+    submitted: { role: "reviewer", page: 9 },
+    approved: { page: 11 },
+  });
   assert.deepEqual(sectors["small-business"].demoHandoff, {
     taskCreated: { role: "operator", page: 11 },
     submitted: { role: "reviewer", page: 15 },
@@ -27,7 +32,7 @@ test("presenter plan fits the 34-second youth-centered slot", () => {
   assert.deepEqual(presenterPlan.map(({ actor }) => actor), [
     "청년 · 현장 작업 화면",
     "검수 담당 · 운영 콘솔",
-    "운영팀 → 청년 앱",
+    "운영팀 → 청년 현장 작업",
   ]);
   assert.equal(new Set(presenterPlan.map(({ action }) => action)).size, 3);
 });

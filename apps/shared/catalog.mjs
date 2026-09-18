@@ -4,7 +4,8 @@ export const sectors = {
     prefix: "mf",
     caseId: "RH-MF-001",
     description: "제조 현장의 수집·검수·데이터 버전과 FDE의 적용·재수집 흐름",
-    mobile: [8, 17, 18],
+    mobile: [],
+    fieldWorkspace: [8, 17, 18],
     names: [
       "서비스 소개",
       "역할 선택·작업 공간",
@@ -13,7 +14,7 @@ export const sectors = {
       "현장 과제 등록",
       "과제 상세",
       "수집팀·현장 인력 배정",
-      "모바일 RGB 수집",
+      "RGB 이미지 수집",
       "검수·라벨링",
       "데이터셋 라이브러리",
       "데이터셋 상세·버전",
@@ -22,7 +23,7 @@ export const sectors = {
       "배포 준비",
       "모의 적용 상태 확인",
       "이벤트·재수집",
-      "모바일 작업함",
+      "나의 작업함",
       "경력·교육",
       "데이터 접근·이용 조건",
       "작업 공간 설정",
@@ -49,7 +50,7 @@ export const sectors = {
     roles: {
       manager: "운영팀",
       researcher: "요청 기업",
-      operator: "수집 담당",
+      operator: "청년 현장 전문인력",
       reviewer: "검수 담당",
       fde: "현장 적용 FDE",
     },
@@ -59,6 +60,11 @@ export const sectors = {
       operator: 17,
       reviewer: 9,
       fde: 14,
+    },
+    demoHandoff: {
+      taskCreated: { role: "operator", page: 17 },
+      submitted: { role: "reviewer", page: 9 },
+      approved: { page: 11 },
     },
     taskPage: 6,
     newPage: 5,
@@ -74,6 +80,7 @@ export const sectors = {
     description:
       "생활권 현장에서 청년의 교육·유급 수집·검수·수행 이력을 연결하는 흐름",
     mobile: [],
+    fieldWorkspace: [10, 11, 12, 13, 14, 18],
     names: [
       "서비스 소개",
       "역할 선택·작업 공간",

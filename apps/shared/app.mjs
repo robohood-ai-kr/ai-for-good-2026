@@ -163,7 +163,7 @@ function refreshPresenter() {
   const stage = presenterStage();
   const next = presenterPlan[stage];
   const duration = presenterPlan.at(-1).endSecond;
-  const description = next?.description ?? "검수·이용·지급 상태가 청년 현장 앱의 수행 이력에 반영되었습니다.";
+  const description = next?.description ?? "검수·이용·지급 상태가 청년 현장 작업의 수행 이력에 반영되었습니다.";
   bar.dataset.presenterStage = String(stage);
   bar.innerHTML = `<div class="rh-presenter-copy"><span class="rh-presenter-kicker">현장 데이터 흐름 · ${stage}/3</span><strong>${esc(scenario.title)}</strong><small>${esc(description)}</small></div><ol class="rh-presenter-steps">${presenterPlan.map((step,index)=>`<li class="${index<stage?'done':index===stage?'current':''}"><span>${index+1}</span><div><strong>${esc(step.label)}</strong><small>${step.startSecond}–${step.endSecond}초 · ${esc(step.actor)}</small></div></li>`).join("")}</ol><div class="rh-presenter-actions">${next?`<button class="rh-primary" data-action="${next.action}">${esc(next.actionLabel)}</button>`:`<button class="rh-primary" data-action="presenter-reset">처음부터</button>`}<button class="rh-quiet" data-action="presenter-exit">흐름 종료</button></div>`;
 }
@@ -173,7 +173,7 @@ function initPresenter() {
   if (!presenterMode && config.number === 4) {
     const launch = document.createElement("div");
     launch.className = "rh-presenter-launch";
-    launch.innerHTML = `<button class="rh-primary" data-action="presenter-start">대표 흐름 시작</button><small>현장 작업 화면 → 운영 콘솔 → 현장 앱을 34초 안에 확인합니다.</small>`;
+    launch.innerHTML = `<button class="rh-primary" data-action="presenter-start">대표 흐름 시작</button><small>현장 작업 화면 → 운영 콘솔 → 수행 이력을 34초 안에 확인합니다.</small>`;
     $(".rh-page-heading")?.append(launch);
     return;
   }
@@ -297,9 +297,14 @@ function render() {
 }
 
 function showScreens() {
+  const surfaceLabel = (number) => config.mobile.includes(number)
+    ? "현장 앱"
+    : config.fieldWorkspace?.includes(number)
+      ? "현장 작업"
+      : "운영 콘솔";
   dialog(
     "화면과 업무 흐름",
-    `<p><strong>${esc(config.name)} · ${config.names.length}개 화면</strong><br>역할별 화면과 연결된 업무 단계를 확인할 수 있습니다.</p><input type="search" data-screen-search placeholder="화면 이름이나 번호 검색" aria-label="화면 검색"><div class="rh-screen-list">${config.names.map((name, i) => `<a data-screen-item href="${route(i + 1)}"><span>${config.prefix.toUpperCase()}-${String(i + 1).padStart(2, "0")}</span>${esc(name)}${config.mobile.includes(i + 1) ? " · 현장 앱" : " · 운영 콘솔"}</a>`).join("")}</div>${config.flows.map(([name, numbers]) => `<h3>${esc(name)}</h3><div class="rh-flow">${numbers.map(screenLink).join("")}</div>`).join("")}<h3>권한 안내</h3><p>검수 승인, 이용 승인과 지급 확인은 각각 다른 역할과 단계에서 처리합니다.</p><div class="rh-actions"><button data-action="role">역할 변경</button><button data-action="workflow">진행 기록</button><button data-action="reset-confirm">진행 기록 초기화</button></div>`,
+    `<p><strong>${esc(config.name)} · ${config.names.length}개 화면</strong><br>역할별 화면과 연결된 업무 단계를 확인할 수 있습니다.</p><input type="search" data-screen-search placeholder="화면 이름이나 번호 검색" aria-label="화면 검색"><div class="rh-screen-list">${config.names.map((name, i) => `<a data-screen-item href="${route(i + 1)}"><span>${config.prefix.toUpperCase()}-${String(i + 1).padStart(2, "0")}</span>${esc(name)} · ${surfaceLabel(i + 1)}</a>`).join("")}</div>${config.flows.map(([name, numbers]) => `<h3>${esc(name)}</h3><div class="rh-flow">${numbers.map(screenLink).join("")}</div>`).join("")}<h3>권한 안내</h3><p>검수 승인, 이용 승인과 지급 확인은 각각 다른 역할과 단계에서 처리합니다.</p><div class="rh-actions"><button data-action="role">역할 변경</button><button data-action="workflow">진행 기록</button><button data-action="reset-confirm">진행 기록 초기화</button></div>`,
   );
 }
 function showRole() {
@@ -409,7 +414,7 @@ function exportDemo() {
   const record = {
     prototype: true,
     product: config.sector,
-    version: "v1",
+    schemaVersion: 1,
     scenario: scenarioId ?? null,
     caseId: scenario?.caseId ?? config.caseId,
     task: state.task?.title ?? scenario?.defaultTask ?? config.defaultTask,
@@ -423,10 +428,10 @@ function exportDemo() {
   );
   const a = document.createElement("a");
   a.href = url;
-  a.download = `robohood-${config.sector}-v1-demo.json`;
+  a.download = `robohood-${config.sector}-approval-record.json`;
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-  toast("데모 메타데이터만 다운로드했습니다.");
+  toast("승인 메타데이터를 다운로드했습니다.");
 }
 function filterContent(query) {
   const main = $(".rh-export-content") ?? $("main");
@@ -598,7 +603,7 @@ async function act(name, el) {
       break;
     case "capture":
       if (state.session !== "수집 중")
-        throw new Error("위의 조건을 확인하고 데모 수집을 시작해 주세요.");
+        throw new Error("위의 조건을 확인하고 수집을 시작해 주세요.");
       state.marks.push({
         kind: "sample-image",
         label: state.label,
@@ -623,7 +628,7 @@ async function act(name, el) {
       break;
     case "mark":
       if (state.session !== "수집 중")
-        throw new Error("조건 확인 후 데모 세션을 시작해 주세요.");
+        throw new Error("조건 확인 후 수집 세션을 시작해 주세요.");
       state.marks.push(segmentRecord({
         start: $('#segmentStart')?.value, end: $('#segmentEnd')?.value,
         name: $('#segmentName')?.value ?? label,
@@ -655,6 +660,15 @@ async function act(name, el) {
           duration: $('#rh-video-preview')?.duration,
         }));
       }
+      if (config.sector === "manufacturing" && state.session === "수집 중" && !state.marks.length) {
+        state.marks.push({
+          kind: "sample-image",
+          label: state.label,
+          notes: $('#captureNotes')?.value ?? '',
+          at: new Date().toISOString(),
+          simulated: true,
+        });
+      }
       state = transition(state, "submit");
       const destination = applyDemoHandoff("submitted") ?? config.reviewPage;
       persist();
@@ -673,7 +687,7 @@ async function act(name, el) {
       const approvedDestination = applyDemoHandoff("approved");
       persist();
       if (approvedDestination) location.href = route(approvedDestination);
-      else toast("데모 검수 승인 · 이용 승인과 지급 상태는 변경되지 않았습니다.");
+      else toast("검수 승인 완료 · 이용 승인과 지급 상태는 변경되지 않았습니다.");
       break;
     case "rework": {
       const reason =
@@ -753,7 +767,7 @@ async function act(name, el) {
     default:
       dialog(
         label || "화면 안내",
-        `<p>이 항목은 화면 구성 예시입니다. 현재 연결된 기능은 화면 이동, 입력 저장, 데모 조건·상태 기록입니다.</p><p>실제 인증·기관 협약·연락·지급·센서·로봇 제어를 실행하지 않습니다.</p><div class="rh-actions"><button class="rh-primary" data-action="screens">연결된 화면 찾기</button><button data-action="workflow">진행 기록 보기</button></div>`,
+        `<p>이 항목은 화면 구성 예시입니다. 현재 연결된 기능은 화면 이동, 입력 저장, 조건·상태 기록입니다.</p><p>실제 인증·기관 협약·연락·지급·센서·로봇 제어를 실행하지 않습니다.</p><div class="rh-actions"><button class="rh-primary" data-action="screens">연결된 화면 찾기</button><button data-action="workflow">진행 기록 보기</button></div>`,
       );
   }
 }
@@ -869,4 +883,4 @@ for (const id of ['segmentStart', 'segmentEnd']) {
 render();
 initNaverMap(config);
 if (!storageAvailable)
-  toast("저장된 기록을 읽지 못해 새 데모 상태로 시작합니다.");
+  toast("저장된 기록을 읽지 못해 새 진행 상태로 시작합니다.");

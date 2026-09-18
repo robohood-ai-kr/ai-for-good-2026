@@ -27,12 +27,12 @@ export const presenterPlan = Object.freeze([
   }),
   Object.freeze({
     action: "presenter-finish",
-    label: "모바일 이력 확인",
+    label: "수행 이력 확인",
     actionLabel: "3. 승인·지급 반영",
-    actor: "운영팀 → 청년 앱",
+    actor: "운영팀 → 청년 현장 작업",
     startSecond: 22,
     endSecond: 34,
-    description: "운영팀이 이용·지급 기록을 확정하면 청년 현장 앱에 수행 이력이 반영됩니다.",
+    description: "운영팀이 이용·지급 기록을 확정하면 청년 현장 작업에 수행 이력이 반영됩니다.",
   }),
 ]);
 export const storageKey = (sector) => `robohood:${sector}:v1`;

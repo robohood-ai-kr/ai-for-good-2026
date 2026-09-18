@@ -54,6 +54,22 @@ test('small-business youth screens use responsive desktop field workspaces',asyn
     assert.equal($('.rh-bottom-nav').length,0,id);
   }
 });
+test('manufacturing youth screens use responsive desktop field workspaces',async()=>{
+  for (const id of ['mf-08','mf-17','mf-18']) {
+    const $=load(await readFile(new URL(`../dist/manufacturing/${id}.html`,import.meta.url),'utf8'));
+    assert.ok($('body').hasClass('rh-desktop'),id);
+    assert.equal($('body').attr('data-surface'),'field-workspace',id);
+    assert.equal($('.rh-header > .rh-badge').text(),'현장 작업',id);
+    assert.equal($('.rh-sidebar').length,1,id);
+    assert.equal($('.rh-bottom-nav').length,0,id);
+  }
+});
+test('live service pages do not expose prototype version labels',async()=>{
+  for (const [sector,c] of Object.entries(sectors)) for(let n=1;n<=c.names.length;n++) {
+    const $=load(await readFile(new URL(`../dist/${sector}/${screenId(sector,n)}.html`,import.meta.url),'utf8'));
+    assert.doesNotMatch($('#rh-main').text(),/\bv1\b|모바일 RGB|모바일 작업함/i,`${sector}-${n}`);
+  }
+});
 test('small-business scopes do not add manufacturing deployment menus',async()=>{
   const $=load(await readFile(new URL('../dist/small-business/sb-03.html',import.meta.url),'utf8'));
   assert.ok(!/모델|장비|배포/.test($('.rh-sidebar nav').text()));

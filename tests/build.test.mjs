@@ -44,7 +44,7 @@ for (const [sector, product] of Object.entries(sectors)) {
       assert.equal($("[id=tailwind-config],iframe,object,embed").length, 0);
       assert.equal($('a[href="#"]').length, 0);
       assert.equal($("#rh-main").length, 1);
-      const fieldWorkspace = sector === "small-business" && [10, 11, 12, 13, 14, 18].includes(number);
+      const fieldWorkspace = product.fieldWorkspace?.includes(number) ?? false;
       assert.equal(
         $("body").attr("data-surface"),
         product.mobile.includes(number)
@@ -121,11 +121,11 @@ test("primary request buttons save a task instead of just navigating", async () 
     assert.ok($("[data-action=create-task]").length >= 1);
   }
 });
-test("small-business review approval advertises the direct dataset handoff", async () => {
-  const $ = load(
-    await readFile(path.join(root, "dist/small-business/sb-15.html"), "utf8"),
-  );
-  assert.equal($('[data-action="approve"]').text(), "승인하고 데이터셋 보기 →");
+test("review approval advertises the direct dataset handoff in both products", async () => {
+  for (const [sector, id] of [["manufacturing", "mf-09"], ["small-business", "sb-15"]]) {
+    const $ = load(await readFile(path.join(root, "dist", sector, `${id}.html`), "utf8"));
+    assert.equal($('[data-action="approve"]').text(), "승인하고 데이터셋 보기 →");
+  }
 });
 test("manufacturing deployment action footer is preserved", async () => {
   const $ = load(
