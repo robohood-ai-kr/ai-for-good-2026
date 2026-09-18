@@ -121,7 +121,16 @@ test('web segment collection has accessible native inputs and no screenshot-only
   assert.equal($('video[controls][hidden]').length,1);
   assert.equal($('.rh-saved-records summary').length,1);
   assert.equal($('[data-action=submit]').length,1);
+  assert.equal($('[data-action=submit]').text(),'검수 및 제출');
   assert.equal($('[data-gate]').length,5);
+});
+
+test('collection submit saves the current segment and opens review', async () => {
+  const source=await readFile(new URL('../apps/shared/app.mjs',import.meta.url),'utf8');
+  assert.match(source,/pageParams\.get\("demo"\) === "1"/);
+  assert.match(source,/demoMode && state\.session !== "수집 중"/);
+  assert.match(source,/case "submit":[\s\S]*state\.marks\.push\(segmentRecord/);
+  assert.match(source,/case "submit":[\s\S]*location\.href = route\(config\.reviewPage\)/);
 });
 
 test('explorer filters stay bound to the three existing mock sites', async () => {

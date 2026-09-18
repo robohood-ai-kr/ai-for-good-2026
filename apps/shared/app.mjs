@@ -23,6 +23,7 @@ const esc = (value) =>
 const pageParams = new URL(location.href).searchParams;
 const qa = pageParams.get("qa") === "1";
 const presenterMode = pageParams.get("presenter") === "1";
+const demoMode = pageParams.get("demo") === "1" || presenterMode;
 const requestedScenario = pageParams.get("scenario");
 const scenarioId = config.scenarios?.[requestedScenario]
   ? requestedScenario
@@ -33,6 +34,7 @@ const route = (number, targetScenario = scenarioId) => {
   if (config.scenarios?.[targetScenario]) params.set("scenario", targetScenario);
   if (qa) params.set("qa", "1");
   if (presenterMode) params.set("presenter", "1");
+  if (demoMode && !presenterMode) params.set("demo", "1");
   const query = params.toString();
   return `./${config.prefix}-${String(number).padStart(2, "0")}.html${query ? `?${query}` : ""}`;
 };
@@ -127,6 +129,7 @@ function carryPageContext() {
     if (config.scenarios?.[targetScenario]) url.searchParams.set('scenario', targetScenario);
     if (qa) url.searchParams.set('qa', '1');
     if (presenterMode) url.searchParams.set('presenter', '1');
+    if (demoMode && !presenterMode) url.searchParams.set('demo', '1');
     anchor.href = `./${url.pathname.split('/').pop()}${url.search}`;
   });
   $$('#rh-screen-select option').forEach((option) => {
@@ -135,6 +138,7 @@ function carryPageContext() {
     if (scenario) url.searchParams.set('scenario', scenarioId);
     if (qa) url.searchParams.set('qa', '1');
     if (presenterMode) url.searchParams.set('presenter', '1');
+    if (demoMode && !presenterMode) url.searchParams.set('demo', '1');
     option.value = `./${url.pathname.split('/').pop()}${url.search}`;
   });
 }
@@ -215,7 +219,7 @@ function render() {
   $$('[data-marks]').forEach(el => {
     el.innerHTML = state.marks.length ? state.marks.map((m,i) => `<article><strong>${i+1}. ${esc(m.name ?? ({normal:'정상',defect:'불량',hold:'판정 보류'}[m.label] ?? 'RGB 샘플'))}</strong><small>${m.kind === 'segment' ? `${esc(m.start ?? '—')}–${esc(m.end ?? '—')}초 · ${esc({success:'성공',failure:'실패',hold:'판정 보류'}[m.verdict] ?? '판정 보류')}` : '생성 이미지 기반 모의 기록'}${m.notes ? ` · ${esc(m.notes)}` : ''}</small></article>`).join('') : '<p class="rh-empty">아직 수집 기록이 없습니다.<br>조건 확인 후 샘플 또는 구간을 추가해 주세요.</p>';
   });
-  const names = {'create-task':'과제 등록',start:'수집 시작',submit:'검수 제출',approve:'검수 승인',rework:'보완 요청','request-access':'이용 신청','grant-access':'이용 승인','confirm-payment':'지급 확인',simulate:'UI 시험 실행',stop:'시험 중단','recollection-request':'재수집 초안'};
+  const names = {'create-task':'과제 등록',start:'수집 시작',submit:'검수 및 제출',approve:'검수 승인',rework:'보완 요청','request-access':'이용 신청','grant-access':'이용 승인','confirm-payment':'지급 확인',simulate:'UI 시험 실행',stop:'시험 중단','recollection-request':'재수집 초안'};
   $$('[data-events]').forEach(el => {
     el.innerHTML = state.events.length ? `<ul class="rh-event-list">${state.events.slice(0,8).map(v=>`<li><span>${esc(names[v.action] ?? v.action)}</span><time>${esc(new Date(v.at).toLocaleTimeString('ko-KR'))}</time></li>`).join('')}</ul>` : '<p class="rh-empty">아직 실행 기록이 없습니다.</p>';
   });
@@ -622,11 +626,28 @@ async function act(name, el) {
       toast(`구간 ${state.marks.length}건 기록 · 파일은 업로드하지 않았습니다.`);
       break;
     case "submit":
+      if (demoMode && state.session !== "수집 중") {
+        state.role = "operator";
+        state.gates.fill(true);
+        state = transition(state, "start");
+      }
+      if (config.sector === "small-business" && state.session === "수집 중" && !state.marks.length) {
+        const startValue = $('#segmentStart')?.value || '0';
+        const endInput = Number($('#segmentEnd')?.value);
+        const endValue = Number.isFinite(endInput) && endInput > Number(startValue)
+          ? String(endInput)
+          : String(Number(startValue) + 1);
+        state.marks.push(segmentRecord({
+          start: startValue,
+          end: endValue,
+          name: $('#segmentName')?.value.trim() || scenario?.segment || "대표 작업 구간",
+          verdict: $("input[name=verdict]:checked")?.value ?? "hold",
+          notes: $('#captureNotes')?.value ?? '',
+          duration: $('#rh-video-preview')?.duration,
+        }));
+      }
       advance("submit");
-      dialog(
-        "데모 세션 제출",
-        `<p>${state.marks.length}건의 모의 기록을 검수 대기로 저장했습니다. 실제 파일을 업로드하지 않았습니다.</p><div class="rh-actions"><a class="rh-primary" href="${route(config.reviewPage)}">검수 화면</a><button data-action="role">검수 역할로 전환</button></div>`,
-      );
+      location.href = route(config.reviewPage);
       break;
     case "approve":
       if (config.refined && $$('[data-field^=reviewCheck]').some(c=>!c.checked))

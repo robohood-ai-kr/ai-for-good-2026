@@ -39,13 +39,13 @@ test('41 generated references map to 41 real HTML screens and manifest hashes',a
   }
 });
 test('presenter flow crosses the correct field and operations surfaces',async()=>{
-  for (const [id,surface] of [['sb-13','field-workspace'],['sb-15','operations-console'],['sb-19','operations-console'],['sb-18','field-app']]) {
+  for (const [id,surface] of [['sb-13','field-workspace'],['sb-15','operations-console'],['sb-19','operations-console'],['sb-18','field-workspace']]) {
     const $=load(await readFile(new URL(`../dist/small-business/${id}.html`,import.meta.url),'utf8'));
     assert.equal($('body').attr('data-surface'),surface,id);
   }
 });
-test('small-business screens 12 through 14 use desktop field workspaces',async()=>{
-  for (const id of ['sb-12','sb-13','sb-14']) {
+test('small-business youth screens use responsive desktop field workspaces',async()=>{
+  for (const id of ['sb-10','sb-11','sb-12','sb-13','sb-14','sb-18']) {
     const $=load(await readFile(new URL(`../dist/small-business/${id}.html`,import.meta.url),'utf8'));
     assert.ok($('body').hasClass('rh-desktop'),id);
     assert.equal($('body').attr('data-surface'),'field-workspace',id);

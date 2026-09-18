@@ -44,7 +44,7 @@ for (const [sector, product] of Object.entries(sectors)) {
       assert.equal($("[id=tailwind-config],iframe,object,embed").length, 0);
       assert.equal($('a[href="#"]').length, 0);
       assert.equal($("#rh-main").length, 1);
-      const fieldWorkspace = sector === "small-business" && [12, 13, 14].includes(number);
+      const fieldWorkspace = sector === "small-business" && [10, 11, 12, 13, 14, 18].includes(number);
       assert.equal(
         $("body").attr("data-surface"),
         product.mobile.includes(number)
